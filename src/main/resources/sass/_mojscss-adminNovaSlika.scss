@@ -1,0 +1,48 @@
+@import "./variables";
+@import "./mixins";
+
+.adminNovaSlikaForma {
+    -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
+    box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
+    padding-top: 4rem;
+    .centrirajFormuInput {
+        margin: 0 auto;
+    }
+    .input-custom-border {
+        border: 1px solid $burgundy-color; 
+        border-radius: .2rem;
+    }
+    .centrirajFormuChoose {
+        margin: 0 auto;
+        .control-label {
+            cursor: pointer;
+        }
+    }
+    .centrirajFormuDugmad {
+        margin: 0 auto;
+        padding-bottom: 4rem;
+        .btn-save {
+            @include sacuvajBtn;
+        }
+        .btn-back {
+            @include nazadBtn;
+        }
+    }
+}
+
+.btn-choose-file {
+    @include btnChooseFile;
+}
+
+#file-chosen{
+    margin-left: 0.3rem;
+}
+
+.dodavanje-nove-slike {
+    font-size: 1.3rem;
+    margin: 0 auto;
+    color: $burgundy-color;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+

@@ -1,0 +1,35 @@
+/*@import "./variables-c4b";*/
+/*back to top button*/
+#back-to-top-button {
+  display: inline-block;
+  background-color: #211b14;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border-radius: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#back-to-top-button::after {
+  content: "\f077";
+  font: 1.5em/40px FontAwesome;
+  color: white;
+}
+#back-to-top-button:hover {
+  cursor: pointer;
+  background-color: #8cc63f;
+  text-decoration: none;
+}
+#back-to-top-button:active {
+  background-color: #5caa45;
+}
+
+#back-to-top-button.show {
+  opacity: 1;
+  visibility: visible;
+}

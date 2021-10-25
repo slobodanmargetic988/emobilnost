@@ -1,0 +1,51 @@
+@import "./variables";
+@import "./mixins";
+
+
+.adminIzmeniProizvodForma {
+    -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
+    box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
+    padding-top: 4rem;
+    .centrirajFormuInput {
+        margin: 0 auto;
+        .input-custom-border {
+            border: 1px solid $burgundy-color; 
+            border-radius: .2rem;
+        }
+    }
+    .buttonsSaveAndBack {
+        padding-bottom: 3rem;
+        padding-top: 1rem;
+        margin: 0 auto;
+        .btn-save {
+           @include sacuvajBtn;
+        }
+        .btn-back {
+            @include nazadBtn;
+        }
+    }
+}
+
+select {
+    cursor: pointer;
+}
+
+.btn-choose-file {
+   @include btnChooseFile;
+}
+
+#file-chosen{
+    margin-left: 0.3rem;
+ 
+}
+
+.izmena-proizvoda {
+    font-size: 1.3rem;
+    margin: 0 auto;
+    color: $burgundy-color;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+
+

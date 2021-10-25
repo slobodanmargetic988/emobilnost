@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil | Dekorativni programa</title>
+
+    <th:block th:insert="fragments/head :: head" />
+    
+    <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+
+    <meta name="description" content="Margotekstil dekorativni program. Nudimo širok asortiman usluga za sređivanje vašeg poslovnog ili ličnog prostora. Home and business decoration."/> 
+</head>
+
+<body>
+    <img src="/img/dekorativnitekstil1.jpg" class="header-img" alt="dekorativni-tekstil-header-image">
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>DEKORATIVNI TEKSTIL ZA KUĆU</p>
+</div>
+
+<section class="about-section">
+    <div class="container">
+        <div class="row">                
+            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2 mt-1-ss">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <span class="title">Dekorativni program</span>
+                        <h2>Dekorativni tekstil <br> za kuću</h2>
+                    </div>
+                    <div class="text"  >Vaš lični prostor je ono što pruža toplinu, sigurnost i asocira na ognjište i komfor. 
+                        On je centar svih okupljanja kako u svakodnevnici, tako i u ključnim životnim prilikama.<br><br>
+                        Svaki, pa i najmanji tekstilni detalj može ulepšati Vaš životni prostor 
+                        i bitno uticati na Vaše raspoloženje.<br><br>
+                        Uz naš program dekorativnog tekstila za kuću oplemenićete svoj dom i učiniti da zrači 
+                        pozitivnijom energijom koja okrepljuje i odmara Vaša čula.
+                    </div>
+                    <ul class="list-style-one"  >
+                        <li>Stolnjaci </li>
+                        <li>Dekorativni jastuci</li>
+                        <li>Zavese i draperi</li>
+                        <li>Prekrivači i posteljina</li>
+
+
+                    </ul>
+                    <div class="btn-box">
+                        <a th:href="@{/shop}" class="shopBtn-onama-page" type="button">Shop</a>
+                        <a th:href="@{/contact}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column" >
+                    <figure class="image-1"><img class="onama-img1" src="/img/deko1.png" alt="deco-textile-img-1"></figure>
+                    <figure class="image-2"><img class="onama-img2" src="/img/deko2.png" alt="deco-textile-img-2"></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+<th:block th:insert="fragments/scripts :: scripts" />
+
+</body>
+
+</html>
