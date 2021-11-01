@@ -11,7 +11,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 .full-size-img-error {
   height: 100vh;
   min-height: 500px;
-  background-image: url(/img/carupripremi.jpg);
+  background-image: url(/img/upripremi.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +40,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   font-family: "Audiowide", cursive;
   font-weight: 900;
   line-height: 7.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .error-page-area h2 {
   font-weight: 600;
@@ -58,7 +58,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   color: #8bc63f;
 }
 .error-page-area p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: white;
   margin: 2rem 0;
 }
@@ -68,7 +68,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
     top: 25%;
   }
   .error-page-area h1 {
-    font-size: 7vw;
+    font-size: 5rem;
   }
   .error-page-area h2 {
     font-size: 2rem;
@@ -79,12 +79,12 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 @media screen and (max-width: 575px) {
   .error-page-area {
-    top: 20%;
+    top: 30%;
   }
   .error-page-area h1 {
-    font-size: 8vw;
-    margin-bottom: 2rem;
+    font-size: 2.7rem;
     font-weight: 800;
+    line-height: 4rem;
   }
   .error-page-area h2 {
     font-size: 1.5rem;
