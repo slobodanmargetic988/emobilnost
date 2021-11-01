@@ -6,6 +6,7 @@
 package com.emobilnost.controller;
 
 import static com.emobilnost.controller.EmailController.uplatnicaSlika;
+import com.emobilnost.model.Clanovi;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Users;
@@ -52,7 +53,7 @@ public class EmailController {
 
     public static String serverip = "emobilnost.com";
     static final String FROM = "slobodanmargetic988@gmail.com";
-    static final String FROMNAME = "Margotekstil";
+    static final String FROMNAME = "E-Mobilnost";
     static final String brojtekucegracuna="265-1680310001802-85";
     static final String pathtouplatnicatemplate = "classpath:/static/img/uplatnicatemplate.pdf";
 
@@ -118,7 +119,46 @@ public class EmailController {
             transport.close();
         }
     }
-
+ public static void SendEmailUclanjen(Clanovi clan) throws Exception {
+        // Create a Properties object to contain connection configuration information.
+        Properties props = System.getProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", PORT);
+        props.put("mail.smtp.starttls.enable", "true");
+        
+        props.put("mail.smtp.auth", "true");
+        // Create a Session object to represent a mail session with the specified properties.
+        Session session = Session.getDefaultInstance(props);
+        // Create a message with the specified information.
+        MimeMessage msg = new MimeMessage(session);
+        msg.setFrom(new InternetAddress(FROM, FROMNAME));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(clan.getEmail()));
+        msg.setSubject(SUBJECTC);
+        String BODY = String.join(
+                System.getProperty("line.separator"),
+                emailzaglavlje
+                + emailsadrzajContainer
+                + napravljenNalog(clan.getIme(), clan.getPrezime(), clan.getEmail())
+                + emailsadrzajContainerClose
+                + emailfooter
+        );
+        msg.setContent(BODY, "text/html;charset=utf-8");
+        // Add a configuration set header. Comment or delete the
+        // next line if you are not using a configuration set
+        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+        // Create a transport.
+        Transport transport = session.getTransport();
+        // Send the message.
+        try {
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+            transport.sendMessage(msg, msg.getAllRecipients());
+        } catch (Exception ex) {
+            String err = ex.getMessage();
+        } finally {
+            // Close and terminate the connection.
+            transport.close();
+        }
+    }
     //kada neregistrovani korisnik posalje poruku preko forme na home ili kontakt strani - stize email Violeti
     public static void SendEmailPoruka(String ime, String prezime, String telefon, String email, String poruka) throws Exception {
         // Create a Properties object to contain connection configuration information.
@@ -592,14 +632,14 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
         return " <tbody> "
                 + "            <tr> "
                 + "              <td style=\"background:#ffffff;padding:30px\"> "
-                + "                <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;color:#892F2B;font-weight:600\"> "
-                + "                 Dobrodošli na Margotekstil "
+                + "                <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;font-weight:600\"> "
+                + "                 Dobrodošli na E-Mobilnost "
                 + "               </p> "
                 + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;font-weight:400\"> "
                 + "                 Zdravo " + ime + " " + prezime + ","
                 + "               </p> "
                 + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;\"> "
-                + "                 Hvala što ste napravili nalog na Margotekstil. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate narudžbine, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3fabd6;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.emobilnost.rs/<wbr>moj-nalog/</a>  "
+                + "                 Hvala što ste učlanili na E-Mobilnost. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate status članstva, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3a4da1;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.emobilnost.rs/<wbr>moj-nalog/</a>  "
                 + "                 <br> <br> "
                 + "                 Nadamo se da ćemo vas uskoro videti. "
                 + "                </p> "
@@ -628,7 +668,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
     public static String sendEmailPoruka(String ime, String prezime, String email, String telefon, String poruka) {
         return "<tr>"
                 + "<td style=\"background:#ffffff;padding:30px\">"
-                + "  <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;color:#892F2B;font-weight:600\">"
+                + "  <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;font-weight:600\">"
                 + "   Primljena je poruka"
                 + "  </p>"
                 + "  <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;font-weight:400\">"
@@ -662,7 +702,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "               <table width=\"180\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bottom:30px; margin-left:30px\">"
                 + "                 <tbody>"
                 + "                   <tr>"
-                + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#B23539;color:#ffffff;border-radius:3px\">"
+                + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#8cc63f;color:#ffffff;border-radius:3px\">"
                 + "                       <div id=\"m_-1272894485461758630button\"><a href=\"https://" + serverip + "/resetPassword/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
                 + "                     </td>"
                 + "                   </tr>"
@@ -850,13 +890,13 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
     public static String emailzaglavlje = "<table style=\"border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"750\">"
             + "  <tbody>"
             + "    <tr>"
-            + "      <td style=\"background-color:#892F2B\" valign=\"top\">"
+            + "      <td style=\"background-color:#000000\" valign=\"top\">"
             + "        <table style=\"border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;margin:0 auto!important\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">"
             + "          <tbody>"
             + "            <tr>"
-            + "              <td style=\"background-color:#892F2B;padding:15px;text-align:center!important;float:none!important;display:block!important;margin-left:auto!important;margin-right:auto!important\" align=\"center\" valign=\"middle\">"
+            + "              <td style=\"background-color:#000000;padding:15px;text-align:center!important;float:none!important;display:block!important;margin-left:auto!important;margin-right:auto!important\" align=\"center\" valign=\"middle\">"
             + ""
-            + "                <h2 style=\"color:#fff;font-family:Roboto, sans-serif;font-size: 30px;\">MARGOTEKSTIL D.O.O</h2>"
+           + " <img style=\"height:auto;background:transparent\" src=\"https://i.imgur.com/4OgunKr.png\" width=\"203\" height=\"43\" alt=\"alt_text\" border=\"0\" class=\"CToWUd\">"
             + "              </td>"
             + "            </tr>"
             + "          </tbody>"
@@ -873,13 +913,13 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
             + "        <table style=\"border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;margin:0 auto!important\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">"
             + "          <tbody>"
             + "            <tr>"
-            + "              <td style=\"padding:10px;background-color:#892F2B;border-bottom:1px solid white;text-align:left\" dir=\"ltr\" valign=\"top\" width=\"100%\">"
+            + "              <td style=\"padding:10px;background-color:#000000;border-bottom:1px solid white;text-align:left\" dir=\"ltr\" valign=\"top\" width=\"100%\">"
             + "                <table style=\"table-layout:auto;border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;margin:0 auto!important\" width=\"100%\">"
             + "                  <tbody>"
             + "                    <tr>"
             + "                      <td style=\"color:white\" width=\"50%\">"
-            + "                        <p style=\"font-size:14px;letter-spacing:1px;font-weight:200;margin:0;padding:5px;float:left;font-family:Roboto, sans-serif;color:white\">"
-            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:white;font-weight:400;font-family:Roboto, sans-serif;font-size:16px\"> +381 64 112 51 29</span>"
+            + "                        <p style=\"font-size:12px;letter-spacing:1px;font-weight:200;margin:0;padding:5px;float:left;font-family:Roboto, sans-serif;color:white\">"
+            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:#8cc63f;font-weight:400;font-family:Roboto, sans-serif;font-size:14px\"> +381 61 20 28 158</span>"
             + "                        </p>"
             + ""
             + "                      </td>"
@@ -890,12 +930,12 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
             + "                            <tr>"
             + "                              <td width=\"70%\">"
             + "                                <a style=\"text-decoration:none\" href=\"https://www.facebook.com/margoteks/\" target=\"_blank\" data-saferedirecturl=\"https://www.facebook.com/margoteks/\">"
-            + "                                  <img src=\"https://i.imgur.com/MN7BORL.png\" width=\"30\" height=\"30\" alt=\"Facebook\" border=\"0\" >"
+            + "                                  <img src=\"https://i.imgur.com/MN7BORL.png\" width=\"20\" height=\"20\" alt=\"Facebook\" border=\"0\" >"
             + "                                </a>"
             + "                              </td>"
             + "                              <td width=\"10%\">"
             + "                                <a style=\"text-decoration:none\" href=\"https://www.instagram.com/gigatron.rs/\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q=https://www.instagram.com/gigatron.rs/&source=gmail&ust=1617998358037000&usg=AFQjCNF8rA5BAGs6Ib6GIaNs0khZHfgs1A\">"
-            + "                                  <img src=\"https://i.imgur.com/e75MFvR.png\" width=\"30\" height=\"30\" alt=\"Instagram\" border=\"0\" >"
+            + "                                  <img src=\"https://i.imgur.com/e75MFvR.png\" width=\"20\" height=\"20\" alt=\"Instagram\" border=\"0\" >"
             + "                                </a>"
             + "                              </td>"
             + ""
@@ -917,12 +957,12 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
             + "        <table style=\"border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;margin:0 auto!important\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">"
             + "          <tbody>"
             + "            <tr>"
-            + "              <td style=\"background-color:#892F2B;text-align:left\" dir=\"ltr\" valign=\"top\" width=\"100%\">"
+            + "              <td style=\"background-color:#000000;text-align:left\" dir=\"ltr\" valign=\"top\" width=\"100%\">"
             + "                <table style=\"table-layout:auto;border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;font-family:Roboto, sans-serif;margin:0 auto!important\" width=\"100%\">"
             + "                  <tbody>"
             + "                    <tr>"
             + "                      <td style=\"color:white;font-weight:200\">"
-            + "                        <h2 style=\"margin:0;padding:0;color:#ffffff;text-align:center;line-height:50px;font-size:14px;font-weight:200\">2021 Margotekstil"
+            + "                        <h2 style=\"margin:0;padding:0;color:#ffffff;text-align:center;line-height:50px;font-size:14px;font-weight:200\">2021 E-Mobilnost"
             + "                        </h2>"
             + "                      </td>"
             + "                    </tr>"
@@ -939,7 +979,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
 
     public static String emailsadrzajContainer = "<table style=\"border-spacing:0!important;border-collapse:collapse!important;font-family:Roboto, sans-serif;table-layout:fixed!important\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"750\">"
             + "  <tbody>"
-            + "    <tr style=\"background:#F7E4E5\">"
+            + "    <tr style=\"background:#f0f0f0\">"
             + ""
             + "      <td style=\"padding:30px;font-size:15px;line-height:20px;color:#555555\">"
             + "        <table style=\"background:#ffffff;width:690px;\">"

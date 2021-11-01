@@ -1,0 +1,68 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+.statut-section {
+  text-align: justify;
+  margin: 4rem 0;
+}
+.statut-section .main-heading {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+.statut-section .udruzenje-heading, .statut-section .rimskiBroj {
+  font-size: 30px;
+  text-align: center;
+}
+.statut-section .naslov-ispod-rimskog {
+  font-size: 20px;
+  text-align: center;
+}
+.statut-section .clan {
+  text-align: center;
+  font-weight: 700;
+}
+.statut-section a {
+  color: #4a5ba8;
+  text-decoration: underline !important;
+}
+.statut-section a:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+  p {
+    font-size: 15px;
+  }
+
+  .statut-section .main-heading {
+    font-size: 30px;
+  }
+  .statut-section .udruzenje-heading, .statut-section .rimskiBroj {
+    font-size: 25px;
+  }
+  .statut-section .naslov-ispod-rimskog {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .statut-section .main-heading {
+    font-size: 25px;
+  }
+  .statut-section .udruzenje-heading, .statut-section .rimskiBroj {
+    font-size: 22px;
+  }
+}
+/*@media screen and (max-width:353px) {
+    .onama-img2 {
+        max-width: 160px;
+        max-height: 160px;
+    }
+}*/

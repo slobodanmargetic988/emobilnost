@@ -1,4 +1,4 @@
-create table `margotekstil`.`color_paleta` (
+create table `emobilnost`.`color_paleta` (
 `id` int NOT NULL AUTO_INCREMENT,
 `proizvod_id` int not null,
 `title` varchar(255),

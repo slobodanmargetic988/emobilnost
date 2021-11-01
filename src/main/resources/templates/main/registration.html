@@ -2,9 +2,9 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title> E-Mobilnost | Prijava</title>
+        <title> E-Mobilnost | Uloguj se</title>
 
-        <meta name="description" content="Margotekstil registracija. Registrujte svoj nalog,ulogujte se ili povratite zaboravljenu šifru . Register, login or reset forgotten password."/> 
+        <meta name="description" content="E-Mobilnost registracija. Registrujte svoj nalog,ulogujte se ili povratite zaboravljenu šifru . Register, login or reset forgotten password."/> 
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/registracija.css}" rel="stylesheet" type="text/css" />
@@ -13,11 +13,12 @@
 
 <body>
     <!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
-       <picture>
-            <source media="(max-width: 776px)" srcset="/img/carmember-smallscreen.jpg">
-            <source media="(min-width: 992px)" srcset="/img/carmember.jpg">
-            <img src="/img/carmember.jpg" class="header-img " alt="registration-header-image">
-        </picture>
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/carulogujsesmall.jpg">
+    <source media="(min-width: 992px)" srcset="/img/carulogujse.jpg">
+    <img src="/img/carulogujse.jpg" class="header-img " alt="o-nama-header-image">
+</picture>
+
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
@@ -63,88 +64,27 @@
                     <i class="fa fa-eye openPasswordLogin"></i>
                     <i class="fa fa-eye-slash closedPasswordLogin"></i>
 
-                    <input type="submit" name="" value="Prijavi se" id="prijaviSe" />
+                    <!--<input type="submit" name="" value="Prijavi se" id="prijaviSe" />-->
+                    <button class="submitForm" type="submit" id="prijaviSe">Prijavi se</button>
                     <!--<p class="signup"> Nemate nalog ? <button href="#" type="button" onclick="toggleRegisterSignin();">Registrujte svoj nalog</button> </p>-->
-                    <p><button href="#" type="button" class="signup" onclick="toggleRegister();">Učlanite se</button></p>
+                    <!--<p><button href="#" type="button" class="signup" onclick="toggleRegister();">Učlanite se</button></p>-->
                     <!--<p class="signup singups"> Zaboravili ste lozinku ? <button href="#" type="button" onclick="toggleForgotSignin();">Resetujte lozinku</button> </p>-->
-                    <p><button href="#" class="signup singups" type="button" onclick="toggleForgotSignin();">Zaboravili ste lozinku ?</button> </p>
+                    <div  class="mt-3"><button href="#" class="signup singups" type="button" onclick="toggleForgotSignin();">Zaboravili ste lozinku ?</button> </div>
                 </form>
             </div>
         </div>
 
-        <div class="user signupBx">
-            <div class="formBx">
-                <form th:action="@{/register}"  method="POST" >
-                    <h2>Učlanite se</h2>
-                    <!--<p class="text-center">Registracija nije neophodna, ali registrovanim korisnicima je lakše poručivanje robe jer ne moraju svaki put da unose podatke o dostavi.</p>-->
-                    <label for="ime">Ime</label>
-                    <input type="text" name="ime" placeholder="Ime " />
-                    <label for="prezime">Prezime</label>
-                    <input type="text" name="prezime" placeholder="Prezime" />
-                    <label for="email">Email adresa</label>
-                    <input type="email" name="email" placeholder="Email" required/>
-                    <label for="password">Lozinka</label>
-                    <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8" required />  
-                    <i id="openPassword" class="fa fa-eye"></i>
-                    <i id="closedPassword" class="fa fa-eye-slash"></i>
-                    <label for="password">Potvrda lozinke</label>
-                    <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
-                    <i class="fa fa-eye openPasswordConf"></i>
-                    <i class="fa fa-eye-slash closedPasswordConf"></i>
-                    <p id="label-2">* Lozinke se ne poklapaju</p>
-                    <label for="adresa">Adresa</label>
-                    <input type="text" name="adresa" placeholder="Adresa" />
-                    <label for="mesto">Grad</label>
-                    <input type="text" name="mesto" placeholder="Grad" />
-                    <label for="postanskibroj">Poštanski broj</label>
-                    <input type="number" name="postanskibroj" placeholder="Poštanski broj" />
-                    <label for="drzava">Država</label>
-                    <input type="number" name="drzava" placeholder="Država" />
-                    <label for="telefon">Telefon</label>
-                    <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" />
-                    <label for="jmbg">JMBG</label>
-                    <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" />
 
-
-
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
-                        <label class="form-check-label" for="exampleRadios2">
-                            Fizičko lice
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" required>
-                        <label class="form-check-label" for="exampleRadios2">
-                            Pravno lice &euro;300,00
-                        </label>
-                        <!--pravno lice-->
-                        <div class="reveal-if-active">
-                            <label for="pravnaosoba">Naziv pravne osobe</label>
-                            <input type="text" name="pravnaosoba" placeholder="Naziv pravne osobe" class="no-arrow require-if-active" data-require-pair="#pravnoLice" />
-                            <label for="pib">PIB</label>
-                            <input type="number" name="pib" placeholder="PIB" class="no-arrow require-if-active" data-require-pair="#pib" />
-                        </div>
-                    </div>
-                    <br>
-                    <div class="checkbox">
-                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/usloviKoriscenja}">uslove korišćenja</a></span></label>
-                    </div>
-                    <input type="submit" name="" value="Registruj se"/>
-                    <p style="font-family: 'Raleway', sans-serif;"> Već imate nalog ? <button href="#" type="button" class="signup" onclick="toggleSignin();">Prijavite se</button></p>
-
-                </form>
-            </div>
-        </div>
         <div class="user forgotBx">
             <div class="formBx">
                 <form th:action="@{/resetPassword}" method="POST" >
                     <h2>Promena lozinke</h2>
                     <label for="email">Email adresa</label>
                     <input type="email" name="email" placeholder="Email adresa" required />
-                    <input type="submit" name="submit" value="Pošalji zahtev" />
-                    <p> <button href="#"  class="signup" type="button" onclick="toggleForgotSignin();">&larr; Nazad</button></p>
+                    <!--<input type="submit" name="submit" value="Pošalji zahtev" />-->
+                    <button class="submitForm" name="submit" type="submit">Pošalji zahtev</button>
+
+                    <div> <button href="#"  class="signup" type="button" onclick="toggleForgotSignin();">&larr; Nazad</button></div>
                 </form>
             </div>
         </div>

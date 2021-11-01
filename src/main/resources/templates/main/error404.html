@@ -2,43 +2,37 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Greška</title>
+        <title>E-Mobilnost | Greška</title>
 
-        <meta name="description" content="Margotekstil error page. Ako ste stigli do ove stranice nešto nije kako treba."/> 
+        <meta name="description" content="E-Mobilnost Error page. Ako ste stigli do ove stranice nešto nije kako treba."/> 
 
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/error.css}" rel="stylesheet" type="text/css" />
+
 
 
 </head>
 
 <body>
-    <img src="/img/error.jpg" class="header-img" alt="error-header-image">
+    <!--    <img src="/img/error.jpg" class="header-img" alt="error-header-image">-->
 
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>MARGOTEKSTIL</h2>
-    <p>GREŠKA</p>
-</div>
 
 
-<section class="error-page-area text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h1>404</h1>
-                <h2>Stranica nije pronađena!</h2>
-                <p>
-                    Žao nam je, ali tražena stranica nije pronađena ili je premeštena na drugu adresu.
-                </p>
-                <a class="btn btn-theme effect btn-md" th:href="@{/}">Nazad na početnu</a>
-            </div>
+<div class="full-size-img-error">
+    <section class="error-page-area text-center">
+        <div class="container-fluid">
+            <h1>404</h1>
+            <h2>Stranica nije pronađena!</h2>
+            <p>
+                Žao nam je, ali tražena stranica nije pronađena <br> ili je premeštena na drugu adresu.
+            </p>
+            <a class="uclani-se-btn" th:href="@{/}">Nazad na početnu</a>
         </div>
-    </div>
-</section>
-
-<th:block th:insert="fragments/footer :: footer" />
+    </section>
+</div>
 
 
 <th:block th:insert="fragments/scripts :: scripts" />

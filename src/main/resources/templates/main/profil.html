@@ -2,7 +2,7 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Profil korisnika</title>
+        <title>E-Mobilnost | Profil korisnika</title>
 
         <meta name="description" content="Margotekstil profil korisnika. Ovde možete da izmenite lične podatke, podatke o dostavi, lozinku i ostalo . User profile page."/> 
         <link th:href="@{/css/profil.css}" rel="stylesheet" type="text/css" />
@@ -12,13 +12,19 @@
 </head>
 
 <body>
-    <img src="/img/sew1.png" class="header-img" alt="profil-header-image" >
+    <!--<img src="/img/sew1.png" class="header-img" alt="profil-header-image" >-->
+    <picture>
+    <source media="(max-width: 776px)" srcset="/img/carProfilsmallscreen.jpg">
+    <source media="(min-width: 992px)" srcset="/img/carProfil.jpg">
+    <img src="/img/carProfil.jpg" class="header-img" alt="home-header-image">
+</picture>
+
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
 <div class="text-box">
-    <h2>MARGOTEKSTIL</h2>                                              
-    <p>PROFIL</p>
+    <h2>E-Mobilnost</h2>                                              
+    <p>Profil</p>
 </div>
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
 <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
@@ -31,7 +37,7 @@
 
             <div class="form-group ">
                 <div class="licniPodaci col-md-8">LIČNI PODACI 
-                    <span ><a th:href="@{/istorijaKupovine}" class="istorijaKupovine-link">Istorija kupovine</a></span>
+                    <!--<span ><a th:href="@{/istorijaKupovine}" class="istorijaKupovine-link">Istorija kupovine</a></span>-->
                 </div>
                 <div class="col-md-8 centrirajFormuInput">
                     <label for="licni-podaci1">Ime:</label>
@@ -87,8 +93,8 @@
             </div>
 
             <div class=" col-md-8 buttonsSaveAndBack" >
-                <button type="submit" class="btn-save">Sačuvaj</button>
-                <a th:href="@{/}" class="btn-back">Nazad</a>
+                <button type="submit" class="colorButton ">Sačuvaj</button>
+                <a th:href="@{/}" class="backBtn">Nazad</a>
             </div>   
 
         </form>

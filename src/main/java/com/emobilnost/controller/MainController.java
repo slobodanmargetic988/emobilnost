@@ -6,6 +6,7 @@
 package com.emobilnost.controller;
 
 import com.emobilnost.configuration.EmobilityUserPrincipal;
+import com.emobilnost.model.Clanovi;
 import com.emobilnost.model.ColorPaleta;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
@@ -15,6 +16,7 @@ import com.emobilnost.model.ResetTokeni;
 import com.emobilnost.model.Users;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.repository.UsersRepository;
+import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
 import com.emobilnost.service.KorpaService;
 import com.emobilnost.service.PhotoService;
@@ -35,7 +37,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.emobilnost.service.UsersService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.springframework.context.annotation.Scope;
@@ -61,35 +65,56 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
-    
-     @GetMapping(value = "/adminHome")
+
+    @GetMapping(value = "/adminHome")
     public String adminC4bHome(final Model model) {
 
         return "main/adminHome";
     }
+    
+     @GetMapping("/upripremi")
+    public String emobilnostUpripremi(Model model) {
+        return "main/upripremi";
+    }
+    
+    
+    @GetMapping("/politika-kolacica")
+    public String politikaKolacica(Model model) {
+        return "main/politika-kolacica";
+    }
+    
+    @GetMapping("/politika-privatnosti")
+    public String politikaPrivatnosti(Model model) {
+        return "main/politika-privatnosti";
+    }
 
     
-       @GetMapping("/uclani-se")
+      @GetMapping("/statut")
+    public String statut(Model model) {
+        return "main/statut";
+    }
+
+    @GetMapping("/uclani-se")
     public String uclaniSe(Model model) {
         return "main/uclani-se";
     }
-    
-      @GetMapping("/saveti")
+
+    @GetMapping("/saveti")
     public String saveti(Model model) {
         return "main/saveti";
     }
-    
-     @GetMapping("/subvencije")
+
+    @GetMapping("/subvencije")
     public String subvencije(Model model) {
         return "main/subvencije";
     }
-    
-       @GetMapping("/vesti")
+
+    @GetMapping("/vesti")
     public String vesti(Model model) {
         return "main/vesti";
     }
-    
-       @GetMapping("/pogodnosti")
+
+    @GetMapping("/pogodnosti")
     public String pogodnosti(Model model) {
         return "main/pogodnosti";
     }
@@ -119,16 +144,16 @@ public class MainController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.getPrincipal().equals("anonymousUser")) {
             Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-          
-        Users user = userService.findFirstByEmail(myUser.getEmail());
-          model.addAttribute("userLogedIn", user);
+
+            Users user = userService.findFirstByEmail(myUser.getEmail());
+            model.addAttribute("userLogedIn", user);
         }
 
         redirectAttributes.addFlashAttribute("successMessageLogin", "Korisnik je uspesno prijavljen.");
 
         return "redirect:/";
     }
-    
+
     @GetMapping("/profil")
     public String profil(Model model,
             RedirectAttributes redirectAttributes
@@ -136,94 +161,85 @@ public class MainController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.getPrincipal().equals("anonymousUser")) {
             Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-          
-        Users user = userService.findFirstByEmail(myUser.getEmail());
-          model.addAttribute("userLogedIn", user);
-        }
 
-        
+            Users user = userService.findFirstByEmail(myUser.getEmail());
+            model.addAttribute("userLogedIn", user);
+        }
 
         return "/main/profil";
     }
-    
-       
-    
-     @RequestMapping(value = "/profil/save", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/profil/save", method = RequestMethod.POST)
     public String profilSave(final Model model, final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
-            @RequestParam(name = "prezime", required=false) String prezime,
-            @RequestParam(name = "ime", required=false) String ime,
-            @RequestParam(name = "email", required=false) String email,
-            @RequestParam(name = "password", required=false) String lozinka,
-            @RequestParam(name = "lozinkaRepeat", required=false) String lozinkaRepeat,
-            @RequestParam(name = "adresa", required=false) String adresa,
-            @RequestParam(name = "mesto", required=false) String mesto,
-            @RequestParam(name = "postanskibroj", required=false) String postanskibroj,
-            @RequestParam(name = "telefon", required=false) String telefon
+            @RequestParam(name = "prezime", required = false) String prezime,
+            @RequestParam(name = "ime", required = false) String ime,
+            @RequestParam(name = "email", required = false) String email,
+            @RequestParam(name = "password", required = false) String lozinka,
+            @RequestParam(name = "lozinkaRepeat", required = false) String lozinkaRepeat,
+            @RequestParam(name = "adresa", required = false) String adresa,
+            @RequestParam(name = "mesto", required = false) String mesto,
+            @RequestParam(name = "postanskibroj", required = false) String postanskibroj,
+            @RequestParam(name = "telefon", required = false) String telefon
     ) {
- Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      
-            Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-          
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
         Users user = userService.findFirstByEmail(myUser.getEmail());
-       
+
         user.setIme(ime);
         user.setPrezime(prezime);
         user.setEmail(email);
-       
+
         user.setAdresa(adresa);
         user.setPostanski_broj(postanskibroj);
         user.setMesto(mesto);
         user.setBroj_telefona(telefon);
-      
-if (!lozinkaRepeat.equals("")){
-        if (lozinka.equals(lozinkaRepeat)) {
-            if (lozinka.length() >= 8) {
-                user.setPassword(bCryptPasswordEncoder.encode(lozinka));
-         
-            } else {
-                redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
-                return "redirect:/profil";
-            }
+        if (!lozinkaRepeat.equals("")) {
+            if (lozinka.equals(lozinkaRepeat)) {
+                if (lozinka.length() >= 8) {
+                    user.setPassword(bCryptPasswordEncoder.encode(lozinka));
 
-        } else {
-            redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
-
-            return "redirect:/profil";
-        }
-}
-               try {
-                 
-                    userService.save(user);
-                  
-                } catch (Exception e) {
-                    redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+                } else {
+                    redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
                     return "redirect:/profil";
                 }
+
+            } else {
+                redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
+
+                return "redirect:/profil";
+            }
+        }
+        try {
+
+            userService.save(user);
+
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            return "redirect:/profil";
+        }
         redirectAttributes.addFlashAttribute("successMessage", "Profil je uspesno izmenjen.");
 
         return "redirect:/profil";
     }
-    
-    
-    
-    
-    
+
     @GetMapping(value = "/shop")
     public String publicShopMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
 
         model.addAttribute("listaProizvoda", proizvodiService.findAllByActiveOrderByImeAsc(true, pageable));
         model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
-         model.addAttribute("trenutnaKategorija", "sveKategorije");
-         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("trenutnaKategorija", "sveKategorije");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
-                   return "neregistrovani/shop";
+            return "neregistrovani/shop";
 
-            
         }
-        
+
         return "main/shop";
     }
 
@@ -233,11 +249,11 @@ if (!lozinkaRepeat.equals("")){
     ) {
         model.addAttribute("listaProizvoda", proizvodiService.findByKategorijaOrderByActiveDescImeAsc(kategorija, pageable));
         model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
-         model.addAttribute("trenutnaKategorija", kategorija);
-         
-          Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("trenutnaKategorija", kategorija);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
-                   return "neregistrovani/shop";
+            return "neregistrovani/shop";
         }
         return "main/shop";
     }
@@ -247,9 +263,9 @@ if (!lozinkaRepeat.equals("")){
         return "main/test";
     }
 
-    @GetMapping("/usloviKoriscenja")
+    @GetMapping("/uslovi-koriscenja")
     public String usloviKoriscenja(Model model) {
-        return "main/usloviKoriscenja";
+        return "main/uslovi-koriscenja";
     }
 
     @GetMapping("/infoDostava")
@@ -272,7 +288,7 @@ if (!lozinkaRepeat.equals("")){
     @GetMapping(value = "/galerija")
     public String publicGalerijaMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
 
-        model.addAttribute("listaSlika", photoService.findByProizvodIsNullAndGlavnazaproizvodIsNullAndActive(true,pageable));
+        model.addAttribute("listaSlika", photoService.findByProizvodIsNullAndGlavnazaproizvodIsNullAndActive(true, pageable));
 
         return "main/galerija";
     }
@@ -288,10 +304,10 @@ if (!lozinkaRepeat.equals("")){
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
-    
+
     @Autowired
     ColorPaletaService colorPaletaService;
-        
+
     @GetMapping(value = "/boja/{bojaId}")
     public ResponseEntity<Resource> serveBoja(@PathVariable(name = "bojaId") final Integer bojaId) {
 
@@ -303,7 +319,7 @@ if (!lozinkaRepeat.equals("")){
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
-    
+
     @GetMapping(value = "/photo/{proizvodId}/{photoId}")
     public ResponseEntity<Resource> servePhotoProizvod(@PathVariable(name = "proizvodId") final Integer proizvodId,
             @PathVariable(name = "photoId") final Integer photoId
@@ -336,12 +352,12 @@ if (!lozinkaRepeat.equals("")){
         List<Proizvodi> first3 = proizvodiService.findFirstFew(4);
         hocemoSamoTri(first3, proizvodId);
         model.addAttribute("prvaTriProizvoda", first3);
-        
-         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
-                   return "neregistrovani/proizvod";
+            return "neregistrovani/proizvod";
         }
-        
+
         return "main/proizvod";
     }
 
@@ -435,12 +451,12 @@ if (!lozinkaRepeat.equals("")){
             @RequestParam(name = "postanskibroj") String postanskibroj,
             @RequestParam(name = "telefon") String telefon
     ) {
- if(userService.findFirstByEmail(email)!=null){
- redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetom email adresom već postoji.");
+        if (userService.findFirstByEmail(email) != null) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetom email adresom već postoji.");
 
-                return "redirect:/registration";
- }
- 
+            return "redirect:/registration";
+        }
+
         Users user = new Users();
         user.setIme(ime);
         user.setPrezime(prezime);
@@ -491,13 +507,13 @@ if (!lozinkaRepeat.equals("")){
             @RequestParam(name = "email") String email,
             RedirectAttributes redirectAttributes
     ) {
-   
-        if (userService.findFirstByEmail(email)==null) {
+
+        if (userService.findFirstByEmail(email) == null) {
             redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetim emailom ne postoji.");
             return "redirect:/registration";
         }
-        
- Users user = userService.findFirstByEmail(email);
+
+        Users user = userService.findFirstByEmail(email);
         ResetTokeni resetTokeni = new ResetTokeni();
         int leftLimit = 48; // numeral '0'
         int rightLimit = 122; // letter 'z'
@@ -606,9 +622,94 @@ if (!lozinkaRepeat.equals("")){
 
             }
         }
-        
-     model.addAttribute("kupljeniproizvodi", kupljeniproizvodi);     
+
+        model.addAttribute("kupljeniproizvodi", kupljeniproizvodi);
 
         return "/main/istorijaKupovine";
+    }
+
+    
+    @Autowired
+    UsersService usersService;
+    @Autowired
+   ClanoviService clanoviService;
+    @PostMapping(value = "/noviClan")
+    public String noviClan(final Model model,
+            @RequestParam(name = "ime", defaultValue = "/") String ime,
+            @RequestParam(name = "prezime", defaultValue = "/") String prezime,
+            @RequestParam(name = "email", defaultValue = "/") String email,
+            @RequestParam(name = "adresa", defaultValue = "/") String adresa,
+            @RequestParam(name = "mesto", defaultValue = "/") String mesto,
+            @RequestParam(name = "postanski_broj", defaultValue = "/") String postanski_broj,
+            @RequestParam(name = "drzava", defaultValue = "/") String drzava,
+            @RequestParam(name = "broj_telefona", defaultValue = "/") String broj_telefona,
+            @RequestParam(name = "password", defaultValue = "/") String password,
+            @RequestParam(name = "lozinkaRepeat", defaultValue = "/") String lozinkaRepeat,
+            @RequestParam(name = "jmbg", defaultValue = "/") String jmbg,
+            @RequestParam(name = "naziv_pravne_osobe", defaultValue = "/") String naziv_pravne_osobe,
+            @RequestParam(name = "pib", defaultValue = "0") Integer pib,
+            RedirectAttributes redirectAttributes
+    ) {
+
+        Clanovi clan = new Clanovi();
+        clan.setAdresa(adresa);
+        clan.setBroj_telefona(broj_telefona);
+        clan.setDatum_isteka_clanstva(java.sql.Date.valueOf(LocalDate.now().plusYears(1)));
+        clan.setDatum_pocetka_clanstva(java.sql.Date.valueOf(LocalDate.now()));
+        clan.setDrzava(drzava);
+        clan.setEmail(email);
+        clan.setIme(ime);
+        clan.setJmbg(jmbg);
+        clan.setNaziv_pravne_osobe(naziv_pravne_osobe);
+        clan.setPib(pib);
+        clan.setPostanski_broj(postanski_broj);
+        clan.setPrezime(prezime);
+
+        if (pib != 0) {
+            clan.setIs_pravno_lice(Boolean.TRUE);
+        } else {
+            clan.setIs_pravno_lice(Boolean.FALSE);
+
+        }
+        Users user = userService.findFirstByEmail(email);
+        if (user == null) {
+
+            user = new Users();
+
+            user.setIme(ime);
+            user.setPrezime(prezime);
+            user.setEmail(email);
+            user.setAdresa(adresa);
+            user.setPostanski_broj(postanski_broj);
+            user.setMesto(mesto);
+            user.setBroj_telefona(broj_telefona);
+            user.setRole("SHOPPER");
+
+            if (password.equals(lozinkaRepeat)) {
+
+                user.setPassword(bCryptPasswordEncoder.encode(password));
+
+            } else {
+
+                redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
+
+                return "redirect:/uclani-se";
+            }
+
+        }
+           try {
+                  
+                    userService.save(user);
+                    clanoviService.save(clan);
+                    EmailController.SendEmailUclanjen(clan);
+                } catch (Exception e) {
+                    redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+                    return "redirect:/registration";
+                }
+ redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste uclanili.");
+
+        return "redirect:/";
+
     }
 }

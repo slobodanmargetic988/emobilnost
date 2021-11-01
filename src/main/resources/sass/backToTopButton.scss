@@ -19,9 +19,14 @@
     visibility: hidden;
     z-index: 1000;
     &::after {
-        content: "\f077";
-        font: 1.5em/40px FontAwesome;
+        /*font: 1.5em/40px FontAwesome;*/
+
+        font-family: "FontAwesome";
+        content: "\f106";
         color: $white-color;
+        font-size: 1.5em;
+        line-height: 40px;
+
     }
     &:hover {
         cursor: pointer;

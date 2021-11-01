@@ -1,6 +1,6 @@
 @import "./variables";
 @import "./mixins";
-
+/*
 .gallery-header-img {
     width: 100%;
     @include headerImage();
@@ -169,7 +169,7 @@ a {
     -webkit-user-select: none;
     -moz-user-select: none;    
     -ms-user-select: none; 
-    /*user-select: none;*/ 
+    user-select: none; 
     img {
         margin: 0;
         width: 80%;
@@ -222,4 +222,54 @@ a {
 
 
 
+*/
+
+
+
+.photo-gallery {
+  color:#313437;
+  background-color:#fff;
+  img {
+         height: 200px; 
+     object-fit: cover;
+     width: 100%;
+  }
+}
+
+.photo-gallery p {
+  color:#7d8285;
+}
+
+.photo-gallery h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .photo-gallery h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.photo-gallery .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto 40px;
+}
+
+.photo-gallery .intro p {
+  margin-bottom:0;
+}
+
+.photo-gallery .photos {
+  padding-bottom:20px;
+}
+
+.photo-gallery .item {
+  padding-bottom:30px;
+}
 

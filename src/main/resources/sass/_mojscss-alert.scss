@@ -2,8 +2,8 @@
 @import "./mixins";
 
 .alert-custom {
-    background: darken($white-color, 9%);
-    color: $burgundy-color;
+    background: darken($white-color, 3%);
+    color: $brown-black-color;
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
@@ -16,7 +16,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    color: $burgundy-color;
+    color: $brown-black-color;
     text-shadow: 0 1px 0 $white-color;
     opacity: .5;
     padding: 0;
@@ -29,7 +29,7 @@
 
 .xTimes {
     font-size: 2rem;
-    color: $burgundy-color;
+    color: $brown-black-color;
 }
 
 .alert-heading {

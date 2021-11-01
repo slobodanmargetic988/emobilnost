@@ -1,32 +1,4 @@
 
-//show pravno lice
-var FormStuff = {
-  
-  init: function() {
-    this.applyConditionalRequired();
-    this.bindUIActions();
-  },
-  
-  bindUIActions: function() {
-    $("input[type='radio'], input[type='checkbox']").on("change", this.applyConditionalRequired);
-  },
-  
-  applyConditionalRequired: function() {
-  	
-    $(".require-if-active").each(function() {
-      var el = $(this);
-      if ($(el.data("require-pair")).is(":checked")) {
-        el.prop("required", true);
-      } else {
-        el.prop("required", false);
-      }
-    });
-    
-  }
-  
-};
-
-FormStuff.init();
 
 
 //form container height
@@ -102,6 +74,7 @@ $(document).ready(function () {
     $("input").keyup(function () {
         if ($("#passwordRegistration").val() === $("#passwordRegistrationConfirmation").val()) {
             $("#label-2").text("* Lozinke se poklapaju");
+            $("#label-2").css('color', '#28a745');
         } else {
             $("#label-2").css("display", "block");
             $("#label-2").text("* Lozinke se ne poklapaju");

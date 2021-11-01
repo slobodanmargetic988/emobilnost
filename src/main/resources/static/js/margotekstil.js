@@ -17,6 +17,7 @@ $(function () {
         }
     
 });
+});
 // end of navbar background color change on scroll
 
 //$(window).scroll(function() {
@@ -96,4 +97,4 @@ $(document).ready(function () {
 });
 
 
-}
+

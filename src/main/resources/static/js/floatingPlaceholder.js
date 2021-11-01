@@ -12,10 +12,12 @@ function initTricks() {
 $(document).ready(function () {
     $('.floating-placeholder input').keyup(function () {
         var input = $(this).val();
-        if (input)
+        if (input) {
             $(this).parent().addClass('float');
-        else
+            $(this).parent().css("margin-top", "1.7rem");
+        } else {
             $(this).parent().removeClass('float');
+        }
     });
 
     $('#form').submit(function (e) {
@@ -44,10 +46,13 @@ function initTricks2() {
 $(document).ready(function () {
     $('.floating-placeholder-textarea textarea').keyup(function () {
         var textarea = $(this).val();
-        if (textarea)
+        if (textarea) {
             $(this).parent().addClass('float');
-        else
+            $(this).parent().css("margin-top", "1.7rem");
+
+        } else {
             $(this).parent().removeClass('float');
+        }
     });
 
     $('#form').submit(function (e) {

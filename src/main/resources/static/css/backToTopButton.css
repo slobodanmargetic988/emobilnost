@@ -1,4 +1,14 @@
 /*@import "./variables-c4b";*/
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
 /*back to top button*/
 #back-to-top-button {
   display: inline-block;
@@ -16,9 +26,12 @@
   z-index: 1000;
 }
 #back-to-top-button::after {
-  content: "\f077";
-  font: 1.5em/40px FontAwesome;
+  /*font: 1.5em/40px FontAwesome;*/
+  font-family: "FontAwesome";
+  content: "\f106";
   color: white;
+  font-size: 1.5em;
+  line-height: 40px;
 }
 #back-to-top-button:hover {
   cursor: pointer;

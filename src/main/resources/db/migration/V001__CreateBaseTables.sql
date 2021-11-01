@@ -1,4 +1,4 @@
-create table `margotekstil`.`users` (
+create table `emobilnost`.`users` (
 `id` int NOT NULL AUTO_INCREMENT,
 `ime` varchar(255),
 `prezime` varchar(255),
@@ -14,17 +14,17 @@ PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 
-create table `margotekstil`.`korpa` (
+create table `emobilnost`.`korpa` (
 `id` int NOT NULL AUTO_INCREMENT,
 
 primary key (`id`)
 )ENGINE=InnoDB;
 
 
-alter table `margotekstil`.`users` add column `korpa_id` int default null;
-alter table `margotekstil`.`users` add foreign key (`korpa_id`) references `korpa`(id);
+alter table `emobilnost`.`users` add column `korpa_id` int default null;
+alter table `emobilnost`.`users` add foreign key (`korpa_id`) references `korpa`(id);
 
-create table `margotekstil`.`proizvodi` (
+create table `emobilnost`.`proizvodi` (
 `id` int NOT NULL AUTO_INCREMENT,
 `ime` varchar(255),
 `cena` double,
@@ -38,7 +38,7 @@ create table `margotekstil`.`proizvodi` (
 PRIMARY KEY (`id`)
 )ENGINE=InnoDB;
 
-create table `margotekstil`.`photo` (
+create table `emobilnost`.`photo` (
 `id` int NOT NULL AUTO_INCREMENT,
 `title` varchar(255),
 `file_name` varchar(255),
@@ -50,12 +50,12 @@ foreign key (`proizvod_id`) references `proizvodi`(`id`),
 foreign key (`glavna_slika`) references `proizvodi`(`id`)
 )ENGINE=InnoDB;
 
-alter table `margotekstil`.`proizvodi` add column `glavna_slika` int default null;
-alter table `margotekstil`.`proizvodi` add foreign key (`glavna_slika`) references `photo`(`id`);
+alter table `emobilnost`.`proizvodi` add column `glavna_slika` int default null;
+alter table `emobilnost`.`proizvodi` add foreign key (`glavna_slika`) references `photo`(`id`);
 
 
 
-create table `margotekstil`.`slicni_proizvodi` (
+create table `emobilnost`.`slicni_proizvodi` (
 `id` int NOT NULL AUTO_INCREMENT,
 `proizvod_id` int not null,
 `slicni_proizvod_id` int not null,
@@ -66,7 +66,7 @@ foreign key(`slicni_proizvod_id`) references `proizvodi`(`id`)
 
 
 
-create table `margotekstil`.`korpa_proizvodi` (
+create table `emobilnost`.`korpa_proizvodi` (
 `id` int NOT NULL AUTO_INCREMENT,
 `korpa_id` int not null,
 `proizvod_id` int not null,
@@ -77,7 +77,7 @@ foreign key(`korpa_id`) references `korpa`(`id`)
 )ENGINE=InnoDB;
 
 
-create table `margotekstil`.`zavrsene_porudzbine` (
+create table `emobilnost`.`zavrsene_porudzbine` (
 `id` int NOT NULL AUTO_INCREMENT,
 `user_id` int not null,
 `korpa_id` int not null,
@@ -96,7 +96,7 @@ foreign key(`korpa_id`) references `korpa`(`id`)
 )ENGINE=InnoDB;
 
 
-create table `margotekstil`.`reset_tokeni` (
+create table `emobilnost`.`reset_tokeni` (
 `id` int NOT NULL AUTO_INCREMENT,
 `vrednost` varchar(255),
 `email` varchar(255),
