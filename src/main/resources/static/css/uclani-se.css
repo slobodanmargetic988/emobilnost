@@ -17,7 +17,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 #uclanise-login-form .container-uclani-se {
   position: relative;
-  min-height: 105rem;
+  min-height: 115rem;
   background-color: white;
   box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
   overflow: hidden;

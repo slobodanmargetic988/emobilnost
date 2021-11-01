@@ -157,52 +157,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <groupId>org.jasig.maven</groupId>
-                <artifactId>sass-maven-plugin</artifactId>
-                <version>1.1.0</version>
-                <executions>
-                    <execution>
-                        <id>compilecss</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>update-stylesheets</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <resources>
-                        <resource>
-                            <source>
-                                <directory>${basedir}/src/main/resources/sass</directory>
-                            </source>
-                            <destination>${basedir}/src/main/resources/static/css</destination>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
             
-            
-<plugin>
-    <groupId>net.alchim31.maven</groupId>
-    <artifactId>yuicompressor-maven-plugin</artifactId>
-    <version>1.5.1</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>compress</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <nosuffix>true</nosuffix>
-        <webappDirectory>${basedir}/src/main/resources/min</webappDirectory>
-        <excludes>
-            <exclude>**/*.min.js</exclude>
-        </excludes>
-    </configuration>
-</plugin>
-
 
             
         </plugins>

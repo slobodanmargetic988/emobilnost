@@ -73,13 +73,13 @@
                     <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="fizickolice" id="fizickolice" value="fizickolice" checked>
+                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="fizickolice" value="fizickolice" checked>
                         <label for="fizickolice" class="form-check-label" >
-                            Fizičko lice
+                            Fizičko lice &euro;50,00
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pravnolice" id="pravnolice" value="pravnolice">
+                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="pravnolice" value="pravnolice">
                         <label for="pravnolice" class="form-check-label" >
                             Pravno lice &euro;300,00
                         </label>
@@ -99,7 +99,7 @@
                         <div class="row">
                             <div class="col-xl-4">
                                 <label>
-                                    <input type="radio" name="product" class="card-input-element" checked />
+                                    <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
 
                                     <div class="panel panel-default card-input">
                                         <div class="container">
@@ -119,9 +119,9 @@
                                 </label>
                             </div>
 
-                            <div class="col-xl-4">
+                            <div class="col-xl-4" id="faktura" style="display: none">
                                 <label>
-                                    <input type="radio" name="product" class="card-input-element" />
+                                    <input type="radio" name="placanje" value="faktura" class="card-input-element" />
 
                                     <div class="panel panel-default card-input">
                                         <div class="container">
@@ -141,7 +141,7 @@
                             </div>
                             <div class="col-xl-4">
                                 <label>
-                                    <input type="radio" name="product" class="card-input-element" />
+                                    <input type="radio" name="placanje" value="kartica" class="card-input-element" />
 
                                     <div class="panel panel-default card-input">
                                         <div class="container">

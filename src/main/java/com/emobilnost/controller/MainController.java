@@ -648,6 +648,8 @@ public class MainController {
             @RequestParam(name = "jmbg", defaultValue = "/") String jmbg,
             @RequestParam(name = "naziv_pravne_osobe", defaultValue = "/") String naziv_pravne_osobe,
             @RequestParam(name = "pib", defaultValue = "0") Integer pib,
+              @RequestParam(name = "fizickoilipravnolice", defaultValue = "fizickolice") String fizickoilipravnolice,
+               @RequestParam(name = "placanje", defaultValue = "uplatnica") String placanje,
             RedirectAttributes redirectAttributes
     ) {
 
@@ -665,7 +667,7 @@ public class MainController {
         clan.setPostanski_broj(postanski_broj);
         clan.setPrezime(prezime);
 
-        if (pib != 0) {
+        if (fizickoilipravnolice.equals("pravnolice")) {
             clan.setIs_pravno_lice(Boolean.TRUE);
         } else {
             clan.setIs_pravno_lice(Boolean.FALSE);
@@ -701,12 +703,44 @@ public class MainController {
                   
                     userService.save(user);
                     clanoviService.save(clan);
-                    EmailController.SendEmailUclanjen(clan);
+                    //EmailController.SendEmailUclanjen(clan);
                 } catch (Exception e) {
                     redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
                     return "redirect:/registration";
                 }
+           
+            if (placanje.equals("uplatnica")) {
+           try {
+                  
+                 
+                    EmailController.SendEmailUclanjenUplatnica(clan);
+                } catch (Exception e) {
+                    redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+               
+                }
+           
+            }else {
+             if (placanje.equals("faktura")) {
+                 //poslati fakturu
+                     try {
+                    EmailController.SendEmailUclanjenFaktura(clan);
+                } catch (Exception e) {
+                    redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+               
+                }
+             }else{
+              if (placanje.equals("kartica")){
+              //treba resiti kartice
+              } 
+             }
+             
+            }
+           
+           
+           
  redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste uclanili.");
 
         return "redirect:/";

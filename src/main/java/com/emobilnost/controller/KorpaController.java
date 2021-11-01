@@ -8,44 +8,25 @@ package com.emobilnost.controller;
 import com.emobilnost.configuration.EmobilityUserPrincipal;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
-import com.emobilnost.model.Photo;
-import com.emobilnost.model.Proizvodi;
-import com.emobilnost.model.ResetTokeni;
 import com.emobilnost.model.Users;
 import com.emobilnost.model.ZavrsenePorudzbine;
-import com.emobilnost.repository.UsersRepository;
 import com.emobilnost.service.KorpaService;
-import com.emobilnost.service.PhotoService;
-import com.emobilnost.service.ProizvodiService;
-import com.emobilnost.service.ResetTokeniService;
-
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.emobilnost.service.UsersService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
-import com.emobilnost.storage.StorageService;
 import java.util.List;
-import java.util.Random;
 import org.springframework.context.annotation.Scope;
-import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
