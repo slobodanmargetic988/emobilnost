@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil | Petmania program | Ugodite svom ljubimcu</title>
+        <meta name="description" content="Margotekstil Petmania. Petmania je naš tekstilni program namenjen kućnim ljubimcima. Kučići i mačke, ljubimci. Pet program, dogs, cats, pets."/> 
+        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+
+    <th:block th:insert="fragments/head :: head" />
+
+</head>
+
+<body>
+    <img src="/img/petmaniapas.jpg" class="header-img" alt="petmania-header-image">
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>PETMANIA</p>
+</div>
+
+<section class="about-section">
+    <div class="container">
+        <div class="row">                
+            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2 mt-1-ss">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <span class="title">Petmania</span>
+                        <h2>Ugodite svom <br>ljubimcu</h2>
+                    </div>
+                    <div class="text">Sve životinje nepogrešivo osećaju kada se udovoljava njihovim potrebama. 
+                        One cene pažnju i posvećenost koju im pružite i  znaju to da iskažu. Zato pokažite svoju ljubav i obradujte vašeg ljubimca 
+                        specijalizovanim proizvodima iz programa Pet Mania. <br><br>
+                        Pet Mania program je izrađen od najkvalitetnijih i vodonepropusnih materijala. Udobni, elegantni i dobro osmišljeni 
+                        dizajn svojim kvalitetom ugađa vašem ljubimcu i pruža mu potreban osećaj komfora. 
+                    </div>
+                    <ul class="list-style-one">
+                        <li>Ležajevi</li>
+                        <li>Prostirke</li>
+                        <li>Torbe za sitne ljubimce</li>
+                        <li>Vrhunski kvalitet</li>
+                        <li>Vodonepropusni materijali</li>
+                        <li>Izrada po porudžbini od širokog izbora materijala</li>
+
+                    </ul>
+                    <div class="btn-box">
+                        <a th:href="@{/shop}" class="shopBtn-onama-page" type="button">Shop</a>
+                        <!--<br>-->
+                        <a th:href="@{/contact}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <figure class="image-1"><img class="onama-img1" src="/img/petmania.jpg" alt="petmania-img1"></figure>
+                    <figure class="image-2"><img class="onama-img2" src="/img/petmania2.jpg" alt="petmania-img2"></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+
+</body>
+
+</html>

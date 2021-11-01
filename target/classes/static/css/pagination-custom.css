@@ -1,0 +1,60 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+.pagination-gallery {
+  margin-right: 0;
+}
+
+.pagination > .disabled > a {
+  color: #b7b7b7;
+  background-color: transparent;
+  /*border-color: rgba(18,18,18,.13);*/
+  cursor: not-allowed;
+}
+.pagination > .disabled > a:focus, .pagination > .disabled > a:hover {
+  color: #ccc;
+  background-color: transparent;
+  border-color: rgba(18, 18, 18, 0.13);
+  cursor: not-allowed;
+}
+.pagination > li.active > a {
+  /*color: $white-color;*/
+  color: #211b14;
+  /*            border-color: $burgundy-color;
+              background: $burgundy-color;*/
+  font-weight: 500;
+}
+.pagination > li.active > a:active, .pagination > li.active > a:focus, .pagination > li.active > a:hover {
+  /*color: $white-color;*/
+  color: #211b14;
+  /*                border-color: $burgundy-color;
+                  background: $burgundy-color;*/
+}
+.pagination .page-link {
+  color: #b23539;
+  text-align: center;
+  /*        width: 48px;
+          height: 48px;*/
+  width: 27px;
+  height: 27px;
+  /*padding: .7rem 0.42rem !important;*/
+  padding: 0;
+  font-size: 1.2rem;
+  border: none;
+}
+.pagination .page-link:hover {
+  background: transparent;
+  /*border-color: $redish-color;*/
+  /*color: $redish-color;*/
+  color: #000000;
+}
+.pagination .page-link:focus {
+  box-shadow: none;
+}

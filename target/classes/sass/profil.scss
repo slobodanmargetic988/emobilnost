@@ -1,0 +1,138 @@
+
+@import "./variables";
+@import "./mixins";
+
+.productShow {
+    margin-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+.colorButton {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 5px;
+    color: $white-color;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    outline: none;
+    border: none;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        border-radius: 5px;
+        z-index: -2;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+        transition: all 0.3s;
+        border-radius: 5px;
+        z-index: -1;
+    }
+    &:hover {
+        color: #fff;
+        &::before {
+            width: 100%;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+
+}
+.backBtn {
+    padding: 0.75rem 1.25rem;
+    color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
+    &:hover {
+        text-decoration: underline !important;
+            color: hsla($main-color-h, $main-color-s, 40%, $main-color-a) !important;
+
+    }
+}
+
+.licniPodaciForma {
+    -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
+    box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
+    padding-top: 4rem;
+    .licniPodaci {
+        font-size: 1.8rem;
+        margin: 0 auto;
+        color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        margin-bottom: 2rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    .centrirajFormuInput {
+        label {
+            color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        }
+        margin-left: auto;
+        margin-right: auto;
+        .input-custom-border {
+/*            border: 1px solid $burgundy-color; 
+            border-radius: .2rem;
+            &:focus {
+                box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
+            }*/
+position: relative;
+            width: 100%;
+            padding: 1.3rem;  
+            color: #211b14;
+            border: 2px solid hsla($blue-color-h, $blue-color-s, 88%, $blue-color-a);
+            border-radius: 5px;
+            outline: none;
+            box-shadow: none;
+            margin: 0 0 .5rem 0;
+            font-weight: 300;
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);
+            }
+        }
+    }
+    .buttonsSaveAndBack {
+        padding-bottom: 3rem;
+        /*padding-top: 1rem;*/
+        margin: 0 auto;
+       
+    }
+}
+
+@media screen and (max-width:767px) {
+    .productShow {
+        margin-top: 1.8rem;
+        padding-bottom: 2rem;
+    }
+    .form-group {
+        margin-bottom: 0 !important;
+    }
+    .licniPodaciForma {
+        padding-top: 1rem;
+        .licniPodaci {
+            font-size: 1.12rem;
+        }
+        .buttonsSaveAndBack {
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+
+
+

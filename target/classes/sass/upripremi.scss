@@ -1,0 +1,93 @@
+
+@import "./variables";
+@import "./mixins";
+
+.full-size-img-error {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url(/img/carupripremi.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    &::before {
+        /*color overlay for bg image*/
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background: hsla($main-color-h, $main-color-s, $main-color-l, 0.15);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+.error-page-area {
+    position: relative;
+    top: 30%;
+    h1 {
+        font-size: 6vw;
+        font-family: $font-big-header; 
+        font-weight: 900;
+        line-height: 7.5rem;
+        margin-bottom: 3rem;
+    }
+    h2 {
+        font-weight: 600;
+        /*text-transform: capitalize;*/
+        font-size: 3rem;
+    }
+    h1, h2 {
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+
+    }
+    span {
+        a {
+            text-decoration: underline;
+            color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+            &:hover {
+                color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+            }
+        }
+    }
+    p {
+        font-size: 1.1rem;
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+        margin: 2rem 0;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .error-page-area {
+        top: 25%;
+        h1 {
+            font-size: 7vw;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .error-page-area {
+        top: 20%;
+        h1 {
+            font-size: 8vw;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+}

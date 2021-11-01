@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" 
+
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>E-Mobilnost | Admin Home Page</title>
+
+        <meta name="description" content="C4B Admin početna strana. Admin Home Page."/> 
+
+    <th:block th:insert="fragments/head :: head" />
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />
+ 
+</head>
+
+<body class="user-dashboard no-touch">
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a>
+
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" style="width: 100px;
+                                 height: auto;" alt="logo">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" alt="logo" style="width: 100px;
+                                 height: auto;" >
+                        </a>
+                    </div>
+                </div>
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/}">Idi na početnu</a>
+                        </li>
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/vesti}">Vesti</a>
+                        </li>
+<!--                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/poljoprivredni-konkursi-pocetna}">Poljoprivredni konkursi</a>
+                        </li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <th:block th:insert="fragments/navigation :: admin-navbar" />
+
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h3 class="add-new">DODAVANJE NOVE VESTI</h3>
+
+                        <form th:action="@{/napraviVest}" method="post" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;">
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Naslov vesti</label>
+                                <input type="text" class="form-control input-custom-border" name="naslov"/>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Tekst vesti</label>
+                                <textarea type="text" class="wysiwyg_editor_default" name="tekst"></textarea>
+                            </div>
+                            <div class="centrirajFormuInput">
+                                <label for="naslov-slike">Naslov slike:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
+                            </div>
+                            <div class="centrirajFormuInput mt-3"  >
+                                <label for="alt-tekst">Alternativni tekst za sliku:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
+                            </div>
+                            <label  class="control-label">(* .jpg, max. 80 MB)</label>
+                            <div>
+                                <!-- actual upload which is hidden -->
+                                <input type="file" name="file" id="actual-btn" hidden/>
+
+                                <!-- custom upload button -->
+                                <label for="actual-btn"  class="btn-choose-file">Izaberi fajl</label>
+                                <!-- name of file chosen changes with javascript (bottom of the page in script tag)-->
+                                <span id="file-chosen">No file chosen</span>
+                            </div>
+                            <div class="submit-buttons-group mt-4">
+                                <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
+                                <br>
+<!--                                <button type="submit" name="action" value="konkurs" class="btn-save-konkurs">Sačuvaj kao Konkurs</button>
+                                <br>-->
+                                <a href="" class=""><button class="btn-odustani">Odustani</button></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer-bar">
+    <div class="container">
+        <span class="footer-copyright">Copyright 2021, <a href="#">CMI</a>. All Rights Reserved.</span>
+
+    </div>
+</div>
+
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script th:src="@{/js/wysiwyg.js}"></script>
+<script th:src="@{/js/admin-panel.js}"></script>
+
+<script>
+//  name of file chosen  changes with javascript
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+</body>
+
+</html>
