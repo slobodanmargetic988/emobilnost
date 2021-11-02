@@ -72,9 +72,25 @@ public class MainController {
         return "main/adminHome";
     }
     
-     @GetMapping("/upripremi")
+      @GetMapping("/profil-edit")
+    public String profilEdit(Model model,
+            RedirectAttributes redirectAttributes
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!authentication.getPrincipal().equals("anonymousUser")) {
+            Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+            Users user = userService.findFirstByEmail(myUser.getEmail());
+            model.addAttribute("userLogedIn", user);
+        }
+
+        return "main/profil-edit";
+    }
+    
+    
+     @GetMapping("/u-pripremi")
     public String emobilnostUpripremi(Model model) {
-        return "main/upripremi";
+        return "main/u-pripremi";
     }
     
     
@@ -164,6 +180,8 @@ public class MainController {
 
             Users user = userService.findFirstByEmail(myUser.getEmail());
             model.addAttribute("userLogedIn", user);
+            Clanovi clan = clanoviService.findFirstByEmail(myUser.getEmail());
+            model.addAttribute("clan", clan);
         }
 
         return "/main/profil";
@@ -273,10 +291,10 @@ public class MainController {
         return "main/infoDostava";
     }
 
-    @GetMapping(value = "/contact")
+    @GetMapping(value = "/kontakt")
     public String publicContactMargotekstil(final Model model) {
 
-        return "main/contact";
+        return "main/kontakt";
     }
 
     @GetMapping(value = "/onama")

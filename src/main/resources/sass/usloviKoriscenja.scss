@@ -2,19 +2,31 @@
 
 .body-content {
     .content {
-        margin: 2rem 0 3rem 0;
+        margin: 4rem 0;
         h1 {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
         .italic {
             font-style: italic;
         }
-        .email-poverenik {
-            color: $redish-color;
+        .lawLink {
+            color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
             &:hover {
-                color: #00a5b5;
+                color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
             }
+        }
+    }
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse !important;
+        td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
         }
     }
 }

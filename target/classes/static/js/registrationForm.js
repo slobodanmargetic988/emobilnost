@@ -74,7 +74,7 @@ $(document).ready(function () {
     $("input").keyup(function () {
         if ($("#passwordRegistration").val() === $("#passwordRegistrationConfirmation").val()) {
             $("#label-2").text("* Lozinke se poklapaju");
-            $("#label-2").css('color', '#28a745');
+            $("#label-2").css('color', '#28a745 !important');
         } else {
             $("#label-2").css("display", "block");
             $("#label-2").text("* Lozinke se ne poklapaju");

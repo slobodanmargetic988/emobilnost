@@ -9,20 +9,32 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
 .body-content .content {
-  margin: 2rem 0 3rem 0;
+  margin: 4rem 0;
 }
 .body-content .content h1 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .body-content .content .italic {
   font-style: italic;
 }
-.body-content .content .email-poverenik {
-  color: #b23539;
+.body-content .content .lawLink {
+  color: #70a130;
 }
-.body-content .content .email-poverenik:hover {
-  color: #00a5b5;
+.body-content .content .lawLink:hover {
+  color: #3a4da1;
+}
+.body-content table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse !important;
+}
+.body-content table td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
 }
 
 @media screen and (max-width: 575px) {
