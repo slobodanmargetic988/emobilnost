@@ -3059,6 +3059,14 @@ img {
   width: 100%;
 }
 
+.uclani-se-btn.darkText {
+  color: black !important;
+  text-transform: none;
+}
+.uclani-se-btn.darkText:hover {
+  color: white !important;
+}
+
 .currentNavItem:before, .currentNavItem:after {
   /*opacity: 1 !important;*/
   transform: scaleX(1) !important;
@@ -3546,6 +3554,10 @@ a:visited {
   width: 100%;
   height: 100%;
   opacity: 0.75;
+}
+
+.section-heading-onama {
+  margin-bottom: 30px !important;
 }
 
 .section-heading {

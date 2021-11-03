@@ -1,0 +1,168 @@
+
+@import "./variables";
+@import "./mixins";
+
+
+.profile-wraper {
+    margin: 3rem 0;
+    .user-left-sidebar {
+        /*width: 260px;*/
+        height: 100%;
+        /*padding: 60px 20px 20px;*/
+        padding: 30px 0 30px 30px;
+        &:before {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            content: "";
+            height: 100%;
+            width: 260px;
+            background: #fff;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+    }
+    .d-flex {
+        box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
+    }
+    .users-box {
+        .users-image {
+            img {
+                width: 70px;
+            }
+        }
+    }
+    .user-nav {
+        /*padding: 25px 0;*/
+        list-style: none;
+        li {
+            padding: 10px 0;
+            a {
+                color: #444443;
+                line-height: 24px;
+                &:hover {
+                    color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+
+                }
+                /*                display: flex;
+                                align-items: center;*/
+            }
+        }
+    }
+    .users-content {
+        flex-grow: 1;
+        max-width: 100%;
+        margin-left: 30px;
+        .users-panel {
+            padding: 30px;
+            background: #fff;
+            /*border-radius: 4px;*/
+            min-height: 100%;
+            /*box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);*/
+            border-left: 1px solid rgba(230, 230, 230, 1);
+        }
+        h3 {
+            color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+            margin-bottom: 1.5rem;
+            font-size: 1.55rem;
+        }
+        p {
+            font-weight: 500;
+             color: hsla($main-color-h, $main-color-s, 20%, $main-color-a);
+            span {
+                font-weight: 400;
+                color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
+
+            }
+        }
+    }
+    .input-wraper {
+        margin-bottom: 1.3rem;
+    }
+     label {
+            color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        }
+    input {
+         position: relative;
+            width: 100%;
+            padding: 1.3rem;  
+            color: #211b14;
+            border: 2px solid hsla($blue-color-h, $blue-color-s, 88%, $blue-color-a);
+            border-radius: 5px;
+            outline: none;
+            box-shadow: none;
+            margin: 0 0 .5rem 0;
+            font-weight: 300;
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);
+            }
+    }
+    .colorButton {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 5px;
+    color: $white-color;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    outline: none;
+    border: none;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        border-radius: 5px;
+        z-index: -2;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+        transition: all 0.3s;
+        border-radius: 5px;
+        z-index: -1;
+    }
+    &:hover {
+        color: #fff;
+        &::before {
+            width: 100%;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+
+}
+.backBtn {
+    padding: 0.75rem 1.25rem;
+    color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
+    &:hover {
+        text-decoration: underline !important;
+        color: hsla($main-color-h, $main-color-s, 40%, $main-color-a) !important;
+
+    }
+}
+}
+
+
+/*
+@media screen and (max-width:767px) {
+   
+}
+*/
+
+

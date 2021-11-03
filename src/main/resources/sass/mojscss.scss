@@ -363,6 +363,15 @@ img {
     }
 }
 
+.uclani-se-btn.darkText {
+    color: hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a) !important;
+    text-transform: none;
+    &:hover {
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a) !important;
+
+    }
+}
+
 .currentNavItem {
     &:before, &:after {
         /*opacity: 1 !important;*/
@@ -846,6 +855,9 @@ a {
     }
 }
 
+.section-heading-onama {
+     margin-bottom: 30px !important;
+}
 
 .section-heading {
     margin-bottom: 50px;
