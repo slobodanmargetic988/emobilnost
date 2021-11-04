@@ -89,14 +89,14 @@ img {
 
     }
     .entry-content {
-        padding: 25px 20px;
+        padding: 0 20px 25px;
     }
     .dateNews {
         color: hsla($main-color-h, $main-color-s, 60%, $main-color-a);
 
 
         /*color: hsla(0, 0%, 50%, 1);*/
-        font-size: 14px;
+        font-size: 14px !important;
     }
     .entry-meta {
         margin-left: -8px !important;

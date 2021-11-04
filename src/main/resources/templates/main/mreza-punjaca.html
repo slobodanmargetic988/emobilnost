@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.sprinfgramework.org/schema/security" xmlns:sec2="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>E-Mobilnost | Mreža punjača</title>
+
+    <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/contact.css}" rel="stylesheet" type="text/css" />
+
+    <meta name="description" content="E-Mobilnost mreža punjača."/> 
+</head>
+
+<style>
+    .table th, .table td {
+        border-top: 1px solid hsl(86deg 54% 91%);
+    }
+    .table thead th {
+        border-bottom: none;
+    }
+    .table-success, .table-success>td, .table-success>th {
+        background-color: hsl(86deg 54% 91%);
+    }
+    .table-success th{
+        border-color: hsl(86deg 54% 91%);
+    }
+</style>
+
+<body>
+
+    <!--<img src="/img/car-contact.jpg" class="header-img" alt="contact-header-image">-->
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/roadsmallscreen.jpg">
+    <source media="(min-width: 992px)" srcset="/img/road.jpg">
+    <img src="/img/road.jpg" class="header-img" alt="road image contact hero">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box ">
+    <h2>E-Mobilnost</h2>
+    <p>Mreža punjača</p>
+</div>
+
+
+<div class="container my-5">
+    <div class="table-responsive" style="    box-shadow: 1px 0 20px 3px rgb(199 199 199 / 20%);">
+        <table class="table">
+            <thead class="table-success">
+                <tr>
+                    <th style="vertical-align: middle;">Grad/Mesto</th>
+                    <th style="vertical-align: middle;">Adresa punionica</th>
+                    <th style="vertical-align: middle;">Tip punjača</th>
+                    <th style="text-align: center;">Broj punjača</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Aleksinac</th>
+                    <td>Bosphorus Hotel, Žitkovački put bb</td>
+                    <td>Wall 3 Tesla superpunjača</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th scope="row">Bački Petrovac</th>
+                    <td>Business Park, Industrijska zona bb</td>
+                    <td>Trofazni</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <th scope="row">Batrovci</th>
+                    <td>Naplatna stanica Adaševci, Šid</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th rowspan="37" scope="rowgroup" style="vertical-align: middle;">Beograd</th>
+                    <td scope="row">British Motors, Zrenjaninski put</td>
+                    <td>Brzi punjač 50kW DC+ <br> spori AC 22kW CCS+CHAdeMO</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">TC Merkator</td>
+                    <td>AC 22 kW</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Crowne Plaza</td>
+                    <td>2xAC 22 kW </td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">Aerodrom Parking, Vojvođanska 330</td>
+                    <td>Wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Zhidou Centar Balkan, Vinogradska 57 b</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">AS Park, Aerodrom, Sterijina</td>
+                    <td>wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Restoran ForS, Ksantija 13</td>
+                    <td>Trofazni, wall, tip 2</td>
+                    <td style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">Pro Credit banka, Milutina Milankovića 17</td>
+                    <td>Tip 2 22 kW Smart Wallbox</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">A blok IV faza</td>
+                    <td>7,4 kW Smart Wallbox 2x22 kW</td>
+                    <td style="text-align: center;">30</td>
+                </tr>
+                <tr>
+                    <td scope="row">MT-KOMEX</td>
+                    <td>22 kW Smart Wallbox</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Holiday Inn, Đorđa Stanojevića</td>
+                    <td>Trofazni, wall</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">In Hotel, Arsenija Čarnojevića 56</td>
+                    <td>wall</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Hyatt, Milentija Popovića 5</td>
+                    <td>Tesla</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Square 9, Studentski trg 9</td>
+                    <td>Tesla</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Courtyard, Vase Čarapića 2-4</td>
+                    <td>Tip 2</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Garaža Obilićev venac 14-16</td>
+                    <td>Tip 2 <br> 2x22 kW EVlink Parking</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hit auto Renault Nissan</td>
+                    <td>22 kW EVlink Parking</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">AK Kompresor, Renault Nissan</td>
+                    <td>2x22 kW Smart Wallbox 1x22 kW Wallbox</td>
+                    <td style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">Poslovni kompleks Navigator</td>
+                    <td>22 kW Smart Wallbox</td>
+                    <td style="text-align: center;">12</td>
+                </tr>
+                <tr>
+                    <td scope="row">Garaža Pionirski park, Dragoslava Jovanovića 9</td>
+                    <td>Tip 2 22 kW</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">ECAP Školski centar</td>
+                    <td>11 kW Smart Wallbox</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">ETF Beograd, Bul. kralja Aleksandra 73</td>
+                    <td>22 kW Wallbox</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">JP Ada Ciganlija</td>
+                    <td>22 kW Smart Wallbox</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Park, Njegoševa 2-10</td>
+                    <td>Wall</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Hilton, kralja Milutina 10-18</td>
+                    <td>Tip 2 <br> 22 kW Wallbox</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Max Bet, Mileševska 69</td>
+                    <td>Trofazna, tesla</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Tesla Smart Stay, Šumatovačka 42</td>
+                    <td>Tesla</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Crystal, Internacionalnih brigada 12</td>
+                    <td>Wall</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">CEEFOR Belgrade, Bul. oslobođenja 103</td>
+                    <td>Tip 2</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">ADA Mall, Radnička 5</td>
+                    <td>Tip 2 spori punjači Terra <br>AC 22kW</td>
+                    <td  style="text-align: center;">16</td>
+                </tr>
+                <tr>
+                    <td scope="row">Miloš Veliki, Odmorište Boljkovci</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">ABB doo</td>
+                    <td>Brzi punjač 50 kW + spori AC 22 kW, CCS + CHAdeMO</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Star Import</td>
+                    <td>22 kW Wall box</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hyundai Srbija</td>
+                    <td>Brzi DC punjač 50 kW + AC 22 kW, CCS + CHAdeMO</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">British Motors</td>
+                    <td>Brzi punjač 50 kW DC + spori AC 22kW CSS + CHAdeMO</td>
+                    <td  style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">LEDI MS, Auto put kod Lidla i Deleza</td>
+                    <td>Brzi punjači 3x175 kW l 3x50 kW, CCS + CHAdeMO</td>
+                    <td  style="text-align: center;">6</td>
+                </tr>
+                <tr>
+                    <td scope="row">Ikea Beogard</td>
+                    <td>Tip 2 <br>2x22 kW EVlink <br>Parking</td>
+                    <td  style="text-align: center;">4</td>
+                </tr>
+                <tr>
+                    <th scope="row">Velika Plana</th>
+                    <td>Gazprom pumpa, Autoput A1 BG-NIŠ</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th rowspan="2" scope="rowgroup" style="vertical-align: middle;">Dimitrovgrad</th>
+                    <td scope="row">Naplatna stanica Dimitrvgrad</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Happy, Caribrodskih umetnika 1</td>
+                    <td>Tip 2</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th rowspan="2" scope="rowgroup" style="vertical-align: middle;">Kragujevac</th>
+                    <td scope="row">Šoping centar Kragujevac Plaza</td>
+                    <td>22 kW Smart Wallbox</td>
+                    <td  style="text-align: center;">5</td>
+                </tr>
+                <tr>
+                    <td scope="row">Javna garaža</td>
+                    <td>2x22 kW EVlink Parking</td>
+                    <td  style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th scope="row">Krnješevci</th>
+                    <td>Star Import</td>
+                    <td>22 kW Wall box</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th rowspan="5" scope="rowgroup" style="vertical-align: middle;">Niš</th>
+                    <td scope="row">Kafana Stara Trpeza, Bul. 12. februar</td>
+                    <td>Wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Aleksandar, Negotinska 22-36</td>
+                    <td>Wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Tami Residence, Durmitorska prilaz 1</td>
+                    <td>Wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Constantinus Palace Hotel, Durmitorska prilaz 1</td>
+                    <td>Trofazni</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Zeleni Vir, Topličkih partizanskih odreda</td>
+                    <td>Wall, tip 2</td>
+                    <td style="text-align: center;">4</td>
+                </tr>
+                <tr>
+                    <th scope="row">Niška Banja</th>
+                    <td>Zumbotel, Elektronka kolonija Brzi brod</td>
+                    <td>Wall 22 kW</td>
+                    <td style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th rowspan="4" scope="rowgroup" style="vertical-align: middle;">Novi Sad</th>
+                    <td scope="row">Max Bet, Kisačka 76-82</td>
+                    <td>Tesla, CEE</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Gazprom BS Novi Sad 16 - Auto put 75</td>
+                    <td></td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Promenada TC, Bul. oslobođenja 119</td>
+                    <td>Tip 2 22 kW Smart Wallbox</td>
+                    <td style="text-align: center;">5</td>
+                </tr>
+                <tr>
+                    <td scope="row">ProCredit banka, Cara Lazara 7</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th rowspan="2" scope="rowgroup" style="vertical-align: middle;">Paraćin</th>
+                    <td scope="row">Etno selo Stolovo, autoput A1</td>
+                    <td>Wall, tip 2</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Hotel Petrus, Nikole Pašića bb</td>
+                    <td>Wall, tip 2</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <th rowspan="2" scope="rowgroup" style="vertical-align: middle;">Pojate</th>
+                    <td scope="row">Restoran Alexandar, Svetog Tome bb</td>
+                    <td>Trofazni, caravan main socket</td>
+                    <td style="text-align: center;">2</td>
+                </tr>
+                <tr>
+                    <td scope="row">Park 037</td>
+                    <td>Wall</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th scope="row" style="vertical-align: middle;">Pirot</th>
+                    <td>Etno kompleks Nišavska dolina, Srpskih vladara</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th scope="row">Preševo</th>
+                    <td>Naplatna stanica</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th scope="row">Rušanj</th>
+                    <td>Propulzija, 10d Novo naselje</td>
+                    <td>Solarni, tip 2</td>
+                    <td style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Stari Banovci</th>
+                    <td>Gazprom petrol, A1 Stari Banovci</td>
+                    <td>Tip 2, CCS/SEA, CHAmeDO</td>
+                    <td style="text-align: center;">3</td>
+                </tr>
+                <tr>
+                    <th rowspan="5" scope="rowgroup" style="vertical-align: middle;">Subotica</th>
+                    <td scope="row">Hotel Galleria parking, Matije Korvina 17</td>
+                    <td>Trofazni</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">ProCredit banka, Cara Dušana 5</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Auto-servis Marton, Batinska 8</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Europetrol benzinska stanica, Autoput E75</td>
+                    <td>Tip 2</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Naplatna stanica Subotica Jug</td>
+                    <td>Tip 2, Chademo, CCS/SAE</td>
+                    <td style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <th rowspan="6" scope="rowgroup" style="vertical-align: middle;">Čačak</th>
+                    <td scope="row">British motors</td>
+                    <td>22 kW Smart Wallbox</td>
+                    <td  style="text-align: center;">1</td>
+                </tr>
+                <tr>
+                    <td scope="row">Royal hotel</td>
+                    <td>11 kW Wallbox </td>
+                    <td  style="text-align: center;">2<d>
+                </tr>
+                <tr>
+                    <td scope="row">EURO PETROL Pumpa BS autoput Horgoš Beograd na 20 km autoputa</td>
+                    <td>22 kW </td>
+                    <td  style="text-align: center;">2<d>
+                    </tr>
+                    <tr>
+                        <td scope="row">Gazprom BS Sokolići 1 Auto put BG - ČA Miloš Veliki</td>
+                        <td></td>
+                        <td style="text-align: center;">1<d>
+                        </tr>
+                        <tr>
+                            <td scope="row">Naplatna rampa Vrčin Autoput E75</td>
+                            <td>Brzi punjač 175 kW DC, CCS + CHAdeMO</td>
+                            <td style="text-align: center;">2<d>
+                            </tr>
+                            <tr>
+                                <td scope="row">Nais (nekadašnje naplatne rampe) Autoput E75</td>
+                                <td>Brzi DC punjač 175 kW DC, CCS + CHAdeMO</td>
+                                <td style="text-align: center;">2<d>
+                                </tr>
+
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+
+
+                                <th:block th:insert="fragments/footer :: footer" />
+
+                                <a id="back-to-top-button"></a>
+
+                                <th:block th:insert="fragments/scripts :: scripts" />
+                                <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
+
+                                </body>
+
+                                </html>

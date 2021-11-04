@@ -74,7 +74,21 @@ public class Clanovi {
 
     @Column(name = "datum_isteka_clanstva")
     private Date datum_isteka_clanstva;
+    
+     @Column(name = "newsletter")
+    private Boolean newsletter;
 
+    public Boolean getNewsletter() {
+        return newsletter;
+    }
+
+    public void setNewsletter(Boolean newsletter) {
+        this.newsletter = newsletter;
+    }
+
+     
+     
+     
     public int getId() {
         return id;
     }

@@ -272,16 +272,16 @@ input[type="radio"]:checked ~ .reveal-if-active {
   left: 0;
 }
 
-#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat {
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat, #openOko, #openedOko {
   color: #adb6e1;
 }
 
-#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat, #closeOko, #closedOko {
   display: none;
   color: #adb6e1;
 }
 
-#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin {
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin, #openOko, #openedOko, #closeOko, #closedOko {
   margin-top: -47px;
   float: right;
   position: relative;
@@ -310,6 +310,11 @@ input[type="radio"]:checked ~ .reveal-if-active {
   color: #445252;
   letter-spacing: .02rem;
   display: none;
+}
+
+#label-3 {
+  color: #dc3545;
+  font-size: .8rem;
 }
 
 /*za telefon input*/

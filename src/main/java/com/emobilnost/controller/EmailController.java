@@ -48,7 +48,9 @@ public class EmailController {
     static final String pathtouplatnicatemplate = "classpath:/static/img/uplatnicatemplate.pdf";
 
     static final String TO = "slobagamer@hotmail.com";
-
+    static final String PRIMALACPORUKA = "nebojsa.margetic@gmail.com";
+    
+    
     static final String SMTP_USERNAME = "slobodanmargetic988@gmail.com";
     static final String SMTP_PASSWORD = "plujxpfcbjabxpfj";
     // The name of the Configuration Set to use for this message.
@@ -417,7 +419,7 @@ Resource resource = resolver.getResource(pathtouplatnicatemplate);
         }
     }
     //kada neregistrovani korisnik posalje poruku preko forme na home ili kontakt strani - stize email Violeti
-    public static void SendEmailPoruka(String ime, String prezime, String telefon, String email, String poruka) throws Exception {
+    public static void SendEmailPoruka(String ime, String telefon, String email, String poruka) throws Exception {
         // Create a Properties object to contain connection configuration information.
         
         Properties props = System.getProperties();
@@ -431,14 +433,14 @@ Resource resource = resolver.getResource(pathtouplatnicatemplate);
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         //    msg.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(PRIMALACPORUKA));
 
         msg.setSubject(SUBJECTPrimljena);
         String BODY = String.join(
                 System.getProperty("line.separator"),
                 emailzaglavlje
                 + emailsadrzajContainer
-                + sendEmailPoruka(ime, prezime, email, telefon, poruka)
+                + sendEmailPoruka(ime, email, telefon, poruka)
                 + emailsadrzajContainerClose
                 + emailfooter
         );
@@ -809,14 +811,14 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "  </tr>";
     }
 
-    public static String sendEmailPoruka(String ime, String prezime, String email, String telefon, String poruka) {
+    public static String sendEmailPoruka(String ime, String email, String telefon, String poruka) {
         return "<tr>"
                 + "<td style=\"background:#ffffff;padding:30px\">"
                 + "  <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;font-weight:600\">"
                 + "   Primljena je poruka"
                 + "  </p>"
                 + "  <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;font-weight:400\">"
-                + "   Primljena je poruka od korisnika: " + ime + " " + prezime + ","
+                + "   Primljena je poruka od korisnika: " + ime +  ","
                 + "  </p>"
                 + "  <br>"
                 + "   <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;line-height:1.4\">"

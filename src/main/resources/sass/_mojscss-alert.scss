@@ -196,11 +196,8 @@
     padding: 20px;
     color: black;
     max-width: 375px;
-    // max-height: 700px;
-    -webkit-box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
     box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
     border-radius: 0.2rem;
-    // margin: 0 auto;
     position: fixed;
     top: 120px;
     left: 15px;
@@ -210,30 +207,26 @@
 }
 
 .close-btn {
-    margin-left: 0.938rem;
-    color: $burgundy-color;
-    font-weight: bold;
+    color: hsla($main-color-h, $main-color-s, 30%, $main-color-a) !important;
+    font-weight: 500;
     float: right;
     font-size: 2rem;
     line-height: 1.25rem;
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-        color: $brown-black-color;
+        color: hsla($main-color-h, $main-color-s, 60%, $main-color-a) !important;
     }
 }
 
 .alert-heading {
     text-align: center;
-
     font-size: 1.3rem;
-    margin-left: .5rem;
     font-weight: 500;
 }
 
 .alert-poruka-uspesna-prijava {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    padding: 4rem 0 2rem 0;
 }
 
 .fa-check-circle {

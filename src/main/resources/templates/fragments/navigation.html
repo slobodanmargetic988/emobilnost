@@ -25,22 +25,22 @@
                         <a class="nav-link nav-link-admin changenavlinkcolor" id="homeLink" th:href="@{/}">POČETNA<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/onama}">O NAMA</a>
+                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/about}">O NAMA</a>
                     </li>
-                    <!--                    <li class="nav-item">
+                                        <li class="nav-item">
                                             <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/pogodnosti}">POGODNOSTI</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/vesti}">VESTI</a>
+                                            <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/vest}">VESTI</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/saveti}">SAVETI</a>
-                                        </li>-->
+                                        </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/u-pripremi}">POGODNOSTI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/u-pripremi}">VESTI</a>
+                        <!--<a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/u-pripremi}">VESTI</a>-->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/u-pripremi}">SAVETI</a>
@@ -48,20 +48,20 @@
                     <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/subvencije}">SUBVENCIJE</a>
                     </li>
-                    <!--                    <li class="nav-item">
+                                        <li class="nav-item">
                                             <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/mreza-punjaca}">MREŽA PUNJAČA</a>
-                                        </li>-->
-                    <li class="nav-item">
+                                        </li>
+<!--                    <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/u-pripremi}">MREŽA PUNJAČA</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/galerija}">GALERIJA</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/kontakt}">KONTAKT</a>
+                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/contact}">KONTAKT</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="!isAuthenticated()" >
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/registration}">ULOGUJ SE</a>
                     </li>
 
@@ -149,6 +149,7 @@
                 <li><a class="aktiv" th:href="@{/profil}">Lični podaci</a></li>
                 <li><a th:href="@{/profil-edit}">Izmena ličnih podataka</a></li>
                 <li><a th:href="@{/change-password}">Promena lozinke</a></li>
+                <li><a th:href="@{/newsletterOdjava}">Odjava sa newsletter-a</a></li>
                 <li><a th:href="@{/logout}">Odjavi se</a></li>
             </ul>
 

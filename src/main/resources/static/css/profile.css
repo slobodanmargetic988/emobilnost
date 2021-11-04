@@ -155,8 +155,23 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   color: #666666 !important;
 }
 
-/*
-@media screen and (max-width:767px) {
-   
+.inputPlaceholderSize::placeholder {
+  font-size: 14px;
 }
-*/
+
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat, #openEye, #openEyed, #eyeOpen {
+  color: #adb6e1;
+}
+
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat, #closedEye, #closedEyed, #eyeClose {
+  display: none;
+  color: #adb6e1;
+}
+
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin, #openEye, #closedEye, #openEyed, #closedEyed, #eyeOpen, #eyeClose {
+  margin-top: -40px;
+  float: right;
+  position: relative;
+  margin-right: .8rem;
+  cursor: pointer;
+}

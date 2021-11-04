@@ -15,7 +15,6 @@ import com.emobilnost.model.Proizvodi;
 import com.emobilnost.model.ResetTokeni;
 import com.emobilnost.model.Users;
 import com.emobilnost.model.ZavrsenePorudzbine;
-import com.emobilnost.repository.UsersRepository;
 import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
 import com.emobilnost.service.KorpaService;
@@ -39,12 +38,10 @@ import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.Resource;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -55,7 +52,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -71,8 +67,35 @@ public class MainController {
 
         return "main/adminHome";
     }
+    
+    
+    @GetMapping("/vest")
+    public String jednaVest(Model model) {
+        return "main/vest";
+    }
+    
+    @GetMapping("/mreza-punjaca")
+    public String mrezaPunjaca(Model model) {
+        return "main/mreza-punjaca";
+    }
 
-       @GetMapping("/change-password")
+
+    @GetMapping("/newsletterOdjava")
+    public String newsletterOdjava(Model model,
+            RedirectAttributes redirectAttributes) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!authentication.getPrincipal().equals("anonymousUser")) {
+            Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+            Users user = userService.findFirstByEmail(myUser.getEmail());
+        }
+
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se odjavili sa newsletter-a.");
+
+        return "main/profil";
+    }
+
+    @GetMapping("/change-password")
     public String changePassword(Model model,
             RedirectAttributes redirectAttributes
     ) {
@@ -82,13 +105,64 @@ public class MainController {
 
             Users user = userService.findFirstByEmail(myUser.getEmail());
             model.addAttribute("userLogedIn", user);
-            Clanovi clan = clanoviService.findFirstByEmail(myUser.getEmail());
-            model.addAttribute("clan", clan);
         }
 
         return "main/change-password";
     }
-    
+
+    @RequestMapping(value = "/change-password/save", method = RequestMethod.POST)
+    public String profilSave(final Model model, final HttpServletRequest request,
+            RedirectAttributes redirectAttributes,
+            @RequestParam(name = "oldPassword", required = false) String oldPassword,
+            @RequestParam(name = "lozinkaRepeat", required = false) String lozinkaRepeat,
+            @RequestParam(name = "newPassword", required = false) String newPassword
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users user = userService.findFirstByEmail(myUser.getEmail());
+
+        if (bCryptPasswordEncoder.matches(oldPassword, user.getPassword())) {
+
+            if (!newPassword.equals("")) {
+                if (lozinkaRepeat.equals(newPassword)) {
+                    if (newPassword.length() >= 8) {
+                        user.setPassword(bCryptPasswordEncoder.encode(newPassword));
+
+                    } else {
+                        redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera.");
+
+                        return "redirect:/change-password";
+                    }
+
+                } else {
+                    redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka.");
+
+                    return "redirect:/change-password";
+                }
+            }
+            try {
+
+                userService.save(user);
+
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+                return "redirect:/change-password";
+            }
+            redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno izmenjena.");
+
+            return "redirect:/change-password";
+
+        } else {
+            //System.out.println(oldPassword+"    "+oldPasswordEncrypted+"  "+user.getPassword());
+            redirectAttributes.addFlashAttribute("errorMessage", "Stara lozinka se ne poklapa sa lozinkom u bazi.");
+
+            return "redirect:/change-password";
+        }
+    }
+
     @GetMapping("/profil-edit")
     public String profilEdit(Model model,
             RedirectAttributes redirectAttributes
@@ -209,14 +283,14 @@ public class MainController {
             @RequestParam(name = "prezime", required = false) String prezime,
             @RequestParam(name = "ime", required = false) String ime,
             @RequestParam(name = "email", required = false) String email,
-            @RequestParam(name = "password", required = false) String lozinka,
-            @RequestParam(name = "lozinkaRepeat", required = false) String lozinkaRepeat,
             @RequestParam(name = "adresa", required = false) String adresa,
             @RequestParam(name = "mesto", required = false) String mesto,
             @RequestParam(name = "postanskibroj", required = false) String postanskibroj,
             @RequestParam(name = "telefon", required = false) String telefon,
             @RequestParam(name = "drzava", required = false) String drzava,
-            @RequestParam(name = "jmbg", required = false) String jmbg
+            @RequestParam(name = "jmbg", required = false) String jmbg,
+            @RequestParam(name = "naziv_pravne_osobe", defaultValue = "/") String naziv_pravne_osobe,
+            @RequestParam(name = "pib", defaultValue = "0") Integer pib
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -234,24 +308,9 @@ public class MainController {
         user.setBroj_telefona(telefon);
         clan.setDrzava(drzava);
         clan.setJmbg(jmbg);
+        clan.setNaziv_pravne_osobe(naziv_pravne_osobe);
+        clan.setPib(pib);
 
-        if (!lozinkaRepeat.equals("")) {
-            if (lozinka.equals(lozinkaRepeat)) {
-                if (lozinka.length() >= 8) {
-                    user.setPassword(bCryptPasswordEncoder.encode(lozinka));
-
-                } else {
-                    redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
-
-                    return "redirect:/profil";
-                }
-
-            } else {
-                redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
-
-                return "redirect:/profil";
-            }
-        }
         try {
 
             userService.save(user);
@@ -259,11 +318,11 @@ public class MainController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-            return "redirect:/profil";
+            return "redirect:/profil-edit";
         }
-        redirectAttributes.addFlashAttribute("successMessage", "Profil je uspesno izmenjen.");
+        redirectAttributes.addFlashAttribute("successMessage", "Profil je uspešno izmenjen.");
 
-        return "redirect:/profil";
+        return "redirect:/profil-edit";
     }
 
     @GetMapping(value = "/shop")
@@ -311,16 +370,16 @@ public class MainController {
         return "main/infoDostava";
     }
 
-    @GetMapping(value = "/kontakt")
-    public String publicContactMargotekstil(final Model model) {
+    @GetMapping(value = "/contact")
+    public String publicContact(final Model model) {
 
-        return "main/kontakt";
+        return "main/contact";
     }
 
-    @GetMapping(value = "/onama")
-    public String publicOnamaMargotekstil(final Model model) {
+    @GetMapping(value = "/about")
+    public String publicAbout(final Model model) {
 
-        return "main/onama";
+        return "main/about";
     }
 
     @GetMapping(value = "/galerija")
@@ -466,7 +525,7 @@ public class MainController {
             @RequestParam(name = "poruka") String poruka
     ) {
         try {
-            EmailController.SendEmailPoruka(ime, prezime, email, telefon, poruka);
+            EmailController.SendEmailPoruka(ime, email, telefon, poruka);
             EmailController.SendEmailPorukaPoslata(email, ime, prezime);
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());

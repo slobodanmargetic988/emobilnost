@@ -2011,7 +2011,6 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   padding: 20px;
   color: black;
   max-width: 375px;
-  -webkit-box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
   box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
   border-radius: 0.2rem;
   position: fixed;
@@ -2023,9 +2022,8 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 
 .close-btn {
-  margin-left: 0.938rem;
-  color: #892f2b;
-  font-weight: bold;
+  color: #4d4d4d !important;
+  font-weight: 500;
   float: right;
   font-size: 2rem;
   line-height: 1.25rem;
@@ -2033,19 +2031,17 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   transition: 0.3s;
 }
 .close-btn:hover {
-  color: #211b14;
+  color: #999999 !important;
 }
 
 .alert-heading {
   text-align: center;
   font-size: 1.3rem;
-  margin-left: .5rem;
   font-weight: 500;
 }
 
 .alert-poruka-uspesna-prijava {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  padding: 4rem 0 2rem 0;
 }
 
 .fa-check-circle {
@@ -2802,12 +2798,12 @@ img {
   width: 50px;
 }
 .blog-section .entry-content {
-  padding: 25px 20px;
+  padding: 0 20px 25px;
 }
 .blog-section .dateNews {
   color: #999999;
   /*color: hsla(0, 0%, 50%, 1);*/
-  font-size: 14px;
+  font-size: 14px !important;
 }
 .blog-section .entry-meta {
   margin-left: -8px !important;

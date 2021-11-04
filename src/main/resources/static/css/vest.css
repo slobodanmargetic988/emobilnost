@@ -1,0 +1,215 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+.single-post h2 {
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+.single-post .post-meta {
+  margin-bottom: 20px;
+  font-size: .9em;
+}
+.single-post .post-meta > span {
+  display: inline-block;
+  padding-right: 8px;
+  color: #666666;
+}
+.single-post .post-meta > span a {
+  color: #445abb;
+}
+.single-post .post-meta > span a:hover {
+  color: #3a4da1;
+  text-decoration: underline !important;
+}
+.single-post .post-meta i {
+  margin-right: 5px;
+  color: gray;
+}
+.single-post p {
+  color: gray;
+}
+.single-post .post-image {
+  margin: 2rem 0;
+}
+.single-post .img-thumbnail {
+  background: white;
+  max-width: 100%;
+  height: auto;
+}
+.single-post .img-thumbnail.img-thumbnail-no-borders {
+  border: none;
+  padding: 0;
+}
+.single-post h4 {
+  font-size: 1.5rem !important;
+}
+.single-post ul.comments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.single-post ul.comments li {
+  clear: both;
+  padding: 10px 0 0 70px;
+  line-height: 24px;
+}
+.single-post ul.comments li .comment {
+  margin-bottom: 10px;
+}
+.single-post ul.comments li .img-thumbnail {
+  margin-left: -70px;
+  position: absolute;
+}
+.single-post ul.comments li .img-thumbnail img {
+  border-radius: 4px;
+}
+.single-post ul.comments li img.avatar {
+  height: 48px;
+  width: 48px;
+}
+.single-post ul.comments li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #445abb;
+}
+.single-post ul.comments li a:hover {
+  color: #3a4da1;
+  text-decoration: underline !important;
+}
+.single-post ul.comments .comment-block {
+  background: #f7f7f7;
+  border-radius: 5px;
+  padding: 20px 20px 30px;
+  position: relative;
+}
+.single-post ul.comments .comment-block .comment-by {
+  display: block;
+  font-size: 1em;
+  line-height: 21px;
+  margin: 0;
+  padding: 0 0 5px;
+}
+.single-post ul.comments .comment-block p {
+  font-size: .9em;
+  line-height: 21px;
+  margin: 0;
+  padding: 0;
+  color: #999999;
+}
+.single-post ul.comments .comment-block .date {
+  color: #999;
+  font-size: .9em;
+}
+.single-post ul.comments .comment-arrow {
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #f7f7f7;
+  border-top: 12px solid transparent;
+  height: 0;
+  left: -12px;
+  position: absolute;
+  top: 12px;
+  width: 0;
+}
+.single-post form label.required:after {
+  content: "*";
+  font-size: .8em;
+  margin: 0.3em;
+  position: relative;
+  top: -2px;
+}
+.single-post form input, .single-post form textarea {
+  position: relative;
+  width: 100%;
+  padding: 1.3rem;
+  color: #211b14;
+  border: 2px solid #d2d7ef;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+  margin: 0 0 0.5rem 0;
+  font-weight: 300;
+}
+.single-post form input:focus, .single-post form textarea:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #adb6e1;
+}
+.single-post form label {
+  color: #3a4da1;
+}
+
+.float-end {
+  float: right!important;
+}
+
+.bg-color-grey {
+  background: #f7f7f7;
+}
+
+.sendComment {
+  width: 120px;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  font-size: .95rem;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+.sendComment::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bc63f;
+  border-radius: 5px;
+  z-index: -2;
+}
+.sendComment::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #70a130;
+  transition: all 0.3s;
+  border-radius: 5px;
+  z-index: -1;
+}
+.sendComment:hover {
+  color: white;
+}
+.sendComment:hover::before {
+  width: 100%;
+}
+.sendComment:focus {
+  outline: none;
+}
+
+@media (max-width: 575px) {
+  .single-post ul.comments li {
+    border-left: 8px solid rgba(0, 0, 0, 0.06);
+    clear: both;
+    padding: 0 0 0 10px;
+  }
+  .single-post ul.comments .comment-arrow {
+    display: none;
+  }
+}

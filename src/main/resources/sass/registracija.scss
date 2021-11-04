@@ -261,14 +261,14 @@
     }
 }
 
-#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat{
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat, #openOko, #openedOko {
     color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);
 }
-#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat, #closeOko, #closedOko {
     display: none;
     color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);
 }
-#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin {
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin, #openOko, #openedOko, #closeOko, #closedOko {
     margin-top: -47px;
     @include show-hide-btn;
 }
@@ -293,6 +293,12 @@
     letter-spacing: .02rem;
     display: none;
 }
+
+#label-3 {
+    color: #dc3545;
+    font-size: .8rem;
+}
+
 
 /*za telefon input*/
 .no-arrow {

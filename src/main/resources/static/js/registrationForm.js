@@ -41,6 +41,43 @@ $(document).ready(function () {
     });
 
 
+    $("#openEyed").click(function () {
+        $("#openEyed").hide();
+        $("#closedEyed").show();
+        $("#oldPassword").attr("type", "text");
+    });
+    $("#closedEyed").click(function () {
+        $("#closedEyed").hide();
+        $("#openEyed").show();
+        $("#oldPassword").attr("type", "password");
+    });
+
+
+    $("#openEye").click(function () {
+        $("#openEye").hide();
+        $("#closedEye").show();
+        $("#newPassword").attr("type", "text");
+    });
+    $("#closedEye").click(function () {
+        $("#closedEye").hide();
+        $("#openEye").show();
+        $("#newPassword").attr("type", "password");
+    });
+
+    $("#eyeOpen").click(function () {
+        $("#eyeOpen").hide();
+        $("#eyeClose").show();
+        $("#repeatNewPassword").attr("type", "text");
+    });
+    $("#eyeClose").click(function () {
+        $("#eyeClose").hide();
+        $("#eyeOpen").show();
+        $("#repeatNewPassword").attr("type", "password");
+    });
+
+
+
+
 
 
     $(".openPasswordConf").click(function () {
@@ -67,6 +104,37 @@ $(document).ready(function () {
         $(".openPasswordLogin").show();
         $("#passwordLogin").attr("type", "password");
     });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       $("#openOko").click(function () {
+        $("#openOko").hide();
+        $("#closeOko").show();
+        $("#passwordReset").attr("type", "text");
+    });
+    $("#closeOko").click(function () {
+        $("#closeOko").hide();
+        $("#openOko").show();
+        $("#passwordReset").attr("type", "password");
+    });
+
+    $("#openedOko").click(function () {
+        $("#openedOko").hide();
+        $("#closedOko").show();
+        $("#passwordResetRepeat").attr("type", "text");
+    });
+    $("#closedOko").click(function () {
+        $("#closedOko").hide();
+        $("#openedOko").show();
+        $("#passwordResetRepeat").attr("type", "password");
+    });
+
     /* password show/hide end */
 
 
@@ -78,10 +146,27 @@ $(document).ready(function () {
         } else {
             $("#label-2").css("display", "block");
             $("#label-2").text("* Lozinke se ne poklapaju");
-        } if ($("#passwordRegistration").val().length === 0 && $("#passwordRegistrationConfirmation").val().length === 0) {
+        }
+        if ($("#passwordRegistration").val().length === 0 && $("#passwordRegistrationConfirmation").val().length === 0) {
             $("#label-2").css("display", "none");
         }
     });
+    
+    
+    
+//    
+//    $("input").keyup(function () {
+//        if ($("#passwordReset").val() === $("#passwordResetRepeat").val()) {
+//            $("#label-3").text("* Lozinke se poklapaju");
+//            $("#label-3").css('color', '#28a745 !important');
+//        } else {
+//            $("#label-3").css("display", "block");
+//            $("#label-3").text("* Lozinke se ne poklapaju");
+//        }
+//        if ($("#passwordReset").val().length === 0 && $("#passwordResetRepeat").val().length === 0) {
+//            $("#label-3").css("display", "none");
+//        }
+//    });
 
 
 });
