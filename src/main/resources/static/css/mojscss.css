@@ -2780,6 +2780,10 @@ img {
 }
 
 /*blog*/
+.blog-section-small {
+  padding: 0 !important;
+}
+
 .blog-section {
   padding: 100px 0;
 }
