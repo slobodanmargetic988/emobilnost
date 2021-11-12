@@ -8,6 +8,20 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+.big-header-hidden {
+  display: none;
+}
+
+.text-box.text-box-mini {
+  top: 9vw;
+  left: 50vw;
+}
+.text-box.text-box-mini h3 {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+  font-size: 3.5vw !important;
+}
+
 /*
 .gallery-header-img {
     width: 100%;
@@ -257,6 +271,21 @@ a {
     margin-bottom: 25px;
     padding-top: 25px;
     font-size: 24px;
+  }
+
+  .big-header-hidden {
+    display: block;
+  }
+
+  .text-box.text-box-mini {
+    position: absolute;
+    top: 19vw;
+    left: 47vw;
+  }
+  .text-box.text-box-mini h3 {
+    /*font-family: $font-handwriting;*/
+    /*letter-spacing: normal;*/
+    font-size: 5.5vw !important;
   }
 }
 .photo-gallery .intro {

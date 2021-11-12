@@ -14,7 +14,7 @@
             <div> <a href="/" class="navbar-brand mr-0" ><img class="img-fluid"  id="brandlogo" src="/img/e-mob-logo-auto2.png" alt="e-mobilnost logo image"></a></div>
 
             <button class="navbar-toggler ml-1 " type="button" data-toggle="collapse" data-target="#collapsingNavbar2" id="closeHamburger" aria-label="otvori / zatvori meni"> 
-                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                <span  class="maliekran meni changecolor">MENI</span> <span class="navbar-toggler-icon navbar-toggler-icon-clr" aria-hidden="true"></span>
             </button>
             <div class="navbar-collapse collapse" id="collapsingNavbar2">
 
@@ -25,7 +25,7 @@
                         <a class="nav-link nav-link-admin changenavlinkcolor" id="homeLink" th:href="@{/}">POČETNA<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/about}">O NAMA</a>
+                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/o-nama}">O NAMA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/pogodnosti}">POGODNOSTI</a>
@@ -59,10 +59,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/contact}">KONTAKT</a>
+                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/kontakt}">KONTAKT</a>
                     </li>
                     <li class="nav-item" sec:authorize="!isAuthenticated()" >
-                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/registration}">ULOGUJ SE</a>
+                        <a class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/registracija}">ULOGUJ SE</a>
                     </li>
 
 
@@ -80,7 +80,7 @@
                     <!--<li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa" aria-label="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i></a> </li>-->
                     <li class="nav-item"><a class="nav-link nav-link-admin uclani-se-btn changenavlinkcolor" th:href="@{/uclani-se}">UČLANI SE</a> </li>
 
-                    <!--<li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" aria-label="Uloguj se"><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>-->
+                    <!--<li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registracija}" data-toggle="popover"  data-content="Uloguj se" aria-label="Uloguj se"><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>-->
 
                     <li sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"  class="nav-item">
                         <a style="padding-top: .9rem;" class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/profil}" data-toggle="popover"  data-content="Profil" aria-label="Profil">
@@ -90,7 +90,7 @@
 
                     <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')">
                         <a style="padding-top: .9rem;" class="nav-link nav-link-admin changenavlinkcolor" th:href="@{/logout}" data-toggle="popover"  data-content="Odjava"aria-label="Odjava">
-                            <span  class="maliekran"  >ODJAVA&nbsp;&nbsp;</span><i class="fa fa-power-off"></i>
+                            <span  class="maliekran">ODJAVA&nbsp;&nbsp;</span><i class="fa fa-power-off"></i>
                         </a>
                     </li>
                 </ul>
@@ -114,7 +114,7 @@
 
             </div>
             <ul class="user-icon-nav">
-                <li><a th:href="@{/adminHome}"><em class="ti"></em>Dodaj vest</a></li>
+                <li><a th:href="@{/admin-pocetna}"><em class="ti"></em>Dodaj vest</a></li>
                 <li><a th:href="@{/admin-dodaj-fajl}"><em class="ti"></em>Dodaj fajl</a></li>
                 <li><a th:href="@{/admin-pregled-fajlova}"><em class="ti"></em>Pregled fajlova</a></li>
                 <li><a th:href="@{/vesti}"><em class="ti"></em>Pregled vesti</a></li>
@@ -148,7 +148,7 @@
             <ul class="user-nav">
                 <li><a class="aktiv" th:href="@{/profil}">Lični podaci</a></li>
                 <li><a th:href="@{/profil-edit}">Izmena ličnih podataka</a></li>
-                <li><a th:href="@{/change-password}">Promena lozinke</a></li>
+                <li><a th:href="@{/promena-lozinke}">Promena lozinke</a></li>
                 <li><a th:href="@{/newsletterOdjava}">Odjava sa newsletter-a</a></li>
                 <li><a th:href="@{/logout}">Odjavi se</a></li>
             </ul>

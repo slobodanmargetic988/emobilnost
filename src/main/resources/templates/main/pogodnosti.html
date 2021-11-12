@@ -2,9 +2,13 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Pogodnosti</title>
+        <title>Pogodnosti za članove udruženja E-Mobilnost </title>
 
-        <meta name="description" content="E-Mobilnost Pogodnosti"/> 
+        <meta name="description" content="Saznajte više o pogodnostima članstva u udruženju E-Mobilnost.."/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, o nama, o udruženju, o emobilnosti, o e-mobilnosti, 
+              pogodnosti, benefiti, pogodnosti za članove, benefiti za članove, pogodnosti za članove udruženja, benefiti za članove udruženja, pogodnosti članstva, popust, popust na vozila
+              popust na opremu, popust za članove, popust za članove udruženja, popust za članove kluba"/>
 
         <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
@@ -14,18 +18,19 @@
 
 <body>
     <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+              <th:block th:insert="fragments/topbar :: topbar" />
 
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carpogodnostismall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carpogodnosti.jpg">
-    <img src="/img/carpogodnosti.jpg" class="header-img " alt="o-nama-header-image">
+    <source media="(min-width: 992px)" srcset="/img/carpogodnostiCropped3.jpg">
+    <img src="/img/carpogodnostiCropped3.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Pogodnosti</p>
+<div class="text-box text-box-mini text-box-mini-pogodnosti">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Pogodnosti</h3>
 </div>
 
 <div class="section section-margin">

@@ -2,9 +2,12 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Profil korisnika</title>
+        <title>Izmena ličnih podataka na profilu korisnika | E-Mobilnost</title>
 
-        <meta name="description" content="E-Mobilnost profil korisnika. Ovde možete da izmenite lične podatke, podatke o dostavi, lozinku i ostalo . User profile page."/> 
+        <meta name="description" content="Možete da izmenite Vaše lične podatke na profilu | E-Mobilnost"/> 
+         <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, izmena profila, izmena ličnih podataka, lični podaci, profil, profil korisnika,
+              lični podaci korisnika"/>
         <link th:href="@{/css/profile.css}" rel="stylesheet" type="text/css" />
 
         <!--<link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />-->
@@ -15,19 +18,21 @@
 </head>
 
 <body>
+                  <th:block th:insert="fragments/topbar :: topbar" />
+
     <!--<img src="/img/sew1.png" class="header-img" alt="profil-header-image" >-->
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carProfilsmallscreen.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carProfil.jpg">
-    <img src="/img/carProfil.jpg" class="header-img" alt="home-header-image">
+    <source media="(min-width: 992px)" srcset="/img/carProfilCropped.jpg">
+    <img src="/img/carProfilCropped.jpg" class="header-img" alt="home-header-image">
 </picture>
 
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>                                              
-    <p>Profil</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>                                              
+    <h3>Profil</h3>
 </div>
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
 <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>

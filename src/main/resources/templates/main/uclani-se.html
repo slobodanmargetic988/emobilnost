@@ -2,9 +2,16 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title> E-Mobilnost | Učlani se</title>
+        <title>Učlani se | E-Mobilnost</title>
 
-        <meta name="description" content="E-Mobilnost Učlani se. Registrujte svoj nalog,ulogujte se ili povratite zaboravljenu šifru. Register, login or reset forgotten password."/> 
+        <meta name="description" content="Postanite član udruženja E-Mobilnost kako biste ostvarili benefite. Članstvom u udruženju ostvarujete pravo na brojne pogodnosti koje Vam inače nisu dostupne..."/> 
+
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, član, članstvo, članarina, učlani se, učlanite se, učlani se u emobilnost,
+              učlanite se u emobilnost,učlani se u e-mobilnost,učlanite se u e-mobilnost, emobilnost postani clan, članarina emobilnost, članarina emobilnost cena, članarina emobilnost cenovnik,
+              član udruženja, članstvo u udruženju, članarina udruženja, učlani se u udruženje, učlanite se u udruženje, članstvo, članstvo u udruženju,
+              član kluba, članstvo u klubu, članarina kluba, učlani se u klub, učlanite se u klub, članstvo, članstvo u udruženju, postanite član, postanite član udruženja"/>
+
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/uclani-se.css}" rel="stylesheet" type="text/css" />
@@ -12,18 +19,21 @@
 </head>
 
 <body>
-    <!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
 <picture>
     <source media="(max-width: 776px)" srcset="/img/caruclanisesmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/caruclanise.jpg">
-    <img src="/img/caruclanise.jpg" class="header-img " alt="mercedes black car hero image uclani se">
+    <source media="(min-width: 992px)" srcset="/img/caruclaniseCropped.jpg">
+    <img src="/img/caruclaniseCropped.jpg" class="header-img " alt="mercedes black car hero image uclani se">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Učlani se</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Postani član udruženja</h3>
+    <p>kako bi ostvario benefite</p>
 </div>
 
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
@@ -41,141 +51,394 @@
 
         <div class="user">
             <div class="formBx">
-                <form th:action="@{/noviClan}"  method="POST" >
-                    <h2>Učlanite se</h2>
-                    <!--<p class="text-center">Registracija nije neophodna, ali registrovanim korisnicima je lakše poručivanje robe jer ne moraju svaki put da unose podatke o dostavi.</p>-->
-                    <label for="ime">Ime</label>
-                    <input type="text" name="ime" placeholder="Ime " required/>
-                    <label for="prezime">Prezime</label>
-                    <input type="text" name="prezime" placeholder="Prezime" required/>
-                    <label for="email">Email adresa</label>
-                    <input type="email" name="email" placeholder="Email" required/>
-                    <label for="password">Lozinka</label>
-                    <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
-                    <i id="openPassword" class="fa fa-eye"></i>
-                    <i id="closedPassword" class="fa fa-eye-slash"></i>
-                    <label for="password">Potvrda lozinke</label>
-                    <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
-                    <i class="fa fa-eye openPasswordConf"></i>
-                    <i class="fa fa-eye-slash closedPasswordConf"></i>
-                    <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
-                    <label for="adresa">Adresa</label>
-                    <input type="text" name="adresa" placeholder="Adresa" required/>
-                    <label for="mesto">Grad</label>
-                    <input type="text" name="mesto" placeholder="Grad" required/>
-                    <label for="postanskibroj">Poštanski broj</label>
-                    <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
-                    <label for="drzava">Država</label>
-                    <input type="text" name="drzava" placeholder="Država" required/>
-                    <label for="telefon">Telefon</label>
-                    <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
-                    <label for="jmbg">JMBG</label>
-                    <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
+                <!--<form th:action="@{/noviClan}"  method="POST" >-->
+                <h2>Učlanite se</h2>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="fizickolice" value="fizickolice" checked>
-                        <label for="fizickolice" class="form-check-label" >
-                            Fizičko lice &euro;50,00
-                        </label>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#fLice" role="tab">Fizičko lice <br> 50,00 &euro;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#pLice" role="tab">Pravno lice  <br> 300,00 &euro;</a>
+                    </li>
+                </ul><!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="fLice" role="tabpanel">
+                        <form th:action="@{/noviClan}"  method="POST" >
+                            <label for="ime">Ime</label>
+                            <input type="text" name="ime" placeholder="Ime " required/>   
+                            <label for="prezime">Prezime</label>
+                            <input type="text" name="prezime" placeholder="Prezime" required/>
+                            <label for="email">Email adresa</label>
+                            <input type="email" name="email" placeholder="Email" required/>      
+                            <label for="password">Lozinka</label>
+                            <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
+                            <i id="openPassword" class="fa fa-eye"></i>
+                            <i id="closedPassword" class="fa fa-eye-slash"></i>   
+                            <label for="lozinkaRepeat">Potvrda lozinke</label>
+                            <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
+                            <i class="fa fa-eye openPasswordConf"></i>
+                            <i class="fa fa-eye-slash closedPasswordConf"></i>
+                            <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
+                            <label for="adresa">Adresa</label>
+                            <input type="text" name="adresa" placeholder="Adresa" required/>
+                            <label for="mesto">Grad</label>
+                            <input type="text" name="mesto" placeholder="Grad" required/>
+                            <label for="postanskibroj">Poštanski broj</label>
+                            <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
+                            <label for="drzava">Država</label>
+                            <input type="text" name="drzava" placeholder="Država" required/>
+                            <label for="telefon">Telefon</label>
+                            <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
+                            <label for="jmbg">JMBG</label>
+                            <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
+                            <div class="nacinPlacanja">
+                                <h6>Način plaćanja</h6>
+
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <label>
+                                            <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
+
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
+
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon" >
+                                                            <i class="fas fa-receipt"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
+
+                                                            Uplatnica
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </label>
+                                    </div>
+
+                                    <div class="col-xl-4" id="faktura" style="display: none">
+                                        <label>
+                                            <input type="radio" name="placanje" value="faktura" class="card-input-element" />
+
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
+
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon">
+                                                            <i class="fas fa-file-invoice"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
+
+                                                            Faktura
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <label>
+                                            <input type="radio" name="placanje" value="kartica" class="card-input-element" />
+
+                                            <input type="radio" name="product" class="card-input-element" disabled />
+
+
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
+
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon">
+                                                            <i class="far fa-credit-card"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
+                                                            Kartica (u pripremi)
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
+                            </div>
+                            <button type="submit" class="submitForm">Učlani se</button>
+                        </form>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="pravnolice" value="pravnolice">
-                        <label for="pravnolice" class="form-check-label" >
-                            Pravno lice &euro;300,00
-                        </label>
-                        <!--pravno lice-->
-                        <div style="display:none" id="pravnolicedetalji">
+                    <div class="tab-pane" id="pLice" role="tabpanel">
+                        <form th:action="@{/noviClan}"  method="POST" >
+
+                            <label for="ime">Ime</label>
+                            <input type="text" name="ime" placeholder="Ime " required/>   
+                            <label for="prezime">Prezime</label>
+                            <input type="text" name="prezime" placeholder="Prezime" required/>
+                            <label for="email">Email adresa</label>
+                            <input type="email" name="email" placeholder="Email" required/>      
+                            <label for="password">Lozinka</label>
+                            <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
+                            <i id="openPassword" class="fa fa-eye"></i>
+                            <i id="closedPassword" class="fa fa-eye-slash"></i>    
+                            <label for="lozinkaRepeat">Potvrda lozinke</label>
+                            <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
+                            <i class="fa fa-eye openPasswordConf"></i>
+                            <i class="fa fa-eye-slash closedPasswordConf"></i>
+                            <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
+                            <label for="adresa">Adresa</label>
+                            <input type="text" name="adresa" placeholder="Adresa" required/>
+                            <label for="mesto">Grad</label>
+                            <input type="text" name="mesto" placeholder="Grad" required/>
+                            <label for="postanskibroj">Poštanski broj</label>
+                            <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
+                            <label for="drzava">Država</label>
+                            <input type="text" name="drzava" placeholder="Država" required/>
+                            <label for="telefon">Telefon</label>
+                            <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
+                            <label for="jmbg">JMBG</label>
+                            <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
                             <label for="pravnaosoba">Naziv pravne osobe</label>
                             <input type="text" name="pravnaosoba" placeholder="Naziv pravne osobe" class="no-arrow require-if-active" data-require-pair="#pravnoLice" />
                             <label for="pib">PIB</label>
                             <input type="number" name="pib" placeholder="PIB" class="no-arrow require-if-active" data-require-pair="#pib" />
-                        </div>
-                    </div>
-                    <br>
+                            <div class="nacinPlacanja">
+                                <h6>Način plaćanja</h6>
 
-                    <div class="nacinPlacanja">
-                        <h6>Način plaćanja</h6>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <label>
+                                            <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
 
-                        <div class="row">
-                            <div class="col-xl-4">
-                                <label>
-                                    <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
 
-                                    <div class="panel panel-default card-input">
-                                        <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon" >
+                                                            <i class="fas fa-receipt"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
 
-                                            <div class="row">
-                                                <div class="col-4 payIcon" >
-                                                    <i class="fas fa-receipt"></i>
-                                                </div>
-                                                <div class="col-8 panel-body">
-
-                                                    Uplatnica
+                                                            Uplatnica
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        </label>
                                     </div>
 
-                                </label>
-                            </div>
+                                    <div class="col-xl-4" id="faktura" >
+                                        <label>
+                                            <input type="radio" name="placanje" value="faktura" class="card-input-element" />
 
-                            <div class="col-xl-4" id="faktura" style="display: none">
-                                <label>
-                                    <input type="radio" name="placanje" value="faktura" class="card-input-element" />
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
 
-                                    <div class="panel panel-default card-input">
-                                        <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon">
+                                                            <i class="fas fa-file-invoice"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
 
-                                            <div class="row">
-                                                <div class="col-4 payIcon">
-                                                    <i class="fas fa-file-invoice"></i>
-                                                </div>
-                                                <div class="col-8 panel-body">
-
-                                                    Faktura
+                                                            Faktura
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </label>
                                     </div>
-                                </label>
-                            </div>
-                            <div class="col-xl-4">
-                                <label>
-                                    <input type="radio" name="placanje" value="kartica" class="card-input-element" />
+                                    <div class="col-xl-4">
+                                        <label>
+                                            <input type="radio" name="placanje" value="kartica" class="card-input-element" />
 
-                                    <input type="radio" name="product" class="card-input-element" disabled />
+                                            <input type="radio" name="product" class="card-input-element" disabled />
 
 
-                                    <div class="panel panel-default card-input">
-                                        <div class="container">
+                                            <div class="panel panel-default card-input">
+                                                <div class="container">
 
-                                            <div class="row">
-                                                <div class="col-4 payIcon">
-                                                    <i class="far fa-credit-card"></i>
-                                                </div>
-                                                <div class="col-8 panel-body">
-                                                    Kartica (u pripremi)
+                                                    <div class="row">
+                                                        <div class="col-4 payIcon">
+                                                            <i class="far fa-credit-card"></i>
+                                                        </div>
+                                                        <div class="col-8 panel-body">
+                                                            Kartica (u pripremi)
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
+                            </div>
+                            <button type="submit" class="submitForm">Učlani se</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!--                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="fizicko_lice">
+                                            <label for="ime">Ime</label>
+                                            <input type="text" name="ime" placeholder="Ime " required/>
+                                        </div> 
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active" role="tabpanel" aria-labelledby="pravno_lice">
+                                            <label for="prezime">Prezime</label>
+                                            <input type="text" name="prezime" placeholder="Prezime" required/>
+                                        </div> 
+                                    </div>-->
+
+                <!--                    <label for="ime">Ime</label>
+                                    <input type="text" name="ime" placeholder="Ime " required/>-->
+
+                <!--                    <label for="prezime">Prezime</label>
+                                    <input type="text" name="prezime" placeholder="Prezime" required/>
+                                    <label for="email">Email adresa</label>
+                                    <input type="email" name="email" placeholder="Email" required/>
+                                    <label for="password">Lozinka</label>
+                                    <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
+                                    <i id="openPassword" class="fa fa-eye"></i>
+                                    <i id="closedPassword" class="fa fa-eye-slash"></i>
+                                    <label for="password">Potvrda lozinke</label>
+                                    <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
+                                    <i class="fa fa-eye openPasswordConf"></i>
+                                    <i class="fa fa-eye-slash closedPasswordConf"></i>
+                                    <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
+                                    <label for="adresa">Adresa</label>
+                                    <input type="text" name="adresa" placeholder="Adresa" required/>
+                                    <label for="mesto">Grad</label>
+                                    <input type="text" name="mesto" placeholder="Grad" required/>
+                                    <label for="postanskibroj">Poštanski broj</label>
+                                    <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
+                                    <label for="drzava">Država</label>
+                                    <input type="text" name="drzava" placeholder="Država" required/>
+                                    <label for="telefon">Telefon</label>
+                                    <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
+                                    <label for="jmbg">JMBG</label>
+                                    <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>-->
+
+                <!--                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="fizickolice" value="fizickolice" checked>
+                                        <label for="fizickolice" class="form-check-label" >
+                                            Fizičko lice &euro;50,00
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="pravnolice" value="pravnolice">
+                                        <label for="pravnolice" class="form-check-label" >
+                                            Pravno lice &euro;300,00
+                                        </label>
+                                        pravno lice
+                                        <div style="display:none" id="pravnolicedetalji">
+                                            <label for="pravnaosoba">Naziv pravne osobe</label>
+                                            <input type="text" name="pravnaosoba" placeholder="Naziv pravne osobe" class="no-arrow require-if-active" data-require-pair="#pravnoLice" />
+                                            <label for="pib">PIB</label>
+                                            <input type="number" name="pib" placeholder="PIB" class="no-arrow require-if-active" data-require-pair="#pib" />
                                         </div>
                                     </div>
-                                </label>
-                            </div>
+                                    <br>
+                
+                                    <div class="nacinPlacanja">
+                                        <h6>Način plaćanja</h6>
+                
+                                        <div class="row">
+                                            <div class="col-xl-4">
+                                                <label>
+                                                    <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
+                
+                                                    <div class="panel panel-default card-input">
+                                                        <div class="container">
+                
+                                                            <div class="row">
+                                                                <div class="col-4 payIcon" >
+                                                                    <i class="fas fa-receipt"></i>
+                                                                </div>
+                                                                <div class="col-8 panel-body">
+                
+                                                                    Uplatnica
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                </label>
+                                            </div>
+                
+                                            <div class="col-xl-4" id="faktura" style="display: none">
+                                                <label>
+                                                    <input type="radio" name="placanje" value="faktura" class="card-input-element" />
+                
+                                                    <div class="panel panel-default card-input">
+                                                        <div class="container">
+                
+                                                            <div class="row">
+                                                                <div class="col-4 payIcon">
+                                                                    <i class="fas fa-file-invoice"></i>
+                                                                </div>
+                                                                <div class="col-8 panel-body">
+                
+                                                                    Faktura
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xl-4">
+                                                <label>
+                                                    <input type="radio" name="placanje" value="kartica" class="card-input-element" />
+                
+                                                    <input type="radio" name="product" class="card-input-element" disabled />
+                
+                
+                                                    <div class="panel panel-default card-input">
+                                                        <div class="container">
+                
+                                                            <div class="row">
+                                                                <div class="col-4 payIcon">
+                                                                    <i class="far fa-credit-card"></i>
+                                                                </div>
+                                                                <div class="col-8 panel-body">
+                                                                    Kartica (u pripremi)
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+                
+                                        </div>
+                
+                                    </div>-->
 
-                        </div>
-
-                    </div>
-
-                    <br>
-                    <div class="checkbox">
-                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
-                    </div>
-                    <div class="checkbox">
-                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
-                    </div>
-                    <button type="submit" class="submitForm">Učlani se</button>
-
-                </form>
+                <!--                    <br>
+                                    <div class="checkbox">
+                                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
+                                    </div>
+                                    <button type="submit" class="submitForm">Učlani se</button>
+                
+                                </form>-->
             </div>
         </div>
 

@@ -2,7 +2,7 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Vest</title>
+        <title>Vest | E-Mobilnost</title>
 
         <meta name="description" content="E-Mobilnost Vest"/> 
 
@@ -14,17 +14,18 @@
 
 <body>
     <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+              <th:block th:insert="fragments/topbar :: topbar" />
 
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carvestismall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carvesti.jpg">
-    <img src="/img/carvesti.jpg" class="header-img " alt="o-nama-header-image">
+    <source media="(min-width: 992px)" srcset="/img/carvestiCropped.jpg">
+    <img src="/img/carvestiCropped.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
 </div>
 
 

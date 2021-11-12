@@ -62,10 +62,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class MainController {
 
-    @GetMapping(value = "/adminHome")
+    @GetMapping(value = "/admin-pocetna")
     public String adminC4bHome(final Model model) {
 
-        return "main/adminHome";
+        return "main/admin-pocetna";
     }
     
     
@@ -95,7 +95,7 @@ public class MainController {
         return "main/profil";
     }
 
-    @GetMapping("/change-password")
+    @GetMapping("/promena-lozinke")
     public String changePassword(Model model,
             RedirectAttributes redirectAttributes
     ) {
@@ -107,10 +107,10 @@ public class MainController {
             model.addAttribute("userLogedIn", user);
         }
 
-        return "main/change-password";
+        return "main/promena-lozinke";
     }
 
-    @RequestMapping(value = "/change-password/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/promena-lozinke/save", method = RequestMethod.POST)
     public String profilSave(final Model model, final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
             @RequestParam(name = "oldPassword", required = false) String oldPassword,
@@ -133,13 +133,13 @@ public class MainController {
                     } else {
                         redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera.");
 
-                        return "redirect:/change-password";
+                        return "redirect:/promena-lozinke";
                     }
 
                 } else {
                     redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka.");
 
-                    return "redirect:/change-password";
+                    return "redirect:/promena-lozinke";
                 }
             }
             try {
@@ -149,17 +149,17 @@ public class MainController {
             } catch (Exception e) {
                 redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-                return "redirect:/change-password";
+                return "redirect:/promena-lozinke";
             }
             redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno izmenjena.");
 
-            return "redirect:/change-password";
+            return "redirect:/promena-lozinke";
 
         } else {
             //System.out.println(oldPassword+"    "+oldPasswordEncrypted+"  "+user.getPassword());
             redirectAttributes.addFlashAttribute("errorMessage", "Stara lozinka se ne poklapa sa lozinkom u bazi.");
 
-            return "redirect:/change-password";
+            return "redirect:/promena-lozinke";
         }
     }
 
@@ -229,7 +229,7 @@ public class MainController {
     public String login(final Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return "main/registration";
+        return "main/registracija";
     }
 
     @GetMapping("/")
@@ -370,16 +370,16 @@ public class MainController {
         return "main/infoDostava";
     }
 
-    @GetMapping(value = "/contact")
+    @GetMapping(value = "/kontakt")
     public String publicContact(final Model model) {
 
-        return "main/contact";
+        return "main/kontakt";
     }
 
-    @GetMapping(value = "/about")
+    @GetMapping(value = "/o-nama")
     public String publicAbout(final Model model) {
 
-        return "main/about";
+        return "main/o-nama";
     }
 
     @GetMapping(value = "/galerija")
@@ -475,10 +475,10 @@ public class MainController {
 
     }
 
-    @GetMapping(value = "/registration")
+    @GetMapping(value = "/registracija")
     public String publicRegistrationMargotekstil(final Model model) {
 
-        return "main/registration";
+        return "main/registracija";
     }
 
     @GetMapping(value = "/error404")
@@ -551,7 +551,7 @@ public class MainController {
         if (userService.findFirstByEmail(email) != null) {
             redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetom email adresom već postoji.");
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
 
         Users user = new Users();
@@ -578,28 +578,28 @@ public class MainController {
                 } catch (Exception e) {
                     redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-                    return "redirect:/registration";
+                    return "redirect:/registracija";
                 }
             } else {
                 redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
-                return "redirect:/registration";
+                return "redirect:/registracija";
             }
 
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
         redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste registrovali novi nalog.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
     @Autowired
     private ResetTokeniService resetTokeniService;
 
-    @PostMapping(value = "/resetPassword")
+    @PostMapping(value = "/reset-lozinke")
     public String publicResetPasswordMargotekstil(final Model model,
             @RequestParam(name = "email") String email,
             RedirectAttributes redirectAttributes
@@ -607,7 +607,7 @@ public class MainController {
 
         if (userService.findFirstByEmail(email) == null) {
             redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetim emailom ne postoji.");
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
 
         Users user = userService.findFirstByEmail(email);
@@ -634,16 +634,16 @@ public class MainController {
 
         redirectAttributes.addFlashAttribute("successMessage", "Poslat vam je link na email za resetovanje lozinke.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
-    @GetMapping(value = "/resetPassword")
+    @GetMapping(value = "/reset-lozinke")
     public String resetPasswordMargotekstil(final Model model) {
 
-        return "main/resetPassword";
+        return "main/reset-lozinke";
     }
 
-    @GetMapping(value = "/resetPassword/{resetToken}")
+    @GetMapping(value = "/reset-lozinke/{resetToken}")
     public String resetPassword2Margotekstil(final Model model,
             @PathVariable final String resetToken
     ) {
@@ -652,10 +652,10 @@ public class MainController {
             model.addAttribute("email", resetTokeni.getEmail());
         }
         resetTokeniService.delete(resetTokeni);
-        return "main/resetPassword";
+        return "main/reset-lozinke";
     }
 
-    @PostMapping(value = "/resetPassword/{email}")
+    @PostMapping(value = "/reset-lozinke/{email}")
     public String resetPassword3Margotekstil(final Model model,
             RedirectAttributes redirectAttributes,
             @PathVariable final String email,
@@ -673,22 +673,22 @@ public class MainController {
                 } catch (Exception e) {
                     redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-                    return "redirect:/registration";
+                    return "redirect:/registracija";
                 }
             } else {
                 redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
-                return "redirect:/registration";
+                return "redirect:/registracija";
             }
 
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
         redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno promenjena.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
     @Autowired
@@ -804,7 +804,7 @@ public class MainController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
 
         if (placanje.equals("uplatnica")) {

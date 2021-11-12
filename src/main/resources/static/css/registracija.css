@@ -8,6 +8,25 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+.big-header-hidden {
+  display: none;
+}
+
+.text-box.text-box-mini {
+  top: 12vw;
+  left: 50vw;
+}
+.text-box.text-box-mini h3 {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+  font-size: 3.5vw !important;
+}
+.text-box.text-box-mini p {
+  font-size: 1.8vw;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+}
+
 .form-check {
   padding-left: 0 !important;
 }
@@ -340,6 +359,22 @@ input[type="radio"]:checked ~ .reveal-if-active {
   }
   #regi-login-form .container-registration .user .formBx {
     width: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .big-header-hidden {
+    display: block;
+  }
+
+  .text-box.text-box-mini {
+    position: absolute;
+    top: 19vw;
+    left: 47vw;
+  }
+  .text-box.text-box-mini h3 {
+    /*font-family: $font-handwriting;*/
+    /*letter-spacing: normal;*/
+    font-size: 5.5vw !important;
   }
 }
 @media (max-width: 575px) {

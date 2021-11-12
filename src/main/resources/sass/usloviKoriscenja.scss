@@ -1,5 +1,23 @@
 @import "./variables";
 
+.big-header-hidden {
+    display: none;
+}
+.text-box.text-box-mini {
+    top: 9vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+}
+.page-text {
+    h4 {
+        margin-bottom: 1rem;
+    }
+}
+
 .body-content {
     .content {
         margin: 4rem 0;
@@ -27,6 +45,23 @@
             line-height: 1.42857143;
             vertical-align: top;
             border-top: 1px solid #ddd;
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+    .big-header-hidden {
+        display: block;
+    }
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            /*font-family: $font-handwriting;*/
+            /*letter-spacing: normal;*/
+            font-size: 5.5vw !important;
         }
     }
 }

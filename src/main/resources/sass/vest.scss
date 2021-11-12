@@ -2,6 +2,19 @@
 @import "./variables";
 @import "./mixins";
 
+.big-header-hidden {
+    /*display: none;*/
+}
+.text-box.text-box-mini {
+    top: 9vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+}
+
 .single-post {
     h2 {
         font-weight: 600;
@@ -199,6 +212,22 @@
     }
     &:focus {
         outline: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .big-header-hidden {
+        display: block;
+    }
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            font-family: $font-handwriting;
+            /*letter-spacing: normal;*/
+            font-size: 8.5vw !important;
+        }
     }
 }
 

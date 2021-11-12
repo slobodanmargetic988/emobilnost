@@ -3,6 +3,21 @@
 @import "./mixins";
 
 
+.big-header-hidden {
+    display: none;
+}
+
+.text-box.text-box-mini {
+    top: 10vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+}
+
+
 .profile-wraper {
     margin: 3rem 0;
     .user-left-sidebar {
@@ -159,7 +174,7 @@
 }
 
 .inputPlaceholderSize::placeholder {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
@@ -174,4 +189,23 @@
 #openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin, #openEye, #closedEye, #openEyed, #closedEyed, #eyeOpen, #eyeClose {
     margin-top: -40px;
     @include show-hide-btn;
+}
+
+
+@media (max-width:767px) {
+
+.big-header-hidden {
+        display: block !important;
+    }
+
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            /*font-family: $font-handwriting;*/
+            /*letter-spacing: normal;*/
+            font-size: 5.5vw !important;
+        }
+    }
 }

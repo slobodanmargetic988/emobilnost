@@ -69,7 +69,7 @@ public class EmailController {
     static final String SUBJECTPORUCENAROBA = "Poručeni proizvodi";
  static final String SUBJECTPrimljena = "Primljena poruka";
     public static String welcomeEmaillink = "https://emobilnost.com";
-    public static String resetEmaillink = "https://emobilnost.com/resetPassword/";
+    public static String resetEmaillink = "https://emobilnost.com/reset-lozinke/";
 
     //registracija novog korisnika, pa tom korisniku stize poruka na email
     public static void SendEmailRegistracija(Users user) throws Exception {
@@ -785,7 +785,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 Zdravo " + ime + " " + prezime + ","
                 + "               </p> "
                 + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;\"> "
-                + "                 Hvala što ste učlanili na E-Mobilnost. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate status članstva, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3a4da1;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.emobilnost.rs/<wbr>moj-nalog/</a>  "
+                + "                 Hvala što ste učlanili na E-Mobilnost. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate status članstva, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registracija/\" rel=\"nofollow\" style=\"color:#3a4da1;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.emobilnost.rs/<wbr>moj-nalog/</a>  "
                 + "                 <br> <br> "
                 + "                 Nadamo se da ćemo vas uskoro videti. "
                 + "                </p> "
@@ -849,7 +849,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 <tbody>"
                 + "                   <tr>"
                 + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#8cc63f;color:#ffffff;border-radius:3px\">"
-                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"https://" + serverip + "/resetPassword/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
+                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"https://" + serverip + "/reset-lozinke/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
                 + "                     </td>"
                 + "                   </tr>"
                 + "                 </tbody>"

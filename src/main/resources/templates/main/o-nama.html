@@ -2,10 +2,11 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | O nama</title>
+        <title>O udruženju | O E-Mobilnosti | E-Mobilnost</title>
 
-        <meta name="description" content="E-Mobilnost o nama. E-Mobilnost je udruženje vozača i ljubitelja električnih vozila."/> 
-
+        <meta name="description" content="Saznajte više o nama. E-Mobilnost je udruženje vozača i ljubitelja električnih vozila u Srbiji..."/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, o nama, o udruženju, o emobilnosti, o e-mobilnosti, pogodnosti, benefiti"/>
         <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
@@ -14,18 +15,19 @@
 
 <body>
     <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+              <th:block th:insert="fragments/topbar :: topbar" />
 
 <picture>
     <source media="(max-width: 776px)" srcset="/img/caronamasmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/caronama.jpg">
-    <img src="/img/caronama.jpg" class="header-img " alt="Car Image Sbout us hero">
+    <source media="(min-width: 992px)" srcset="/img/caronamaCropped2.jpg">
+    <img src="/img/caronamaCropped2.jpg" class="header-img " alt="Car Image Sbout us hero">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>O nama</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>O nama</h3>
 </div>
 
 <div class="section section-margin">
@@ -62,7 +64,7 @@
                         da utičemo na celokupno društvo kako bi se formirao i usvojio jedinstven stav o električnim vozilima kao 
                         najboljem rešenju za okoliš, klimu, energetsku efikasnost, za nas same, za našu ličnu i ekonomiju u celini.</p> 
                     <p style="font-weight: 600;">POSTANITE ČLAN I UČESTVUJTE U KREIRANJU ZELENIJE BUDUĆNOSTI</p>
-                    <p>  Ujedno, kroz pregovore s državnim institucijama, nastojimo da aktivno utičemo na promene i dopune zakona, poput povećanja subvencija, 
+                    <p> Ujedno, kroz pregovore s državnim institucijama, nastojimo da aktivno utičemo na promene i dopune zakona, poput povećanja subvencija, 
                         pojednostavljenja njihove isplate, širenje mreže punjača, pravovremeno reagovanje državnih tela na nepropisno parkiranje pored punionica 
                         za električna vozila, kao i na zakone o unapređenju ukupne infrastrukture za elektromobilnost.
                         <br> Svojim članstvom u Udruženju podržavate naša nastojanja da svima približimo izuzetnu važnost i vrednost električne 

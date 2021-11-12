@@ -3,6 +3,19 @@
 @import "./mixins";
 
 
+.big-header-hidden {
+    display: none;
+}
+.text-box.text-box-mini {
+    top: 9vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+}
+
 .document-section {
     text-align: justify;
     margin: 4rem 0;
@@ -11,6 +24,7 @@
         font-size: 35px;
         font-weight: 600;
         text-align: center;
+        margin-bottom: 2rem;
     }
     .under-main-heading, .rimskiBroj {
         font-size: 30px;
@@ -19,10 +33,12 @@
     .naslov-ispod-rimskog {
         font-size: 20px;
         text-align: center;
+            margin-bottom: 1.5rem;
     }
     .clan {
         text-align: center;
         font-weight: 700;
+        margin-bottom: 1rem;
     }
     a {
         color: #4a5ba8;
@@ -49,6 +65,19 @@
             font-size: 17px;
         }
 
+    }
+    .big-header-hidden {
+        display: block;
+    }
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            /*font-family: $font-handwriting;*/
+            /*letter-spacing: normal;*/
+            font-size: 5.5vw !important;
+        }
     }
 }
 

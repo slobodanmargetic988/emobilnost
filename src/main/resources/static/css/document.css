@@ -8,6 +8,20 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+.big-header-hidden {
+  display: none;
+}
+
+.text-box.text-box-mini {
+  top: 9vw;
+  left: 50vw;
+}
+.text-box.text-box-mini h3 {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+  font-size: 3.5vw !important;
+}
+
 .document-section {
   text-align: justify;
   margin: 4rem 0;
@@ -16,6 +30,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   font-size: 35px;
   font-weight: 600;
   text-align: center;
+  margin-bottom: 2rem;
 }
 .document-section .under-main-heading, .document-section .rimskiBroj {
   font-size: 30px;
@@ -24,10 +39,12 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 .document-section .naslov-ispod-rimskog {
   font-size: 20px;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 .document-section .clan {
   text-align: center;
   font-weight: 700;
+  margin-bottom: 1rem;
 }
 .document-section a {
   color: #4a5ba8;
@@ -50,6 +67,21 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   }
   .document-section .naslov-ispod-rimskog {
     font-size: 17px;
+  }
+
+  .big-header-hidden {
+    display: block;
+  }
+
+  .text-box.text-box-mini {
+    position: absolute;
+    top: 19vw;
+    left: 47vw;
+  }
+  .text-box.text-box-mini h3 {
+    /*font-family: $font-handwriting;*/
+    /*letter-spacing: normal;*/
+    font-size: 5.5vw !important;
   }
 }
 @media screen and (max-width: 575px) {

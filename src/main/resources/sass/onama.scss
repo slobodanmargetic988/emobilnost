@@ -2,9 +2,28 @@
 @import "./variables";
 @import "./mixins";
 
-.text-box p {
-    padding-top: .8rem;
-    font-size: 4.6vw;
+.big-header-hidden {
+    display: none;
+}
+
+.text-box.text-box-mini {
+    top: 10vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+}
+
+
+
+.text-box { 
+    /*color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);*/
+    h3 {
+        padding-top: .8rem;
+        font-size: 4.6vw;
+    }
 }
 
 .section-margin {
@@ -39,11 +58,11 @@
     max-width: 100%!important;
 }
 h2{
-/*     font-family: "Vidaloka", serif; */
+    /*     font-family: "Vidaloka", serif; */
     font-weight: 600 !important;
     line-height: 1.2;
     color: #232324;
-      font-size: 36px;
+    font-size: 36px;
 
 }
 .about-content span {
@@ -53,10 +72,10 @@ h2{
     display: block;
 }
 p {
-  /*font-family: "Montserrat", sans-serif;*/
+    /*font-family: "Montserrat", sans-serif;*/
     font-size: 16px !important;
     color: #8a8a8a;
-    line-height: 2;
+    line-height: 2 !important;
 }
 
 .m-b-30 {
@@ -65,35 +84,35 @@ p {
 
 
 .title-icon-divider {
-	color: #0791BE;
-	line-height: 1;
-	position: relative;
-	margin-top: 25px;
-	display: flex;
-	&:before {
-		content: "....";
-		display: inline-block;
-		font-size: 37px;
-		line-height: 0;
-		letter-spacing: 3px;
-	}
-	&:after {
-		content: "....";
-		display: inline-block;
-		font-size: 37px;
-		line-height: 0;
-		letter-spacing: 3px;
-	}
-	[class*=fa-] {
-		font-size: 20px;
-		margin-left: 10px;
-		margin-right: 10px;
-	}
-	~ {
-		p {
-			margin-top: 30px;
-		}
-	}
+    color: #0791BE;
+    line-height: 1;
+    position: relative;
+    margin-top: 25px;
+    display: flex;
+    &:before {
+        content: "....";
+        display: inline-block;
+        font-size: 37px;
+        line-height: 0;
+        letter-spacing: 3px;
+    }
+    &:after {
+        content: "....";
+        display: inline-block;
+        font-size: 37px;
+        line-height: 0;
+        letter-spacing: 3px;
+    }
+    [class*=fa-] {
+        font-size: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    ~ {
+        p {
+            margin-top: 30px;
+        }
+    }
 }
 
 .about-section {
@@ -250,8 +269,26 @@ p {
         }
     }
     .section-margin {
-    margin: 60px 0;
-}
+        margin: 60px 0;
+    }
+
+    .big-header-hidden {
+        display: block !important;
+    }
+
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            /*font-family: $font-handwriting;*/
+            /*letter-spacing: normal;*/
+            font-size: 5.5vw !important;
+        }
+    }
+    .text-box.text-box-mini.text-box-mini-pogodnosti {
+        left: 47vw;
+    }
 }
 
 

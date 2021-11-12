@@ -2,7 +2,7 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Galerija Slika</title>
+        <title>Galerija slika | E-Mobilnost</title>
 
         <link th:href="@{/css/galerija.css}" rel="stylesheet" type="text/css" />
         <link th:href="@{/css/pagination-custom.css}" rel="stylesheet" type="text/css" />
@@ -12,22 +12,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
 
 
-    <meta name="description" content="E-Mobilnost galerija slika. Pogledajte neke primere onogo što smo već uradili i slobodno nam se javite ako vam se nešto sviđa. Image gallery."/> 
+    <meta name="description" content="Galerija slika udruženja E-Mobilnost. Pogledajte našu galeriju slika | E-Mobilnost"/> 
+    <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja električnih vozila, 
+              emobilnost, električna vozila, električni automobili, vozila, automobili, električni motori, električni trotineti, motori, trotineti, electric vehicles, electric vehicle, galerija, galerija slika, galerija slika udruženja, 
+              galerija slika udruženja E-Mobilnost, električni pogon, vozila na električni pogon, elektromobili, elektromobilnost"/>
 </head>
 
 <body>
+                  <th:block th:insert="fragments/topbar :: topbar" />
+
     <!--<img src="/img/car-galerija.jpg" class="gallery-header-img" alt="header-image" >-->
 <picture>
     <source media="(max-width: 776px)" srcset="/img/gallerysmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/gallery.jpg">
-    <img src="/img/gallery.jpg" class="header-img" alt="home-header-image">
+    <source media="(min-width: 992px)" srcset="/img/galleryCropped.jpg">
+    <img src="/img/galleryCropped.jpg" class="header-img" alt="home-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Galerija</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Galerija</h3>
 </div>
 
 <section id="gallery ">

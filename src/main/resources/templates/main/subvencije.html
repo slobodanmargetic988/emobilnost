@@ -2,10 +2,14 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Subvencije</title>
+        <title>Subvencije za električne automobile u Srbiji | E-mobilnoste</title>
 
-        <meta name="description" content="E-Mobilnost Subvencije"/> 
-
+        <meta name="description" content="Subvencije za električne automobile u Srbiji. Uredba o uslovima i načinu sprovođenja subvencionisane kupovine novih vozila koja imaju isključivo električni pogon..."/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, subvencije, subvencije električna vozila, subvencije 
+              na električna vozila, subvencije za električna vozila, subvencije za kupovinu, subvencije za kupovinu električnih vozila, subvencije za kupovinu hibridnih vozila,
+              subvencije za kupovinu električnih i hibridnih vozila, subvencije za kupovinu električnih automobila, uredba, uredba subvencionisanja, subvencionisanje, 
+              subvencionisanje kupovine elektro vozila"/>
         <link th:href="@{/css/document.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
@@ -13,19 +17,21 @@
 </head>
 
 <body>
-    <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
-     <picture>
-            <source media="(max-width: 776px)" srcset="/img/carsubvencije.jpg">
-            <source media="(min-width: 992px)" srcset="/img/carsubvencijesmall.jpg">
-            <img src="/img/carsubvencijesmall.jpg" class="header-img" alt="subvencije electric car charging image hero">
-        </picture>
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/carsubvencije.jpg">
+    <source media="(min-width: 992px)" srcset="/img/carsubvencijesmallCropped.jpg">
+    <img src="/img/carsubvencijesmallCropped.jpg" class="header-img" alt="subvencije electric car charging image hero">
+</picture>
 
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Subvencije</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Subvencije</h3>
 </div>
 
 <div class="document-section">
@@ -36,15 +42,15 @@
             S71/05 – исправка, 101/07, 65/08, 16/11, 68/12 – УС, 72/12, 7/14 – УС, 44/14 и 30/18 – др. закон),  </p>      
         <br>
         <p style="text-indent:4rem">Влада доноси</p>
-        
+
         <br>
-        <p class="main-heading">У Р Е Д Б У</p>
+        <h1 class="main-heading">У Р Е Д Б У</h1>
         <p class="under-main-heading">О УСЛОВИМА И НАЧИНУ СПРОВОЂЕЊА СУБВЕНЦИОНИСАНЕ КУПОВИНE НОВИХ ВОЗИЛА КОЈА ИМАЈУ ИСКЉУЧИВО ЕЛЕКТРИЧНИ ПОГОН, 
             КАО И ВОЗИЛА КОЈА УЗ МОТОР СА УНУТРАШЊИМ САГОРЕВАЊЕМ ПОКРЕЋЕ И ЕЛЕКТРИЧНИ ПОГОН (ХИБРИДНИ ПОГОН)
         </p>
-        
+
         <br>
-        <p class="clan">Члан 1.</p>
+        <h6 class="clan">Члан 1.</h6>
         <p style="text-indent:4rem">Овом уредбом се уређују услови и начин спровођења субвенционисане куповинe нових возила која имају искључиво електрични погон, као и возила 
             која уз мотор са унутрашњим сагоревањем покреће и електрични погон (хибридни погон), у циљу подстицања еколошки прихватљивог вида транспорта.</p>
         <p style="text-indent:4rem">Под новим возилима (у даљем тексту: возила) у смислу ове уредбе сматра се оно возило које није било у употреби и није никада нигде било 
@@ -61,25 +67,25 @@
         <p style="text-indent:2rem">2.  возила M - возила за превоз лица – врста М1- путничко возило врсте М које има највише девет (9) места за седење укључујући и седиште 
             возача;</p>
         <p style="text-indent:2rem">3.  возила N - теретна возила – врста N1 - возило врсте N чија највећа дозвољена маса не прелази 3,5 t.</p>
-        
+
         <br>
-        <p class="clan">Члан 2.</p>
+        <h6 class="clan">Члан 2.</h6>
         <p style="text-indent:4rem">Право на субвенционисану куповину возила имају правна лица, предузетници и физичка лица.</p>
         <p style="text-indent:4rem">Право на субвенционисану куповину возила немају правна лица и предузетници који су остварили  право на субвенционисану набавку 
             путничких возила за потребе обнове возног парка такси превоза као јавног превоза,  у складу са Уредбом о условима и начину спровођења 
             субвенционисане набавке путничких возила за потребе обнове возног парка такси превоза као јавног превоза („Службени гласник РС”, број 94/19).</p>
-        
+
         <br>
-        <p class="clan">Члан 3.</p>
+        <h6 class="clan">Члан 3.</h6>
         <p style="text-indent:4rem">Укупна расположива средства за реализацију  субвенционисане куповине возила у 2020. години, обезбеђена су у износу од 120.000.000,00 динара (словима: 
             стодвадесетмилионадинара), на Разделу 25 - Министарство заштите животне средине, Глава 25.2 – Зелени фонд Републике Србије, Програм 0404 - Управљање заштитом животне средине, 
             Функција 560 - Заштита животне средине некласификована на другом месту, Програмска активност 0014 - Подстицаји за куповину еколошки прихватљивих возила, економска класификација 
             454 - Субвенције приватним предузећима.</p>
         <p style="text-indent:4rem">Подстицајна средства додељују се до износа из става 1. овог члана што представља коначну финансијску обавезу Министарства заштите животне 
             средине у поступку субвенционисања куповине возила у 2020. години.</p>
-        
+
         <br>
-        <p class="clan">Члан 4.</p>
+        <h6 class="clan">Члан 4.</h6>
         <p style="text-indent:4rem">Субвенционисана куповина  возила из члана 1. ове уредбе спроводи се исплатом следећих износа:</p>
         <p style="text-indent:4rem">1. за возила врсте L1 и L2, 250 евра у динарској противвредности по званичном средњем  дневном курсу Народне банке Србије, 
             на дан уплате купопродајне цене;</p>
@@ -98,7 +104,7 @@
             курсу Народне банке Србије, на дан уплате купопродајне цене.</p>
 
         <br>
-        <p class="clan">Члан 5.</p>
+        <h6 class="clan">Члан 5.</h6>
         <p style="text-indent:4rem">Субвенционисана куповина возила спроводи се исплатом износа из члана 4. ове уредбе на име:  </p>
         <p style="text-indent:4rem">- учешћа за наменски кредит за куповину новог возила,</p>
         <p style="text-indent:4rem">- учешћа за финансијски лизинг за куповину новог возила,</p>
@@ -113,7 +119,7 @@
             о наменском кредиту, субвенција из члана 4. ове уредбе исплаћује се након закључења уговора о финансијском лизингу, односно закључења уговора о наменском кредиту.</p>
 
         <br>
-        <p class="clan">Члан 6.</p>
+        <h6 class="clan">Члан 6.</h6>
         <p style="text-indent:4rem">Захтев за субвенционисану куповину новог возила у складу са овом уредбом подноси се Министарству заштите животне средине 
             искључиво препорученом пошиљком, у затвореној коверти, поштом на адресу: Министарство заштите животне средине, Омладинских бригада 1. Београд, са 
             назнаком: ,,Захтев за субвенционисану куповину нових возила која имају искључиво електрични погон, као и возила која уз мотор са унутрашњим сагоревањем 
@@ -153,7 +159,7 @@
             повраћаја или копирања исте.</p>
 
         <br>
-        <p class="clan">Члан 7.</p>
+        <h6 class="clan">Члан 7.</h6>
         <p style="text-indent:4rem">Министарство заштите животне средине обавештава подносиоца захтева:</p>
         <p style="text-indent:4rem">1. о пријему захтева и броју под којим је захтев подносиоца евидентиран,</p>
         <p style="text-indent:4rem">2. да ли је захтев уредан и, у случају да није, коју документацију је и у ком року   потребно доставити. </p>
@@ -171,9 +177,9 @@
             исплати пореског дуга измирује редовно, односно да нема неизмирених обавеза по репрограму о исплати пореског дуга.</p>
         <p style="text-indent:4rem">У случају непоштовања рокова утврђених споразумом из става 3. овог члана купац губи право на доделу субвенције у текућој години.</p>
         <p style="text-indent:4rem">Средства за субвенционисану куповину возила додељују се физичким лицима за куповину једног возила. </p>
-        
+
         <br>
-        <p class="clan">Члан 8.</p>
+        <h6 class="clan">Члан 8.</h6>
         <p style="text-indent:4rem"> Поступак доделе субвенција се прекида ако висина опредељених субвенција у текућој години није довољна за одобравање свих уредно предатих 
             захтева у текућој години.</p>
         <p style="text-indent:4rem">У случају да су средства субвенција искоришћена пре истека календарске године, Министарство заштите животне средине ће на својој интернет 
@@ -181,13 +187,13 @@
         <p style="text-indent:4rem"> Поступак доделе субвенција се наставља након што се обезбеде буџетска средства, с тим што је подносилац захтева дужан да ради даљег 
             наставка поступка достави нови предрачун за набавку новог возила и изјаву добављача да може извршити испоруку возила, као и осталу документацију потребну ради 
             наставка поступка.  </p>
-        
+
         <br>
-        <p class="clan">Члан 9.</p>
+        <h6 class="clan">Члан 9.</h6>
         <p style="text-indent:4rem">Министарство заштите животне средине квартално извештава Владу о додели субвенција у складу са овом уредбом. </p>
-        
+
         <br>
-        <p class="clan">Члан 10.</p>
+        <h6 class="clan">Члан 10.</h6>
         <p style="text-indent:4rem">Ова уредба ступа на снагу осмог дана од дана објављивања у „Службеном гласнику Републике Србије”.</p>
         <br>
         <p>05 Број: 110-2139/2020</p>

@@ -4,7 +4,9 @@
     <head>
         <title>E-Mobilnost | U pripremi</title>
 
-        <meta name="description" content="E-Mobilnost U pripremi"/> 
+        <meta name="description" content="Web sajt E-Mobilnost je u pripremi. Uskoro će biti objavljen..."/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, u pripremi, sajt u pripremi, sajt u izradi"/>
 
         <link th:href="@{/css/upripremi.css}" rel="stylesheet" type="text/css" />
 
@@ -15,6 +17,7 @@
 <body>
     <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
 
+                  <th:block th:insert="fragments/topbar :: topbar" />
 
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -26,7 +29,7 @@
             <h1>E-Mobilnost</h1>
             <h2>Web sajt je u pripremi!</h2>
             <p>
-                Kontaktirajte nas <span class=""><a th:href="@{/contact}">ovde</a></span>.
+                Kontaktirajte nas <span class=""><a th:href="@{/kontakt}">ovde</a></span>.
             </p>
             <a class="uclani-se-btn" th:href="@{/}">Nazad na početnu</a>
         </div>

@@ -8,6 +8,55 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+.big-header-hidden {
+  display: none;
+}
+
+.text-box.text-box-mini {
+  top: 9vw;
+  left: 50vw;
+}
+.text-box.text-box-mini h3 {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+  font-size: 3.5vw !important;
+}
+.text-box.text-box-mini p {
+  font-size: 1.8vw;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+}
+
+.nav-tabs .nav-item {
+  width: 50%;
+  text-align: center;
+}
+.nav-tabs .nav-link {
+  /*border: 1px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+  /*border-radius: 0;*/
+  color: #4d4d4d;
+  width: 100%;
+  font-size: 1rem !important;
+  /*        &:hover {
+              background: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+              color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+              border: 1px solid hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+          }*/
+}
+.nav-tabs .nav-link.active {
+  /*background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+  color: #3a4da1;
+  border-radius: 0;
+  /*border: 1px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+}
+
+.tab-content {
+  border-left: 1px solid #dee2e6;
+  padding: 1.5rem;
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
 #uclanise-login-form {
   position: relative;
   display: flex;
@@ -17,7 +66,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 #uclanise-login-form .container-uclani-se {
   position: relative;
-  min-height: 105rem;
+  min-height: 108rem;
   background-color: white;
   box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
   overflow: hidden;
@@ -37,10 +86,8 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   width: 65%;
   height: 100%;
   /*background-color: darken($white-color, 1%);*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5rem;
+  /*@include flexCenter;*/
+  padding: 2.5rem 0;
   transition: 0.5s;
 }
 #uclanise-login-form .container-uclani-se .user .formBx h2 {
@@ -77,6 +124,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 #uclanise-login-form .container-uclani-se .user .formBx label {
   color: #3a4da1;
+  /*font-size: 18px;*/
 }
 #uclanise-login-form .container-uclani-se .user .formBx .checkbox .rememberMe {
   color: #211b14;
@@ -243,6 +291,24 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 @media (max-width: 767px) {
   .nacinPlacanja .card-input {
     margin: 1rem 0 0 0;
+  }
+
+  .big-header-hidden {
+    display: block;
+  }
+
+  .text-box.text-box-mini {
+    position: absolute;
+    top: 19vw;
+    left: 47vw;
+  }
+  .text-box.text-box-mini h3 {
+    /*font-family: $font-handwriting;*/
+    /*letter-spacing: normal;*/
+    font-size: 5.5vw !important;
+  }
+  .text-box.text-box-mini p {
+    display: none;
   }
 }
 @media (max-width: 575px) {

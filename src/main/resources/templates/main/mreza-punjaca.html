@@ -2,12 +2,19 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.sprinfgramework.org/schema/security" xmlns:sec2="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>E-Mobilnost | Mreža punjača</title>
+        <title>Mreža punjača za električna vozila u Srbiji | E-mobilnost</title>
 
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/contact.css}" rel="stylesheet" type="text/css" />
 
-    <meta name="description" content="E-Mobilnost mreža punjača."/> 
+    <meta name="description" content="Mreža punjača za električna vozila u Srbiji | E-mobilnost"/> 
+    <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+          električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, mreža punjača, auto punjači, elektro auto punjači,elektropunjači,
+          elektro punjači, elektropunjači srbija, elektropunjači u srbiji, elektropunjači beograd, elektro punjači beograd, mreža punjača beograd, auto punjači beograd, 
+          elektro auto punjači beograd, brzi punjač, brzi punjači, brzi elektro punjač, brzi elektropunjači, brzi punjač za električna vozila, brzi punjači za električna vozila,
+          mreža punjača srbija, auto punjači srbija, elektro auto punjači srbija, elektro punjači srbija, mreža punjača u srbiji, auto punjači u srbiji, elektro auto punjači u srbiji,
+          elektro punjači u srbiji, chargers map, chargers map serbia, punjači za električna vozila, punjači za električne automobile, mreža električnih punjača, mapa električnih punjača,
+          električni pogon, vozila na električni pogon, mapa vozila na električni pogon, mreža vozila na električni pogon, elektromobili, elektromobilnost"/>
 </head>
 
 <style>
@@ -26,23 +33,24 @@
 </style>
 
 <body>
+                  <th:block th:insert="fragments/topbar :: topbar" />
+
 
     <!--<img src="/img/car-contact.jpg" class="header-img" alt="contact-header-image">-->
 <picture>
     <source media="(max-width: 776px)" srcset="/img/roadsmallscreen.jpg">
-    <source media="(min-width: 992px)" srcset="/img/road.jpg">
-    <img src="/img/road.jpg" class="header-img" alt="road image contact hero">
+    <source media="(min-width: 992px)" srcset="/img/roadCropped.jpg">
+    <img src="/img/roadCropped.jpg" class="header-img" alt="road image contact hero">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box ">
-    <h2>E-Mobilnost</h2>
-    <p>Mreža punjača</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Mreža punjača</h3>
 </div>
 
-<iframe src="https://www.google.com/maps/d/embed?mid=1ulvdJKHVbpcUsFrEaRCrSs1wUNPyf_8a" width="640" height="800"></iframe>
-
+<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ulvdJKHVbpcUsFrEaRCrSs1wUNPyf_8a" width="640" height="600"></iframe>
 <div class="container my-5">
     <div class="table-responsive" style="    box-shadow: 1px 0 20px 3px rgb(199 199 199 / 20%);">
         <table class="table">

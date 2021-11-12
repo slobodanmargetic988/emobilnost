@@ -5,23 +5,28 @@
         <title>E-Mobilnost | Politika kolačića</title>
 
 
-        <meta name="description" content="E-Mobilnost politika kolačića"/> 
+        <meta name="description" content="Politika kolačića (cookies) na našem sajtu reguliše njihovu upotrebu i zaštitu vaše privatnosti u skladu sa Zakonom o zaštiti podataka o ličnosti..."/> 
+    <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, politika kolačića, cookies, cookies policy, privatnost, zaštita privatnosti,
+              zakon o zaštiti podataka o ličnosti"/>
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/usloviKoriscenja.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
+                  <th:block th:insert="fragments/topbar :: topbar" />
+
     <!--<img src="/img/sew1.jpg" class="header-img" alt="uslovi-koriscenja-header-image">--><picture>
     <source media="(max-width: 776px)" srcset="/img/carpolitikakolacicasmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carpolitikakolacica.jpg">
-    <img src="/img/carpolitikakolacica.jpg" class="header-img" alt="home-header-image">
+    <source media="(min-width: 992px)" srcset="/img/carpolitikakolacicaCropped1.jpg">
+    <img src="/img/carpolitikakolacicaCropped1.jpg" class="header-img" alt="home-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Politika kolačića</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Politika kolačića</h3>
 </div>
 
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->

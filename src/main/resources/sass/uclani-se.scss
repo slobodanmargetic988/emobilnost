@@ -2,16 +2,64 @@
 @import "./variables";
 @import "./mixins";
 
+
+.big-header-hidden {
+    display: none;
+}
+.text-box.text-box-mini {
+    top: 9vw;
+    left: 50vw;
+    h3 {
+        font-family: $font-rest;
+        letter-spacing: normal;
+        font-size: 3.5vw !important;
+    }
+    p {
+        font-size: 1.8vw;
+        font-family: $font-rest;
+        letter-spacing: normal;
+    }
+}
+.nav-tabs {
+    .nav-item {
+        width: 50%;
+        text-align: center;
+    }
+    .nav-link {
+        /*border: 1px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+        /*border-radius: 0;*/
+        color: hsla($main-color-h, $main-color-s, 30%, $main-color-a);
+        width: 100%;
+        font-size: 1rem !important;
+        /*        &:hover {
+                    background: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+                    color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+                    border: 1px solid hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+                }*/
+    }
+    .nav-link.active{
+        /*background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+        color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        border-radius: 0;
+        /*border: 1px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);*/
+    }
+}
+.tab-content {
+    border-left: 1px solid #dee2e6;
+    padding: 1.5rem;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
 #uclanise-login-form {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2.5rem 0;
-
     .container-uclani-se {
         position: relative;
-        min-height: 105rem;
+        min-height: 108rem;
         background-color: $white-color;
         box-shadow: 1px 0 20px 3px rgba(199,199,199,0.2);
         overflow: hidden;
@@ -27,8 +75,8 @@
                 width: 65%;
                 height: 100%;
                 /*background-color: darken($white-color, 1%);*/
-                @include flexCenter;
-                padding: 2.5rem;
+                /*@include flexCenter;*/
+                padding: 2.5rem 0;
                 transition: 0.5s;
                 h2 {
                     font-size: 1.8rem;
@@ -64,6 +112,7 @@
                 }
                 label {
                     color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+                    /*font-size: 18px;*/
                 }
                 .checkbox {
                     .rememberMe {
@@ -217,80 +266,96 @@
 
 
 
-    @media (max-width: 1200px) {
-        #uclanise-login-form {
-            .container-uclani-se {
-                .user {
-                    .formBx {
-                        form {
-                            h2 {
-                                font-size: 1.65rem;
-                            }
+@media (max-width: 1200px) {
+    #uclanise-login-form {
+        .container-uclani-se {
+            .user {
+                .formBx {
+                    form {
+                        h2 {
+                            font-size: 1.65rem;
                         }
                     }
                 }
             }
         }
-        .form-check {
-            .form-check-input {
-                width: 4% !important;
-            }
-        }
-      
     }
-    @media (min-width: 1200px) {
-          .nacinPlacanja {
-            .card-input {
-                    min-height: 90px;
-            }
+    .form-check {
+        .form-check-input {
+            width: 4% !important;
         }
     }
 
-    
-    @media (max-width: 992px) {
-        #uclanise-login-form {
-            .container-uclani-se {
-                .user {
-                    .formBx {
-                        width: 100%;
-                    }
+}
+@media (min-width: 1200px) {
+    .nacinPlacanja {
+        .card-input {
+            min-height: 90px;
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    #uclanise-login-form {
+        .container-uclani-se {
+            .user {
+                .formBx {
+                    width: 100%;
                 }
             }
         }
     }
+}
 
-    @media (max-width: 767px) {
-        .nacinPlacanja {
-            .card-input {
-                margin: 1rem 0 0 0;
-            }
+@media (max-width: 767px) {
+    .nacinPlacanja {
+        .card-input {
+            margin: 1rem 0 0 0;
         }
     }
-
-    @media (max-width: 575px) {
-        .submitForm {
-            width: 100%;
+    .big-header-hidden {
+        display: block;
+    }
+    .text-box.text-box-mini {
+        position: absolute;
+        top: 19vw;
+        left: 47vw;
+        h3 {
+            /*font-family: $font-handwriting;*/
+            /*letter-spacing: normal;*/
+            font-size: 5.5vw !important;
         }
-        #uclanise-login-form {
-            .container-uclani-se {
-                .user {
-                    .formBx {
-                        form {
-                            h2 {
-                                font-size: 1.48rem;
-                            }
-                            input[type='submit'] {
-                                width: 100%;
-                            }
+        p {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .submitForm {
+        width: 100%;
+    }
+    #uclanise-login-form {
+        .container-uclani-se {
+            .user {
+                .formBx {
+                    form {
+                        h2 {
+                            font-size: 1.48rem;
+                        }
+                        input[type='submit'] {
+                            width: 100%;
                         }
                     }
                 }
             }
         }
-        .form-check {
-            .form-check-input {
-                width: 6% !important;
-            }
-        }
-
     }
+    .form-check {
+        .form-check-input {
+            width: 6% !important;
+        }
+    }
+
+}

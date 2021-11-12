@@ -258,13 +258,16 @@ img {
 /*blog end*/
 
 /*navigation start*/
+.navbar-nav {
+    align-items: center;
+}
 
 .navbar {
     max-width:100%;
     z-index:1;
     /*margin-top: 1rem !important;*/
     .nav-item {
-        padding: 0 0.8rem;
+        padding: 0.3rem 0.8rem;
     }
     .nav-item-custom {
         padding: 0 0.4rem;
@@ -380,7 +383,6 @@ img {
     &:before, &:after {
         /*opacity: 1 !important;*/
         transform: scaleX(1) !important;
-
     }
 }
 
@@ -388,21 +390,60 @@ img {
     max-width: 6vw;
 }
 
-.navbar-toggler-icon {
-    position: relative;
-}
 
-.navbar-toggler-icon:before {
-    content: "\f0c9";
-    font-family: FontAwesome;
-    position:absolute;
-    font-size: 1.5rem;
-    color: $white-color;
-    font-display: swap;
-    &:focus {
+.navbar-toggler {
+    float: right;
+    border: none;
+    padding-right: 0;
+
+    &:active, &:focus {
         outline: none;
     }
 }
+
+.navbar-toggler-icon {
+    bottom: 0.15rem;
+    width: 24px !important;
+    height: 17px !important;
+    background-image: none !important;
+    position: relative;
+    border-bottom: 2px solid $white-color;
+    transition: all 300ms linear;
+
+    &:after, &:before {
+        width: 24px;
+        position: absolute;
+        height: 2px;
+        background-color: $white-color;
+        top: 0;
+        left: 0;
+        content: '';
+        z-index: 2;
+        transition: all 300ms linear;
+    }
+
+    &:after {
+        top: 8px;
+    }
+}
+
+.navbar-toggler {
+    border-color: transparent !important;
+}
+
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    &:after {
+        transform: rotate(45deg);
+    }
+
+    &:before {
+        transform: translateY(8px) rotate(-45deg);
+    }
+
+    border-color: transparent;
+}
+
 /*navigation end*/
 
 .posalji-btn-contact-form-page {
@@ -500,15 +541,44 @@ img {
 /*floating placeholder on keypress end*/
 
 
+/*header top*/
+.header-top {
+    padding: 0.5rem 2rem;
+    background: hsla($main-color-h, $main-color-s, 15%, $main-color-a);
+    p {
+        font-size: 13px !important;
+        margin-bottom: 0;
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+        a {
+            color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+        }
+    }
+}
+.header-right {
+    text-align: right;
+}
+
 /*change navbar background color on scroll START*/
+.fixed-top {
+    top: 35px !important;
+}
 .fixed-top.scrolled {
     background-color: $white-color;
     transition: background-color 200ms linear;
     margin-top: 0 !important;
     padding: 1rem;
     box-shadow: 0px 3px 7px -6px rgba(117, 117, 117,1);
+    top:0 !important;
 }
 /*change navbar background color on scroll END*/
+
+.maliekran.meni.changehambcolor {
+    color: $brown-black-color;
+    &:hover {
+        color: $brown-black-color;
+        /*opacity: 0.7;*/
+    }
+}
 
 /*change navlink color on scroll START*/
 
@@ -540,12 +610,14 @@ img {
     @include textboxHeader;
     top: 11vw;
     left: 50vw;
+    color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
     h2 {
         font-size: 5.5vw;
     }
-    p {
+    h3 {
         padding-top: .8rem;
-        font-size: 4.6vw !important;
+        font-size: 2.5vw !important;
+        /*font-family: $font-handwriting;*/
     }
 }
 /*naslov preko slike head end*/
@@ -652,7 +724,7 @@ a {
         font-size: 0.93em;
         line-height: 1.71;
         margin-bottom: 0.75rem;
-        font-size: 0.93em;
+        font-size: 1rem;
         line-height: 1.71;
         margin-bottom: 0.75rem;
         color: #444443;
@@ -674,7 +746,7 @@ a {
 .wgs-title {
     text-transform: uppercase;
     color: #444443;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.075em;
     margin-bottom: 1.5rem;
@@ -687,7 +759,7 @@ a {
         line-height: 1;
         list-style-type: none;
         a {
-            font-size: 0.9em;
+            /*font-size: 0.9em;*/
             line-height: 20px;
             display: block;
             color: #444443;
@@ -860,7 +932,7 @@ a {
 }
 
 .section-heading-onama {
-     margin-bottom: 30px !important;
+    margin-bottom: 30px !important;
 }
 
 .section-heading {
@@ -967,6 +1039,7 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+
     .activity-bg-image .activity-item {
         border-width: 0 1px 1px 0;
     }
@@ -1276,8 +1349,21 @@ p {
 
 
 @media (max-width: 1200px) {
+    .fixed-top {
+        top:0 !important;
+    }
+    .header-top {
+        display: none;
+    }
+    .maliekran {
+        display: inline-block;
+    }
+    .maliekran.meni {
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);
+        padding: 0 0.5rem 0 0;
+    }
     .text-box {
-        p {
+        h3 {
             padding-top: 0;
         }
     }
@@ -1356,15 +1442,13 @@ p {
 
     }
     .navbar-icons, .nav-link {
-        float: right;
-        font-size: 15px !important;
+        /*float: right;*/
+        font-size: 20px !important;
     }
     .navbar-icons {
         display: inline-block !important;
         margin-right: 7px;
-        .maliekran {
-            display: inline-block;
-        }
+
     }
     .uclani-se-btn {
         padding: 0.8em !important;
@@ -1372,9 +1456,10 @@ p {
             color: $white-color !important;
         }
     }
-    .navbar-toggler-icon.changehambclr {
-        &:before {
-            color: $brown-black-color;
+    .navbar-toggler-icon.navbar-toggler-icon-clr.changehambcolour {
+        border-bottom: 2px solid $brown-black-color;
+        &:after, &:before  {
+            background-color: $brown-black-color;
         }
     }
     .uclani-se-btn.changeclr {
@@ -1464,8 +1549,8 @@ p {
         h2 {
             font-size: 8.5vw;
         }
-        p {
-            font-size: 7.5vw !important;
+        h3 {
+            font-size: 4.5vw !important;
         }
     }
 
@@ -1614,8 +1699,8 @@ p {
         h2 {
             font-size: 9.5vw;
         }
-        p {
-            font-size: 9vw !important;
+        h3 {
+            font-size: 5.5vw !important;
         }
     }
 }

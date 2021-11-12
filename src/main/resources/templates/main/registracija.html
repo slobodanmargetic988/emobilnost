@@ -4,7 +4,10 @@
     <head>
         <title> E-Mobilnost | Uloguj se</title>
 
-        <meta name="description" content="E-Mobilnost registracija. Registrujte svoj nalog,ulogujte se ili povratite zaboravljenu šifru . Register, login or reset forgotten password."/> 
+        <meta name="description" content="Ulogujte se na Vaš nalog ili povratite zaboravljenu šifru | E-Mobilnost"/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, registracija, registracija na sajtu, prijava, prijava na sajtu,
+              uloguj se, login, log in"/>
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/registracija.css}" rel="stylesheet" type="text/css" />
@@ -12,19 +15,21 @@
 </head>
 
 <body>
-    <!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carulogujsesmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carulogujse.jpg">
-    <img src="/img/carulogujse.jpg" class="header-img " alt="black car hero image log in">
+    <source media="(min-width: 992px)" srcset="/img/carulogujseCropped.jpg">
+    <img src="/img/carulogujseCropped.jpg" class="header-img " alt="black car hero image log in">
 </picture>
 
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Prijava</p>
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Uloguj se</h3>
 </div>
 
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
@@ -77,7 +82,7 @@
 
         <div class="user forgotBx">
             <div class="formBx">
-                <form th:action="@{/resetPassword}" method="POST" >
+                <form th:action="@{/reset-lozinke}" method="POST" >
                     <h2>Promena lozinke</h2>
                     <label for="email">Email adresa</label>
                     <input type="email" name="email" placeholder="Email adresa" required />

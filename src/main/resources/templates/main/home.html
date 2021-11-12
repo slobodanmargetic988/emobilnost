@@ -6,13 +6,19 @@
       >
 
     <head>
-        <title>E-Mobilnost | Početna strana</title>
-        <meta name="description" content="E-Maobilnost početna strana. Home page."/> 
+        <title>Početna strana udruženja E-Mobilnost</title>
+        <meta name="description" content="Početna strana udruženja vozača i ljubitelja električnih vozila | E-Mobilnost"/> 
+        <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, električni motori, električni trotineti, motori, trotineti, 
+              electric vehicles, electric vehicle, subvencije, pogodnosti, mreža punjača, auto na struju, vozilo na struju, električni pogon, vozila na električni pogon, 
+              elektromobili, elektromobilnost"/>
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/onama-home-section.css}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+              <th:block th:insert="fragments/topbar :: topbar" />
+
     <div class="kontejner">
 
         <!--<img src="/img/car-header-1.jpg" class="header-img" alt="home-header-image">-->
@@ -29,7 +35,7 @@
 
         <div class="text-box">
             <h2 class="">E-Mobilnost</h2>
-            <p class="">Živi bili elektromobili.</p>
+            <h3 class="">Živi bili elektromobili.</h3>
         </div>
 
         <th:block th:insert="fragments/alert :: gotovaporudzbina (${successMessage})"></th:block>
@@ -52,12 +58,28 @@
                     <div class="col-md-6 col-lg-4 d-flex">
                         <article class="post text-left">
                             <figure class="feature-image">
+                                <a th:href="@{/vest}">
+                                    <img src="https://3.bp.blogspot.com/-kO9gmrcwSPE/UbXQcRWWUSI/AAAAAAAAQP4/qnVmXSZDlz0/s1600/nissan+leaf+-+technews24h+-.jpg" alt="vest3-img">
+                                </a>
+                            </figure>
+                            <div class="entry-content">
+                                <p  class="dateNews">29.10.2021.</p>
+                                <h3><a th:href="@{/vest}">Bonton za vozače električnih vozila</a></h3>
+                                <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
+                                <span class="separatorBtn"></span>
+                                <a th:href="@{/vest}" class="blogBtn" >Pročitajte više</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-flex">
+                        <article class="post text-left">
+                            <figure class="feature-image">
                                 <a href="#">
                                     <img src="https://evtalk.com.au/wp-content/uploads/2018/02/Nissan-Leaf-gen-3-1.jpg" alt="vest1-img">
                                 </a>
                             </figure>
                             <div class="entry-content">
-                                <p  class="dateNews">29.10.2021.</p>
+                                <p  class="dateNews">29.06.2021.</p>
                                 <h3><a href="#">Započeo je Electric EVolution Festival u Beogradu</a></h3>
                                 <p>Službeno je otvoren Electric EVolution Festival u Galerija Centru u Beogradu...</p>
                                 <span class="separatorBtn"></span>
@@ -73,7 +95,7 @@
                                 </a>
                             </figure>
                             <div class="entry-content">
-                                <p class="dateNews">25.09.2021.</p>
+                                <p class="dateNews">25.07.2021.</p>
                                 <h3><a href="#">7 dana s Citroënom e-C4</a></h3>
                                 <p>TLDR: Iako je verovatno reč o prelaznoj generaciji, Citroën e-C4 je jedan od...</p>
                                 <span class="separatorBtn"></span>
@@ -81,22 +103,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6 col-lg-4 d-flex">
-                        <article class="post text-left">
-                            <figure class="feature-image">
-                                <a href="#">
-                                    <img src="https://3.bp.blogspot.com/-kO9gmrcwSPE/UbXQcRWWUSI/AAAAAAAAQP4/qnVmXSZDlz0/s1600/nissan+leaf+-+technews24h+-.jpg" alt="vest3-img">
-                                </a>
-                            </figure>
-                            <div class="entry-content">
-                                <p  class="dateNews">22.06.2021.</p>
-                                <h3><a href="#">Bonton za vozače električnih vozila</a></h3>
-                                <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
-                                <span class="separatorBtn"></span>
-                                <a href="" class="blogBtn" >Pročitajte više</a>
-                            </div>
-                        </article>
-                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
@@ -163,7 +170,7 @@
                                                         </div>-->
                         </div>
                         <div class="">
-                            <a class="uclani-se-btn darkText" href="/about">Pročitaj više</a>
+                            <a class="uclani-se-btn darkText" href="/o-nama">Pročitaj više</a>
                         </div>
                     </div>
                 </div>
