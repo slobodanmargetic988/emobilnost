@@ -3411,7 +3411,7 @@ img {
 /*3 karte za usluge end*/
 /*footer start*/
 footer {
-  box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
+  /*box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);*/
 }
 
 .wgs {
