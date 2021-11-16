@@ -42,7 +42,7 @@
         }
     }
     p {
-        color: hsla($main-color-h, $main-color-s, 50%, $main-color-a);
+        color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
     }
     .post-image {
         margin: 2rem 0;
@@ -161,6 +161,12 @@
 }
 .float-end {
     float: right!important;
+}
+
+.fx-height {
+    height: 350px !important;
+    object-fit: cover;
+    width: 100%;
 }
 
 .bg-color-grey {

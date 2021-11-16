@@ -48,7 +48,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   color: gray;
 }
 .single-post p {
-  color: gray;
+  color: #666666;
 }
 .single-post .post-image {
   margin: 2rem 0;
@@ -162,6 +162,12 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 
 .float-end {
   float: right!important;
+}
+
+.fx-height {
+  height: 350px !important;
+  object-fit: cover;
+  width: 100%;
 }
 
 .bg-color-grey {

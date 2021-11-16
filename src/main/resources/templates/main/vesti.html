@@ -2,7 +2,7 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Vesti i novosti o svetu električnih vozila | E-Mobilnost</title>
+        <title>Vesti i novosti u svetu električnih vozila | E-Mobilnost</title>
 
         <meta name="description" content="Najnovije vesti i novosti o svetu električnih vozila | E-Mobilnost"/> 
         
@@ -10,7 +10,7 @@
               ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, vesti, novosti, vesti o električnim vozilima, vesti električna vozila,
               vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti"/>
 
-        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+        <!--<link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />-->
 
     <th:block th:insert="fragments/head :: head" />
 
@@ -23,7 +23,7 @@
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carvestismall.jpg">
     <source media="(min-width: 992px)" srcset="/img/carvestiCropped.jpg">
-    <img src="/img/carvestiCropped11.jpg" class="header-img " alt="o-nama-header-image">
+    <img src="/img/carvestiCropped.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -40,52 +40,54 @@
             <div class="col-md-6 col-lg-4 d-flex">
                 <article class="post text-left">
                     <figure class="feature-image">
-                        <a href="#">
-                            <img src="https://evtalk.com.au/wp-content/uploads/2018/02/Nissan-Leaf-gen-3-1.jpg" alt="">
+                        <a th:href="@{/miodrag-makaric-mica}">
+                            <img src="/img/mica.jpg" alt="">
                         </a>
                     </figure>
                     <div class="entry-content">
-                        <p  class="dateNews">29.10.2021.</p>
-                        <h3><a href="#">Započeo je Electric EVolution Festival u Beogradu</a></h3>
-                        <p>Službeno je otvoren Electric EVolution Festival u Galerija Centru u Beogradu...</p>
+                        <p class="dateNews">15.11.2021.</p>
+                        <h3><a th:href="@{/miodrag-makaric-mica}">Miodrag Makarić - Mića: Pionir elektromobilnosti - šampion biznisa</a></h3>
+                        <p>Vlasnik restorana Ruža Rumena i fast food brenda BURGER PLUS Milorad Makarić je jedan od prvih koji je kroz svoj biznis...</p>
                         <span class="separatorBtn"></span>
-                        <a href="" class="blogBtn" >Pročitajte više</a>
+                        <a th:href="@{/miodrag-makaric-mica}" class="blogBtn" >Pročitajte više</a>
                     </div>
                 </article>
             </div>
             <div class="col-md-6 col-lg-4 d-flex ">
                 <article class="post text-left">
                     <figure class="feature-image">
-                        <a href="#">
-                            <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=4000x3000:format=jpg/path/sfcb9b9070fde9e8b/image/ib2e4d45a46261f30/version/1512503217/image.jpg" alt="">
+                        <a th:href="@{/prvih-30000km-na-struju}">
+                            <img src="https://totallyev.net/wp-content/uploads/2020/12/Hyundai-Kona-Electric-review.jpg" alt="">
                         </a>
                     </figure>
                     <div class="entry-content">
-                        <p class="dateNews">25.09.2021.</p>
-                        <h3><a href="#">7 dana s Citroënom e-C4</a></h3>
-                        <p>TLDR: Iako je verovatno reč o prelaznoj generaciji, Citroën e-C4 je jedan od...</p>
+                        <p class="dateNews">15.11.2021.</p>
+                        <h3><a th:href="@{/prvih-30000km-na-struju}">Prvih 30 000 km na struju</a></h3>
+                        <p>Aktivan vozač sam punih 40 godina, od svoje 18-te. Počeo sam davne 80-te, naravno sa nacinalnom klasom, popularnim fićom...</p>
                         <span class="separatorBtn"></span>
-                        <a href="" class="blogBtn" >Pročitajte više</a>
+                        <a th:href="@{/prvih-30000km-na-struju}" class="blogBtn" >Pročitajte više</a>
                     </div>
                 </article>
             </div>
             <div class="col-md-6 col-lg-4 d-flex">
                 <article class="post text-left">
                     <figure class="feature-image">
-                        <a th:href="@{/vest}">
+                        <a th:href="@{/bonton-za-vozace-elektricnih-vozila}">
                             <img src="https://3.bp.blogspot.com/-kO9gmrcwSPE/UbXQcRWWUSI/AAAAAAAAQP4/qnVmXSZDlz0/s1600/nissan+leaf+-+technews24h+-.jpg" alt="">
                         </a>
                     </figure>
                     <div class="entry-content">
-                        <p  class="dateNews">22.06.2021.</p>
-                        <h3><a th:href="@{/vest}">Bonton za vozače električnih vozila</a></h3>
+                        <p  class="dateNews">29.10.2021.</p>
+                        <h3><a th:href="@{/bonton-za-vozace-elektricnih-vozila}">Bonton za vozače električnih vozila</a></h3>
                         <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
                         <span class="separatorBtn"></span>
-                        <a th:href="@{/vest}" class="blogBtn" >Pročitajte više</a>
+                        <a th:href="@{/bonton-za-vozace-elektricnih-vozila}" class="blogBtn" >Pročitajte više</a>
                     </div>
                 </article>
             </div>
-            <div class="col-md-6 col-lg-4 d-flex">
+            
+            
+<!--            <div class="col-md-6 col-lg-4 d-flex">
                 <article class="post text-left">
                     <figure class="feature-image">
                         <a href="#">
@@ -165,13 +167,13 @@
                         <a href="" class="blogBtn" >Pročitajte više</a>
                     </div>
                 </article>
-            </div>
+            </div>-->
 
         </div>
 
         <!--ubaciti pagination-->
 
-        <div class="pagination">
+<!--        <div class="pagination">
             <ul>
                 <a class="disabled" href="#">«</a>
                 <a class="is-active" href="#"><li>1</li></a>
@@ -183,7 +185,7 @@
                 <a class="disabled" href="#">»</a>
 
             </ul>
-        </div>
+        </div>-->
 
         <!--                <div class="row">
                             <div class="col-12 text-center">

@@ -34,6 +34,21 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   margin: 120px 0;
 }
 
+.section-margin.section-margin-member {
+  margin: 50px 0;
+}
+
+.section-heading.section-heading-member {
+  margin-bottom: 25px;
+}
+.section-heading.section-heading-member h3 {
+  font-size: 1.4rem;
+}
+
+.about-content.about-content-member p {
+  line-height: 1.6 !important;
+}
+
 .section {
   float: left;
   width: 100%;
@@ -85,7 +100,7 @@ h2 {
 p {
   /*font-family: "Montserrat", sans-serif;*/
   font-size: 16px !important;
-  color: #8a8a8a;
+  color: #666666;
   line-height: 2 !important;
 }
 

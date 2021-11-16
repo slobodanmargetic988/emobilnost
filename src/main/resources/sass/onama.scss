@@ -29,6 +29,22 @@
 .section-margin {
     margin: 120px 0;
 }
+.section-margin.section-margin-member {
+    margin: 50px 0;
+
+}
+.section-heading.section-heading-member {
+    margin-bottom: 25px;
+    h3 {
+        font-size: 1.4rem;
+    }
+
+}
+.about-content.about-content-member  {
+    p {
+        line-height: 1.6 !important;
+    }
+}
 
 .section {
     float: left;
@@ -74,7 +90,7 @@ h2{
 p {
     /*font-family: "Montserrat", sans-serif;*/
     font-size: 16px !important;
-    color: #8a8a8a;
+    color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
     line-height: 2 !important;
 }
 

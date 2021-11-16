@@ -2958,6 +2958,20 @@ img {
 }
 /*blog end*/
 /*navigation start*/
+/*dropdown*/
+.dropdown-item:hover {
+  color: #8bc63f !important;
+  background-color: transparent !important;
+}
+.dropdown-item:focus {
+  color: white !important;
+  background-color: #8bc63f !important;
+}
+
+.dropdown-menu {
+  border: none !important;
+}
+
 .navbar-nav {
   align-items: center;
 }
@@ -4037,6 +4051,24 @@ p {
 
 /*back to top button end*/
 @media (max-width: 1200px) {
+  /*dropdown*/
+  .dropdown-item:focus {
+    color: #8bc63f !important;
+    background-color: transparent !important;
+  }
+
+  .dropdown {
+    text-align: center !important;
+  }
+
+  .navbar-nav .dropdown-menu {
+    text-align: center !important;
+  }
+
+  .dropdown-menu {
+    font-size: 18px !important;
+  }
+
   .fixed-top {
     top: 0 !important;
   }

@@ -68,10 +68,20 @@ public class MainController {
         return "main/admin-pocetna";
     }
     
+          @GetMapping("/prvih-30000km-na-struju")
+    public String prvih30000kmNaStruju(Model model) {
+        return "main/prvih-30000km-na-struju";
+    }
     
-    @GetMapping("/vest")
+       @GetMapping("/miodrag-makaric-mica")
+    public String miodragMakaricMica(Model model) {
+        return "main/miodrag-makaric-mica";
+    }
+    
+    
+    @GetMapping("/bonton-za-vozace-elektricnih-vozila")
     public String jednaVest(Model model) {
-        return "main/vest";
+        return "main/bonton-za-vozace-elektricnih-vozila";
     }
     
     @GetMapping("/mreza-punjaca")

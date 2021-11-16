@@ -258,8 +258,25 @@ img {
 /*blog end*/
 
 /*navigation start*/
+
+/*dropdown*/
+.dropdown-item {
+    &:hover {
+        color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+        background-color: transparent !important;
+    }
+    &:focus {
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a) !important;
+        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+    }
+}
+
+.dropdown-menu {
+    border: none !important; 
+}
 .navbar-nav {
     align-items: center;
+    
 }
 
 .navbar {
@@ -1349,6 +1366,25 @@ p {
 
 
 @media (max-width: 1200px) {
+    
+    /*dropdown*/
+.dropdown-item {
+    &:focus {
+        color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+        background-color: transparent !important;
+    }
+}
+.dropdown {
+    text-align: center !important;
+}
+.navbar-nav {
+    .dropdown-menu {
+        text-align: center !important;
+    }
+}
+.dropdown-menu {
+    font-size: 18px !important;
+}
     .fixed-top {
         top:0 !important;
     }
