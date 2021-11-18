@@ -82,10 +82,13 @@
                     <div class="user-panel">
                         <h3 class="add-new">DODAVANJE NOVE VESTI</h3>
 
-                        <form th:action="@{/napraviVest}" method="post" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;">
+                        <form th:action="@{/napraviVest}" method="post" class="form-horizontal needs-validation" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;" novalidate>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Naslov vesti</label>
-                                <input type="text" class="form-control input-custom-border" name="naslov"/>
+                                <input type="text" class="form-control input-custom-border" name="naslov" required=""/>
+                                <div class="invalid-feedback">
+                                    Unesite naslov vesti.
+                                </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Tekst vesti</label>
@@ -114,7 +117,7 @@
                                 <br>
 <!--                                <button type="submit" name="action" value="konkurs" class="btn-save-konkurs">Sačuvaj kao Konkurs</button>
                                 <br>-->
-                                <a href="" class=""><button class="btn-odustani">Odustani</button></a>
+                                <a href="" class="btn-odustani">Odustani</a>
                             </div>
                         </form>
                     </div>
@@ -137,6 +140,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script th:src="@{/js/wysiwyg.js}"></script>
 <script th:src="@{/js/admin-panel.js}"></script>
+<script th:src="@{/js/formValidation.js}"></script>
 
 <script>
 //  name of file chosen  changes with javascript
@@ -147,6 +151,8 @@
     actualBtn.addEventListener('change', function () {
         fileChosen.textContent = this.files[0].name;
     });
+    
+    
 </script>
 </body>
 

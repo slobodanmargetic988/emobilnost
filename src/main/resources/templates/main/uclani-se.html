@@ -52,46 +52,100 @@
         <div class="user">
             <div class="formBx">
                 <!--<form th:action="@{/noviClan}"  method="POST" >-->
-                <h2>Učlanite se</h2>
+                <h2>Učlanite se<br><span class="undertext-small">* Članarina je na godišnjem nivou</span></h2>
+
 
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#fLice" role="tab">Fizičko lice <br> 50,00 &euro;</a>
+                        <a class="nav-link active" data-toggle="tab" href="#fLice" role="tab">Fizičko lice <br> 6.000 din (50,00 &euro;)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#pLice" role="tab">Pravno lice  <br> 300,00 &euro;</a>
+                        <a class="nav-link" data-toggle="tab" href="#pLice" role="tab">Pravno lice <br>36.000 din (300,00 &euro;)</span></a>
                     </li>
                 </ul><!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane active" id="fLice" role="tabpanel">
-                        <form th:action="@{/noviClan}"  method="POST" >
-                            <label for="ime">Ime</label>
-                            <input type="text" name="ime" placeholder="Ime " required/>   
-                            <label for="prezime">Prezime</label>
-                            <input type="text" name="prezime" placeholder="Prezime" required/>
-                            <label for="email">Email adresa</label>
-                            <input type="email" name="email" placeholder="Email" required/>      
-                            <label for="password">Lozinka</label>
-                            <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
-                            <i id="openPassword" class="fa fa-eye"></i>
-                            <i id="closedPassword" class="fa fa-eye-slash"></i>   
-                            <label for="lozinkaRepeat">Potvrda lozinke</label>
-                            <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
-                            <i class="fa fa-eye openPasswordConf"></i>
-                            <i class="fa fa-eye-slash closedPasswordConf"></i>
-                            <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
-                            <label for="adresa">Adresa</label>
-                            <input type="text" name="adresa" placeholder="Adresa" required/>
-                            <label for="mesto">Grad</label>
-                            <input type="text" name="mesto" placeholder="Grad" required/>
-                            <label for="postanskibroj">Poštanski broj</label>
-                            <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
-                            <label for="drzava">Država</label>
-                            <input type="text" name="drzava" placeholder="Država" required/>
-                            <label for="telefon">Telefon</label>
-                            <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
-                            <label for="jmbg">JMBG</label>
-                            <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
+                        <form th:action="@{/noviClan}"  method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="ime">Ime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   
+                                <div class="invalid-feedback">
+                                    Unesite Vaše ime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prezime">Prezime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="prezime" placeholder="Prezime" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaše prezime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email adresa</label>
+                                <input type="email" class="input-custom-border-clr form-control" name="email" placeholder="Email" required/>      
+                                <div class="invalid-feedback">
+                                    Unesite validnu email adresu u formatu: primer@email.com.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password">Lozinka</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  required/>  
+                                <i id="openPassword" class="fa fa-eye"></i>
+                                <i id="closedPassword" class="fa fa-eye-slash"></i> 
+                                <div class="invalid-feedback">
+                                    Unesite lozinku od minimum 8 karaktera.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lozinkaRepeat">Potvrda lozinke</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" required/>
+                                <i class="fa fa-eye openPasswordConf"></i>
+                                <i class="fa fa-eye-slash closedPasswordConf"></i>
+                                <div class="invalid-feedback">
+                                    Potvrdite lozinku.
+                                </div>
+                                <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="adresa">Adresa</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="adresa" placeholder="Adresa" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vašu adresu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesto">Grad</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="mesto" placeholder="Grad" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postanskibroj">Poštanski broj</label>
+                                <input type="number" class="input-custom-border-clr form-control" name="postanskibroj" placeholder="Poštanski broj" required/>
+                                <div class="invalid-feedback">
+                                    Unesite grad.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="drzava">Država</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="drzava" placeholder="Država" required/>
+                                <div class="invalid-feedback">
+                                    Unesite državu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefon">Telefon</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="telefon" placeholder="Telefon" required/>
+                                <div class="invalid-feedback">
+                                    Unesite broj telefona.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jmbg">JMBG</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="jmbg" placeholder="JMBG" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš JMBG.
+                                </div>
+                            </div>
                             <div class="nacinPlacanja">
                                 <h6>Način plaćanja</h6>
 
@@ -171,43 +225,109 @@
                             <div class="checkbox">
                                 <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
                             </div>
-                            <button type="submit" class="submitForm">Učlani se</button>
+                            <button type="submit" class="submitForm mt-3">Učlani se</button>
                         </form>
                     </div>
                     <div class="tab-pane" id="pLice" role="tabpanel">
-                        <form th:action="@{/noviClan}"  method="POST" >
-
-                            <label for="ime">Ime</label>
-                            <input type="text" name="ime" placeholder="Ime " required/>   
-                            <label for="prezime">Prezime</label>
-                            <input type="text" name="prezime" placeholder="Prezime" required/>
-                            <label for="email">Email adresa</label>
-                            <input type="email" name="email" placeholder="Email" required/>      
-                            <label for="password">Lozinka</label>
-                            <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
-                            <i id="openPassword" class="fa fa-eye"></i>
-                            <i id="closedPassword" class="fa fa-eye-slash"></i>    
-                            <label for="lozinkaRepeat">Potvrda lozinke</label>
-                            <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
-                            <i class="fa fa-eye openPasswordConf"></i>
-                            <i class="fa fa-eye-slash closedPasswordConf"></i>
-                            <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
-                            <label for="adresa">Adresa</label>
-                            <input type="text" name="adresa" placeholder="Adresa" required/>
-                            <label for="mesto">Grad</label>
-                            <input type="text" name="mesto" placeholder="Grad" required/>
-                            <label for="postanskibroj">Poštanski broj</label>
-                            <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
-                            <label for="drzava">Država</label>
-                            <input type="text" name="drzava" placeholder="Država" required/>
-                            <label for="telefon">Telefon</label>
-                            <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
-                            <label for="jmbg">JMBG</label>
-                            <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>
-                            <label for="pravnaosoba">Naziv pravne osobe</label>
-                            <input type="text" name="pravnaosoba" placeholder="Naziv pravne osobe" class="no-arrow require-if-active" data-require-pair="#pravnoLice" />
-                            <label for="pib">PIB</label>
-                            <input type="number" name="pib" placeholder="PIB" class="no-arrow require-if-active" data-require-pair="#pib" />
+                        <form th:action="@{/noviClan}"  method="POST"  class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="ime">Ime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   
+                                <div class="invalid-feedback">
+                                    Unesite Vaše ime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prezime">Prezime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="prezime" placeholder="Prezime" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaše prezime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email adresa</label>
+                                <input type="email" class="input-custom-border-clr form-control" name="email" placeholder="Email" required/>      
+                                <div class="invalid-feedback">
+                                    Unesite validnu email adresu u formatu: primer@email.com.
+                                </div>
+                            </div>   
+                            <div class="mb-3">
+                                <label for="password">Lozinka</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="pRegistration" minlength="8"  required/>  
+                                <i id="oPassword" class="fa fa-eye"></i>
+                                <i id="cPassword" class="fa fa-eye-slash"></i>    
+                                <div class="invalid-feedback">
+                                    Unesite lozinku od minimum 8 karaktera.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lozinkaRepeat">Potvrda lozinke</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConf" required/>
+                                <i class="fa fa-eye oPasswordConf"></i>
+                                <i class="fa fa-eye-slash cPasswordConf"></i>
+                                <div class="invalid-feedback">
+                                    Potvrdite lozinku.
+                                </div>
+                                <p id="label-3" style="display: none">* Lozinke se ne poklapaju</p>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="adresa">Adresa</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="adresa" placeholder="Adresa" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vašu adresu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesto">Grad</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="mesto" placeholder="Grad" required/>
+                                <div class="invalid-feedback">
+                                    Unesite grad.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postanskibroj">Poštanski broj</label>
+                                <input type="number" class="input-custom-border-clr form-control" name="postanskibroj" placeholder="Poštanski broj" required/>
+                                <div class="invalid-feedback">
+                                    Unesite poštanski broj.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="drzava">Država</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="drzava" placeholder="Država" required/>
+                                <div class="invalid-feedback">
+                                    Unesite državu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefon">Telefon</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="telefon" placeholder="Telefon" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš broj telefona.
+                                </div>
+                            </div>         
+                            <div class="mb-3">
+                                <label for="jmbg">JMBG</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="jmbg" placeholder="JMBG" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš JMBG.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pravnaosoba">Naziv pravne osobe</label>
+                                <input type="text" class="input-custom-border-clr form-control no-arrow require-if-active" name="pravnaosoba" placeholder="Naziv pravne osobe" data-require-pair="#pravnoLice" required=""/>
+                          <div class="invalid-feedback">
+                                    Unesite naziv pravne osobe.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pib">PIB</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow require-if-active" name="pib" placeholder="PIB" data-require-pair="#pib" required=""/>
+                            <div class="invalid-feedback">
+                                    Unesite PIB.
+                                </div>
+                            </div>
+                            
                             <div class="nacinPlacanja">
                                 <h6>Način plaćanja</h6>
 
@@ -292,153 +412,6 @@
                     </div>
                 </div>
 
-
-                <!--                    <div class="tab-content">
-                                        <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="fizicko_lice">
-                                            <label for="ime">Ime</label>
-                                            <input type="text" name="ime" placeholder="Ime " required/>
-                                        </div> 
-                                    </div>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade active" role="tabpanel" aria-labelledby="pravno_lice">
-                                            <label for="prezime">Prezime</label>
-                                            <input type="text" name="prezime" placeholder="Prezime" required/>
-                                        </div> 
-                                    </div>-->
-
-                <!--                    <label for="ime">Ime</label>
-                                    <input type="text" name="ime" placeholder="Ime " required/>-->
-
-                <!--                    <label for="prezime">Prezime</label>
-                                    <input type="text" name="prezime" placeholder="Prezime" required/>
-                                    <label for="email">Email adresa</label>
-                                    <input type="email" name="email" placeholder="Email" required/>
-                                    <label for="password">Lozinka</label>
-                                    <input type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  />  
-                                    <i id="openPassword" class="fa fa-eye"></i>
-                                    <i id="closedPassword" class="fa fa-eye-slash"></i>
-                                    <label for="password">Potvrda lozinke</label>
-                                    <input type="password" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" />
-                                    <i class="fa fa-eye openPasswordConf"></i>
-                                    <i class="fa fa-eye-slash closedPasswordConf"></i>
-                                    <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
-                                    <label for="adresa">Adresa</label>
-                                    <input type="text" name="adresa" placeholder="Adresa" required/>
-                                    <label for="mesto">Grad</label>
-                                    <input type="text" name="mesto" placeholder="Grad" required/>
-                                    <label for="postanskibroj">Poštanski broj</label>
-                                    <input type="number" name="postanskibroj" placeholder="Poštanski broj" required/>
-                                    <label for="drzava">Država</label>
-                                    <input type="text" name="drzava" placeholder="Država" required/>
-                                    <label for="telefon">Telefon</label>
-                                    <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" required/>
-                                    <label for="jmbg">JMBG</label>
-                                    <input type="number" name="jmbg" placeholder="JMBG" class="no-arrow" required/>-->
-
-                <!--                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="fizickolice" value="fizickolice" checked>
-                                        <label for="fizickolice" class="form-check-label" >
-                                            Fizičko lice &euro;50,00
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="fizickoilipravnolice" id="pravnolice" value="pravnolice">
-                                        <label for="pravnolice" class="form-check-label" >
-                                            Pravno lice &euro;300,00
-                                        </label>
-                                        pravno lice
-                                        <div style="display:none" id="pravnolicedetalji">
-                                            <label for="pravnaosoba">Naziv pravne osobe</label>
-                                            <input type="text" name="pravnaosoba" placeholder="Naziv pravne osobe" class="no-arrow require-if-active" data-require-pair="#pravnoLice" />
-                                            <label for="pib">PIB</label>
-                                            <input type="number" name="pib" placeholder="PIB" class="no-arrow require-if-active" data-require-pair="#pib" />
-                                        </div>
-                                    </div>
-                                    <br>
-                
-                                    <div class="nacinPlacanja">
-                                        <h6>Način plaćanja</h6>
-                
-                                        <div class="row">
-                                            <div class="col-xl-4">
-                                                <label>
-                                                    <input type="radio" name="placanje" value="uplatnica"class="card-input-element" checked />
-                
-                                                    <div class="panel panel-default card-input">
-                                                        <div class="container">
-                
-                                                            <div class="row">
-                                                                <div class="col-4 payIcon" >
-                                                                    <i class="fas fa-receipt"></i>
-                                                                </div>
-                                                                <div class="col-8 panel-body">
-                
-                                                                    Uplatnica
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                
-                                                </label>
-                                            </div>
-                
-                                            <div class="col-xl-4" id="faktura" style="display: none">
-                                                <label>
-                                                    <input type="radio" name="placanje" value="faktura" class="card-input-element" />
-                
-                                                    <div class="panel panel-default card-input">
-                                                        <div class="container">
-                
-                                                            <div class="row">
-                                                                <div class="col-4 payIcon">
-                                                                    <i class="fas fa-file-invoice"></i>
-                                                                </div>
-                                                                <div class="col-8 panel-body">
-                
-                                                                    Faktura
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="col-xl-4">
-                                                <label>
-                                                    <input type="radio" name="placanje" value="kartica" class="card-input-element" />
-                
-                                                    <input type="radio" name="product" class="card-input-element" disabled />
-                
-                
-                                                    <div class="panel panel-default card-input">
-                                                        <div class="container">
-                
-                                                            <div class="row">
-                                                                <div class="col-4 payIcon">
-                                                                    <i class="far fa-credit-card"></i>
-                                                                </div>
-                                                                <div class="col-8 panel-body">
-                                                                    Kartica (u pripremi)
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                            </div>
-                
-                                        </div>
-                
-                                    </div>-->
-
-                <!--                    <br>
-                                    <div class="checkbox">
-                                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
-                                    </div>
-                                    <button type="submit" class="submitForm">Učlani se</button>
-                
-                                </form>-->
             </div>
         </div>
 
@@ -458,6 +431,7 @@
 <th:block th:insert="fragments/scripts :: scripts" />
 <script th:src="@{/js/uclanise.js}" type="text/javascript"></script>
 <script th:src="@{/js/registrationForm.js}" type="text/javascript"></script>
+<script th:src="@{/js/formValidation.js}"></script>
 
 
 </body>

@@ -21,6 +21,18 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   letter-spacing: normal;
   font-size: 3.5vw !important;
 }
+.text-box.text-box-mini p {
+  font-size: 1.8vw !important;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: normal;
+}
+
+.website-link {
+  color: #70a130;
+}
+.website-link:hover {
+  color: #3a4da1;
+}
 
 .text-box {
   /*color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);*/
@@ -40,9 +52,6 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 
 .section-heading.section-heading-member {
   margin-bottom: 25px;
-}
-.section-heading.section-heading-member h3 {
-  font-size: 1.4rem;
 }
 
 .about-content.about-content-member p {
@@ -297,6 +306,10 @@ p {
   }
 }
 @media screen and (max-width: 767px) {
+  .section-heading.section-heading-member h3 {
+    font-size: 1.65rem !important;
+  }
+
   .about-section .container .image-column .inner-column {
     padding-left: 7.5rem;
   }
@@ -318,6 +331,9 @@ p {
     /*font-family: $font-handwriting;*/
     /*letter-spacing: normal;*/
     font-size: 5.5vw !important;
+  }
+  .text-box.text-box-mini p {
+    display: none;
   }
 
   .text-box.text-box-mini.text-box-mini-pogodnosti {

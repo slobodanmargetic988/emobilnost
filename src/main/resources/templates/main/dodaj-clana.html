@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" 
+
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Admin Dodaj člana strana | E-Mobilnost</title>
+
+        <meta name="description" content="Administratorska strana za dodavanje članova u udruženje E-Mobilnost "/> 
+        <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, electric vehicles, electric vehicle, električna vozila, električni automobili, vozila, automobili, električni motori, električni 
+              trotineti, motori, trotineti, admin, administrator, član, članovi, dodaj člana, dodavanje člana"/>
+
+    <th:block th:insert="fragments/head :: head" />
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="user-dashboard no-touch">
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a>
+
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" style="width: 100px;
+                                 height: auto;" alt="logo">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" alt="logo" style="width: 100px;
+                                 height: auto;" >
+                        </a>
+                    </div>
+                </div>
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/}">Idi na početnu</a>
+                        </li>
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/vesti}">Vesti</a>
+                        </li>
+                        <!--                        <li class="topbar-action-item topbar-action-link">
+                                                    <a th:href="@{/poljoprivredni-konkursi-pocetna}">Poljoprivredni konkursi</a>
+                                                </li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <th:block th:insert="fragments/navigation :: admin-navbar" />
+
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h3 class="add-new">DODAVANJE NOVOG ČLANA</h3>
+
+                        <form th:action="@{/napraviClana}" method="post" class="form-horizontal needs-validation" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;" novalidate>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Ime člana</label>
+                                <input type="text" class="form-control input-custom-border" name="ime" placeholder="Ime člana" required>
+                                <div class="invalid-feedback">
+                                    Unesite ime člana.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Prezime člana</label>
+                                <input type="text" class="form-control input-custom-border" name="prezime" placeholder="Prezime člana" required/>
+                                <div class="invalid-feedback">
+                                    Unesite prezime člana.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Email adresa</label>
+                                <input type="email" class="form-control input-custom-border" name="email" placeholder="Email adresa" required/>
+                                <div class="invalid-feedback">
+                                    Unesite validnu email adresu člana u formatu: primer@email.com.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Adresa</label>
+                                <input type="text" class="form-control input-custom-border" name="adresa" placeholder="Adresa" required/>
+                                  <div class="invalid-feedback">
+                                    Unesite adresu člana.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Grad</label>
+                                <input type="text" class="form-control input-custom-border" name="mesto" placeholder="Mesto" required/>
+                                  <div class="invalid-feedback">
+                                    Unesite grad.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Poštanski broj</label>
+                                <input type="number" class="form-control input-custom-border" name="postanski_broj" placeholder="Poštanski broj" required/>
+                                  <div class="invalid-feedback">
+                                    Unesite poštanski broj.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Država</label>
+                                <input type="text" class="form-control input-custom-border" name="drzava" placeholder="Država" required/>
+                                <div class="invalid-feedback">
+                                    Unesite državu.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Broj telefona</label>
+                                <input type="number" class="form-control input-custom-border" name="broj_telefona" placeholder="Broj telefona" required/>
+                                <div class="invalid-feedback">
+                                    Unesite broj telefona.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">JMBG</label>
+                                <input type="number" class="form-control input-custom-border" name="jmbg" placeholder="JMBG" required/>
+                                 <div class="invalid-feedback">
+                                    Unesite jmbg.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Naziv pravnog lica</label>
+                                <input type="text" class="form-control input-custom-border" name="naziv_pravne_osobe" placeholder="Naziv pravnog lica"/>
+                                 <div class="invalid-feedback">
+                                    Unesite naziv pravnog lica.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">PIB</label>
+                                <input type="number" class="form-control input-custom-border" name="pib" placeholder="PIB"/>
+                                 <div class="invalid-feedback">
+                                    Unesite PIB.
+                                </div>
+                            </div>
+                            <div class="centrirajFormuInput mb-3">
+                                <label class="">Datum početka članstva</label>
+                                <input type="date" class="form-control input-custom-border" name="datum_pocetka_clanstva" required/>
+                                 <div class="invalid-feedback">
+                                    Unesite datum početka članstva.
+                                </div>
+                            </div>
+                            <!--                            <div class="centrirajFormuInput mb-3">
+                                                            <label class="">Datum isteka članstva</label>
+                                                            <input type="date" class="form-control input-custom-border" name="datum_isteka_clanstva"/>
+                                                        </div>-->
+
+                            <div class="submit-buttons-group mt-4">
+                                <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
+                                <br>
+                                <!--                                <button type="submit" name="action" value="konkurs" class="btn-save-konkurs">Sačuvaj kao Konkurs</button>
+                                                                <br>-->
+                                <a href="" class="btn-odustani">Odustani</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer-bar">
+        <div class="container">
+            <span class="footer-copyright">Copyright 2021, <a href="#">CMI</a>. All Rights Reserved.</span>
+
+        </div>
+    </div>
+
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script th:src="@{/js/wysiwyg.js}"></script>
+<script th:src="@{/js/admin-panel.js}"></script>
+<script th:src="@{/js/formValidation.js}"></script>
+
+</body>
+
+</html>

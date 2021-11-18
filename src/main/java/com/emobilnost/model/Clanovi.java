@@ -5,6 +5,10 @@
  */
 package com.emobilnost.model;
 
+import com.emobilnost.repository.AnketaRepository;
+import com.emobilnost.service.AnketaService;
+import com.emobilnost.service.AnketaServiceImpl;
+import com.emobilnost.service.ColorPaletaService;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,6 +22,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -73,11 +78,27 @@ public class Clanovi {
     private Date datum_pocetka_clanstva;
 
     @Column(name = "datum_isteka_clanstva")
-    private Date datum_isteka_clanstva;
+    private Date datumisteka;
     
      @Column(name = "newsletter")
     private Boolean newsletter;
+     
+         
 
+    @OneToOne(mappedBy = "clan")
+    private Anketa anketa;
+
+    public Anketa getAnketa() {
+        return anketa;
+    }
+
+    public void setAnketa(Anketa anketa) {
+        this.anketa = anketa;
+    }
+    
+    
+    
+    
     public Boolean getNewsletter() {
         return newsletter;
     }
@@ -86,8 +107,7 @@ public class Clanovi {
         this.newsletter = newsletter;
     }
 
-     
-     
+
      
     public int getId() {
         return id;
@@ -201,12 +221,13 @@ public class Clanovi {
         this.datum_pocetka_clanstva = datum_pocetka_clanstva;
     }
 
-    public Date getDatum_isteka_clanstva() {
-        return datum_isteka_clanstva;
+    public Date getDatumisteka() {
+        return datumisteka;
     }
 
-    public void setDatum_isteka_clanstva(Date datum_isteka_clanstva) {
-        this.datum_isteka_clanstva = datum_isteka_clanstva;
+    public void setDatumisteka(Date datumisteka) {
+        this.datumisteka = datumisteka;
     }
+
 
 }

@@ -14,9 +14,20 @@
         letter-spacing: normal;
         font-size: 3.5vw !important;
     }
+      p {
+        font-size: 1.8vw !important;
+        font-family: $font-rest;
+        letter-spacing: normal;
+    }
 }
 
+.website-link {
+    color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+    &:hover {
+        color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 
+    }
+}
 
 .text-box { 
     /*color: hsla($main-color-h, $main-color-s, 100%, $main-color-a);*/
@@ -35,10 +46,6 @@
 }
 .section-heading.section-heading-member {
     margin-bottom: 25px;
-    h3 {
-        font-size: 1.4rem;
-    }
-
 }
 .about-content.about-content-member  {
     p {
@@ -275,6 +282,11 @@ p {
 }
 
 @media screen and (max-width:767px) {
+    .section-heading.section-heading-member {
+        h3 {
+   font-size: 1.65rem !important;
+}
+}
     .about-section {
         .container {
             .image-column {
@@ -300,6 +312,9 @@ p {
             /*font-family: $font-handwriting;*/
             /*letter-spacing: normal;*/
             font-size: 5.5vw !important;
+        }
+         p {
+            display: none;
         }
     }
     .text-box.text-box-mini.text-box-mini-pogodnosti {

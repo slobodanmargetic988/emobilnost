@@ -1,0 +1,142 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+#anketa {
+  position: fixed;
+  bottom: 27px;
+  right: -342px;
+}
+
+.survey-padding {
+  padding: 1rem;
+  background-color: #ffffff;
+  margin: 0px auto;
+  border-radius: 10px;
+  max-width: 400px;
+  box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
+}
+
+.exit {
+  float: right;
+}
+
+.close {
+  font-size: 2rem !important;
+}
+.close:focus {
+  border: none;
+  outline: none;
+}
+
+#anketaForm {
+  margin: 0px auto;
+  padding: 40px 20px 10px 20px;
+}
+#anketaForm h6 {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.prevBtn {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 20px;
+  color: #4d4d4d !important;
+}
+.prevBtn:hover {
+  color: #1a1a1a !important;
+}
+.prevBtn:focus {
+  border: none;
+  outline: none;
+}
+
+.fullClrBtnInput {
+  display: inline-block;
+  padding: 10px 0;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  border: none;
+  background-color: #8bc63f;
+}
+.fullClrBtnInput:hover {
+  background-color: #70a130;
+  color: #fff;
+}
+
+.fullClrBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+.fullClrBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bc63f;
+  border-radius: 5px;
+  z-index: -2;
+}
+.fullClrBtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #70a130;
+  transition: all 0.3s;
+  border-radius: 5px;
+  z-index: -1;
+}
+.fullClrBtn:hover {
+  color: #fff;
+}
+.fullClrBtn:hover::before {
+  width: 100%;
+}
+.fullClrBtn:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 991px) {
+  #anketa {
+    right: -135px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #anketa {
+    right: -44px;
+  }
+}
+@media screen and (max-width: 575px) {
+  #anketa {
+    right: 0px;
+  }
+}

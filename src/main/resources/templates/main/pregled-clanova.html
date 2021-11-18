@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" 
+
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Pregled članova | Admin | E-Mobilnost</title>
+
+        <meta name="description" content="C4B Admin | Pregled članova"/> 
+        <meta name="description" content="Administratorska strana Udruženja E-Mobilnost - pregled članova"/> 
+        <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, electric vehicles, electric vehicle, električna vozila, električni automobili, vozila, automobili, električni motori, električni 
+              trotineti, motori, trotineti, admin, administrator, član, člnastvo, member, membership, članarina, učlanjenje, učlaniti se, učlani se, postani član"/>
+
+    <th:block th:insert="fragments/head :: head" />
+
+    <link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class=" user-dashboard no-touch">
+
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a>
+
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" style="width: 100px;
+                                 height: auto;" alt="logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" alt="logo" style="width: 100px;
+                                 height: auto;" >
+                        </a>
+                    </div>
+                </div>
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/}">Idi na početnu</a>
+                        </li>
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/vesti}">Vesti</a>
+                        </li>
+                        <!--                        <li class="topbar-action-item topbar-action-link">
+                                                    <a th:href="@{/poljoprivredni-konkursi-pocetna}">Poljoprivredni konkursi</a>
+                                                </li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-wraper">
+        <div class="container">
+            <div class="d-flex">
+                <th:block th:insert="fragments/navigation :: admin-navbar" />
+
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h3 class="add-new">LISTA ČLANOVA</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Ime i prezime člana</th>
+                                        <th>Datum isteka članstva</th>
+                                        <th>Anketa</th>
+                                        <th>Naziv pravne osobe</th>
+                                        <th>Email adresa</th>
+                                        <th>Adresa</th>
+                                        <th>Broj telefona</th>
+                                        <th>JMBG</th>
+                                        <th>PIB</th>
+                                        <th>Datum početka članstva</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                <th:block th:each="clan : ${listaClanova}">
+                                    <tr>
+                                        <td><span th:text="${clan.id}"></span></td>
+
+                                        <td><span th:text="${clan.ime} + ' '+ ${clan.prezime}"></span></td>
+                                        <td><span th:text="${#dates.format(clan.datumisteka, 'dd.MM.yyyy.')}"></span></td>
+                                        <td>
+                                    <th:block th:if="${clan.getAnketa() != null}">
+                                        <span th:text="${clan.getAnketa().opcija}"></span>
+                                    </th:block>
+                                    </td>
+                                    <td><span th:text="${clan.naziv_pravne_osobe}"></span></td>
+
+                                    <td><span th:text="${clan.email}"></span></td>
+                                    <td><span th:text="${clan.adresa} + ', '+ ${clan.mesto} + ', ' + ${clan.postanski_broj} + ', ' + ${clan.drzava}"></span></td>
+                                    <td><span th:text="${clan.broj_telefona}"></span></td>
+                                    <td><span th:text="${clan.jmbg}"></span></td>
+                                    <td><span th:text="${clan.pib}"></span></td>
+                                    <td><span th:text="${#dates.format(clan.datum_pocetka_clanstva, 'dd.MM.yyyy.')}"></span></td>
+
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bar">
+    <div class="container">
+        <span class="footer-copyright ">Copyright 2021, <a href="#">CMI</a>. All Rights Reserved.</span>
+
+    </div>
+</div>
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/admin-panel.js}"></script>
+
+</body>
+
+</html>

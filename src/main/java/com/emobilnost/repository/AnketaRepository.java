@@ -5,8 +5,7 @@
  */
 package com.emobilnost.repository;
 
-import com.emobilnost.model.Clanovi;
-import com.emobilnost.model.Users;
+import com.emobilnost.model.Anketa;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -18,12 +17,12 @@ import org.springframework.stereotype.Repository;
  */
 
 
-@Repository("clanoviRepository")
-public interface ClanoviRepository extends JpaRepository<Clanovi, Integer> {
+@Repository("anketaRepository")
+public interface AnketaRepository extends JpaRepository<Anketa, Integer> {
 
-    List<Clanovi> findAllBy();
-    Clanovi findFirstByEmail(String email);
-    Clanovi findFirstByIme(String ime);
-    List<Clanovi> findAllByOrderByDatumistekaAsc();
+    List<Anketa> findAllBy();
+    Anketa findFirstByEmail(String email);
+  
+    
    
 }

@@ -5,8 +5,18 @@
                  padding: 50px 0 30px 0;
         }
 */
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
 .note-editor .note-toolbar {
-  background: #fff8f0;
+  background-color: #fafdf7;
 }
 
 .note-popover .popover-content {
@@ -29,10 +39,10 @@
 }
 
 .note-editor.note-frame {
-  border: 1px solid #9acb37;
+  border: 2px solid #d2d7ef;
 }
 .note-editor.note-frame .note-editing-area .note-editable:focus {
-  border: 2px solid #799e4e;
+  border-color: #adb6e1;
 }
 
 .btn-choose-file {
@@ -56,18 +66,18 @@
 }
 
 body {
-  font: 300 14px/1.86 "Montserrat", sans-serif;
+  font: 300 14px/1.86 "Open Sans", sans-serif;
   color: #444443;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  background: #f9f4ef;
+  background-color: #fafdf7;
   min-width: 320px;
 }
 
 h3 {
   margin-bottom: 12px;
   line-height: 1.68;
-  font-size: 1.32em;
+  font-size: 1.5em;
 }
 h3:last-child {
   margin-bottom: 0;
@@ -124,30 +134,75 @@ a:active {
 
 .btn-save-vest {
   width: 100%;
-  position: relative;
+  /*    position: relative;
+      padding: 10px 20px;
+      font-size: 13px;
+      line-height: 24px;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      background: #f37c25;
+      border: #f37c25;
+      color: #fff;
+      &:hover {
+          box-shadow: none;
+          outline: none;
+          background: #c1580b;
+          border-color: #c1580b;
+      }
+      &:focus {
+          box-shadow: none;
+          outline: none;
+      }
+      &:active {
+          box-shadow: none;
+          outline: none;
+      }*/
+  display: inline-block;
   padding: 10px 20px;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: 0.1em;
-  border-radius: 4px;
+  border-radius: 5px;
+  color: white;
   text-transform: uppercase;
-  transition: all 0.4s ease;
-  background: #f37c25;
-  border: #f37c25;
-  color: #fff;
+  font-size: .95rem;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  border: none;
+}
+.btn-save-vest::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bc63f;
+  border-radius: 5px;
+  z-index: -2;
+}
+.btn-save-vest::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #70a130;
+  transition: all 0.3s;
+  border-radius: 5px;
+  z-index: -1;
 }
 .btn-save-vest:hover {
-  box-shadow: none;
-  outline: none;
-  background: #c1580b;
-  border-color: #c1580b;
+  color: #fff;
+}
+.btn-save-vest:hover::before {
+  width: 100%;
 }
 .btn-save-vest:focus {
-  box-shadow: none;
-  outline: none;
-}
-.btn-save-vest:active {
-  box-shadow: none;
   outline: none;
 }
 
@@ -163,7 +218,7 @@ a:active {
   transition: all 0.4s ease;
   background: #9acb37;
   border: #9acb37;
-  color: #fff;
+  color: black;
   margin-top: 0.5rem;
 }
 .btn-save-konkurs:hover {
@@ -183,32 +238,52 @@ a:active {
 
 .btn-odustani {
   width: 100%;
-  position: relative;
-  padding: 10px 20px;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: 0.1em;
-  border-radius: 4px;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
   margin-top: 0.5rem;
-  color: #444443 !important;
-  border: 2px solid #00b4e7;
-  background: #fff;
+  display: inline-block;
+  text-align: center;
+  /*padding: 0.75rem 1.25rem;*/
+  padding: 8px 20px;
+  border-radius: 5px;
+  color: black !important;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1rem;
+  /*letter-spacing: 0.15rem;*/
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid #8bc63f;
+  font-weight: 400;
+}
+.btn-odustani:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 102%;
+  height: 102%;
+  background-color: transparent;
+  border-radius: 5px;
+  z-index: -2;
+}
+.btn-odustani:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #8bc63f;
+  transition: all 0.3s;
+  border-radius: 2px;
+  z-index: -1;
 }
 .btn-odustani:hover {
-  box-shadow: none;
-  outline: none;
-  background: #00b4e7;
   color: white !important;
 }
-.btn-odustani:focus {
-  box-shadow: none;
-  outline: none;
-}
-.btn-odustani:active {
-  box-shadow: none;
-  outline: none;
+.btn-odustani:hover:before {
+  width: 100%;
 }
 
 .dropdown-menu {
@@ -250,10 +325,10 @@ a:active {
 .topbar-action-item > a {
   padding: 15px 0;
   display: inline-block;
-  color: #444443;
+  color: #333333;
 }
 .topbar-action-item > a:hover {
-  color: #f37c25;
+  color: #8bc63f;
 }
 .topbar-action-item .dropdown-menu {
   min-width: auto;
@@ -265,7 +340,7 @@ a:active {
 }
 
 .topbar-action-link a {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 30px;
   font-weight: 400;
 }
@@ -389,12 +464,13 @@ a:active {
   z-index: 2;
 }
 .user-sidebar .topbar-action-link a {
-  font-size: 14px;
-  color: #444443;
+  color: #333333;
+  font-size: 18px;
+  line-height: 24px;
   font-weight: 400;
 }
 .user-sidebar .topbar-action-link a:hover {
-  color: #f37c25;
+  color: #8bc63f !important;
 }
 
 .user-sidebar-overlay {
@@ -430,7 +506,7 @@ a:active {
 .user-sidebar-sap {
   width: 35px;
   height: 3px;
-  background: #e4ceb7;
+  background: #8bc63f;
   margin: 0 0 1.3rem 2rem;
 }
 
@@ -447,8 +523,9 @@ a:active {
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
 }
 .user-panel label {
-  font-size: 14px;
-  color: #444443;
+  color: #3a4da1;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .user-dashboard {
@@ -472,35 +549,46 @@ a:active {
 }
 
 .input-custom-border {
-  border: 1px solid #9acb37;
-  border-radius: 0.2rem;
+  position: relative;
+  width: 100%;
+  padding: 1.2rem;
+  color: #211b14;
+  border: 2px solid #d2d7ef;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+  /*margin: 0 0 1rem 0;*/
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+  background: transparent;
 }
 .input-custom-border:focus {
-  outline: 0;
-  border: 2px solid #81a459;
   box-shadow: none;
+  outline: none;
+  border-color: #adb6e1;
 }
 
 .add-new {
-  color: #444443;
+  color: #3a4da1;
 }
 
 .user-icon-nav {
-  padding: 25px 0;
+  padding-bottom: 25px;
 }
 .user-icon-nav li {
-  padding: 5px 0;
+  padding: 10px 0;
 }
 .user-icon-nav li a {
-  color: #444443;
-  font-size: 15px;
+  color: #333333;
+  font-size: 18px;
   line-height: 24px;
   font-weight: 400;
   display: flex;
   align-items: center;
 }
 .user-icon-nav li a:hover {
-  color: #f37c25 !important;
+  color: #8bc63f !important;
 }
 .user-icon-nav li a .ti {
   width: 35px;
@@ -513,15 +601,13 @@ a:active {
 .footer-bar {
   font-size: 13px;
   padding: 20px 0;
+  font-weight: 400;
 }
 .footer-bar a {
-  color: #f37c25;
+  color: #8bc63f !important;
 }
-.footer-bar a:hover {
-  color: #00b4e7;
-}
-.footer-bar a:focus {
-  color: #00b4e7;
+.footer-bar a:hover, .footer-bar a:focus {
+  color: #3a4da1 !important;
 }
 
 .footer-copyright {
@@ -546,7 +632,7 @@ a:active {
   background-color: transparent;
 }
 .table thead tr {
-  background: #fff2e3;
+  background-color: #d2e9b4;
   color: #444443;
 }
 .table thead th {
@@ -571,7 +657,7 @@ a:active {
   border-radius: 0 0 0 4px;
 }
 .table tr:nth-child(even) {
-  background: #f9f4ef;
+  background-color: #f3f9eb;
 }
 .table td {
   padding: 10px 20px;
@@ -592,6 +678,31 @@ a:active {
   text-decoration: underline;
 }
 
+/*form validation start*/
+.invalid-feedback {
+  font-size: 90%;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+  background-image: none;
+  border-color: #eb8e98;
+}
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+  border-color: #d2d7ef;
+  background-image: none;
+}
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #adb6e1 !important;
+}
+
+/*form validation end*/
 @media (min-width: 992px) {
   .container {
     width: 940px;
@@ -628,6 +739,10 @@ a:active {
 
   ul:not(.btn-grp):last-child {
     margin-top: 20px;
+  }
+
+  .user-icon-nav li a .ti {
+    width: 0;
   }
 }
 @media (min-width: 576px) {

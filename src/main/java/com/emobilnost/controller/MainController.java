@@ -38,6 +38,8 @@ import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.springframework.context.annotation.Scope;
@@ -67,28 +69,93 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
-    
-          @GetMapping("/prvih-30000km-na-struju")
+
+    @GetMapping(value = "/dodaj-clana")
+    public String dodajClana(final Model model) {
+//        model.addAttribute("listaClanova", clanoviService.findAllBy());
+
+        return "main/dodaj-clana";
+    }
+
+    @RequestMapping(value = "/napraviClana", method = RequestMethod.POST)
+    public String napraviVest(final Model model, final HttpServletRequest request,
+            RedirectAttributes redirectAttributes,
+            @RequestParam(name = "ime") String ime,
+            @RequestParam(name = "prezime") String prezime,
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "adresa") String adresa,
+            @RequestParam(name = "mesto") String mesto,
+            @RequestParam(name = "postanski_broj") String postanski_broj,
+            @RequestParam(name = "drzava") String drzava,
+            @RequestParam(name = "broj_telefona") String broj_telefona,
+            @RequestParam(name = "jmbg") String jmbg,
+            @RequestParam(name = "naziv_pravne_osobe",defaultValue="/") String naziv_pravne_osobe,
+            @RequestParam(name = "pib",defaultValue="/") Integer pib,
+            //            @RequestParam(name = "is_pravno_lice") Boolean is_pravno_lice,
+                                    @RequestParam(name = "datum_pocetka_clanstva") Calendar datum_pocetka_clanstva,
+            //                        @RequestParam(name = "datum_isteka_clanstva") LocalDate datum_isteka_clanstva,
+            @RequestParam(value = "action", required = true) String action
+    ) {
+
+        Clanovi clan = new Clanovi();
+        clan.setIme(ime);
+        clan.setPrezime(prezime);
+        clan.setEmail(email);
+        clan.setAdresa(adresa);
+        clan.setMesto(mesto);
+        clan.setPostanski_broj(postanski_broj);
+        clan.setDrzava(drzava);
+        clan.setBroj_telefona(broj_telefona);
+        clan.setJmbg(jmbg);
+        clan.setNaziv_pravne_osobe(naziv_pravne_osobe);
+        clan.setPib(pib);
+//        clan.setDatum_pocetka_clanstva(datum_pocetka_clanstva);
+//        clan.setDatum_isteka_clanstva(datum_isteka_clanstva);
+
+
+        clan.setDatum_pocetka_clanstva(datum_pocetka_clanstva.getTime());
+        datum_pocetka_clanstva.add(Calendar.YEAR, 1);
+        clan.setDatumisteka(datum_pocetka_clanstva.getTime());
+
+        try {
+
+            clanoviService.save(clan);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            return "redirect:/admin-pocetna";
+        }
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste dodali novog člana!");
+
+        return "redirect:/admin-pocetna";
+    }
+
+    @GetMapping(value = "/pregled-clanova")
+    public String pregledClanova(final Model model) {
+        model.addAttribute("listaClanova", clanoviService.findAllByOrderByDatumistekaclanstvaAsc());
+
+        return "main/pregled-clanova";
+    }
+
+    @GetMapping("/prvih-30000km-na-struju")
     public String prvih30000kmNaStruju(Model model) {
         return "main/prvih-30000km-na-struju";
     }
-    
-       @GetMapping("/miodrag-makaric-mica")
+
+    @GetMapping("/miodrag-makaric-mica")
     public String miodragMakaricMica(Model model) {
         return "main/miodrag-makaric-mica";
     }
-    
-    
+
     @GetMapping("/bonton-za-vozace-elektricnih-vozila")
     public String jednaVest(Model model) {
         return "main/bonton-za-vozace-elektricnih-vozila";
     }
-    
+
     @GetMapping("/mreza-punjaca")
     public String mrezaPunjaca(Model model) {
         return "main/mreza-punjaca";
     }
-
 
     @GetMapping("/newsletterOdjava")
     public String newsletterOdjava(Model model,
@@ -763,7 +830,7 @@ public class MainController {
         Clanovi clan = new Clanovi();
         clan.setAdresa(adresa);
         clan.setBroj_telefona(broj_telefona);
-        clan.setDatum_isteka_clanstva(java.sql.Date.valueOf(LocalDate.now().plusYears(1)));
+        clan.setDatumisteka(java.sql.Date.valueOf(LocalDate.now().plusYears(1)));
         clan.setDatum_pocetka_clanstva(java.sql.Date.valueOf(LocalDate.now()));
         clan.setDrzava(drzava);
         clan.setEmail(email);
@@ -810,7 +877,7 @@ public class MainController {
 
             userService.save(user);
             clanoviService.save(clan);
-            //EmailController.SendEmailUclanjen(clan);
+            EmailController.SendEmailUclanjen(clan);
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
@@ -843,7 +910,7 @@ public class MainController {
 
         }
 
-        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste uclanili.");
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se uclanili.");
 
         return "redirect:/";
 

@@ -8,6 +8,31 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+/*form validation start*/
+.invalid-feedback {
+  font-size: 90%;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+  background-image: none;
+  border-color: #eb8e98 !important;
+}
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+  border-color: #d2d7ef;
+  background-image: none;
+}
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #adb6e1 !important;
+}
+
+/*form validation end*/
 .big-header-hidden {
   display: none;
 }
@@ -101,26 +126,11 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   color: #3a4da1;
   line-height: 1.3;
 }
-#uclanise-login-form .container-uclani-se .user .formBx input {
-  position: relative;
-  width: 100%;
-  padding: 0.8rem;
-  /*background-color: darken($white-color, 1%);*/
-  color: #211b14;
-  border: 2px solid #d2d7ef;
-  border-radius: 5px;
-  outline: none;
-  box-shadow: none;
-  margin: 0 0 1rem 0;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  font-weight: 300;
-  background: transparent;
-}
-#uclanise-login-form .container-uclani-se .user .formBx input:focus {
-  box-shadow: none;
-  outline: none;
-  border-color: #adb6e1;
+#uclanise-login-form .container-uclani-se .user .formBx .undertext-small {
+  font-size: 15px !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: 500 !important;
 }
 #uclanise-login-form .container-uclani-se .user .formBx label {
   color: #3a4da1;
@@ -140,6 +150,28 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 #uclanise-login-form .container-uclani-se .user .formBx .checkbox .rememberMe .uslovi-koriscenja:hover {
   text-decoration: underline !important;
+}
+
+.input-custom-border-clr {
+  position: relative;
+  width: 100% !important;
+  padding: 1.2rem !important;
+  /*background-color: darken($white-color, 1%);*/
+  color: #211b14 !important;
+  border: 2px solid #d2d7ef !important;
+  border-radius: 5px !important;
+  outline: none;
+  box-shadow: none;
+  /*margin: 0 0 1rem 0;*/
+  font-size: 0.8rem !important;
+  letter-spacing: 1px;
+  font-weight: 300 !important;
+  background: transparent;
+}
+.input-custom-border-clr:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #adb6e1 !important;
 }
 
 .submitForm {
@@ -198,17 +230,17 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   width: 2% !important;
 }
 
-#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat {
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat, #oPassword, .oPasswordConf {
   color: #adb6e1;
 }
 
-#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat, #cPassword, .cPasswordConf {
   display: none;
   color: #adb6e1;
 }
 
-#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin {
-  margin-top: -47px;
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf, .openPasswordLogin, .closedPasswordLogin, #oPassword, #cPassword, .oPasswordConf, .cPasswordConf {
+  margin-top: -29px;
   float: right;
   position: relative;
   margin-right: .8rem;
@@ -223,7 +255,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   cursor: pointer;
 }
 
-#label-2 {
+#label-2, #label-3 {
   color: #dc3545;
   font-size: .8rem;
 }

@@ -14,231 +14,194 @@
               elektromobili, elektromobilnost"/>
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/onama-home-section.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/anketa.css}" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-              <th:block th:insert="fragments/topbar :: topbar" />
+<th:block th:insert="fragments/topbar :: topbar" />
 
-    <div class="kontejner">
+<div class="kontejner">
 
-        <!--<img src="/img/car-header-1.jpg" class="header-img" alt="home-header-image">-->
-
-
-        <picture>
-            <source media="(max-width: 776px)" srcset="/img/carhomesmall.jpg">
-            <source media="(min-width: 992px)" srcset="/img/carhome.jpg">
-            <img src="/img/carhome.jpg" class="header-img " alt="Car Image Home Hero">
-        </picture>
+    <picture>
+        <source media="(max-width: 776px)" srcset="/img/carhomesmall.jpg">
+        <source media="(min-width: 992px)" srcset="/img/carhome.jpg">
+        <img src="/img/carhome.jpg" class="header-img " alt="Car Image Home Hero">
+    </picture>
 
 
-        <th:block th:insert="fragments/navigation :: navbar" />
+    <th:block th:insert="fragments/navigation :: navbar" />
 
-        <div class="text-box">
-            <h2 class="">E-Mobilnost</h2>
-            <h3 class="">Živi bili elektromobili.</h3>
-        </div>
-
-        <th:block th:insert="fragments/alert :: gotovaporudzbina (${successMessage})"></th:block>
-
-        <th:block th:insert="fragments/alert :: uspesnaPrijava (${successMessageLogin})"></th:block>
-
-
-        <section class="blog-section">
-            <div class="container">
-                <div class="section-heading text-center">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <h5>NOVOSTI</h5>
-                            <h2 class="text-dark">NAJNOVIJE VESTI</h2>
-                            <div class="title-icon-divider text-dark"><i class="fas fa-plug"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="col-md-6 col-lg-4 d-flex">
-                        <article class="post text-left">
-                            <figure class="feature-image">
-                                 <a th:href="@{/miodrag-makaric-mica}">
-                            <img src="/img/mica.jpg" alt="">
-                        </a>
-                            </figure>
-                            <div class="entry-content">
-                                <p  class="dateNews">15.11.2021.</p>
-                                <h3><a th:href="@{/miodrag-makaric-mica}">Miodrag Makarić - Mića: Pionir elektromobilnosti - šampion biznisa</a></h3>
-                                <p>Vlasnik restorana Ruža Rumena i fast food brenda BURGER PLUS Milorad Makarić je jedan od prvih koji je kroz svoj biznis uveo u upotrebu potpuno električne automobile....</p>
-                                <span class="separatorBtn"></span>
-                                <a th:href="@{/miodrag-makaric-mica}" class="blogBtn">Pročitajte više</a>
-                            </div>
-                        </article>
-                    </div>
-                     <div class="col-md-6 col-lg-4 d-flex">
-                        <article class="post text-left">
-                            <figure class="feature-image">
-                                <a th:href="@{/prvih-30000km-na-struju}">
-                                    <img src="https://totallyev.net/wp-content/uploads/2020/12/Hyundai-Kona-Electric-review.jpg" alt="vest2-img">
-                                </a>
-                            </figure>
-                            <div class="entry-content">
-                                <p class="dateNews">15.11.2021.</p>
-                                <h3><a th:href="@{/prvih-30000km-na-struju}">Prvih 30 000 km na struju</a></h3>
-                                <p>Aktivan vozač sam punih 40 godina, od svoje 18-te. Počeo sam davne 80-te, naravno sa nacinalnom klasom, popularnim fićom..</p>
-                                <span class="separatorBtn"></span>
-                                <a th:href="@{/prvih-30000km-na-struju}" class="blogBtn" >Pročitajte više</a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-lg-4 d-flex">
-                        <article class="post text-left">
-                            <figure class="feature-image">
-                                <a th:href="@{/bonton-za-vozace-elektricnih-vozila}">
-                                    <img src="https://3.bp.blogspot.com/-kO9gmrcwSPE/UbXQcRWWUSI/AAAAAAAAQP4/qnVmXSZDlz0/s1600/nissan+leaf+-+technews24h+-.jpg" alt="vest3-img">
-                                </a>
-                            </figure>
-                            <div class="entry-content">
-                                <p  class="dateNews">29.10.2021.</p>
-                                <h3><a th:href="@{/bonton-za-vozace-elektricnih-vozila}">Bonton za vozače električnih vozila</a></h3>
-                                <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
-                                <span class="separatorBtn"></span>
-                                <a th:href="@{/bonton-za-vozace-elektricnih-vozila}" class="blogBtn" >Pročitajte više</a>
-                            </div>
-                        </article>
-                    </div>
-                   
-                   
-                    
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a th:href="@{/vesti}" class="btn-underlined">SVE VESTI</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="home-about-section padding-top-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="about-img-wrap">
-                            <div class="about-img-left">
-
-                                <div class="about-img">
-                                    <img src="/img/caronamahome1.jpeg" alt="get-to-know-us-image1" class="hide-img">
-                                </div>
-                            </div>
-                            <div class="about-img-right">
-                                <div class="about-img">
-                                    <img src="/img/caronamahome2.jpeg" alt="get-to-know-us-image2" >
-                                </div>
-                                <div class="about-img">
-                                    <img src="/img/caronamahome3.jpeg" alt="get-to-know-us-image3" class="hide-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 margin-top-s">
-                        <div class="banner-content section-heading section-heading-onama">
-                            <h5>O NAMA</h5>
-                            <h2 class="banner-title text-dark">UPOZNAJTE NAS</h2>
-                            <div class="title-icon-divider text-dark"><i class="fas fa-plug"></i></div>
-                            <p>E-Mobility, udruženje vozača električnih vozila, osnovano je sa ciljem da osvesti, ne samo vozače i vlasnike, već i celokupno društvo.
-                                Da pokaže i dokaže da električna vozila nisu 
-                                daleka budućnost već su uveliko deo sadašnjosti. Ona su pametan izbor svakog pojedinca za bolji, 
-                                kvalitetniji, efikasniji i mnogo zdraviji život.  </p>
-                        </div>
-                        <div class="about-service-container">
-                            <div class="about-service">
-
-                                <div class="about-service-content">
-                                    <h4>UDRUŽENI MOŽEMO MNOGO</h4>
-                                    <p>U vrlo kratkom roku Električnoj Mobilnosti pridružio se veliki broj članova i simpatizera, željnih poboljšanja i unapređenja električne mobilnosti u Srbiji.</p>
-                                </div>
-                            </div>
-                            <!--                            <div class="about-service">
-                            
-                                                            <div class="about-service-content">
-                                                                <h4>ZA ZDRAVIJE I ZELENIJE DRUŠTVO
-                            
-                                                                </h4>
-                                                                <p>Kroz različite projekte svakodnevno se trudimo da utičemo na poboljšanje infrastrukture za elektromobile i da omogućimo određene, ne male pogodnosti, njihovim sadašnjim i budućim vlasnicima.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="about-service">
-                            
-                                                            <div class="about-service-content">
-                                                                <h4>POSTANITE ČLAN</h4>
-                                                                <p>Nastojimo da aktivno utičemo na promene i dopune zakona, poput povećanja subvencija, pojednostavljenja njihove isplate, širenje mreže punjača, pravovremeno reagovanje državnih tela na nepropisno parkiranje pored punionica za električna vozila, kao i na zakone o unapređenju ukupne infrastrukture za elektromobilnost.</p>
-                                                            </div>
-                                                        </div>-->
-                        </div>
-                        <div class="">
-                            <a class="uclani-se-btn darkText" href="/o-nama">Pročitaj više</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--        <div class="img-parallax">
-                    <p>Naše dugogodišnje iskustvo bavljenja krojačkim zanatom <br> i širok asortiman proizvoda
-                        priuštiće vašim klijentima  <br> uvek nove i nezaboravne utiske kojima će se rado vraćati.</p>
-                </div>-->
-
-        <section class="activity-section activity-bg-image">
-            <div class="container">
-                <div class="section-heading section-heading-white text-center">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <h5>UČLANI SE</h5>
-                            <h2>PRIDRUŽI NAM SE</h2>
-                            <div class="title-icon-divider"><i class="fas fa-plug"></i></div>
-                            <div class="mt-5">
-                                <p>Članstvom u udruženju ostvarujete pravo na brojne pogodnosti koje Vam inače nisu dostupne.</p>
-                                <p>U prvom redu to je informisanost o ponudi sve brojnijih modela EV i hibridnih vozila kako na našem tržištu, tako i u svetu. </p> 
-                                <p>Pored informacija o vozilima bićete redovno obaveštavani o ponudi prateće opreme i usluga neophodnih vozačima i našim članovima. 
-                                    Popusti na vozila, opremu i usluge sastavni su deo benefita koje E-mobilnost obezvbeđuje za svoje članove. Te ponude 
-                                    menjaju se i obogaćuju svakodnevno čime doprinosimo razvoju čitavog 
-                                    segmenta elektromobilnosti i naravno Vašoj ličnoj ekonomiji. </p> 
-                                <p>Pratite nas i dalje na www.emobilnost.rs</p>
-                            </div>
-                            <div class="mt-5">
-                                <a class="uclani-se-btn" href="/uclani-se">UČLANI SE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <div class="text-box">
+        <h2 class="">E-Mobilnost</h2>
+        <h3 class="">Živi bili elektromobili.</h3>
     </div>
 
-    <section class="partners-section">
+    <th:block th:insert="fragments/alert :: gotovaporudzbina (${successMessage})"></th:block>
+
+    <th:block th:insert="fragments/alert :: uspesnaPrijava (${successMessageLogin})"></th:block>
+
+
+    <section class="blog-section">
         <div class="container">
-            <div class="section-heading section-heading-white text-center text-dark">
+            <div class="section-heading text-center">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h5>SARADNJA</h5>
-                        <h2 class="text-dark">NAŠI PARTNERI</h2>
+                        <h5>NOVOSTI</h5>
+                        <h2 class="text-dark">NAJNOVIJE VESTI</h2>
                         <div class="title-icon-divider text-dark"><i class="fas fa-plug"></i></div>
-                        <div class="container partneri">
-                            <section class="customer-logos slider" >
-                                <div class="slide"><a href="https://www.ruzorumena.rs/index.html" target="_blank"><img style="padding-top: 2rem;" src="/img/logoRuzadark.png" alt="hotel-grand-image"></a></div>
-                                <div class="slide" ><a href="https://ceffair.com/" target="_blank"><img src="/img/ceflogo.png" alt="Cef International doo logo"></a></div>
-                                <div class="slide" ><a href="https://margotekstil.com/" target="_blank"><img style="padding-top: 2rem;" src="/img/logomargo.png" alt="Cef International doo logo"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 d-flex">
+                    <article class="post text-left">
+                        <figure class="feature-image">
+                            <a th:href="@{/miodrag-makaric-mica}">
+                                <img src="/img/mica.jpg" alt="Miodrag Makarić - Mića">
+                            </a>
+                        </figure>
+                        <div class="entry-content">
+                            <p  class="dateNews">15.11.2021.</p>
+                            <h3><a th:href="@{/miodrag-makaric-mica}">Miodrag Makarić - Mića: Pionir elektromobilnosti - šampion biznisa</a></h3>
+                            <p>Vlasnik restorana Ruža Rumena i fast food brenda BURGER PLUS Milorad Makarić je jedan od prvih koji je kroz svoj biznis uveo u upotrebu potpuno električne automobile....</p>
+                            <span class="separatorBtn"></span>
+                            <a th:href="@{/miodrag-makaric-mica}" class="blogBtn">Pročitajte više</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex">
+                    <article class="post text-left">
+                        <figure class="feature-image">
+                            <a th:href="@{/prvih-30000km-na-struju}">
+                                <img src="/img/kona.jpg" alt="Hyandai Kona automobil">
+                            </a>
+                        </figure>
+                        <div class="entry-content">
+                            <p class="dateNews">15.11.2021.</p>
+                            <h3><a th:href="@{/prvih-30000km-na-struju}">Prvih 30 000 km na struju</a></h3>
+                            <p>Aktivan vozač sam punih 40 godina, od svoje 18-te. Počeo sam davne 80-te, naravno sa nacinalnom klasom, popularnim fićom..</p>
+                            <span class="separatorBtn"></span>
+                            <a th:href="@{/prvih-30000km-na-struju}" class="blogBtn" >Pročitajte više</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4 d-flex">
+                    <article class="post text-left">
+                        <figure class="feature-image">
+                            <a th:href="@{/bonton-za-vozace-elektricnih-vozila}">
+                                <img src="/img/charge.jpg" alt="Bonton za vozače električnih vozila">
+                            </a>
+                        </figure>
+                        <div class="entry-content">
+                            <p  class="dateNews">29.10.2021.</p>
+                            <h3><a th:href="@{/bonton-za-vozace-elektricnih-vozila}">Bonton za vozače električnih vozila</a></h3>
+                            <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
+                            <span class="separatorBtn"></span>
+                            <a th:href="@{/bonton-za-vozace-elektricnih-vozila}" class="blogBtn" >Pročitajte više</a>
+                        </div>
+                    </article>
+                </div>
 
-                                <!--                                <div class="slide"><img src="/img/gorski.jpg" alt="hotel-gorski-image"></div>
-                                <div class="onelogo"> <img  src="/img/moskva.png" alt="hotel-moskva-image"/></div>
-                                <div class="slide" ><img class="img-with-margin" src="/img/casabianca.jpg" alt="casa-bianca-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/blackandwhite.jpg" alt="blackandwhite-image"></div>
-                                <div class="slide"><img src="/img/hotelsrbija.jpg" alt="hotel-srbija-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/excelsior.png" alt="hotel-excelsior-image"></div>
-                                <div class="slide"><img src="/img/kalemegdanskaterasa.jpg" alt="kalemegdanska-terasa-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/hyatt.jpg" alt="hotel-hyatt-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/hotelapart.png" alt="hotel-apart-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/harmonija.png" alt="harmonija-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/grandhertz.png" alt="grandhertz-image"></div>
-                                <div class="slide"><img class="img-with-margin" src="/img/pink-sala.png" alt="pink-sala-image"></div>-->
-                            </section>
+
+
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a th:href="@{/vesti}" class="btn-underlined">SVE VESTI</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-about-section padding-top-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="about-img-wrap">
+                        <div class="about-img-left">
+
+                            <div class="about-img">
+                                <img src="/img/caronamahome1.jpeg" alt="Car charging About Us Image 1" class="hide-img">
+                            </div>
+                        </div>
+                        <div class="about-img-right">
+                            <div class="about-img">
+                                <img src="/img/caronamahome2.jpeg" alt="Car charging About Us Image 2" >
+                            </div>
+                            <div class="about-img">
+                                <img src="/img/caronamahome3.jpeg" alt="Car charging About Us Image 3" class="hide-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 margin-top-s">
+                    <div class="banner-content section-heading section-heading-onama">
+                        <h5>O NAMA</h5>
+                        <h2 class="banner-title text-dark">UPOZNAJTE NAS</h2>
+                        <div class="title-icon-divider text-dark"><i class="fas fa-plug"></i></div>
+                        <p>E-Mobility, udruženje vozača električnih vozila, osnovano je sa ciljem da osvesti, ne samo vozače i vlasnike, već i celokupno društvo.
+                            Da pokaže i dokaže da električna vozila nisu 
+                            daleka budućnost već su uveliko deo sadašnjosti. Ona su pametan izbor svakog pojedinca za bolji, 
+                            kvalitetniji, efikasniji i mnogo zdraviji život.  </p>
+                    </div>
+                    <div class="about-service-container">
+                        <div class="about-service">
+
+                            <div class="about-service-content">
+                                <h4>UDRUŽENI MOŽEMO MNOGO</h4>
+                                <p>U vrlo kratkom roku Električnoj Mobilnosti pridružio se veliki broj članova i simpatizera, željnih poboljšanja i unapređenja električne mobilnosti u Srbiji.</p>
+                            </div>
+                        </div>
+                        <!--                            <div class="about-service">
+                        
+                                                        <div class="about-service-content">
+                                                            <h4>ZA ZDRAVIJE I ZELENIJE DRUŠTVO
+                        
+                                                            </h4>
+                                                            <p>Kroz različite projekte svakodnevno se trudimo da utičemo na poboljšanje infrastrukture za elektromobile i da omogućimo određene, ne male pogodnosti, njihovim sadašnjim i budućim vlasnicima.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about-service">
+                        
+                                                        <div class="about-service-content">
+                                                            <h4>POSTANITE ČLAN</h4>
+                                                            <p>Nastojimo da aktivno utičemo na promene i dopune zakona, poput povećanja subvencija, pojednostavljenja njihove isplate, širenje mreže punjača, pravovremeno reagovanje državnih tela na nepropisno parkiranje pored punionica za električna vozila, kao i na zakone o unapređenju ukupne infrastrukture za elektromobilnost.</p>
+                                                        </div>
+                                                    </div>-->
+                    </div>
+                    <div class="">
+                        <a class="uclani-se-btn darkText" href="/o-nama">Pročitaj više</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--        <div class="img-parallax">
+                <p>Naše dugogodišnje iskustvo bavljenja krojačkim zanatom <br> i širok asortiman proizvoda
+                    priuštiće vašim klijentima  <br> uvek nove i nezaboravne utiske kojima će se rado vraćati.</p>
+            </div>-->
+
+    <section class="activity-section activity-bg-image">
+        <div class="container">
+            <div class="section-heading section-heading-white text-center">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h5>UČLANI SE</h5>
+                        <h2>PRIDRUŽI NAM SE</h2>
+                        <div class="title-icon-divider"><i class="fas fa-plug"></i></div>
+                        <div class="mt-5">
+                            <p>Članstvom u udruženju ostvarujete pravo na brojne pogodnosti koje Vam inače nisu dostupne.</p>
+                            <p>U prvom redu to je informisanost o ponudi sve brojnijih modela EV i hibridnih vozila kako na našem tržištu, tako i u svetu. </p> 
+                            <p>Pored informacija o vozilima bićete redovno obaveštavani o ponudi prateće opreme i usluga neophodnih vozačima i našim članovima. 
+                                Popusti na vozila, opremu i usluge sastavni su deo benefita koje E-mobilnost obezvbeđuje za svoje članove. Te ponude 
+                                menjaju se i obogaćuju svakodnevno čime doprinosimo razvoju čitavog 
+                                segmenta elektromobilnosti i naravno Vašoj ličnoj ekonomiji. </p> 
+                            <p>Pratite nas i dalje na www.emobilnost.rs</p>
+                        </div>
+                        <div class="mt-5">
+                            <a class="uclani-se-btn" href="/uclani-se">UČLANI SE</a>
                         </div>
                     </div>
                 </div>
@@ -246,86 +209,91 @@
         </div>
     </section>
 
-    <!--    <div class="container partneri">
-            <h2>Neki od naših partnera</h2>
-            <section class="customer-logos slider" >
-                <div class="slide"><img src="/img/grand.png" alt="hotel-grand-image"></div>
-                <div class="slide"><img src="/img/gorski.jpg" alt="hotel-gorski-image"></div>
-                <div class="onelogo"> <img  src="/img/moskva.png" alt="hotel-moskva-image"/></div>
-                <div class="slide" ><img class="img-with-margin" src="/img/casabianca.jpg" alt="casa-bianca-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/blackandwhite.jpg" alt="blackandwhite-image"></div>
-                <div class="slide"><img src="/img/hotelsrbija.jpg" alt="hotel-srbija-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/excelsior.png" alt="hotel-excelsior-image"></div>
-                <div class="slide"><img src="/img/kalemegdanskaterasa.jpg" alt="kalemegdanska-terasa-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/hyatt.jpg" alt="hotel-hyatt-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/hotelapart.png" alt="hotel-apart-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/harmonija.png" alt="harmonija-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/grandhertz.png" alt="grandhertz-image"></div>
-                <div class="slide"><img class="img-with-margin" src="/img/pink-sala.png" alt="pink-sala-image"></div>
-            </section>
-        </div>-->
+</div>
 
-
-
-    <!--contact us section--> 
-    <div class=" contact-us" style="overflow-x: hidden">
-        <div class="container">
+<section class="partners-section">
+    <div class="container">
+        <div class="section-heading section-heading-white text-center text-dark">
             <div class="row">
-                <div class="col-md-6" >
-                    <!--<h3 class="send-us-a-message-header">Pošaljite nam poruku</h3>-->
-                    <div class="banner-content section-heading">
-                        <h5>KONTAKTIRAJTE NAS
-                        </h5>
-                        <h2 class="banner-title">Pošaljite nam poruku</h2>
-                        <div class="title-icon-divider text-dark"><i class="fas fa-plug" aria-hidden="true"></i></div>
+                <div class="col-lg-8 offset-lg-2">
+                    <h5>SARADNJA</h5>
+                    <h2 class="text-dark">NAŠI PARTNERI</h2>
+                    <div class="title-icon-divider text-dark"><i class="fas fa-plug"></i></div>
+                    <div class="container partneri">
+                        <section class="customer-logos slider">
+                            <div class="slide"><a href="https://www.ruzorumena.rs/index.html" target="_blank"><img style="padding-top: 2rem;" src="/img/logoRuzadark.png" alt="Logo restorana Ružo Rumena"></a></div>
+                            <div class="slide"><a href=""><img src="/img/adepto-logo.png" alt="Logo firme Adepto Trade doo"></a></div>
+                            <div class="slide"><a href="https://www.facebook.com/burgerplus/" target="_blank"><img src="/img/burgerplus.jpg" alt="Logo restorana brze hrane Burger Plus"></a></div>
+                            <div class="slide"><a href="https://ceffair.com/" target="_blank"><img src="/img/ceflogo.png" alt="Logo firme Cef International doo"></a></div>
+                            <div class="slide"><a href="https://margotekstil.com/" target="_blank"><img style="padding-top: 2rem;" src="/img/logomargo.png" alt="Logo firme VM Margotekstil doo"></a></div>                
+                        </section>
                     </div>
-                    <form class="forma" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">                                                                   
-                        <div class="form-group col floating-placeholder">
-                            <!--<label for="inputIme">Ime</label>-->
-                            <input type="text" class="form-control" name="ime" id="inputIme" placeholder="Ime i prezime">
-                            <label></label>
-                        </div>
-                        <!--                        <div class="form-group col floating-placeholder">
-                                                    <label for="inputPrezime">Prezime</label>
-                                                    <input type="text" class="form-control" name="prezime" id="inputPrezime" placeholder="Prezime">
-                                                    <label></label>
-                                                </div>-->
-                        <div class="form-group col floating-placeholder">
-                            <!--<label for="inputEmail">Email</label>-->
-                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-                            <label></label>
-                        </div>
-                        <div class="form-group col floating-placeholder">
-                            <!--<label for="inputTelefon">Telefon</label>-->
-                            <input type="number" name="telefon" class="form-control" id="inputTelefon" placeholder="Telefon">
-                            <label></label>
-                        </div>
-                        <div class="form-group floating-placeholder-textarea">
-                            <!--<label for="inputPoruka">Poruka</label>-->
-                            <textarea type="text" name="poruka" class="form-control" rows="5" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
-                            <label></label>
-                        </div>
-                        <button type="submit" class="posalji-btn-contact-form-page">Pošalji</button>
-                    </form>
-                </div>
-                <div class="col-md-6 bg-color-contact " >
-                    <h3 class="contact-header">Kontakt</h3>
-                    <p>Ukoliko imate bilo kakvih pitanja ili zahteva, slobodno nam napšite poruku. Potrudićemo se da Vam odgovorimo u najkraćem mogućem roku.</p>
-                    <ul class="list-info">
-                        <li><i class="fas fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://goo.gl/maps/thFoVjcg9BCFShPH8" target="_blank">Časlava Veljića 53, Beograd</a></li>
-                        <li><i class="fas fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:e.mobilnost.rs@gmail.com" target="_blank" rel="noopener">e.mobilnost.rs@gmail.com</a></li>
-                        <li><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+381-61-20-28-158">+381 61 20 28 158</a></li>
-                    </ul>
-                    <p class="pratite-nas">Pratite nas na društevnim mrežama:</p>
-                    <ul class="social-icons-contact">
-                        <li><a href="#" aria-label="Our Facebook page"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram" aria-label="Our Instagram page"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"aria-label="Our Twitter page"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</section>
+
+
+<!--contact us section--> 
+<div class=" contact-us" style="overflow-x: hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" >
+                <!--<h3 class="send-us-a-message-header">Pošaljite nam poruku</h3>-->
+                <div class="banner-content section-heading">
+                    <h5>KONTAKTIRAJTE NAS
+                    </h5>
+                    <h2 class="banner-title">Pošaljite nam poruku</h2>
+                    <div class="title-icon-divider text-dark"><i class="fas fa-plug" aria-hidden="true"></i></div>
+                </div>
+                <form class="forma" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">                                                                   
+                    <div class="form-group col floating-placeholder">
+                        <!--<label for="inputIme">Ime</label>-->
+                        <input type="text" class="form-control" name="ime" id="inputIme" placeholder="Ime i prezime">
+                        <label></label>
+                    </div>
+                    <!--                        <div class="form-group col floating-placeholder">
+                                                <label for="inputPrezime">Prezime</label>
+                                                <input type="text" class="form-control" name="prezime" id="inputPrezime" placeholder="Prezime">
+                                                <label></label>
+                                            </div>-->
+                    <div class="form-group col floating-placeholder">
+                        <!--<label for="inputEmail">Email</label>-->
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <label></label>
+                    </div>
+                    <div class="form-group col floating-placeholder">
+                        <!--<label for="inputTelefon">Telefon</label>-->
+                        <input type="number" name="telefon" class="form-control" id="inputTelefon" placeholder="Telefon">
+                        <label></label>
+                    </div>
+                    <div class="form-group floating-placeholder-textarea">
+                        <!--<label for="inputPoruka">Poruka</label>-->
+                        <textarea type="text" name="poruka" class="form-control" rows="5" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
+                        <label></label>
+                    </div>
+                    <button type="submit" class="posalji-btn-contact-form-page">Pošalji</button>
+                </form>
+            </div>
+            <div class="col-md-6 bg-color-contact " >
+                <h3 class="contact-header">Kontakt</h3>
+                <p>Ukoliko imate bilo kakvih pitanja ili zahteva, slobodno nam napšite poruku. Potrudićemo se da Vam odgovorimo u najkraćem mogućem roku.</p>
+                <ul class="list-info">
+                    <li><i class="fas fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://goo.gl/maps/thFoVjcg9BCFShPH8" target="_blank">Časlava Veljića 53, Beograd</a></li>
+                    <li><i class="fas fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:e.mobilnost.rs@gmail.com" target="_blank" rel="noopener">e.mobilnost.rs@gmail.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+381-61-20-28-158">+381 61 20 28 158</a></li>
+                </ul>
+                <p class="pratite-nas">Pratite nas na društevnim mrežama:</p>
+                <ul class="social-icons-contact">
+                    <li><a href="#" aria-label="Our Facebook page"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram" aria-label="Our Instagram page"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"aria-label="Our Twitter page"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <th:block th:insert="fragments/footer :: footer" />
 
@@ -333,6 +301,81 @@
 <!--<div id="backToTop"></div>-->
 
 <a id="back-to-top-button"></a>
+
+<div class="container mt-5" id="anketa" style="display: none">
+    <div class="survey-padding">
+        <button type="button" id="closeBtn" class="close zatvori-alert" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true" class="xTimes">&times;</span>
+        </button>
+
+        <form id="anketaForm" >
+
+            <!-- 1 -->
+            <div id="form1">
+                <h6 id="register">Razmišljate li o kupovini električnog vozila?</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios1" value="Da, razmišljam o kupovini EV" checked>
+                    <label class="form-check-label" for="anketaRadios1">
+                        Da
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios2" value="Ne, ne razmišljam o kupovini EV">
+                    <label class="form-check-label" for="anketaRadios2">
+                        Ne
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios3" value="Već imam EV">
+                    <label class="form-check-label" for="anketaRadios3">
+                        Već imam EV
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios4" value="Imam EV, ali razmišljam o kupovini još jednog">
+                    <label class="form-check-label" for="anketaRadios4">
+                        Imam EV, ali razmišljam o kupovini još jednog
+                    </label>
+                </div>
+                <div style="overflow:auto;" id="nextprevious" class="mt-3">
+                    <div style="float:right;">
+                        <button class="fullClrBtn" type="button" id="nextBtn">Dalje &nbsp; &rarr;</button>
+                    </div>
+                </div>
+            </div>
+            <!--       1 -->
+
+            <!--       2 -->
+            <div id="form2" style=" display:none">
+                <h6 id="register">Ako želite možete nam ostaviti Vašu email adresu pa ćemo Vas obavestiti o pogodnostima za vlasnike električnih vozila:</h6>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email adresa</label>
+                    <input type="email" class="form-control" id="emailAnketa" aria-describedby="emailHelp" placeholder="Unesite email adresu" required>
+                    <small id="emailHelp" class="form-text text-muted">Email adresa neće biti podeljena ni sa kim.</small>
+                </div>
+                <div style="overflow:auto;" id="nextprevious" class="mt-3">
+                    <div style="float:right;margin-left:10px;">
+                        <!--<button class="fullClrBtn" id="prijaviSe">Prijavi se</button>-->
+                        <input class="fullClrBtnInput" id="prijaviSe" value="Prijavi se" />
+                    </div>
+                    <div style="float:right;">
+                        <button class="prevBtn" type="button" id="prevBtn">&larr; &nbsp;Nazad </button>
+                    </div>
+
+                </div>
+            </div>
+            <!--       2 -->
+
+            <!--       3 -->
+            <div id="form3" style="display:none">
+                <h6 id="register">Hvala Vam što se učestvovali u anketi. <br>
+                    Vaša prijava je uspešno primljena!</h6>
+            </div>
+            <!--       3 -->
+
+        </form>
+    </div>
+</div>
 
 
 <th:block th:insert="fragments/scripts :: scripts" />
@@ -345,6 +388,8 @@
 
 <script th:src="@{/js/slickCarouselPartneri.js}" type="text/javascript"></script>
 <script th:src="@{/js/uspesnaKupovinaAlert.js}" type="text/javascript"></script>
+<script src="/js/js.cookie.min.js" type="text/javascript"></script>
+<script th:src="@{/js/anketa.js}" type="text/javascript"></script>
 
 </body>
 

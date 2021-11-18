@@ -37,7 +37,10 @@ public class ClanoviServiceImpl implements ClanoviService {
         return clanoviRepository.findFirstByIme(ime);
     }
 
-   
+  @Override
+    public  List<Clanovi> findAllByOrderByDatumistekaclanstvaAsc(){
+     return clanoviRepository.findAllByOrderByDatumistekaAsc();
+    };
 
     @Override
     public void save(Clanovi clan) {

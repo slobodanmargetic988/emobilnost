@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
@@ -20,70 +20,41 @@
 <body>
 <th:block th:insert="fragments/topbar :: topbar" />
 
-<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">
+<!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
 
 <picture>
     <source media="(max-width: 776px)" srcset="/img/carsavetismall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carsaveti.jpg">
-    <img src="/img/carsaveti.jpg" class="header-img " alt="o-nama-header-image">
+    <source media="(min-width: 992px)" srcset="/img/carsavetiCropped.jpg">
+    <img src="/img/carsavetiCropped.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box">
-    <h2>E-Mobilnost</h2>
-    <p>Saveti</p>
+<div class="text-box  text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Saveti</h3>
 </div>
 
-<section class="about-section">
+<div class="section section-margin section-margin-member">
     <div class="container">
-        <div class="row">                
-            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2 mt-1-ss">
-                <div class="inner-column">
-                    <div class="sec-title">
-                        <span class="title">O nama</span>
-                        <h2>Naša misija je nulta emisija</h2>
-                    </div>
-                    <div class="text" >E-Mobility, udruženje vozača električnih vozila, osnovano je sa ciljem da osvesti, 
-                        ne samo vozače i vlasnike, već i celokupno društvo. Da pokaže i dokaže da električna vozila nisu 
-                        daleka budućnost već su uveliko deo sadašnjosti. Ona su pametan izbor svakog pojedinca za bolji, 
-                        kvalitetniji, efikasniji i mnogo zdraviji život.<br>
-                        <br>Ukratko, naša je misija nulta emisija. <br><br>
-                        <p>UJEDINJENI/UDRUŽENI MOŽEMO MNOGO</p>
-                        Priča o našem Udruženju započela je sa tek nekoliko vozača koji su želeli da razmene međusobna 
-                        iskustva i znanja i da ih nesebično podele sa drugima. U vrlo kratkom roku Električnoj Mobilnosti 
-                        pridružio se veliki broj članova i simpatizera, željnih poboljšanja i unapređenja električne mobilnosti u Srbiji.
-                        <br><br>
-                        <p>ZA ZDRAVIJE I ZELENIJE DRUŠTVO</p>
-                        Kroz različite projekte svakodnevno se trudimo da utičemo na poboljšanje infrastrukture za elektromobile i 
-                        da omogućimo određene, ne male pogodnosti, njihovim sadašnjim i budućim vlasnicima. Ali, istovremeno, hoćemo 
-                        da utičemo na celokupno društvo kako bi se formirao i usvojio jedinstveni stav o električnim vozilima kao 
-                        najboljem rešenju za okoliš, klimu, energetsku efikasnost, za nas same, za našu ličnu i ekonomiju u celini.
-                        <br><br>
-                        <p>POSTANITE ČLAN I UČESTVUJTE U KREIRANJU ZELENIJE BUDUĆNOSTI</p>
-                        Ujedno, kroz pregovore s državnim institucijama, nastojimo da aktivno utičemo na promene i dopune zakona, poput povećanja subvencija, 
-                        pojednostavljenja njihove isplate, širenje mreže punjača, pravovremeno reagovanje državnih tela na nepropisno parkiranje pored punionica 
-                        za električna vozila, kao i na zakone o unapređenju ukupne infrastrukture za elektromobilnost.
-                        <br> Svojim članstvom u Udruženju podržavate naša nastojanja da svima približimo izuzetnu važnost i vrednost električne 
-                        mobilnosti, njen uticaj  na ekologiju, kvalitet života, kao i na privredu u celini.
-                        <br>Nadamo se da ćemo kroz naš trud, znanje i iskustvo, korak po korak i uz Vašu pomoć, građanima Srbije omogućiti zeleniju, čistiju i zdraviju budućnost.
-                        <br><br>Živi bili elektromobili!
-
-                    </div>
-
-                </div>
+        <div class="about-content mw-100 about-content-member ">
+            <div class="banner-content section-heading section-heading-member">
+                <h3>Zašto je dobro učlaniti se u u druženje vozača E-Mobilnost</h3>
             </div>
+            <p>Članstvom u udruženju vozača električnih i plug in hibridnih vozila ostvarujete pravo na brojne pogodnosti koje Vam inače nisu dostupne.</p>      
 
-             Image Column 
-            <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                <div class="inner-column " >
-                    <figure class="image-1" ><img class="onama-img1"  src="/img/car1.jpg" alt="onama-img1"></figure>
-                    <figure class="image-2" ><img class="onama-img2" src="/img/car2.jpg" alt="onama-img2"></figure>
-                </div>
-            </div>
+            <p>U prvom redu to je informisanost o ponudi sve brojnijih modela EV i hibridnih vozila kako na našem tržištu, tako i u svetu. Pored informacija o 
+                vozilima bićete redovno obaveštavani o ponudi prateće opreme i usluga neophodnih vozačima i našim članovima. 
+            </p>
+            <p>Popusti na vozila, opremu i usluge 
+                sastavni su deo benefita koje E-Mobilnost obezbeđuje za svoje članove. Te ponude menjaju se i obogaćuju svakodnevno čime doprinosimo razvoju čitavog 
+                segmenta elektromobilnosti i naravno Vašoj ličnoj ekonomiji.</p>
+            <p> Pratite nas i dalje!</p>
+            
         </div>
+
     </div>
-</section>
+</div>
 
 
 </div>
@@ -97,4 +68,4 @@
 
 </body>
 
-</html>-->
+</html>

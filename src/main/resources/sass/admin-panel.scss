@@ -5,9 +5,16 @@
                  padding: 50px 0 30px 0;
         }
 */
+
+
+@import "./variables";
+@import "./mixins";
+
+
 .note-editor {
     .note-toolbar {
-        background: #fff8f0;
+        background-color: hsla($green-color-h, $green-color-s, 98%, $green-color-a);
+
     }
 }
 .note-popover {
@@ -36,11 +43,11 @@
     }
 }
 .note-editor.note-frame {
-    border: 1px solid #9acb37;
+    border: 2px solid hsla($blue-color-h, $blue-color-s, 88%, $blue-color-a);;
     .note-editing-area {
         .note-editable {
             &:focus {
-                border: 2px solid #799e4e;
+                border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);;
             }
         }
     }
@@ -64,17 +71,17 @@
     color: #000;
 }
 body {
-    font: 300 14px/1.86 'Montserrat', sans-serif;
+    font: 300 14px/1.86 $font-rest;
     color: #444443;
     -webkit-font-smoothing: antialiased;
     position: relative;
-    background: #f9f4ef;
+    background-color: hsla($green-color-h, $green-color-s, 98%, $green-color-a);
     min-width: 320px;
 }
 h3 {
     margin-bottom: 12px;
     line-height: 1.68;
-    font-size: 1.32em;
+    font-size: 1.5em;
     &:last-child {
         margin-bottom: 0;
     }
@@ -128,29 +135,74 @@ a {
 }
 .btn-save-vest {
     width: 100%;
-    position: relative;
+    /*    position: relative;
+        padding: 10px 20px;
+        font-size: 13px;
+        line-height: 24px;
+        letter-spacing: 0.1em;
+        border-radius: 4px;
+        text-transform: uppercase;
+        transition: all 0.4s ease;
+        background: #f37c25;
+        border: #f37c25;
+        color: #fff;
+        &:hover {
+            box-shadow: none;
+            outline: none;
+            background: #c1580b;
+            border-color: #c1580b;
+        }
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+        &:active {
+            box-shadow: none;
+            outline: none;
+        }*/
+    display: inline-block;
     padding: 10px 20px;
-    font-size: 13px;
-    line-height: 24px;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
+    border-radius: 5px;
+    color: $white-color;
     text-transform: uppercase;
-    transition: all 0.4s ease;
-    background: #f37c25;
-    border: #f37c25;
-    color: #fff;
+    font-size: .95rem;
+    letter-spacing: 0.05rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    outline: none;
+    border: none;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        border-radius: 5px;
+        z-index: -2;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
+        transition: all 0.3s;
+        border-radius: 5px;
+        z-index: -1;
+    }
     &:hover {
-        box-shadow: none;
-        outline: none;
-        background: #c1580b;
-        border-color: #c1580b;
+        color: #fff;
+        &::before {
+            width: 100%;
+        }
     }
     &:focus {
-        box-shadow: none;
-        outline: none;
-    }
-    &:active {
-        box-shadow: none;
         outline: none;
     }
 }
@@ -166,7 +218,7 @@ a {
     transition: all 0.4s ease;
     background: #9acb37;
     border: #9acb37;
-    color: #fff;
+    color: hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
     margin-top: 0.5rem;
     &:hover {
         box-shadow: none;
@@ -185,31 +237,51 @@ a {
 }
 .btn-odustani {
     width: 100%;
-    position: relative;
-    padding: 10px 20px;
-    font-size: 13px;
-    line-height: 24px;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: all 0.4s ease;
     margin-top: 0.5rem;
-    color: #444443 !important;
-    border: 2px solid #00b4e7;
-    background: #fff;
+    display: inline-block;
+    text-align: center;
+    /*padding: 0.75rem 1.25rem;*/
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a) !important;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 1rem;
+    /*letter-spacing: 0.15rem;*/
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+    font-weight: 400;
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 102%;
+        height: 102%;
+        background-color: transparent;
+        border-radius: 5px;
+        z-index: -2;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        transition: all 0.3s;
+        border-radius: 2px;
+        z-index: -1;
+    }
     &:hover {
-        box-shadow: none;
-        outline: none;
-        background: #00b4e7;
-        color: #fff !important;
-    }
-    &:focus {
-        box-shadow: none;
-        outline: none;
-    }
-    &:active {
-        box-shadow: none;
-        outline: none;
+        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a) !important;
+        &:before {
+            width: 100%;
+        }
     }
 }
 .dropdown-menu {
@@ -246,9 +318,10 @@ a {
     >a {
         padding: 15px 0;
         display: inline-block;
-        color: #444443;
+        color: hsla($main-color-h, $main-color-s, 20%, $main-color-a);
         &:hover {
-            color: #f37c25;
+            color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+
         }
     }
     .dropdown-menu {
@@ -262,7 +335,7 @@ a {
 }
 .topbar-action-link {
     a {
-        font-size: 14px;
+        font-size: 16px;
         line-height: 30px;
         font-weight: 400;
     }
@@ -388,11 +461,12 @@ a {
     }
     .topbar-action-link {
         a {
-            font-size: 14px;
-            color: #444443;
+            color: hsla($main-color-h, $main-color-s, 20%, $main-color-a);
+            font-size: 18px;
+            line-height: 24px;
             font-weight: 400;
             &:hover {
-                color: #f37c25;
+                color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
             }
         }
     }
@@ -427,7 +501,8 @@ a {
 .user-sidebar-sap {
     width: 35px;
     height: 3px;
-    background: #e4ceb7;
+    background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+
     margin: 0 0 1.3rem 2rem;
 }
 .user-content {
@@ -441,8 +516,9 @@ a {
     min-height: 100%;
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
     label {
-        font-size: 14px;
-        color: #444443;
+        color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        font-weight: 400;
+        font-size: 15px;
     }
 }
 .user-dashboard {
@@ -464,30 +540,41 @@ a {
     white-space: nowrap;
 }
 .input-custom-border {
-    border: 1px solid #9acb37;
-    border-radius: 0.2rem;
+    position: relative;
+    width: 100%;
+    padding: 1.2rem;
+    color: $brown-black-color;
+    border: 2px solid hsla($blue-color-h, $blue-color-s, 88%, $blue-color-a);
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none;
+    /*margin: 0 0 1rem 0;*/
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+    background: transparent;
     &:focus {
-        outline: 0;
-        border: 2px solid #81a459;
         box-shadow: none;
+        outline: none;
+        border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a);
     }
 }
 .add-new {
-    color: #444443;
+    color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 .user-icon-nav {
-    padding: 25px 0;
+    padding-bottom: 25px;
     li {
-        padding: 5px 0;
+        padding: 10px 0;
         a {
-            color: #444443;
-            font-size: 15px;
+            color: hsla($main-color-h, $main-color-s, 20%, $main-color-a);
+            font-size: 18px;
             line-height: 24px;
             font-weight: 400;
             display: flex;
             align-items: center;
             &:hover {
-                color: #f37c25 !important;
+                color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
             }
             .ti {
                 width: 35px;
@@ -501,13 +588,13 @@ a {
 .footer-bar {
     font-size: 13px;
     padding: 20px 0;
+    font-weight: 400;
     a {
-        color: #f37c25;
-        &:hover {
-            color: #00b4e7;
-        }
-        &:focus {
-            color: #00b4e7;
+        color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+
+        &:hover, &:focus {
+            color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a) !important;
+
         }
     }
 }
@@ -531,7 +618,7 @@ a {
     background-color: transparent;
     thead {
         tr {
-            background: #fff2e3;
+            background-color: hsla($green-color-h, $green-color-s, 81%, $green-color-a);
             color: #444443;
         }
         th {
@@ -560,7 +647,7 @@ a {
             }
         }
         &:nth-child(even) {
-            background: #f9f4ef;
+            background-color: hsla($green-color-h, $green-color-s, 95%, $green-color-a);
         }
     }
     td {
@@ -583,6 +670,35 @@ a {
         text-decoration: underline;
     }
 }
+
+
+/*form validation start*/
+.invalid-feedback {
+    font-size: 90%;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+    border-color: hsla(354, 70%, 74%, 1);
+    
+    &:focus {
+        box-shadow: none;
+        outline: none;
+        
+    }
+}
+.form-control.is-valid, .was-validated .form-control:valid {
+    border-color: hsla($blue-color-h, $blue-color-s, 88%, $blue-color-a);
+    background-image: none;
+    &:focus {
+        box-shadow: none;
+        outline: none;
+                border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a) !important;
+
+    }
+}
+/*form validation end*/
+
+
 @media (min-width: 992px) {
     .container {
         width: 940px;
@@ -616,6 +732,16 @@ a {
         &:not(.btn-grp) {
             &:last-child {
                 margin-top: 20px;
+            }
+        }
+    }
+
+    .user-icon-nav {
+        li {
+            a {
+                .ti {
+                    width: 0;
+                }
             }
         }
     }

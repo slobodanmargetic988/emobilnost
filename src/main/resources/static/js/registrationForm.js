@@ -40,6 +40,16 @@ $(document).ready(function () {
         $("#passwordRegistration").attr("type", "password");
     });
 
+ $("#oPassword").click(function () {
+        $("#oPassword").hide();
+        $("#cPassword").show();
+        $("#pRegistration").attr("type", "text");
+    });
+    $("#cPassword").click(function () {
+        $("#cPassword").hide();
+        $("#oPassword").show();
+        $("#pRegistration").attr("type", "password");
+    });
 
     $("#openEyed").click(function () {
         $("#openEyed").hide();
@@ -91,6 +101,16 @@ $(document).ready(function () {
         $("#passwordRegistrationConfirmation").attr("type", "password");
     });
 
+ $(".oPasswordConf").click(function () {
+        $(".oPasswordConf").hide();
+        $(".cPasswordConf").show();
+        $("#passwordRegistrationConf").attr("type", "text");
+    });
+    $(".cPasswordConf").click(function () {
+        $(".cPasswordConf").hide();
+        $(".oPasswordConf").show();
+        $("#passwordRegistrationConf").attr("type", "password");
+    });
 
 
 
@@ -141,11 +161,10 @@ $(document).ready(function () {
 
     $("input").keyup(function () {
         if ($("#passwordRegistration").val() === $("#passwordRegistrationConfirmation").val()) {
-            $("#label-2").text("* Lozinke se poklapaju");
-            $("#label-2").css('color', '#28a745 !important');
+            $("#label-2").text("* Lozinke se poklapaju").css('color', '#28a745');
         } else {
             $("#label-2").css("display", "block");
-            $("#label-2").text("* Lozinke se ne poklapaju");
+            $("#label-2").text("* Lozinke se ne poklapaju").css('color', '#dc3545');;
         }
         if ($("#passwordRegistration").val().length === 0 && $("#passwordRegistrationConfirmation").val().length === 0) {
             $("#label-2").css("display", "none");
@@ -154,19 +173,19 @@ $(document).ready(function () {
     
     
     
-//    
-//    $("input").keyup(function () {
-//        if ($("#passwordReset").val() === $("#passwordResetRepeat").val()) {
-//            $("#label-3").text("* Lozinke se poklapaju");
+    
+    $("input").keyup(function () {
+        if ($("#pRegistration").val() === $("#passwordRegistrationConf").val()) {
+            $("#label-3").text("* Lozinke se poklapaju").css('color', '#28a745');
 //            $("#label-3").css('color', '#28a745 !important');
-//        } else {
-//            $("#label-3").css("display", "block");
-//            $("#label-3").text("* Lozinke se ne poklapaju");
-//        }
-//        if ($("#passwordReset").val().length === 0 && $("#passwordResetRepeat").val().length === 0) {
-//            $("#label-3").css("display", "none");
-//        }
-//    });
+        } else {
+            $("#label-3").css("display", "block");
+            $("#label-3").text("* Lozinke se ne poklapaju").css('color', '#dc3545');;
+        }
+        if ($("#pRegistration").val().length === 0 && $("#passwordRegistrationConf").val().length === 0) {
+            $("#label-3").css("display", "none");
+        }
+    });
 
 
 });

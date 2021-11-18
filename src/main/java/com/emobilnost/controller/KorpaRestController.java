@@ -6,11 +6,14 @@
 package com.emobilnost.controller;
 
 import com.emobilnost.configuration.EmobilityUserPrincipal;
+import com.emobilnost.model.Anketa;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Proizvodi;
 import com.emobilnost.model.Users;
 import com.emobilnost.model.ZavrsenePorudzbine;
+import com.emobilnost.service.AnketaService;
+import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
 import com.emobilnost.service.KorpaProizvodiService;
 import com.emobilnost.service.KorpaService;
@@ -48,7 +51,37 @@ public class KorpaRestController {
     
  @Autowired
     private ColorPaletaService colorPaletaService;
+     
+ @Autowired
+    private AnketaService anketaService;
+      
+ @Autowired
+    private ClanoviService clanoviService;
  
+ 
+    @GetMapping("/anketa")
+    String anketa(
+            @RequestParam("myData") String myData
+    ) {
+      
+        try {
+            JSONObject anketaJSON = new JSONObject(myData);
+            
+         
+            Anketa anketa= new Anketa();
+            anketa.setEmail(anketaJSON.getString("email"));
+            anketa.setOpcija(anketaJSON.getString("opcija"));
+            anketa.setClan(clanoviService.findFirstByEmail(anketaJSON.getString("email")));
+            anketaService.save(anketa);
+            
+        }catch(Exception e){
+        return "neuspesno sacuvana anketa";
+        }
+        return "ok";
+   
+    }
+  
+    
     @GetMapping("/korpa/zavrsiPorudzbinu/neregistrovan")
     String zavrsiPorudzbinuMargotekstilNeregistrovan(
             @RequestParam("myData") String myData
@@ -151,6 +184,7 @@ return e.getMessage();
         return "ok";
    
     }
+  
 
     @Autowired
     private UsersService userService;
