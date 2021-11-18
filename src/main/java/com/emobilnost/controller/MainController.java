@@ -69,6 +69,17 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
+    
+    @GetMapping(value = "/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda")
+    public String skodaEnyaqGlobalnaPricaOUspehu(final Model model) {
+        return "main/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda";
+    }
+    
+     @GetMapping(value = "/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021")
+    public String skodaEnyaqNagrada(final Model model) {
+        return "main/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021";
+    }
+
 
     @GetMapping(value = "/dodaj-clana")
     public String dodajClana(final Model model) {

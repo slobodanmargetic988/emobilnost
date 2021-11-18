@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
     // Hide the div
-  //  $("#anketa").hide();
+    //  $("#anketa").hide();
     // Show the div in 5s
-    $("#anketa").delay(5000).fadeIn(1000);
+    $("#anketa").delay(2000).fadeIn(1000);
 
     $("#nextBtn").click(function () {
         $("#form1").css("display", "none");
@@ -16,6 +16,13 @@ $(document).ready(function () {
     $("#closeBtn").click(function () {
         $("#anketa").fadeOut();
     });
+
+    if (Cookies.get('anketa') !== null) {
+        $("#anketa").css("display", "none");
+    } else {
+        $("#anketa").css("display", "block");
+
+    }
 
     $("#prijaviSe").click(function () {
         var email = $("#emailAnketa").val();
