@@ -69,17 +69,21 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
+
+     @GetMapping(value = "/mercedes-benz-vs-mercedes-electric")
+    public String mercedesBenzVsMercedesElectric(final Model model) {
+        return "main/mercedes-benz-vs-mercedes-electric";
+    }
     
     @GetMapping(value = "/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda")
     public String skodaEnyaqGlobalnaPricaOUspehu(final Model model) {
         return "main/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda";
     }
-    
-     @GetMapping(value = "/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021")
+
+    @GetMapping(value = "/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021")
     public String skodaEnyaqNagrada(final Model model) {
         return "main/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021";
     }
-
 
     @GetMapping(value = "/dodaj-clana")
     public String dodajClana(final Model model) {
@@ -88,22 +92,22 @@ public class MainController {
         return "main/dodaj-clana";
     }
 
-    @RequestMapping(value = "/napraviClana", method = RequestMethod.POST)
+    @PostMapping(value = "/napraviClana")
     public String napraviVest(final Model model, final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
-            @RequestParam(name = "ime") String ime,
-            @RequestParam(name = "prezime") String prezime,
-            @RequestParam(name = "email") String email,
-            @RequestParam(name = "adresa") String adresa,
-            @RequestParam(name = "mesto") String mesto,
-            @RequestParam(name = "postanski_broj") String postanski_broj,
-            @RequestParam(name = "drzava") String drzava,
-            @RequestParam(name = "broj_telefona") String broj_telefona,
-            @RequestParam(name = "jmbg") String jmbg,
-            @RequestParam(name = "naziv_pravne_osobe",defaultValue="/") String naziv_pravne_osobe,
-            @RequestParam(name = "pib",defaultValue="/") Integer pib,
+            @RequestParam(name = "ime", defaultValue = "/") String ime,
+            @RequestParam(name = "prezime", defaultValue = "/") String prezime,
+            @RequestParam(name = "email", defaultValue = "/") String email,
+            @RequestParam(name = "adresa", defaultValue = "/") String adresa,
+            @RequestParam(name = "mesto", defaultValue = "/") String mesto,
+            @RequestParam(name = "postanski_broj", defaultValue = "/") String postanski_broj,
+            @RequestParam(name = "drzava", defaultValue = "/") String drzava,
+            @RequestParam(name = "broj_telefona", defaultValue = "/") String broj_telefona,
+            @RequestParam(name = "jmbg", defaultValue = "/") String jmbg,
+            @RequestParam(name = "naziv_pravne_osobe", defaultValue = "/") String naziv_pravne_osobe,
+            @RequestParam(name = "pib", defaultValue = "/") Integer pib,
             //            @RequestParam(name = "is_pravno_lice") Boolean is_pravno_lice,
-                                    @RequestParam(name = "datum_pocetka_clanstva") Calendar datum_pocetka_clanstva,
+            @RequestParam(name = "datum_pocetka_clanstva") Calendar datum_pocetka_clanstva,
             //                        @RequestParam(name = "datum_isteka_clanstva") LocalDate datum_isteka_clanstva,
             @RequestParam(value = "action", required = true) String action
     ) {
@@ -122,7 +126,6 @@ public class MainController {
         clan.setPib(pib);
 //        clan.setDatum_pocetka_clanstva(datum_pocetka_clanstva);
 //        clan.setDatum_isteka_clanstva(datum_isteka_clanstva);
-
 
         clan.setDatum_pocetka_clanstva(datum_pocetka_clanstva.getTime());
         datum_pocetka_clanstva.add(Calendar.YEAR, 1);

@@ -809,6 +809,8 @@ public class EmailController {
     }
 
     public static String napravljenNalogAdmin(Clanovi clan) {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String telo = " <tbody> "
                 + "            <tr> "
                 + "              <td style=\"background:#ffffff;padding:30px\"> "
@@ -823,11 +825,18 @@ public class EmailController {
                     + "Naziv pravnog lica: " + clan.getNaziv_pravne_osobe();
         }
 
-        telo += "                 Ime i prezime: " + clan.getIme() + " " + clan.getPrezime() + "," + " <br>  "
-                + " Email adresa:" + clan.getEmail() + " <br>  "
-                + " Adresa:" + clan.getAdresa() + "," + clan.getMesto() + "," + clan.getPostanski_broj() + "," + clan.getDrzava() + ".  <br>  "
-                + " Telefon:" + clan.getBroj_telefona() + " <br>  "
-                + " Datum registracije:" + clan.getDatum_pocetka_clanstva() + " <br>  "
+        telo += " Ime i prezime: " + clan.getIme() + " " + clan.getPrezime() + "," + " <br>  "
+                + " Email adresa: " + clan.getEmail() + " <br>  "
+                + " Adresa: " + clan.getAdresa() + " <br>  "
+                + " Poštanski broj i mesto: " + clan.getPostanski_broj() + " " + clan.getMesto() + " <br>  "
+                + " Država: " + clan.getDrzava() + " <br>  "
+                + " Telefon: " + clan.getBroj_telefona() + " <br>  "
+                + " JMBG: " + clan.getJmbg() + " <br>  "
+                + " PIB: " + clan.getPib() + " <br>  "
+                //  + " Datum registracije:" + clan.getDatum_pocetka_clanstva() + " <br>  "
+                + " Datum registracije: " + formatter.format(date) + " <br>  "
+                //  + " " + formatter.format(date) + ""
+
                 + "                </p> "
                 + "            </td> "
                 + "           </tr> "
@@ -1081,7 +1090,9 @@ public class EmailController {
             + "            <tr>"
             + "              <td style=\"background-color:#000000;padding:15px;text-align:center!important;float:none!important;display:block!important;margin-left:auto!important;margin-right:auto!important\" align=\"center\" valign=\"middle\">"
             + ""
+            + "     <a style=\"text-decoration:none\" href=\"https://emobilnost.rs/\" target=\"_blank\" data-saferedirecturl=\"https://emobilnost.rs/\">"
             + " <img style=\"height:auto;background:transparent\" src=\"https://i.imgur.com/4OgunKr.png\" width=\"203\" height=\"43\" alt=\"alt_text\" border=\"0\" class=\"CToWUd\">"
+            + "        </a>"
             + "              </td>"
             + "            </tr>"
             + "          </tbody>"

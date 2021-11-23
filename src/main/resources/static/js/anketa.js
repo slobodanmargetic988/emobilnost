@@ -3,7 +3,9 @@ $(document).ready(function () {
     // Hide the div
     //  $("#anketa").hide();
     // Show the div in 5s
-    $("#anketa").delay(2000).fadeIn(1000);
+    if (Cookies.get('anketa') == undefined) {
+        $("#anketa").delay(2000).fadeIn(1000);
+    } 
 
     $("#nextBtn").click(function () {
         $("#form1").css("display", "none");
@@ -17,12 +19,6 @@ $(document).ready(function () {
         $("#anketa").fadeOut();
     });
 
-    if (Cookies.get('anketa') !== null) {
-        $("#anketa").css("display", "none");
-    } else {
-        $("#anketa").css("display", "block");
-
-    }
 
     $("#prijaviSe").click(function () {
         var email = $("#emailAnketa").val();
@@ -30,6 +26,7 @@ $(document).ready(function () {
         var anketa = new Object();
         anketa.email = email;
         anketa.opcija = opcija;
+
 
         var anketaJSON = JSON.stringify(anketa);
         Cookies.set('anketa', anketaJSON);
