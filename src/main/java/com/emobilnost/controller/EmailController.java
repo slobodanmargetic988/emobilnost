@@ -254,7 +254,14 @@ public class EmailController {
             PDDocument pDDocument = PDDocument.load(is);
             PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
             PDField fieldName = pDAcroForm.getField("uplatilac");
-            fieldName.setValue(clan.getIme() + " " + clan.getPrezime() + "\n" + clan.getAdresa() + "\n" + clan.getPostanski_broj() + " " + clan.getMesto()); // <-- Replacement
+            String uplatilac = clan.getIme() + " " + clan.getPrezime() + "\n" + clan.getAdresa();
+            if (!clan.getPostanski_broj().equals("/")) {
+                uplatilac += "\n" + clan.getPostanski_broj();
+                if (!clan.getMesto().equals("/")) {
+                    uplatilac += " " + clan.getMesto();
+                }
+            }
+            fieldName.setValue(uplatilac); // <-- Replacement
             PDField fieldName2 = pDAcroForm.getField("svrha");
             fieldName2.setValue("Članarina za udruženje građana \nE-Mobilnost");
             PDField fieldName3 = pDAcroForm.getField("primalac");
