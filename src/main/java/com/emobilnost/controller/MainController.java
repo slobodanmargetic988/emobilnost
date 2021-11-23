@@ -853,6 +853,7 @@ public class MainController {
         clan.setNaziv_pravne_osobe(naziv_pravne_osobe);
         clan.setPib(pib);
         clan.setPostanski_broj(postanski_broj);
+        clan.setMesto(mesto);
         clan.setPrezime(prezime);
 
         if (fizickoilipravnolice.equals("pravnolice")) {
