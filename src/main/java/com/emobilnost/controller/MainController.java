@@ -70,11 +70,36 @@ public class MainController {
         return "main/admin-pocetna";
     }
 
-     @GetMapping(value = "/mercedes-benz-vs-mercedes-electric")
+    @GetMapping(value = "/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri")
+    public String stizuJeftinijaEV(final Model model) {
+        return "main/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri";
+    }
+
+    @GetMapping(value = "/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen")
+    public String novaKiaStize(final Model model) {
+        return "main/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen";
+    }
+
+    @GetMapping(value = "/u-kini-znacajno-pale-cene-elektricnih-automobila")
+    public String paleCeneAutaUKini(final Model model) {
+        return "main/u-kini-znacajno-pale-cene-elektricnih-automobila";
+    }
+
+    @GetMapping(value = "/kia-ukida-benzince-i-dizelase")
+    public String kiaBezBenzincaDizelasa(final Model model) {
+        return "main/kia-ukida-benzince-i-dizelase";
+    }
+
+    @GetMapping(value = "/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati")
+    public String polovniElAutomobili(final Model model) {
+        return "main/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati";
+    }
+
+    @GetMapping(value = "/mercedes-benz-vs-mercedes-electric")
     public String mercedesBenzVsMercedesElectric(final Model model) {
         return "main/mercedes-benz-vs-mercedes-electric";
     }
-    
+
     @GetMapping(value = "/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda")
     public String skodaEnyaqGlobalnaPricaOUspehu(final Model model) {
         return "main/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda";

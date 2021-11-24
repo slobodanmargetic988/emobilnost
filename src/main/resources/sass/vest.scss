@@ -2,6 +2,7 @@
 @import "./variables";
 @import "./mixins";
 
+
 .big-header-hidden {
     /*display: none;*/
 }
@@ -44,8 +45,30 @@
     p {
         color: hsla($main-color-h, $main-color-s, 40%, $main-color-a);
     }
+    figure {
+        position: relative;
+        /*float: left;*/
+    }
+/*    img {
+        width: 400px;
+        clear: left;
+        margin-bottom: 1px;
+        margin-right: 10px;
+    }*/
+    figcaption {
+        background-color: hsla($main-color-h, $main-color-s, 10%, 0.7);
+        color: white;
+        max-width: 400px;
+        font-size: 12px;
+        display: block;
+        float: left;
+        position: absolute;
+        top: 0;
+        padding: 0.2rem;
+    }
     .post-image {
         margin: 2rem 0;
+
     }
     .img-thumbnail {
         background: hsla($main-color-h, $main-color-s, 100%, $main-color-a);

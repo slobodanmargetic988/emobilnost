@@ -106,7 +106,7 @@ h2 {
   display: block;
 }
 
-p {
+.about-content p {
   /*font-family: "Montserrat", sans-serif;*/
   font-size: 16px !important;
   color: #666666;

@@ -21,9 +21,9 @@
 <th:block th:insert="fragments/topbar :: topbar" />
 
 <picture>
-    <source media="(max-width: 776px)" srcset="/img/carvestismall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/carvestiCropped.jpg">
-    <img src="/img/carvestiCropped.jpg" class="header-img " alt="o-nama-header-image">
+    <source media="(max-width: 776px)" srcset="/img/vestsmallscreen.jpg">
+    <source media="(min-width: 992px)" srcset="/img/vestbg.jpg">
+    <img src="/img/vestbg.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -40,8 +40,92 @@
             <div class="col-md-6 col-lg-4 d-flex">
                 <article class="post text-left">
                     <figure class="feature-image">
+                        <a th:href="@{/u-kini-znacajno-pale-cene-elektricnih-automobila}">
+                            <img src="/img/kinaAuto.jpg" alt="Električni automobil iz Kine">
+                        </a>
+                    </figure>
+                    <div class="entry-content">
+                        <p class="dateNews">24.11.2021.</p>
+                        <h3><a th:href="@{/u-kini-znacajno-pale-cene-elektricnih-automobila}">U Kini značajno pale cene električnih automobila</a></h3>
+                        <p>I dok se na Starom kontinentu sve odvija sporije nego na Istoku planete, tako smo ovde i dalje suočeni sa vrlo visokim cenama električnih vozila. 
+                            Kako vreme bude odmicalo, svakako se očekuje da cene budu niže...</p>
+                        <span class="separatorBtn"></span>
+                        <a th:href="@{u-kini-znacajno-pale-cene-elektricnih-automobila}" class="blogBtn" >Pročitajte više</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex">
+                <article class="post text-left">
+                    <figure class="feature-image">
+                        <a th:href="@{/kia-ukida-benzince-i-dizelase}">
+                            <img src="/img/kia.jpg" alt="Kia električni automobil">
+                        </a>
+                    </figure>
+                    <div class="entry-content">
+                        <p class="dateNews">24.11.2021.</p>
+                        <h3><a th:href="@{/kia-ukida-benzince-i-dizelase}">I Kia ukida benzince i dizelaše</a></h3>
+                        <p>Pored brojnih proizvođača automobila koji su već najavili koje godine prestaju sa proizvodnjom i prodajom modela na fosilna goriva, sada je to uradila i Kia...</p>
+                        <span class="separatorBtn"></span>
+                        <a th:href="@{kia-ukida-benzince-i-dizelase}" class="blogBtn" >Pročitajte više</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex">
+                <article class="post text-left">
+                    <figure class="feature-image">
+                        <a th:href="@{/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}">
+                            <img src="/img/elautopunjenje.jpg" alt="Električni automobil koji se puni">
+                        </a>
+                    </figure>
+                    <div class="entry-content">
+                        <p class="dateNews">24.11.2021.</p>
+                        <h3><a th:href="@{/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}">Polovni električni automobili: Ima li garancije da će baterija trajati?</a></h3>
+                        <p>Prodaja vozila na električni i hibridni pogon iz godine u godinu raste velikom brzinom. Kako mnoge zemlje najavljuju da će u skorijoj budućnosti zabraniti prodaju benzinaca i dizelaša, očekuje se da će drastično skočiti prodaja vozila na električni pogon...</p>
+                        <span class="separatorBtn"></span>
+                        <a th:href="@{polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}" class="blogBtn" >Pročitajte više</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex">
+                <article class="post text-left">
+                    <figure class="feature-image">
+                        <a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">
+                            <img src="/img/povoljnijiAuto1.png" alt="Fiat električni automobil">
+                        </a>
+                    </figure>
+                    <div class="entry-content">
+                        <p class="dateNews">23.11.2021.</p>
+                        <h3><a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">Stižu jeftini električni automobili: Koliko će 
+                                koštati i ko je sve u igri</a></h3>
+                        <p>Evropska automobilska industrija je morala da reaguje, jer po prodaji električnih automobila u Evropi prednjači američka Tesla, a 
+                            najavljen je i dolazak jeftinih kineskih e-vozila. Zato je napravljen novi iskorak. Nekolicina velikih proizvođača...</p>
+                        <span class="separatorBtn"></span>
+                        <a th:href="@{stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}" class="blogBtn" >Pročitajte više</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex">
+                <article class="post text-left">
+                    <figure class="feature-image">
+                        <a th:href="@{/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}">
+                            <img src="/img/kianew1.jpg" alt="Novi Kia električni automobil">
+                        </a>
+                    </figure>
+                    <div class="entry-content">
+                        <p class="dateNews">22.11.2021.</p>
+                        <h3><a th:href="@{/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}">Nova Kia stiže u četvrtak, dizajn radikalno promenjen</a></h3>
+                        <p>Korejska kompanija će za tri dana predstaviti drugu generaciju modela Niro, čiji će izgled biti inspirisan HabaNiro konceptom. Ovo je 
+                            poslednji automobil u seriji važnih noviteta koji su deo tranzicije ovog brenda...</p>
+                        <span class="separatorBtn"></span>
+                        <a th:href="@{nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}" class="blogBtn" >Pročitajte više</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex">
+                <article class="post text-left">
+                    <figure class="feature-image">
                         <a th:href="@{/mercedes-benz-vs-mercedes-electric}">
-                            <img src="/img/mercedes1.jpg" alt="Hyandai Kona automobil">
+                            <img src="/img/mercedes1.jpg" alt="Mercedes salon">
                         </a>
                     </figure>
                     <div class="entry-content">
