@@ -69,6 +69,12 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
+    
+        @GetMapping(value = "/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju")
+    public String skodaTrening(final Model model) {
+        return "main/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju";
+    }
+
 
     @GetMapping(value = "/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri")
     public String stizuJeftinijaEV(final Model model) {
