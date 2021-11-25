@@ -69,12 +69,21 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
-    
-        @GetMapping(value = "/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju")
+
+    @GetMapping(value = "/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila")
+    public String proizvodnjaBateria(final Model model) {
+        return "main/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila";
+    }
+
+    @GetMapping(value = "/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene")
+    public String do2030(final Model model) {
+        return "main/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene";
+    }
+
+    @GetMapping(value = "/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju")
     public String skodaTrening(final Model model) {
         return "main/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju";
     }
-
 
     @GetMapping(value = "/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri")
     public String stizuJeftinijaEV(final Model model) {
