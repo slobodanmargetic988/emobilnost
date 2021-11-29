@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Električni automobili – ISTINE I ZABLUDE | Saveti | E-Mobilnost</title>
+
+        <meta name="description" content="Najčešće zamerke i primedbe protiv električnih automobila su: skupi su, imaju mali domet sa jednim punjenjem baterije, gde ih puniti, šta s baterijom kad se istroši i koliko košta zamena. Hajde da vidimo: šta je od ovoga ISTINA a šta je ZABLUDA..."/> 
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, emobilnost, električna vozila, električni automobili, istine i zablude o evozilima, istine i zablude o električnim vozilima, istine i zablude o električnim automobilima"/>
+
+        <link th:href="@{/css/vest.css}" rel="stylesheet" type="text/css" />
+
+    <th:block th:insert="fragments/head :: head" />
+
+</head>
+
+<body>
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/carsavetismall.jpg">
+    <source media="(min-width: 992px)" srcset="/img/carsavetiCropped.jpg">
+    <img src="/img/carsavetiCropped.jpg" class="header-img " alt="o-nama-header-image">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+</div>
+
+
+
+<div class="container py-5">
+
+    <div class="row">
+        <div class="col">
+            <div class="blog-posts single-post">
+
+                <article class="post post-large blog-single-post border-0 m-0 p-0">
+
+
+                    <div class="post-content ms-0">
+                        <h2 class="font-weight-semi-bold">Električni automobili – ISTINE I ZABLUDE</h2>
+
+                        <!--                        <div class="post-meta">
+                                                    <span><i class="far fa-calendar"></i>24.11.2021.</span>
+                                                                                               <span><i class="far fa-folder"></i> <a href="#">Lifestyle</a>, <a href="#">Design</a> </span>  
+                                                    <span><i class="far fa-user"></i> <a href="#">Energetski portal</a> </span>  
+                        
+                                                    <span><i class="far fa-user"></i>Energetski portal</span>  
+                        
+                                                    <span><i class="far fa-comments"></i> <a href="#comments">Komentari (0)</a></span>
+                                                </div>-->
+
+
+                        <div class="post-image ms-0">
+                            <figure> 
+                                <img src="/img/treufalse.jpg" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="Istine i zablude o električnim vozilima" style="object-fit: cover;height: 568px;width: 100%;">
+                                <figcaption>Izvor: Pixabay</figcaption> 
+                            </figure>
+                        </div>
+
+                        <p>Najčešće zamerke i primedbe protiv električnih automobila su:</p>      
+
+                        <p>• Skupi su</p>
+                        <p>• Imaju mali domet sa jednim punjenjem baterije</p>
+                        <p>• Gde ih puniti</p>
+                        <p>• Šta s baterijom kad se istroši i koliko košta zamena</p>
+
+
+
+                        <p style="font-weight: 600;">Hajde da vidimo: šta je od ovoga ISTINA a šta je ZABLUDA?</p>
+                        <ol style="padding: 0 0 0 3rem;">
+                            <b><li class="mb-2">SKUPI SU – nedostižni prosečnom kupcu?</li></b>
+                            <p>Tačno je da je još uvek cena električnog automobila od 10-20% veća od cene sličnog sa benzinskim ili diesel agregatom. <br>
+                                Izračunajmo šta to znači na primeru novog dizel automobila od npr. 25.000 EUR.<br>Njegov par u električnoj verziji koštaće 30.000 eur. Znači električni automobil 
+                                košta  samo 5000 eur više od dizela. Pošto možete ostvariti subvenciju od 5000 eur – oni u startu koštaju isto.<br>
+                                Servisiranje dizel automobila vrši se u intervalu 10-15000 km. Na toj klasi vozila servis košta između 150 i 200 eur. Ako prelazite godišnje 30.000 km, 
+                                to su 2 servisa ili 400 eur. Kod električnog automobila taj trošak će za istu kilometražu iznositi 50 eur.<br>
+                                Registracija za dizel do 2000 ccm iznosiće oko 350 eur, a za električni 200 eur. Dizel će potrošiti za tih 30000 km minimum 2000 litara nafte,
+                                što je oko 2880 eur/godišnje. Električni će potrošiti oko 6000 kw struje, koja, ako ga punite kući noću, košta max 100 eur.
+                            </p>
+                            <p>Hajde da sad sve to saberemo i oduzmemo:<p>
+                            <p>   Dizel - 3630 eur godišnje troška<br>
+                                Električni - 350 eur godišnje</p>
+                            <p>Kada to pomnožimo sa 5 godina koliko je uobičajeno lizing za kupovinu novog vozila:</p>  
+                            <p>Trošak exploatacije Dizel: 18150 eur<br>
+                                Trošak eksploatacije EV: 1750 eur
+                            </p>
+                            <p>Ako to saberemo sa početnom cenom koju smo ustanovili da je ista – 25000 eur dobijemo:</p>
+                            <p>Ukupan trošak za dizel vozilo na 5 godina iznosi 43150  eur.<br>
+                                Ukupan trošak za električno vozilo na 5 god iznosi 26750  eur. 
+                            </p>
+                            <hr>
+                            <p style="font-weight: 600">Računica pokazuje da je dizel vozilo iste klase u 5 god eksploatacije skuplje od električnog za 16.400 eura  ili preko 61%.</p>
+                            <p>Ako vozite te automobile 10 godina, razlika se udvostručuje.</p>
+                            <p>ODGOVOR: <b>ZABLUDA JE DA SU ELEKTRIČNA VOZILA SKUPLJA</b></p>
+
+
+                            <b><li class="mb-2">Imaju mali domet sa 1 punjenjem?</li></b>
+                            <p>Dizel i benzinska vozila niže i srednje klase obično imaju rezervoar zapremine 40 litara. U mešovitoj i gradskoj vožnji to je obično od 450-550km 
+                                autonomije.Viša klasa vozila ima rezervoar 60-80 litara i domet od 600-900 kilometara. Električna vozila, u zavisnosti od veličine baterije, 
+                                danas imaju doseg od 250 - 600 km. Srednja klasa, o kojoj smo govorili u prethodnoj stavki, obično ima domet od 300-450 km.
+                            </p>
+                            <p style="font-weight: 600">ISTINA je da dizel i benzinska vozila imaju veći range od električnih.</p>
+                            <p>Pitanje glasi: Koliko puta godišnje "vozite u dahu", bez pauze više od 300-400-500 km? <br>
+                                Verovatno ni jednom. <br>
+                                Ako je odgovor na prethodno pitanje: ČESTO, onda električna vozila još nisu za vas.<br>
+                                ČINJENICA je da prilikom odabira EV morate znati za šta vam je potrebno, gde, kada, koliko i kako ćete ga koristiti i da prema tome odaberete 
+                                veličinu, snagu i kapacitet baterije koja Vam je potrebna.
+                            </p>
+                            <p style="font-weight: 600">ZABLUDA je da električna vozila ne mogu da se koriste za duža putovanja.</p>
+
+                            <b><li class="mb-2">Gde ih puniti?</li></b>
+                            <p>Mreža punjača u Srbiji ima registrovano 185 javno dostupnih punjača od kojih je manji deo u kategoriji brzih punjača (50 i više kW). 
+                                Brzi punjači su strateški raspoređeni na izlazima/ulazima na autoputeve na razdaljini koja omogućuje nesmetano putovanje.<br>
+                                Veći deo ovih punjača ne naplaćuje punjenje. Za punjače gde se vrši naplata postoji <b>aplikacija charge & go</b>, koja omogućuje punjenje i naplatu po 
+                                komercijalnoj tarifi. Trenutno se naplaćuje vreme punjenja (1/2 sata, 45 min, sat). Besplatni punjači postoje u većim tržnim centrima i 
+                                shoping mall-ovima, u javnim garažama, hotelima i dr. Ipak, najsigurnije je ako imate sopstveni pristup elektromreži (kuća, garaža).
+                                Sigurno je samo da će se punjačka infrastruktura razvijati mnogo brže nego povećanje broja EV.
+                            </p>
+                            <p>Mreža punjača svakodnevno se proširuje, a podatke o tome možete naći na sajtu <a href="https://emobilnost.rs/mreza-punjaca">emobilnost.rs</a>, kao i na Google. </p>
+
+                            <b><li class="mb-2">Šta s baterijom kada se istroši, koliko traje i koliko košta zamena?</li></b>
+                            <p>Prodaja vozila na električni i hibridni pogon iz godine u godinu raste velikom brzinom. Kako mnoge zemlje najavljuju da će u skorijoj budućnosti 
+                                zabraniti prodaju benzinaca i dizelaša, očekuje se da će drastično skočiti prodaja vozila na električni pogon. Samim tim na tržištu će porasti i 
+                                ponuda ovih polovnih automobila. Međutim, vozači e-automobila do sada nisu bili u mogućnosti da dobiju pouzdane informacije o tome koliko će 
+                                baterija zadržati kapacitet tokom perioda vožnje, što dovodi u sumnju održivost njihove investicije.</p>
+                            <p>Na sreću, ovo bi uskoro moglo da se promeni i to zahvaljujući predlogu novog pravnog instrumenta za obezbeđivanje minimalne trajnosti baterija 
+                                ugrađenih u električne i "plug-in" hibridne automobile, koji je odobrio Svetski forum za harmonizaciju propisa o vozilima (WP.29), čiji je 
+                                domaćin Ekonomska komisija UN-a za Evropu (UNECE) u čijem se saopštenju ovo i navodi, piše Energetski portal.</p>
+                            <p>Zahvaljujući novim odredbama, proizvođači će morati da garantuju da će baterije ugrađene u njihova električna vozila (EV) izgubiti manje od 20 
+                                odsto svog početnog kapaciteta tokom pet godina ili pređenih 100.000 km i manje od 30 odsto tokom osam godina ili pređenih 160.000 km.</p>
+                            <p>Šta praktično znači 30% smanjenje kapaciteta nakon 8 godina? Znači da ćete moći nastaviti koristiti vozilo kao i do tada, samo što će s 
+                                jednim punjenjem preći 300 km umesto 400 ili 450 km. Ako Vam to nije dovoljno, moći ćete zameniti bateriju ili, što je verovatnije, vozilo,
+                                jer će napredak tehnologije za taj period učiniti da nova vozila i nove baterije imaju mnogo bolje performanse od sadašnjih. </p>
+                            <p>Koliko će to koštati? Na to pitanje Vam danas niko ne može dati egzaktan odgovor. Možda samo protivpitanje? Kolike će biti kaznene ekološke takse za 8 
+                                godina na današnje dizele polovnjake. Izvesno je samo da već za 10 godina nećete moći ni kupiti novi dizel.
+                            </p>
+
+                            <div class="post-block mt-5 post-share">
+                                <h4 class="mb-3">Podelite</h4>
+
+                                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                <div class="addthis_inline_share_toolbox" data-url="https://www.okler.net/previews/porto/9.2.0/blog-post.html" data-title="Post Full Width | Porto - Responsive HTML5 Template" style="clear: both;">
+                                    <div id="atstbx" class="at-resp-share-element at-style-responsive addthis-smartlayers addthis-animated at4-show" aria-labelledby="at-5ad1dcba-9c33-4d96-960f-cc6c95bbd10c" role="region"><span id="at-5ad1dcba-9c33-4d96-960f-cc6c95bbd10c" class="at4-visually-hidden">AddThis Sharing Buttons</span>
+                                        <div class="at-share-btn-elements"><a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-facebook" style="background-color: rgb(59, 89, 152); border-radius: 16px;"><span class="at4-visually-hidden">Share to Facebook</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-facebook-1" class="at-icon at-icon-facebook" style="fill: rgb(255, 255, 255); width: 20px; height: 20px;">
+                                                    <title id="at-svg-facebook-1">Facebook</title>
+                                                    <g>
+                                                    <path d="M22 5.16c-.406-.054-1.806-.16-3.43-.16-3.4 0-5.733 1.825-5.733 5.17v2.882H9v3.913h3.837V27h4.604V16.965h3.823l.587-3.913h-4.41v-2.5c0-1.123.347-1.903 2.198-1.903H22V5.16z" fill-rule="evenodd"></path>
+                                                    </g>
+                                                    </svg></span></a><a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-twitter" style="background-color: rgb(29, 161, 242); border-radius: 16px;"><span class="at4-visually-hidden">Share to Twitter</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-twitter-2" class="at-icon at-icon-twitter" style="fill: rgb(255, 255, 255); width: 20px; height: 20px;">
+                                                    <title id="at-svg-twitter-2">Twitter</title>
+                                                    <g>
+                                                    <path d="M27.996 10.116c-.81.36-1.68.602-2.592.71a4.526 4.526 0 0 0 1.984-2.496 9.037 9.037 0 0 1-2.866 1.095 4.513 4.513 0 0 0-7.69 4.116 12.81 12.81 0 0 1-9.3-4.715 4.49 4.49 0 0 0-.612 2.27 4.51 4.51 0 0 0 2.008 3.755 4.495 4.495 0 0 1-2.044-.564v.057a4.515 4.515 0 0 0 3.62 4.425 4.52 4.52 0 0 1-2.04.077 4.517 4.517 0 0 0 4.217 3.134 9.055 9.055 0 0 1-5.604 1.93A9.18 9.18 0 0 1 6 23.85a12.773 12.773 0 0 0 6.918 2.027c8.3 0 12.84-6.876 12.84-12.84 0-.195-.005-.39-.014-.583a9.172 9.172 0 0 0 2.252-2.336" fill-rule="evenodd"></path>
+                                                    </g>
+                                                    </svg></span></a><a role="button" tabindex="0" class="at-icon-wrapper at-share-btn at-svc-compact" style="background-color: rgb(255, 101, 80); border-radius: 16px;"><span class="at4-visually-hidden">Share to More</span><span class="at-icon-wrapper" style="line-height: 20px; height: 20px; width: 20px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" version="1.1" role="img" aria-labelledby="at-svg-addthis-3" class="at-icon at-icon-addthis" style="fill: rgb(255, 255, 255); width: 20px; height: 20px;">
+                                                    <title id="at-svg-addthis-3">AddThis</title>
+                                                    <g>
+                                                    <path d="M18 14V8h-4v6H8v4h6v6h4v-6h6v-4h-6z" fill-rule="evenodd"></path>
+                                                    </g>
+                                                    </svg></span></a></div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60ba220dbab331b0"></script>
+
+                            </div>
+
+                            <div class="post-block mt-5 post-similar">
+                                <h4 class="mb-3">Ostali saveti</h4>
+                                <div class="blog-section blog-section-small">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-4 d-flex">
+                                            <article class="post text-left">
+                                                <figure class="feature-image">
+                                                    <a th:href="@{/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost}">
+                                                        <img src="/img/whitecar.jpg" alt="Električni automobil bele boje">
+                                                    </a>
+                                                </figure>
+                                                <div class="entry-content">
+                                                    <!--<p class="dateNews">24.11.2021.</p>-->
+                                                    <h3><a th:href="@{/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost}">Zašto je dobro učlaniti se u u druženje vozača E-Mobilnost</a></h3>
+
+                                                    <span class="separatorBtn"></span>
+                                                    <a th:href="@{zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost}" class="blogBtn" >Pročitajte više</a>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 d-flex">
+                                            <article class="post text-left">
+                                                <figure class="feature-image">
+                                                    <a th:href="@{/kia-ukida-benzince-i-dizelase}">
+                                                        <img src="/img/kia.jpg" alt="Kia električni automobil">
+                                                    </a>
+                                                </figure>
+                                                <div class="entry-content">
+                                                    <!--<p class="dateNews">24.11.2021.</p>-->
+                                                    <h3><a th:href="@{/kia-ukida-benzince-i-dizelase}">I Kia ukida benzince i dizelaše</a></h3>
+                                                    <span class="separatorBtn"></span>
+                                                    <a th:href="@{kia-ukida-benzince-i-dizelase}" class="blogBtn" >Pročitajte više</a>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 d-flex">
+                                            <article class="post text-left">
+                                                <figure class="feature-image">
+                                                    <a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">
+                                                        <img src="/img/povoljnijiAuto1.png" alt="Fiat električni automobil">
+                                                    </a>
+                                                </figure>
+                                                <div class="entry-content">
+                                                    <!--<p class="dateNews">23.11.2021.</p>-->
+                                                    <h3><a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">Stižu jeftini električni automobili: Koliko će 
+                                                            koštati i ko je sve u igri</a></h3>
+                                                    <span class="separatorBtn"></span>
+                                                    <a th:href="@{stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}" class="blogBtn" >Pročitajte više</a>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--                        <div id="comments" class="post-block mt-3 post-comments">
+                                                        <h4 class="mb-3">Komentari (3)</h4>
+                                                        <h4 class="mb-3">Još uvek nema komentara</h4>
+                                                                                    <ul class="comments">
+                                                                                        <li>
+                                                                                            <div class="comment">
+                                                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                                                    <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                                                </div>
+                                                                                                <div class="comment-block">
+                                                                                                    <div class="comment-arrow"></div>
+                                                                                                    <span class="comment-by">
+                                                                                                        <strong>Marko Milošević</strong>
+                                                                                                        <span class="float-end">
+                                                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+                                                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                        
+                                                                                            <ul class="comments reply">
+                                                                                                <li>
+                                                                                                    <div class="comment">
+                                                                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                                                            <img class="avatar" alt="avatar image" src="img/avatars/avatar-3.jpg">
+                                                                                                        </div>
+                                                                                                        <div class="comment-block">
+                                                                                                            <div class="comment-arrow"></div>
+                                                                                                            <span class="comment-by">
+                                                                                                                <strong>Marko Milošević</strong>
+                                                                                                                <span class="float-end">
+                                                                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                                                                            <span class="date float-end">29.10.2021, 18:45</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <div class="comment">
+                                                                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                                                            <img class="avatar" alt="avatar image" src="img/avatars/avatar-4.jpg">
+                                                                                                        </div>
+                                                                                                        <div class="comment-block">
+                                                                                                            <div class="comment-arrow"></div>
+                                                                                                            <span class="comment-by">
+                                                                                                                <strong>Marko Milošević</strong>
+                                                                                                                <span class="float-end">
+                                                                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                                                                            <span class="date float-end">29.10.2021, 18:45</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <div class="comment">
+                                                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                                                    <img class="avatar" alt="avatar image" src="img/avatars/avatar.jpg">
+                                                                                                </div>
+                                                                                                <div class="comment-block">
+                                                                                                    <div class="comment-arrow"></div>
+                                                                                                    <span class="comment-by">
+                                                                                                        <strong>Marko Milošević</strong>
+                                                                                                        <span class="float-end">
+                                                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <div class="comment">
+                                                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                                                    <img class="avatar" alt="avatar image" src="img/avatars/avatar.jpg">
+                                                                                                </div>
+                                                                                                <div class="comment-block">
+                                                                                                    <div class="comment-arrow"></div>
+                                                                                                    <span class="comment-by">
+                                                                                                        <strong>Marko Milošević</strong>
+                                                                                                        <span class="float-end">
+                                                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </li>
+                                                                                    </ul>
+                            
+                                                    </div>-->
+
+                            <!--                        <div class="post-block mt-5 post-leave-comment" >
+                                                        <h4 class="mb-3">Ostavite komentar</h4>
+                            
+                                                        <form class="contact-form p-4 rounded bg-color-grey" th:action="@{/posaljiKomentar}" method="POST">
+                                                            <div class="p-2">
+                                                                                                    <div class="row">
+                                                                                                        <div class="form-group col-lg-6">
+                                                                                                            <label for="ime" class="form-label required">Ime i prezime</label>
+                                                                                                            <input type="text" value="" data-msg-required="Unesite ime i prezime." maxlength="100" class="form-control" name="ime" required="">
+                                                                                                        </div>
+                                                                                                                                            <div class="form-group">
+                                                                                                                                                <label for="ime" class="form-label required">Ime</label>
+                                                                                                                                                <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
+                                                                                                                                            </div>
+                                                                                                                                            <div class="form-group">
+                                                                                                                                                <label for="prezime" class="form-label required">Prezime</label>
+                                                                                                                                                <input type="text" value="" data-msg-required="Unesite prezime." maxlength="100" class="form-control" name="prezime" required="">
+                                                                                                                                            </div>
+                                                                                                        <div class="form-group col-lg-6">
+                                                                                                            <label for="email" class="form-label required">Email adresa</label>
+                                                                                                            <input type="email" value="" data-msg-required="Unesite email adresum" data-msg-email="Unesite validnu email adresum" maxlength="100" class="form-control" name="email" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                <div class="form-group">
+                                                                    <label for="ime" class="form-label required">Ime</label>
+                                                                    <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
+                                                                </div>
+                                                                                                    <div class="form-group">
+                                                                                                        <label for="ime" class="form-label required">Ime</label>
+                                                                                                        <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
+                                                                                                    </div>
+                                                                                                    <div class="form-group">
+                                                                                                        <label for="prezime" class="form-label required">Prezime</label>
+                                                                                                        <input type="text" value="" data-msg-required="Unesite prezime." maxlength="100" class="form-control" name="prezime" required="">
+                                                                                                    </div>
+                            
+                                                                <div class="row">
+                                                                    <div class="form-group col">
+                                                                        <label for="poruka" class="form-label required">Komentar</label>
+                                                                        <textarea maxlength="5000" data-msg-required="Napišite Vaš komentar." rows="5" class="form-control" name="poruka" required=""></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="form-group col mb-0">
+                                                                        <button type="submit" class="sendComment">Pošalji</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>-->
+
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+
+</body>
+
+</html>

@@ -69,6 +69,22 @@ public class MainController {
 
         return "main/admin-pocetna";
     }
+    
+           @GetMapping(value = "/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu")
+    public String teslauFrci(final Model model) {
+        return "main/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu";
+    }
+    
+       @GetMapping(value = "/elektricni-automobili-istine-i-zablude")
+    public String istineZablude(final Model model) {
+        return "main/elektricni-automobili-istine-i-zablude";
+    }
+    
+      @GetMapping(value = "/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost")
+    public String zastoSeUclaniti(final Model model) {
+        return "main/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost";
+    }
+
 
     @GetMapping(value = "/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila")
     public String proizvodnjaBateria(final Model model) {

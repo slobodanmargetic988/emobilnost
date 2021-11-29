@@ -22,6 +22,11 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   font-size: 3.5vw !important;
 }
 
+.feature-video {
+  text-align: center;
+  padding: 1rem 0;
+}
+
 .single-post {
   /*    img {
           width: 400px;
