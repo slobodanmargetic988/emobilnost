@@ -70,21 +70,42 @@ public class MainController {
         return "main/admin-pocetna";
     }
     
-           @GetMapping(value = "/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu")
+    
+            
+             @GetMapping(value = "/srpski-elektro-tricikl-iz-cacka")
+    public String elektroTricikl(final Model model) {
+        return "main/srpski-elektro-tricikl-iz-cacka";
+    }
+
+    @GetMapping(value = "/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi")
+    public String sajamKoriscenihAutomobila(final Model model) {
+        return "main/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi";
+    }
+
+    @GetMapping(value = "/koliko-elektricni-polovnjaci-gube-na-vrednosti")
+    public String polovnjaci(final Model model) {
+        return "main/koliko-elektricni-polovnjaci-gube-na-vrednosti";
+    }
+
+    @GetMapping(value = "/najavljen-elektricni-lexus")
+    public String elektricniLexus(final Model model) {
+        return "main/najavljen-elektricni-lexus";
+    }
+
+    @GetMapping(value = "/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu")
     public String teslauFrci(final Model model) {
         return "main/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu";
     }
-    
-       @GetMapping(value = "/elektricni-automobili-istine-i-zablude")
+
+    @GetMapping(value = "/elektricni-automobili-istine-i-zablude")
     public String istineZablude(final Model model) {
         return "main/elektricni-automobili-istine-i-zablude";
     }
-    
-      @GetMapping(value = "/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost")
+
+    @GetMapping(value = "/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost")
     public String zastoSeUclaniti(final Model model) {
         return "main/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost";
     }
-
 
     @GetMapping(value = "/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila")
     public String proizvodnjaBateria(final Model model) {
