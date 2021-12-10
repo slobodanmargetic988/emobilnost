@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Vesti i novosti u svetu električnih vozila | E-Mobilnost</title>
+
+        <meta name="description" content="Najnovije vesti i novosti o svetu električnih vozila | E-Mobilnost"/> 
+
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, vesti, novosti, vesti o električnim vozilima, vesti električna vozila,
+              vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti"/>
+
+        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+
+    <th:block th:insert="fragments/head :: head" />
+
+</head>
+
+
+<body>
+    <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/vestsmallscreen.jpg">
+    <source media="(min-width: 992px)" srcset="/img/vestbg.jpg">
+    <img src="/img/vestbg.jpg" class="header-img " alt="o-nama-header-image">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Nova električna vozila</h3>
+</div>
+
+<div class="cs-parallax cs-style2" id="portfolio" style="background-position: center -146.472px;">
+        <section class="section reference-section">
+            <div class="container">
+                <div class="row">
+                    <div class="filter-list">
+                        <button class="btn btn-default filter-button active" data-filter="all">Sve</button>
+                        <button class="btn btn-default filter-button" data-filter="website">Web sajtovi</button>
+                        <button class="btn btn-default filter-button" data-filter="webapp">Web aplikacije</button>
+                        <button class="btn btn-default filter-button" data-filter="mobileapp">Mobilne aplikacije</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 filter website">
+                            <a href="https://emobilnost.rs" class="cs-portfolio cs-style1 cs-color1 wow zoomIn animated" data-animate="zoomIn" data-delay=".2" style="visibility: visible; animation-name: zoomIn; animation-delay: .2s;"  target="_blank" >
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/skodabaterija.jpg" style="background-image: url(/img/emobilnost.png);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">E-Mobilnost</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="https://emobilnost.rs" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                        <div class="col-lg-4 col-sm-6 filter website">
+                            <a href="https://margotekstil.com/" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".4" style="visibility: visible; animation-name: zoomIn; animation-delay: .4s;" target="_blank">
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/ecarcharging.jpg" style="background-image: url(/img/margotekstil.png);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">Margotekstil</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="https://margotekstil.com/" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                        <div class="col-lg-4 col-sm-6 filter webapp">
+                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".6" style="visibility: visible; animation-name: zoomIn; animation-delay: .6s;" target="_blank">
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/skodatrening.jpg" style="background-image: url(https://emobilnost.rs/img/skodatrening.jpg);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">Projekat</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                        <div class="col-lg-4 col-sm-6 filter webapp">
+                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".8" style="visibility: visible; animation-name: zoomIn; animation-delay: .8s;" target="_blank">
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/kinaAuto.jpg" style="background-image: url(https://emobilnost.rs/img/kinaAuto.jpg);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">Projekat</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                        <div class="col-lg-4 col-sm-6 filter mobileapp">
+                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay="1" style="visibility: visible; animation-name: zoomIn; animation-delay: 1s;" target="_blank">
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/kia.jpg" style="background-image: url(https://emobilnost.rs/img/kia.jpg);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">Projekat</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                        <div class="col-lg-4 col-sm-6 filter mobileapp">
+                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay="1.2" style="visibility: visible; animation-name: zoomIn; animation-delay: 1.2s;" target="_blank">
+                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/elautopunjenje.jpg" style="background-image: url(https://emobilnost.rs/img/elautopunjenje.jpg);"></div>
+                                <div class="cs-portfolio-info">
+                                    <div class="cs-portfolio-info-up">
+                                        <h2 class="cs-portfolio-title">Projekat</h2>
+                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
+                                    </div>
+                                    <div class="cs-portfolio-info-down">
+                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
+                                    </div>
+                                    <div class="cs-portfolio-info-bg"></div>
+                                </div>
+                            </a>
+                            <div class="cs-height-30 cs-height-lg-30"></div>
+                        </div><!-- .col -->
+                    </div>
+<!--                    <div class="row">
+                        <div class="col-12 text-center mt-5">
+                            <a th:href="@{/reference}" class="btn-green">Sve reference</a>
+                        </div>
+                    </div>-->
+                </div>
+                 </div>
+        </section>
+    </div>
+
+
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{js/filterGallery.js}" type="text/javascript"></script>
+
+</body>
+
+</html>

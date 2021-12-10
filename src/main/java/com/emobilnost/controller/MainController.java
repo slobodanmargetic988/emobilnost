@@ -64,15 +64,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class MainController {
 
-    @GetMapping(value = "/admin-pocetna")
-    public String adminC4bHome(final Model model) {
+    @GetMapping(value = "/polovna-ev")
+    public String polovnaEV(final Model model) {
+        return "main/polovna-ev";
+    }
 
+    @GetMapping(value = "/nova-ev")
+    public String novaEV(final Model model) {
+        return "main/nova-ev";
+    }
+
+    @GetMapping(value = "/admin-pocetna")
+    public String adminEmobilnostHome(final Model model) {
         return "main/admin-pocetna";
     }
-    
-    
-            
-             @GetMapping(value = "/srpski-elektro-tricikl-iz-cacka")
+
+    @GetMapping(value = "/srpski-elektro-tricikl-iz-cacka")
     public String elektroTricikl(final Model model) {
         return "main/srpski-elektro-tricikl-iz-cacka";
     }
