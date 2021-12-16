@@ -331,6 +331,7 @@ h2 {
     /*font-family: $font-handwriting;*/
     /*letter-spacing: normal;*/
     font-size: 5.5vw !important;
+    text-align: center;
   }
   .text-box.text-box-mini p {
     display: none;

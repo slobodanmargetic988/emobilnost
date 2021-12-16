@@ -261,13 +261,14 @@ img {
 
 /*dropdown*/
 .dropdown-item {
+    text-transform: uppercase;
     &:hover {
         color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
         background-color: transparent !important;
     }
     &:focus {
-        color: hsla($main-color-h, $main-color-s, 100%, $main-color-a) !important;
-        background-color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+        color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+        background-color: transparent;
     }
 }
 
@@ -276,7 +277,7 @@ img {
 }
 .navbar-nav {
     align-items: center;
-    
+
 }
 
 .navbar {
@@ -284,7 +285,7 @@ img {
     z-index:1;
     /*margin-top: 1rem !important;*/
     .nav-item {
-        padding: 0.3rem 0.8rem;
+        padding: 0.1rem 0.8rem;
     }
     .nav-item-custom {
         padding: 0 0.4rem;
@@ -1366,25 +1367,29 @@ p {
 
 
 @media (max-width: 1200px) {
-    
+
     /*dropdown*/
-.dropdown-item {
-    &:focus {
-        color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
-        background-color: transparent !important;
+    .dropdown-item {
+        &:focus {
+            color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+            background-color: white !important;
+        }
+        &:active {
+            color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
+            background: transparent !important;
+        }
     }
-}
-.dropdown {
-    text-align: center !important;
-}
-.navbar-nav {
-    .dropdown-menu {
+    .dropdown {
         text-align: center !important;
     }
-}
-.dropdown-menu {
-    font-size: 18px !important;
-}
+    .navbar-nav {
+        .dropdown-menu {
+            text-align: center !important;
+        }
+    }
+    .dropdown-menu {
+        font-size: 18px !important;
+    }
     .fixed-top {
         top:0 !important;
     }
@@ -1455,14 +1460,19 @@ p {
         .fancy-link-18 {
             a {
                 &:before, &:after {
-                    background-color: $brown-black-color;
+                    /*background-color: $brown-black-color;*/
+                    content:none;
                 }
             }
         }
         .nav-link {
             color: $brown-black-color;
             &:hover {
-                color: $brown-black-color;
+                /*color: $brown-black-color;*/
+                color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+                &:before, &:after {
+                    content: none;
+                }
             }
         }
     }
@@ -1487,9 +1497,10 @@ p {
 
     }
     .uclani-se-btn {
-        padding: 0.8em !important;
+            padding: 0.6em 1.5rem !important;
         &:hover {
             color: $white-color !important;
+                background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
         }
     }
     .navbar-toggler-icon.navbar-toggler-icon-clr.changehambcolour {
@@ -1502,6 +1513,14 @@ p {
         &:hover {
             color: $white-color;
         }
+    }
+    .currentNavItem {
+        &:before, &:after {
+            /*opacity: 1 !important;*/
+            /*        transform: scaleX(1) !important;*/
+            content: none !important;
+        }
+        color:  hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a) !important;
     }
 }
 

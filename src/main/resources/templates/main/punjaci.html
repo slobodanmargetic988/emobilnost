@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Punjači za električna vozila | E-Mobilnost</title>
+
+        <meta name="description" content="Najnovije vesti i novosti o svetu električnih vozila | E-Mobilnost"/> 
+
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, vesti, novosti, vesti o električnim vozilima, vesti električna vozila,
+              vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti"/>
+
+        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+                <link th:href="@{/css/ev.css}" rel="stylesheet" type="text/css" />
+
+
+    <th:block th:insert="fragments/head :: head" />
+
+</head>
+
+<body>
+    <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/charging.jpg">
+    <source media="(min-width: 992px)" srcset="/img/chargingCropped.jpg">
+    <img src="/img/charging.jpg" class="header-img " alt="o-nama-header-image">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Punjači za električna vozila</h3>
+</div>
+
+
+<section class="section section-punjaci">
+    <div class="container-fluid">
+
+        <div class="row ">
+            <div class="col-lg-6 p-0 order-last-custom content-img">
+                <aside class="text-center">
+                    <figure><img src="/img/punjacev.jpg" class="img-fluid" alt="Punjač za električno vozilo"></figure>
+                </aside>
+            </div>
+            <div class="col-lg-6 order-first-custom content-text">
+                <article>
+                    <h3>Pregled punjača</h3>
+                    <div class="text">
+                        <p><b>Verovatno se sećate još iz osnovne škole da postoji jednosmerna struja, ona koja se recimo nalazi u 
+                                bateriji vašeg daljinskog upravljača, i naizmenična struja, koja se nalazi u svakoj utičnici u vašem zidu. </b></p>
+                        <p >Razlog zašto postoji naizmenična struja (AC) je taj što je naizmenična struju puno lakše transportovati, uz neke druge prednosti koje 
+                            nisu vezane za ovu temu.</p>
+                        <p>Problem s električnim vozilima je da baterije treba puniti jednosmernom strujom i zato imamo pretvarače iz naizmenične u jednosmernu struju. 
+                            Zbog toga svako električno vozilo ima u sebi jedan takav pretvarač, a od vozila do vozila zavisi koliko je jak taj pretvarač. 
+                            Starija vozila su imala pretvarače od samo 3,6 kW, a danas je ta cifra povećana na 7,2 kW, dok kod nekih vozila iznosi i do 22 kW.</p>
+                        <p>Da bi se baterija napunila brže od 22 kW na sat, pretvarač je izbačen iz vozila i postavljen u punjače koji su zbog toga postali jednosmerni (DC).
+                            S obzirom na to da se ne moraju prevoziti zajedno s vozilom, mogu biti velikih težina i time i velikih snaga, tako da danas imamo punjače 
+                            i do 400 kW, a u najavi su i punjači od 1,2 MW.</p>
+                        <p>AC punjači služe da napune vaše vozilo preko noći, dok DC punjači služe da napune vaša vozila kada ste na dužem putu. S obzirom da su 
+                            električna vozila više kao mobilni telefoni nego kao klasična vozila, planirajte da vaše vozilo napunite na sporom AC punjaču svake noći.</p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+        <div class="">
+            <div class="row">
+                <div class="col-lg-6 order-last p-0 order-last-custom content-img">
+                    <aside class="text-center">
+                        <figure><img src="/img/kucnaUticnica.jpg" class="img-fluid" alt="Kućna utičnica"></figure>
+                    </aside>
+                </div>
+                <div class="col-lg-6 order-first-custom content-text">
+                    <article>
+                        <h3>Kućna utičnica</h3>
+                        <div class="text">
+                            <p><b>Najrašireniji punjač je nadaleko poznata kućna utičnica. Da, kućna utičnica je ono što vam treba za punjenje električnog vozila preko noći i ništa više.</b></p>
+                            <p >Ukoliko ne koristite vaše vozilo za vožnju taxija, ovo će biti sasvim dovoljno za 99% vaših potreba. Struja koju baterija može dobiti iz kućne
+                                utičnice preko noći dovoljna je za 200 km što je čak 6 puta više od srpskog dnevnog proseka vožnji. Za punjenje će vam biti potreban pretvarač 
+                                koji ste dobili uz auto, a maksimalna snaga koju možete dobiti iz električne utičnice iznosi 3,6 kW. Kod nekih modela električnih automobila 
+                                se ta snaga punjenja može smanjiti i na 2,2 kW ukoliko su instalacije stare. Cena punjenja putem kućne utičnice iznosi 0,50 kn po kW, 
+                                odnosno 1-2 evra za pređenih 100 km ukoliko vozilo punite po noći.</p>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-lg-6 p-0 order-last-custom content-img">
+                <aside class="text-center">
+                    <figure><img src="/img/kucnipunjac.jpg" class="img-fluid" alt="Kućni punjač za električni automobil"></figure>
+                </aside>
+            </div>
+            <div class="col-lg-6 order-first-custom content-text">
+                <article>
+                    <h3 class="mb-3">Kućni punjači</h3>
+                    <div class="text">
+                        <p><b>Ukoliko imate veće potrebe, na primer, vozilo vam služi za dostavu proizvoda ili za prevoz osoba tada je potrebno instalirati kućni punjač jače snage.</b></p>
+                        <p >Kućni punjač može puniti i do 22 kW ukoliko vozilo to podržava. Vrlo je bitno proveriti podržava li vaše vozilo brže punjenje jer ćete u 
+                            suprotnom kupiti skupi komad elektronike koji nećete u potpunosti iskoristiti. Neki proizvođači vozila dodatno naplaćuju ugradnju jačih pretvarača 
+                            pa dobro proučite tu temu pre kupovine vozila ukoliko imate potrebe za više od 200 km dnevno. Neki modeli kućnih punjača dolaze s priključnim 
+                            kablom, a neki imaju samo utičnicu pa morate koristiti kabal koji morate kupiti odvojeno. On je danas obavezan komad opreme svakog električnog 
+                            vozila s obzirom da AC punjači na putevima vrlo često imaju samo utičnicu, a ne i kabal za punjenje. S obzirom da je u EU uveden 
+                            standard koji se poštuje, ukoliko nemate staro vozilo, biće vam potreban Type 2 to Type 2 kabel, a u zavisnosti od struje punjenja 
+                            (3,6 kw, odnosno 11 kW) trebaće Vam ovaj kabel, odnosno ako vaše vozilo podržava jače struje punjenja (7,2 kW, odnosno 22 kW) moraćete kupiti ovaj kabal.
+
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="">
+            <div class="row">
+                <div class="col-lg-6 order-last p-0 order-last-custom content-img">
+                    <aside class="text-center">
+                        <figure><img src="/img/teslapunjac.jpg" class="img-fluid" alt="Tesla punjač"></figure>
+                    </aside>
+                </div>
+                <div class="col-lg-6 order-first-custom content-text">
+                    <article>
+                        <h3>Tesla punjači</h3>
+                        <div class="text">
+                            <p><b>Tesla vozači, osim što mogu koristiti sve druge punjače, mogu koristiti i svoju daleko kvalitetniju mrežu super punjača i destination punjača.</b></p>
+                            <p >Tesla super punjači u Srbiji su snage 120 do 150 kW, iako je po svetu krenula nadogradnja punjača na čak 250 kW. To znači da ćete vaše Tesle 
+                                nadopuniti za 20-60 minuta u zavisnosti od kapaciteta i prethodne napunjenosti vaše baterije. Osim super punjača postoji i mreža Tesla
+                                destination punjača. Dobro je znati da Tesline destination punjače mogu koristiti i druga vozila ukoliko su postavljena 3 uređaja jer 
+                                je tada jedan od uređaja otključan za sva vozila.</p>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+
+</body>
+
+</html>

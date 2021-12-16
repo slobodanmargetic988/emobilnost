@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Oprema za električna vozila | E-Mobilnost</title>
+
+        <meta name="description" content="Najnovije vesti i novosti o svetu električnih vozila | E-Mobilnost"/> 
+
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, vesti, novosti, vesti o električnim vozilima, vesti električna vozila,
+              vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti"/>
+
+        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+
+    <th:block th:insert="fragments/head :: head" />
+
+</head>
+
+<body>
+    <!--<img src="/img/car-onama.jpg" class="header-img " alt="o-nama-header-image">-->
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/peugeot250.jpg">
+    <source media="(min-width: 992px)" srcset="/img/peugeot250Cropped.jpg">
+    <img src="/img/peugeot250.jpg" class="header-img " alt="o-nama-header-image">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Oprema za električna vozila</h3>
+</div>
+
+
+
+
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+
+</body>
+
+</html>

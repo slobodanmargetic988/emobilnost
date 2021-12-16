@@ -2,7 +2,7 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Vesti i novosti u svetu električnih vozila | E-Mobilnost</title>
+        <title>Nova električna vozila | E-Mobilnost</title>
 
         <meta name="description" content="Najnovije vesti i novosti o svetu električnih vozila | E-Mobilnost"/> 
 
@@ -11,6 +11,7 @@
               vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti"/>
 
         <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/ev.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
 
@@ -22,9 +23,9 @@
 <th:block th:insert="fragments/topbar :: topbar" />
 
 <picture>
-    <source media="(max-width: 776px)" srcset="/img/vestsmallscreen.jpg">
-    <source media="(min-width: 992px)" srcset="/img/vestbg.jpg">
-    <img src="/img/vestbg.jpg" class="header-img " alt="o-nama-header-image">
+    <source media="(max-width: 776px)" srcset="/img/newcar.jpg">
+    <source media="(min-width: 992px)" srcset="/img/newcarCropped.jpg">
+    <img src="/img/newcar.jpg" class="header-img " alt="o-nama-header-image">
 </picture>
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -34,124 +35,228 @@
     <h3>Nova električna vozila</h3>
 </div>
 
-<div class="cs-parallax cs-style2" id="portfolio" style="background-position: center -146.472px;">
-        <section class="section reference-section">
-            <div class="container">
-                <div class="row">
-                    <div class="filter-list">
-                        <button class="btn btn-default filter-button active" data-filter="all">Sve</button>
-                        <button class="btn btn-default filter-button" data-filter="website">Web sajtovi</button>
-                        <button class="btn btn-default filter-button" data-filter="webapp">Web aplikacije</button>
-                        <button class="btn btn-default filter-button" data-filter="mobileapp">Mobilne aplikacije</button>
-                    </div>
+<section style="margin-top: 80px;"></section>
 
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6 filter website">
-                            <a href="https://emobilnost.rs" class="cs-portfolio cs-style1 cs-color1 wow zoomIn animated" data-animate="zoomIn" data-delay=".2" style="visibility: visible; animation-name: zoomIn; animation-delay: .2s;"  target="_blank" >
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/skodabaterija.jpg" style="background-image: url(/img/emobilnost.png);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">E-Mobilnost</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="https://emobilnost.rs" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                        <div class="col-lg-4 col-sm-6 filter website">
-                            <a href="https://margotekstil.com/" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".4" style="visibility: visible; animation-name: zoomIn; animation-delay: .4s;" target="_blank">
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/ecarcharging.jpg" style="background-image: url(/img/margotekstil.png);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">Margotekstil</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="https://margotekstil.com/" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                        <div class="col-lg-4 col-sm-6 filter webapp">
-                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".6" style="visibility: visible; animation-name: zoomIn; animation-delay: .6s;" target="_blank">
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/skodatrening.jpg" style="background-image: url(https://emobilnost.rs/img/skodatrening.jpg);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">Projekat</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                        <div class="col-lg-4 col-sm-6 filter webapp">
-                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay=".8" style="visibility: visible; animation-name: zoomIn; animation-delay: .8s;" target="_blank">
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/kinaAuto.jpg" style="background-image: url(https://emobilnost.rs/img/kinaAuto.jpg);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">Projekat</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                        <div class="col-lg-4 col-sm-6 filter mobileapp">
-                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay="1" style="visibility: visible; animation-name: zoomIn; animation-delay: 1s;" target="_blank">
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/kia.jpg" style="background-image: url(https://emobilnost.rs/img/kia.jpg);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">Projekat</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                        <div class="col-lg-4 col-sm-6 filter mobileapp">
-                            <a href="" class="cs-portfolio cs-style1 cs-color1  wow zoomIn animated" data-animate="zoomIn" data-delay="1.2" style="visibility: visible; animation-name: zoomIn; animation-delay: 1.2s;" target="_blank">
-                                <div class="cs-portfolio-thumb cs-bg" data-src="https://emobilnost.rs/img/elautopunjenje.jpg" style="background-image: url(https://emobilnost.rs/img/elautopunjenje.jpg);"></div>
-                                <div class="cs-portfolio-info">
-                                    <div class="cs-portfolio-info-up">
-                                        <h2 class="cs-portfolio-title">Projekat</h2>
-                                        <div class="cs-portfolio-subtitle">But I must explain to you how all this mistaken idea of denouncing pleasure and praising.</div>
-                                    </div>
-                                    <div class="cs-portfolio-info-down">
-                                        <button href="" class="btn-green btn-green-sm btn-green-outline" target="_blank">Detaljnije</button>
-                                    </div>
-                                    <div class="cs-portfolio-info-bg"></div>
-                                </div>
-                            </a>
-                            <div class="cs-height-30 cs-height-lg-30"></div>
-                        </div><!-- .col -->
-                    </div>
-<!--                    <div class="row">
-                        <div class="col-12 text-center mt-5">
-                            <a th:href="@{/reference}" class="btn-green">Sve reference</a>
-                        </div>
-                    </div>-->
-                </div>
-                 </div>
-        </section>
+<section>
+    <div class="container">
+        <h2 class="mb-4">Uvod u vodič</h2>
+        
+        <p>U ovom velikom vodiču možete pronaći cene i opise za preko 50 modela električnih automobila koji se danas mogu kupiti u Srbiji. Navedene cene su cene za 
+            članove E-Mobilnosti s uračunatim popustom za članove. Ako ste zainteresovani za kupovinu nekog od ovih modela, učlanite se u E-Mobilnost i nakon toga nam se 
+            javite na e.mobilnost.rs@gmail.com s modelom koji vas interesuje.</p>
+        <p>Navedena su samo vozila koja se mogu danas kupiti, isključujući ona koja su se prestala proizvoditi. Dometi navedeni u opisima su WLTP, što je kratica za 
+            globalno ujednačeni postupak ispitivanja lakih vozila u standardiziranom ciklusu od 57% gradske vožnje, 25% prigradske vožnja te 18% autoputa.</p>
     </div>
+</section>
+
+<section style="margin-bottom: 80px;"></section>
+
+
+
+<section  class="py-5" style="background: #fafdf7;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="cards">
+                            <article class="card card-5">
+                                <div class="card-image5"></div>
+                                <a href="#" class="card-link">
+                                    <div class="card-img-hover5"></div>
+                                </a>
+                                <div class="card-info">
+                                    <!--<span class="card-category"> Recipe</span>-->
+                                    <h3 class="card-title">Audi e-tron 50 quattro</h3>
+                                    <!--<span class="card-by">by <a href="#" class="card-author" title="author">Celeste Mills</a></span>-->
+                                    <ul class="list-info">
+                                        <li>
+                                            <!--<i class="icon-global"></i>-->
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.09 122.88" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>electric-vehicle-charging-station</title><path class="cls-1" d="M105.67,61.11c.31,4.25.94,8.53,1.58,12.78A139.75,139.75,0,0,1,109,89.32c.27,6.75-.53,12.3-2.76,16.22-2.48,4.38-6.51,6.72-12.45,6.51h0c-7.09-.13-11.45-4.11-13.42-11.46-1.27-4.73-1.46-11-.7-18.5.54-5.42,1.36-8.89,1-14.47-.45-6.33-1.57-11.32-3.4-15a11.51,11.51,0,0,0-6.27-6v59.93a8.18,8.18,0,0,1,2.3,1.64,8.41,8.41,0,0,1,2.47,6v6A2.74,2.74,0,0,1,73,122.88H2.74A2.74,2.74,0,0,1,0,120.14v-6a8.42,8.42,0,0,1,2.47-6A8.57,8.57,0,0,1,4,107V14.52A14.54,14.54,0,0,1,18.56,0H56.34A14.63,14.63,0,0,1,70.93,14.59V41c11.36,2.48,14.4,15.65,15.13,26.51.49,7.31-.15,7.2-.94,14.63-.77,7.13-.64,12.88.49,17.09,1.27,4.77,4,7.35,8.24,7.41h.05c3.66.12,6.09-1.22,7.52-3.75,1.69-3,2.28-7.55,2-13.31a139.76,139.76,0,0,0-1.68-14.85c-.66-4.44-1.33-8.91-1.64-13.57h-.92l-.09-5.88c-7-.68-9.64-5.39-9.64-12.16V40h-1a1.65,1.65,0,0,1-1.65-1.65V36.46a1.65,1.65,0,0,1,1.65-1.65h4.89V26.16a2.59,2.59,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.6,2.6v8.65h7.65V26.16a2.6,2.6,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.61,2.6v8.65h5a1.65,1.65,0,0,1,1.65,1.65v1.91A1.65,1.65,0,0,1,116.44,40h-1.29v3.45c0,6.68-2.26,10.66-8.75,11.7v5.94ZM42.21,71.28H49.1a1.81,1.81,0,0,1,1.81,1.81,1.85,1.85,0,0,1-.31,1l-16.41,28a1.8,1.8,0,0,1-3.31-1.3L33.3,83.62l-8.16.14A1.8,1.8,0,0,1,23.32,82a1.71,1.71,0,0,1,.25-.95l16.13-28A1.81,1.81,0,0,1,43,54.23l-.83,17.05ZM21.86,12.54H53.68a6,6,0,0,1,4.24,1.76c.07.08.15.15.22.24a6,6,0,0,1,1.56,4v20.3a6,6,0,0,1-6,6H21.86a6,6,0,0,1-4.23-1.76h0a6,6,0,0,1-1.76-4.24V18.53a6,6,0,0,1,1.76-4.24,2.41,2.41,0,0,1,.24-.21,6,6,0,0,1,4-1.54Zm46.58,98.95H7.26a3,3,0,0,0-.91.62,2.92,2.92,0,0,0-.86,2.07v3.24H70.24v-3.24a3,3,0,0,0-.86-2.07,3,3,0,0,0-.94-.63Z"/></svg>                                    
+                                                <span class="c-blue">BATTERY</span><br> <span>71 kwWh</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 120.98" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>road-map</title><path class="cls-1" d="M23.46,90.44a30.26,30.26,0,0,1-6.64,5.5.93.93,0,0,1-1.07,0A37.48,37.48,0,0,1,6.5,87.72,29.39,29.39,0,0,1,.28,74.3,17.87,17.87,0,0,1,2.51,61.74,15.5,15.5,0,0,1,6,57.93,16.79,16.79,0,0,1,16.49,54a14.82,14.82,0,0,1,10,4.09,14.29,14.29,0,0,1,2.67,3.25c2.45,4,3,9.17,1.9,14.39a31.55,31.55,0,0,1-7.6,14.66Zm-7.07,10.73a9.89,9.89,0,0,1,9.19,6.21,3.27,3.27,0,0,1,.54,0h7.94a4,4,0,0,1,0,7.94H26.12a3.48,3.48,0,0,1-.73-.07,9.9,9.9,0,1,1-9-14ZM107.47,46.6a9.91,9.91,0,1,1-9.08,13.87H86a4,4,0,1,1,0-7.93H98.39a9.9,9.9,0,0,1,9.08-5.94ZM76.69,79.94a4,4,0,1,0,0,7.94h9.55a4,4,0,1,0,0-7.94ZM70.62,60.56a4,4,0,0,0-1.05-7.87,17.57,17.57,0,0,0-9.21,4.15,4,4,0,0,0,3.46,6.88,4.11,4.11,0,0,0,1.74-.88,9.65,9.65,0,0,1,5.06-2.28Zm-8,12.51A4,4,0,0,0,55,75.43l.18.54a17.72,17.72,0,0,0,5.45,7.84,4,4,0,0,0,5.06-6.12,9.83,9.83,0,0,1-3.11-4.62ZM49.93,107.34a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm23.82,0a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm22.55-.44a4,4,0,0,0-.12,7.52,3.92,3.92,0,0,0,2.53,0,17.64,17.64,0,0,0,8.35-5.67,4,4,0,1,0-6.15-5l-.2.23a9.81,9.81,0,0,1-4.41,2.89Zm5.78-13.68a4,4,0,0,0,7-3.68,17.91,17.91,0,0,0-7-7.27,4,4,0,1,0-3.94,6.89,9.93,9.93,0,0,1,3.86,4.06ZM114.75,36.4a30.65,30.65,0,0,1-6.65,5.5,1,1,0,0,1-1.07,0,37.39,37.39,0,0,1-9.24-8.25,29.44,29.44,0,0,1-6.22-13.42A17.81,17.81,0,0,1,93.8,7.7a15.32,15.32,0,0,1,3.44-3.82A16.73,16.73,0,0,1,107.78,0a15.39,15.39,0,0,1,12.67,7.33c2.45,4,3,9.18,1.9,14.39a31.62,31.62,0,0,1-7.6,14.67ZM107.08,8.14A7.86,7.86,0,1,1,99.22,16a7.85,7.85,0,0,1,7.86-7.86Zm-91.29,54A7.86,7.86,0,1,1,7.93,70a7.85,7.85,0,0,1,7.86-7.86Z"/></svg>                                        
+                                                <span class="c-blue">RANGE</span><br> <span>1336 km</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 103.14 122.88" style="enable-background:new 0 0 103.14 122.88; fill: #2F3062; width: 25px" xml:space="preserve"><g><path d="M55.97,99.67c-2.18,2.18-5.06,3.27-7.95,3.27c-2.89,0-5.77-1.09-7.95-3.27L3.27,62.88C1.09,60.69,0,57.81,0,54.92 c0-2.89,1.09-5.77,3.27-7.95L45.46,4.78c0.64-0.64,1.46-0.96,2.3-0.98l51.79-3.79c1.85-0.13,3.45,1.26,3.58,3.11 c0.01,0.19,0.01,0.37-0.01,0.55l-3.54,51.2c-0.06,0.84-0.42,1.59-0.97,2.15l0,0L55.97,99.67L55.97,99.67z M49.29,62.71l-6.6-6.6 c-1.79,1.93-2.42,3.57-2.37,5.39c0.05,1.83,1.15,3.82,3.31,5.98c1.4,1.4,2.85,2.43,4.36,3.09l-4.78,6.6 c-2.3-1.45-4.37-3.1-6.19-4.92c-3.81-3.81-5.85-7.83-6.15-12.07c-0.28-4.24,1.01-7.92,4.39-11.5l-3.49-3.49l3.92-3.92l3.49,3.49 l1.98-1.98l-3.49-3.49l3.9-3.9l3.55,3.55c3.77-3.22,7.56-4.4,11.88-4.01c4.31,0.41,8.4,2.53,12.26,6.39 c1.49,1.49,2.91,3.35,4.25,5.57l-6.62,4.8c-0.66-1.54-1.61-2.93-2.87-4.19c-1.95-1.95-3.88-3-5.78-3.14 c-1.91-0.15-3.64,0.37-5.67,2.04l6.53,6.53l-3.9,3.9l-6.6-6.6l-1.98,1.98l6.6,6.6L49.29,62.71L49.29,62.71L49.29,62.71z M93.38,72.22c1.31-1.31,3.44-1.31,4.75,0c1.31,1.31,1.31,3.44,0,4.75l-42.65,42.65c-2.18,2.18-5.07,3.27-7.95,3.27 c-2.89,0-5.77-1.09-7.95-3.27L2.79,82.82c-1.31-1.31-1.31-3.44,0-4.75c1.31-1.31,3.44-1.31,4.75,0l36.79,36.79 c0.89,0.89,2.05,1.33,3.21,1.33c1.16,0,2.32-0.44,3.21-1.33L93.38,72.22L93.38,72.22z M89.32,23.53c0.04,1.41-0.16,2.72-0.61,3.94 c-0.46,1.23-1.16,2.36-2.11,3.39l-0.01,0.01c-0.94,1.02-2,1.81-3.2,2.37c-1.21,0.57-2.51,0.9-3.91,0.98 c-0.12,0.01-0.24,0.01-0.36,0c-1.29,0.01-2.51-0.2-3.65-0.64l-0.01,0l0,0.01c-1.23-0.47-2.36-1.18-3.39-2.14 c-0.06-0.06-0.12-0.12-0.17-0.18c-0.94-0.92-1.67-1.96-2.19-3.09c-0.54-1.19-0.84-2.46-0.89-3.81l-0.01,0 c-0.08-1.4,0.1-2.73,0.56-3.98c0.45-1.24,1.15-2.39,2.12-3.44l0.01-0.01l0,0c0.96-1.04,2.04-1.84,3.24-2.4 c1.2-0.55,2.5-0.86,3.91-0.9c1.43-0.05,2.76,0.16,4,0.62c1.25,0.47,2.4,1.19,3.44,2.16c1.01,0.95,1.8,2.03,2.35,3.23 S89.27,22.15,89.32,23.53L89.32,23.53L89.32,23.53z M83.46,25.53c0.21-0.56,0.3-1.16,0.28-1.8c-0.02-0.65-0.15-1.24-0.39-1.77 c-0.24-0.53-0.61-1.03-1.1-1.49c-0.48-0.45-1-0.78-1.55-0.98c-0.57-0.21-1.19-0.31-1.85-0.28c-0.65,0.02-1.23,0.15-1.77,0.4 c-0.53,0.25-1.03,0.62-1.48,1.11l0,0c-0.45,0.49-0.77,1.01-0.97,1.57c-0.19,0.53-0.27,1.12-0.23,1.75l-0.01,0l0,0.07 c0.02,0.66,0.15,1.25,0.39,1.78c0.22,0.49,0.55,0.96,0.99,1.39c0.04,0.03,0.07,0.06,0.11,0.09c0.49,0.46,1.01,0.79,1.57,1l0,0 c0.49,0.19,1.02,0.28,1.58,0.28c0.04,0,0.08-0.01,0.12-0.01c0.71-0.04,1.33-0.19,1.86-0.44c0.54-0.25,1.03-0.62,1.47-1.11 l0.02-0.02C82.93,26.6,83.26,26.08,83.46,25.53L83.46,25.53L83.46,25.53z M48.02,96.25c1.16,0,2.32-0.44,3.21-1.33l41.76-41.76 l3.19-46.18L49.33,10.4L8.02,51.72c-0.89,0.89-1.33,2.05-1.33,3.2c0,1.16,0.44,2.32,1.33,3.21l36.79,36.79 C45.7,95.81,46.86,96.25,48.02,96.25L48.02,96.25z"/></g></svg>                                       
+                                                <span class="c-blue">PRICE</span><br> <span>65.8k &euro;</span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cards">
+                            <article class="card card-6">
+                                <div class="card-image6"></div>
+                                <a href="#" class="card-link">
+                                    <div class="card-img-hover6"></div>
+                                </a>
+                                <div class="card-info">
+                                    <!--<span class="card-category"> Recipe</span>-->
+                                    <h3 class="card-title">Audi e-tron 55 quattro</h3>
+                                    <!--<span class="card-by">by <a href="#" class="card-author" title="author">Celeste Mills</a></span>-->
+                                    <ul class="list-info">
+                                        <li>
+                                            <!--<i class="icon-global"></i>-->
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.09 122.88" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>electric-vehicle-charging-station</title><path class="cls-1" d="M105.67,61.11c.31,4.25.94,8.53,1.58,12.78A139.75,139.75,0,0,1,109,89.32c.27,6.75-.53,12.3-2.76,16.22-2.48,4.38-6.51,6.72-12.45,6.51h0c-7.09-.13-11.45-4.11-13.42-11.46-1.27-4.73-1.46-11-.7-18.5.54-5.42,1.36-8.89,1-14.47-.45-6.33-1.57-11.32-3.4-15a11.51,11.51,0,0,0-6.27-6v59.93a8.18,8.18,0,0,1,2.3,1.64,8.41,8.41,0,0,1,2.47,6v6A2.74,2.74,0,0,1,73,122.88H2.74A2.74,2.74,0,0,1,0,120.14v-6a8.42,8.42,0,0,1,2.47-6A8.57,8.57,0,0,1,4,107V14.52A14.54,14.54,0,0,1,18.56,0H56.34A14.63,14.63,0,0,1,70.93,14.59V41c11.36,2.48,14.4,15.65,15.13,26.51.49,7.31-.15,7.2-.94,14.63-.77,7.13-.64,12.88.49,17.09,1.27,4.77,4,7.35,8.24,7.41h.05c3.66.12,6.09-1.22,7.52-3.75,1.69-3,2.28-7.55,2-13.31a139.76,139.76,0,0,0-1.68-14.85c-.66-4.44-1.33-8.91-1.64-13.57h-.92l-.09-5.88c-7-.68-9.64-5.39-9.64-12.16V40h-1a1.65,1.65,0,0,1-1.65-1.65V36.46a1.65,1.65,0,0,1,1.65-1.65h4.89V26.16a2.59,2.59,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.6,2.6v8.65h7.65V26.16a2.6,2.6,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.61,2.6v8.65h5a1.65,1.65,0,0,1,1.65,1.65v1.91A1.65,1.65,0,0,1,116.44,40h-1.29v3.45c0,6.68-2.26,10.66-8.75,11.7v5.94ZM42.21,71.28H49.1a1.81,1.81,0,0,1,1.81,1.81,1.85,1.85,0,0,1-.31,1l-16.41,28a1.8,1.8,0,0,1-3.31-1.3L33.3,83.62l-8.16.14A1.8,1.8,0,0,1,23.32,82a1.71,1.71,0,0,1,.25-.95l16.13-28A1.81,1.81,0,0,1,43,54.23l-.83,17.05ZM21.86,12.54H53.68a6,6,0,0,1,4.24,1.76c.07.08.15.15.22.24a6,6,0,0,1,1.56,4v20.3a6,6,0,0,1-6,6H21.86a6,6,0,0,1-4.23-1.76h0a6,6,0,0,1-1.76-4.24V18.53a6,6,0,0,1,1.76-4.24,2.41,2.41,0,0,1,.24-.21,6,6,0,0,1,4-1.54Zm46.58,98.95H7.26a3,3,0,0,0-.91.62,2.92,2.92,0,0,0-.86,2.07v3.24H70.24v-3.24a3,3,0,0,0-.86-2.07,3,3,0,0,0-.94-.63Z"/></svg>                                      
+                                                <span class="c-blue">BATTERY</span><br> <span>95 kwWh</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 120.98" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>road-map</title><path class="cls-1" d="M23.46,90.44a30.26,30.26,0,0,1-6.64,5.5.93.93,0,0,1-1.07,0A37.48,37.48,0,0,1,6.5,87.72,29.39,29.39,0,0,1,.28,74.3,17.87,17.87,0,0,1,2.51,61.74,15.5,15.5,0,0,1,6,57.93,16.79,16.79,0,0,1,16.49,54a14.82,14.82,0,0,1,10,4.09,14.29,14.29,0,0,1,2.67,3.25c2.45,4,3,9.17,1.9,14.39a31.55,31.55,0,0,1-7.6,14.66Zm-7.07,10.73a9.89,9.89,0,0,1,9.19,6.21,3.27,3.27,0,0,1,.54,0h7.94a4,4,0,0,1,0,7.94H26.12a3.48,3.48,0,0,1-.73-.07,9.9,9.9,0,1,1-9-14ZM107.47,46.6a9.91,9.91,0,1,1-9.08,13.87H86a4,4,0,1,1,0-7.93H98.39a9.9,9.9,0,0,1,9.08-5.94ZM76.69,79.94a4,4,0,1,0,0,7.94h9.55a4,4,0,1,0,0-7.94ZM70.62,60.56a4,4,0,0,0-1.05-7.87,17.57,17.57,0,0,0-9.21,4.15,4,4,0,0,0,3.46,6.88,4.11,4.11,0,0,0,1.74-.88,9.65,9.65,0,0,1,5.06-2.28Zm-8,12.51A4,4,0,0,0,55,75.43l.18.54a17.72,17.72,0,0,0,5.45,7.84,4,4,0,0,0,5.06-6.12,9.83,9.83,0,0,1-3.11-4.62ZM49.93,107.34a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm23.82,0a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm22.55-.44a4,4,0,0,0-.12,7.52,3.92,3.92,0,0,0,2.53,0,17.64,17.64,0,0,0,8.35-5.67,4,4,0,1,0-6.15-5l-.2.23a9.81,9.81,0,0,1-4.41,2.89Zm5.78-13.68a4,4,0,0,0,7-3.68,17.91,17.91,0,0,0-7-7.27,4,4,0,1,0-3.94,6.89,9.93,9.93,0,0,1,3.86,4.06ZM114.75,36.4a30.65,30.65,0,0,1-6.65,5.5,1,1,0,0,1-1.07,0,37.39,37.39,0,0,1-9.24-8.25,29.44,29.44,0,0,1-6.22-13.42A17.81,17.81,0,0,1,93.8,7.7a15.32,15.32,0,0,1,3.44-3.82A16.73,16.73,0,0,1,107.78,0a15.39,15.39,0,0,1,12.67,7.33c2.45,4,3,9.18,1.9,14.39a31.62,31.62,0,0,1-7.6,14.67ZM107.08,8.14A7.86,7.86,0,1,1,99.22,16a7.85,7.85,0,0,1,7.86-7.86Zm-91.29,54A7.86,7.86,0,1,1,7.93,70a7.85,7.85,0,0,1,7.86-7.86Z"/></svg>                                        
+                                                <span class="c-blue">RANGE</span><br> <span>436 km</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 103.14 122.88" style="enable-background:new 0 0 103.14 122.88; fill: #2F3062; width: 25px" xml:space="preserve"><g><path d="M55.97,99.67c-2.18,2.18-5.06,3.27-7.95,3.27c-2.89,0-5.77-1.09-7.95-3.27L3.27,62.88C1.09,60.69,0,57.81,0,54.92 c0-2.89,1.09-5.77,3.27-7.95L45.46,4.78c0.64-0.64,1.46-0.96,2.3-0.98l51.79-3.79c1.85-0.13,3.45,1.26,3.58,3.11 c0.01,0.19,0.01,0.37-0.01,0.55l-3.54,51.2c-0.06,0.84-0.42,1.59-0.97,2.15l0,0L55.97,99.67L55.97,99.67z M49.29,62.71l-6.6-6.6 c-1.79,1.93-2.42,3.57-2.37,5.39c0.05,1.83,1.15,3.82,3.31,5.98c1.4,1.4,2.85,2.43,4.36,3.09l-4.78,6.6 c-2.3-1.45-4.37-3.1-6.19-4.92c-3.81-3.81-5.85-7.83-6.15-12.07c-0.28-4.24,1.01-7.92,4.39-11.5l-3.49-3.49l3.92-3.92l3.49,3.49 l1.98-1.98l-3.49-3.49l3.9-3.9l3.55,3.55c3.77-3.22,7.56-4.4,11.88-4.01c4.31,0.41,8.4,2.53,12.26,6.39 c1.49,1.49,2.91,3.35,4.25,5.57l-6.62,4.8c-0.66-1.54-1.61-2.93-2.87-4.19c-1.95-1.95-3.88-3-5.78-3.14 c-1.91-0.15-3.64,0.37-5.67,2.04l6.53,6.53l-3.9,3.9l-6.6-6.6l-1.98,1.98l6.6,6.6L49.29,62.71L49.29,62.71L49.29,62.71z M93.38,72.22c1.31-1.31,3.44-1.31,4.75,0c1.31,1.31,1.31,3.44,0,4.75l-42.65,42.65c-2.18,2.18-5.07,3.27-7.95,3.27 c-2.89,0-5.77-1.09-7.95-3.27L2.79,82.82c-1.31-1.31-1.31-3.44,0-4.75c1.31-1.31,3.44-1.31,4.75,0l36.79,36.79 c0.89,0.89,2.05,1.33,3.21,1.33c1.16,0,2.32-0.44,3.21-1.33L93.38,72.22L93.38,72.22z M89.32,23.53c0.04,1.41-0.16,2.72-0.61,3.94 c-0.46,1.23-1.16,2.36-2.11,3.39l-0.01,0.01c-0.94,1.02-2,1.81-3.2,2.37c-1.21,0.57-2.51,0.9-3.91,0.98 c-0.12,0.01-0.24,0.01-0.36,0c-1.29,0.01-2.51-0.2-3.65-0.64l-0.01,0l0,0.01c-1.23-0.47-2.36-1.18-3.39-2.14 c-0.06-0.06-0.12-0.12-0.17-0.18c-0.94-0.92-1.67-1.96-2.19-3.09c-0.54-1.19-0.84-2.46-0.89-3.81l-0.01,0 c-0.08-1.4,0.1-2.73,0.56-3.98c0.45-1.24,1.15-2.39,2.12-3.44l0.01-0.01l0,0c0.96-1.04,2.04-1.84,3.24-2.4 c1.2-0.55,2.5-0.86,3.91-0.9c1.43-0.05,2.76,0.16,4,0.62c1.25,0.47,2.4,1.19,3.44,2.16c1.01,0.95,1.8,2.03,2.35,3.23 S89.27,22.15,89.32,23.53L89.32,23.53L89.32,23.53z M83.46,25.53c0.21-0.56,0.3-1.16,0.28-1.8c-0.02-0.65-0.15-1.24-0.39-1.77 c-0.24-0.53-0.61-1.03-1.1-1.49c-0.48-0.45-1-0.78-1.55-0.98c-0.57-0.21-1.19-0.31-1.85-0.28c-0.65,0.02-1.23,0.15-1.77,0.4 c-0.53,0.25-1.03,0.62-1.48,1.11l0,0c-0.45,0.49-0.77,1.01-0.97,1.57c-0.19,0.53-0.27,1.12-0.23,1.75l-0.01,0l0,0.07 c0.02,0.66,0.15,1.25,0.39,1.78c0.22,0.49,0.55,0.96,0.99,1.39c0.04,0.03,0.07,0.06,0.11,0.09c0.49,0.46,1.01,0.79,1.57,1l0,0 c0.49,0.19,1.02,0.28,1.58,0.28c0.04,0,0.08-0.01,0.12-0.01c0.71-0.04,1.33-0.19,1.86-0.44c0.54-0.25,1.03-0.62,1.47-1.11 l0.02-0.02C82.93,26.6,83.26,26.08,83.46,25.53L83.46,25.53L83.46,25.53z M48.02,96.25c1.16,0,2.32-0.44,3.21-1.33l41.76-41.76 l3.19-46.18L49.33,10.4L8.02,51.72c-0.89,0.89-1.33,2.05-1.33,3.2c0,1.16,0.44,2.32,1.33,3.21l36.79,36.79 C45.7,95.81,46.86,96.25,48.02,96.25L48.02,96.25z"/></g></svg>                                       
+                                                <span class="c-blue">PRICE</span><br> <span>77.4k &euro;</span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-6">
+                <div style="padding: 0 1rem;">
+                    <h2 class="mb-4">Audi e-tron</h2>
+                    <p>Audi e-tron je poprilično veliki automobil s čak 490 x 197 cm, pa u njemu komfora zasigurno neće nedostajati. Ovo je automobil koji je više 
+                        namenjen međugradskom prevozu nego gradskom jer neće biti jednostavno manevrirati ovakvom grdosijom po gradskim uličicama.</p>
+                    <p>Uzevši u obzir da je ovo prvi Audijev električni automobil, na njemu je poprilično vidljivo nasledstvo dugogodišnje izrade klasičnih automobila.
+                        To ne bi bio problem da Tesla nije visoko podigla nivo svojim modelima, ali ovako je relativno teško opravdati velik novac koji je potrebno 
+                        izdvojiti za ovaj SUV.</p>
+                    <p>Krenimo na tehničke podatke. Audi e-tron dolazi u tri performansa, a to su 50 quattro, 55 quattro i najsnažniji S. Performansi 50 i 55 pokreću
+                        dva elektromotora, pa verzija 50 razvija 230 kW, a verzija 55 razvija 300 kW. Najsnažniji performans S pokreću tri elektromotora pa isti 
+                        razvija snagu od 370 kW. Osnovna verzija 50 dolazi s baterijom kapaciteta 71 kWh što omogućava doseg od 336 kilometara mešovite vožnje prema WLTP-u. 
+                        S druge strane, performansi 55 i S dolaze s baterijom kapaciteta 95 kWh koja omogućava 436 kilometara dosega za verziju 55 i 364 kilometara dosega 
+                        za verziju S. No Audi je među jedinim “električarima” koji omogućavaju punjenje od čak 155 kW pa će se velika baterija od 95 kWh napuniti za 
+                        40-ak minuta, dok će se manja baterija od 71 kWh napuniti za samo pola sata.</p>
+                    <p>Početna cena Audija e-trona u osnovnoj verziji 50 quattro iznosi 65.830 evra, u verziji 55 quattro iznosi 77.430 evra, a u najsnažnijoj verziji 
+                        S iznosi 85.420 evra.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="margin-bottom: 80px;"></section>
+
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div style="padding: 0 1rem;">
+                    <h2 class="mb-4">Audi e-tron Sportback</h2>
+                    <p>Iako e-tron Sportback pojavom izgleda veće od standardnog e-trona, reč o zapravo nešto manjem automobilu. Dužina i širina su jednaki s čak 490 x 197 cm, 
+                        ali Sportback je niži za 1,5 centimetar. Drugačija linija karoserije donosi i ponešto manji prtljažnik od 615 litara, dok e-tron ima prtljažni 
+                        prostor od 660 litara.</p>
+                    <p>S tehničke strane, ovi SUV-ovi su skoro jednaki. Audi e-tron Sportback dolazi u tri modela, a to su 50 quattro, 55 quattro i najsnažniji S. Modeli 50 
+                        i 55 pokreću dva elektromotora pa verzija 50 razvija 230 kW, a verzija 55 razvija 300 kW. Najsnažniju model S pokreću tri elektromotora, pa isti
+                        razvija snagu od 370 kW.</p>
+                    <p>Osnovna verzija 50 dolazi s baterijom kapaciteta 71 kWh što omogućuje doseg od 347 kilometara mešovite vožnje prema WLTP-u. S druge strane, 
+                        verzije 55 i S dolaze s baterijom kapaciteta 95 kWh koja omogućava 436 kilometara dosega za verziju 55 i 370 kilometara dosega za verziju S.</p>
+                    <p>Čak je i masa standardnog e-trona i e-trona Sportbacka jednaka, ali Sportback verzija je malo aerodinamičnija pa donosi ponešto veći doseg. 
+                        Jednako kao i kod e-trona, Sportback omogućava punjenje od čak 155 kW, pa će se velika baterija od 95 kWh napuniti za 40-ak minuta na predviđenim 
+                        punjačima, dok će se manja baterija od 71 kWh napuniti za samo pola sata.</p>
+                    <p>Audi e-tron Sportback je malo skuplji od standardne verzije. Početna cena u osnovnoj verziji 50 quattro iznosi oko 67.620 evra,u verziji 55 quattro 
+                        iznosi 79.220 evra, a u najsnažnijoj verziji S iznosi 87.210 evra.</p>
+                </div>
+
+            </div>
+            <div class="col-lg-6 order-first-custom mb-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="cards">
+                            <article class="card card-7">
+                                <div class="card-image7"></div>
+                                <a href="#" class="card-link">
+                                    <div class="card-img-hover7"></div>
+                                </a>
+                                <div class="card-info">
+                                    <!--<span class="card-category"> Recipe</span>-->
+                                    <h3 class="card-title">Audi e-tron 50 Sportback</h3>
+                                    <!--<span class="card-by">by <a href="#" class="card-author" title="author">Celeste Mills</a></span>-->
+                                    <ul class="list-info">
+                                        <li>
+                                            <!--<i class="icon-global"></i>-->
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.09 122.88" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>electric-vehicle-charging-station</title><path class="cls-1" d="M105.67,61.11c.31,4.25.94,8.53,1.58,12.78A139.75,139.75,0,0,1,109,89.32c.27,6.75-.53,12.3-2.76,16.22-2.48,4.38-6.51,6.72-12.45,6.51h0c-7.09-.13-11.45-4.11-13.42-11.46-1.27-4.73-1.46-11-.7-18.5.54-5.42,1.36-8.89,1-14.47-.45-6.33-1.57-11.32-3.4-15a11.51,11.51,0,0,0-6.27-6v59.93a8.18,8.18,0,0,1,2.3,1.64,8.41,8.41,0,0,1,2.47,6v6A2.74,2.74,0,0,1,73,122.88H2.74A2.74,2.74,0,0,1,0,120.14v-6a8.42,8.42,0,0,1,2.47-6A8.57,8.57,0,0,1,4,107V14.52A14.54,14.54,0,0,1,18.56,0H56.34A14.63,14.63,0,0,1,70.93,14.59V41c11.36,2.48,14.4,15.65,15.13,26.51.49,7.31-.15,7.2-.94,14.63-.77,7.13-.64,12.88.49,17.09,1.27,4.77,4,7.35,8.24,7.41h.05c3.66.12,6.09-1.22,7.52-3.75,1.69-3,2.28-7.55,2-13.31a139.76,139.76,0,0,0-1.68-14.85c-.66-4.44-1.33-8.91-1.64-13.57h-.92l-.09-5.88c-7-.68-9.64-5.39-9.64-12.16V40h-1a1.65,1.65,0,0,1-1.65-1.65V36.46a1.65,1.65,0,0,1,1.65-1.65h4.89V26.16a2.59,2.59,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.6,2.6v8.65h7.65V26.16a2.6,2.6,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.61,2.6v8.65h5a1.65,1.65,0,0,1,1.65,1.65v1.91A1.65,1.65,0,0,1,116.44,40h-1.29v3.45c0,6.68-2.26,10.66-8.75,11.7v5.94ZM42.21,71.28H49.1a1.81,1.81,0,0,1,1.81,1.81,1.85,1.85,0,0,1-.31,1l-16.41,28a1.8,1.8,0,0,1-3.31-1.3L33.3,83.62l-8.16.14A1.8,1.8,0,0,1,23.32,82a1.71,1.71,0,0,1,.25-.95l16.13-28A1.81,1.81,0,0,1,43,54.23l-.83,17.05ZM21.86,12.54H53.68a6,6,0,0,1,4.24,1.76c.07.08.15.15.22.24a6,6,0,0,1,1.56,4v20.3a6,6,0,0,1-6,6H21.86a6,6,0,0,1-4.23-1.76h0a6,6,0,0,1-1.76-4.24V18.53a6,6,0,0,1,1.76-4.24,2.41,2.41,0,0,1,.24-.21,6,6,0,0,1,4-1.54Zm46.58,98.95H7.26a3,3,0,0,0-.91.62,2.92,2.92,0,0,0-.86,2.07v3.24H70.24v-3.24a3,3,0,0,0-.86-2.07,3,3,0,0,0-.94-.63Z"/></svg>                                    
+                                                <span class="c-blue">BATTERY</span><br> <span>71 kwWh</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 120.98" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>road-map</title><path class="cls-1" d="M23.46,90.44a30.26,30.26,0,0,1-6.64,5.5.93.93,0,0,1-1.07,0A37.48,37.48,0,0,1,6.5,87.72,29.39,29.39,0,0,1,.28,74.3,17.87,17.87,0,0,1,2.51,61.74,15.5,15.5,0,0,1,6,57.93,16.79,16.79,0,0,1,16.49,54a14.82,14.82,0,0,1,10,4.09,14.29,14.29,0,0,1,2.67,3.25c2.45,4,3,9.17,1.9,14.39a31.55,31.55,0,0,1-7.6,14.66Zm-7.07,10.73a9.89,9.89,0,0,1,9.19,6.21,3.27,3.27,0,0,1,.54,0h7.94a4,4,0,0,1,0,7.94H26.12a3.48,3.48,0,0,1-.73-.07,9.9,9.9,0,1,1-9-14ZM107.47,46.6a9.91,9.91,0,1,1-9.08,13.87H86a4,4,0,1,1,0-7.93H98.39a9.9,9.9,0,0,1,9.08-5.94ZM76.69,79.94a4,4,0,1,0,0,7.94h9.55a4,4,0,1,0,0-7.94ZM70.62,60.56a4,4,0,0,0-1.05-7.87,17.57,17.57,0,0,0-9.21,4.15,4,4,0,0,0,3.46,6.88,4.11,4.11,0,0,0,1.74-.88,9.65,9.65,0,0,1,5.06-2.28Zm-8,12.51A4,4,0,0,0,55,75.43l.18.54a17.72,17.72,0,0,0,5.45,7.84,4,4,0,0,0,5.06-6.12,9.83,9.83,0,0,1-3.11-4.62ZM49.93,107.34a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm23.82,0a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm22.55-.44a4,4,0,0,0-.12,7.52,3.92,3.92,0,0,0,2.53,0,17.64,17.64,0,0,0,8.35-5.67,4,4,0,1,0-6.15-5l-.2.23a9.81,9.81,0,0,1-4.41,2.89Zm5.78-13.68a4,4,0,0,0,7-3.68,17.91,17.91,0,0,0-7-7.27,4,4,0,1,0-3.94,6.89,9.93,9.93,0,0,1,3.86,4.06ZM114.75,36.4a30.65,30.65,0,0,1-6.65,5.5,1,1,0,0,1-1.07,0,37.39,37.39,0,0,1-9.24-8.25,29.44,29.44,0,0,1-6.22-13.42A17.81,17.81,0,0,1,93.8,7.7a15.32,15.32,0,0,1,3.44-3.82A16.73,16.73,0,0,1,107.78,0a15.39,15.39,0,0,1,12.67,7.33c2.45,4,3,9.18,1.9,14.39a31.62,31.62,0,0,1-7.6,14.67ZM107.08,8.14A7.86,7.86,0,1,1,99.22,16a7.85,7.85,0,0,1,7.86-7.86Zm-91.29,54A7.86,7.86,0,1,1,7.93,70a7.85,7.85,0,0,1,7.86-7.86Z"/></svg>                                        
+                                                <span class="c-blue">RANGE</span><br> <span>347 km</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 103.14 122.88" style="enable-background:new 0 0 103.14 122.88; fill: #2F3062; width: 25px" xml:space="preserve"><g><path d="M55.97,99.67c-2.18,2.18-5.06,3.27-7.95,3.27c-2.89,0-5.77-1.09-7.95-3.27L3.27,62.88C1.09,60.69,0,57.81,0,54.92 c0-2.89,1.09-5.77,3.27-7.95L45.46,4.78c0.64-0.64,1.46-0.96,2.3-0.98l51.79-3.79c1.85-0.13,3.45,1.26,3.58,3.11 c0.01,0.19,0.01,0.37-0.01,0.55l-3.54,51.2c-0.06,0.84-0.42,1.59-0.97,2.15l0,0L55.97,99.67L55.97,99.67z M49.29,62.71l-6.6-6.6 c-1.79,1.93-2.42,3.57-2.37,5.39c0.05,1.83,1.15,3.82,3.31,5.98c1.4,1.4,2.85,2.43,4.36,3.09l-4.78,6.6 c-2.3-1.45-4.37-3.1-6.19-4.92c-3.81-3.81-5.85-7.83-6.15-12.07c-0.28-4.24,1.01-7.92,4.39-11.5l-3.49-3.49l3.92-3.92l3.49,3.49 l1.98-1.98l-3.49-3.49l3.9-3.9l3.55,3.55c3.77-3.22,7.56-4.4,11.88-4.01c4.31,0.41,8.4,2.53,12.26,6.39 c1.49,1.49,2.91,3.35,4.25,5.57l-6.62,4.8c-0.66-1.54-1.61-2.93-2.87-4.19c-1.95-1.95-3.88-3-5.78-3.14 c-1.91-0.15-3.64,0.37-5.67,2.04l6.53,6.53l-3.9,3.9l-6.6-6.6l-1.98,1.98l6.6,6.6L49.29,62.71L49.29,62.71L49.29,62.71z M93.38,72.22c1.31-1.31,3.44-1.31,4.75,0c1.31,1.31,1.31,3.44,0,4.75l-42.65,42.65c-2.18,2.18-5.07,3.27-7.95,3.27 c-2.89,0-5.77-1.09-7.95-3.27L2.79,82.82c-1.31-1.31-1.31-3.44,0-4.75c1.31-1.31,3.44-1.31,4.75,0l36.79,36.79 c0.89,0.89,2.05,1.33,3.21,1.33c1.16,0,2.32-0.44,3.21-1.33L93.38,72.22L93.38,72.22z M89.32,23.53c0.04,1.41-0.16,2.72-0.61,3.94 c-0.46,1.23-1.16,2.36-2.11,3.39l-0.01,0.01c-0.94,1.02-2,1.81-3.2,2.37c-1.21,0.57-2.51,0.9-3.91,0.98 c-0.12,0.01-0.24,0.01-0.36,0c-1.29,0.01-2.51-0.2-3.65-0.64l-0.01,0l0,0.01c-1.23-0.47-2.36-1.18-3.39-2.14 c-0.06-0.06-0.12-0.12-0.17-0.18c-0.94-0.92-1.67-1.96-2.19-3.09c-0.54-1.19-0.84-2.46-0.89-3.81l-0.01,0 c-0.08-1.4,0.1-2.73,0.56-3.98c0.45-1.24,1.15-2.39,2.12-3.44l0.01-0.01l0,0c0.96-1.04,2.04-1.84,3.24-2.4 c1.2-0.55,2.5-0.86,3.91-0.9c1.43-0.05,2.76,0.16,4,0.62c1.25,0.47,2.4,1.19,3.44,2.16c1.01,0.95,1.8,2.03,2.35,3.23 S89.27,22.15,89.32,23.53L89.32,23.53L89.32,23.53z M83.46,25.53c0.21-0.56,0.3-1.16,0.28-1.8c-0.02-0.65-0.15-1.24-0.39-1.77 c-0.24-0.53-0.61-1.03-1.1-1.49c-0.48-0.45-1-0.78-1.55-0.98c-0.57-0.21-1.19-0.31-1.85-0.28c-0.65,0.02-1.23,0.15-1.77,0.4 c-0.53,0.25-1.03,0.62-1.48,1.11l0,0c-0.45,0.49-0.77,1.01-0.97,1.57c-0.19,0.53-0.27,1.12-0.23,1.75l-0.01,0l0,0.07 c0.02,0.66,0.15,1.25,0.39,1.78c0.22,0.49,0.55,0.96,0.99,1.39c0.04,0.03,0.07,0.06,0.11,0.09c0.49,0.46,1.01,0.79,1.57,1l0,0 c0.49,0.19,1.02,0.28,1.58,0.28c0.04,0,0.08-0.01,0.12-0.01c0.71-0.04,1.33-0.19,1.86-0.44c0.54-0.25,1.03-0.62,1.47-1.11 l0.02-0.02C82.93,26.6,83.26,26.08,83.46,25.53L83.46,25.53L83.46,25.53z M48.02,96.25c1.16,0,2.32-0.44,3.21-1.33l41.76-41.76 l3.19-46.18L49.33,10.4L8.02,51.72c-0.89,0.89-1.33,2.05-1.33,3.2c0,1.16,0.44,2.32,1.33,3.21l36.79,36.79 C45.7,95.81,46.86,96.25,48.02,96.25L48.02,96.25z"/></g></svg>                                       
+                                                <span class="c-blue">PRICE</span><br> <span>67.6k &euro;</span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cards">
+                            <article class="card card-8">
+                                <div class="card-image8"></div>
+                                <a href="#" class="card-link">
+                                    <div class="card-img-hover8"></div>
+                                </a>
+                                <div class="card-info">
+                                    <!--<span class="card-category"> Recipe</span>-->
+                                    <h3 class="card-title">Audi e-tron 55 Sportback</h3>
+                                    <!--<span class="card-by">by <a href="#" class="card-author" title="author">Celeste Mills</a></span>-->
+                                    <ul class="list-info">
+                                        <li>
+                                            <!--<i class="icon-global"></i>-->
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.09 122.88" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>electric-vehicle-charging-station</title><path class="cls-1" d="M105.67,61.11c.31,4.25.94,8.53,1.58,12.78A139.75,139.75,0,0,1,109,89.32c.27,6.75-.53,12.3-2.76,16.22-2.48,4.38-6.51,6.72-12.45,6.51h0c-7.09-.13-11.45-4.11-13.42-11.46-1.27-4.73-1.46-11-.7-18.5.54-5.42,1.36-8.89,1-14.47-.45-6.33-1.57-11.32-3.4-15a11.51,11.51,0,0,0-6.27-6v59.93a8.18,8.18,0,0,1,2.3,1.64,8.41,8.41,0,0,1,2.47,6v6A2.74,2.74,0,0,1,73,122.88H2.74A2.74,2.74,0,0,1,0,120.14v-6a8.42,8.42,0,0,1,2.47-6A8.57,8.57,0,0,1,4,107V14.52A14.54,14.54,0,0,1,18.56,0H56.34A14.63,14.63,0,0,1,70.93,14.59V41c11.36,2.48,14.4,15.65,15.13,26.51.49,7.31-.15,7.2-.94,14.63-.77,7.13-.64,12.88.49,17.09,1.27,4.77,4,7.35,8.24,7.41h.05c3.66.12,6.09-1.22,7.52-3.75,1.69-3,2.28-7.55,2-13.31a139.76,139.76,0,0,0-1.68-14.85c-.66-4.44-1.33-8.91-1.64-13.57h-.92l-.09-5.88c-7-.68-9.64-5.39-9.64-12.16V40h-1a1.65,1.65,0,0,1-1.65-1.65V36.46a1.65,1.65,0,0,1,1.65-1.65h4.89V26.16a2.59,2.59,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.6,2.6v8.65h7.65V26.16a2.6,2.6,0,0,1,2.6-2.6h0a2.6,2.6,0,0,1,2.61,2.6v8.65h5a1.65,1.65,0,0,1,1.65,1.65v1.91A1.65,1.65,0,0,1,116.44,40h-1.29v3.45c0,6.68-2.26,10.66-8.75,11.7v5.94ZM42.21,71.28H49.1a1.81,1.81,0,0,1,1.81,1.81,1.85,1.85,0,0,1-.31,1l-16.41,28a1.8,1.8,0,0,1-3.31-1.3L33.3,83.62l-8.16.14A1.8,1.8,0,0,1,23.32,82a1.71,1.71,0,0,1,.25-.95l16.13-28A1.81,1.81,0,0,1,43,54.23l-.83,17.05ZM21.86,12.54H53.68a6,6,0,0,1,4.24,1.76c.07.08.15.15.22.24a6,6,0,0,1,1.56,4v20.3a6,6,0,0,1-6,6H21.86a6,6,0,0,1-4.23-1.76h0a6,6,0,0,1-1.76-4.24V18.53a6,6,0,0,1,1.76-4.24,2.41,2.41,0,0,1,.24-.21,6,6,0,0,1,4-1.54Zm46.58,98.95H7.26a3,3,0,0,0-.91.62,2.92,2.92,0,0,0-.86,2.07v3.24H70.24v-3.24a3,3,0,0,0-.86-2.07,3,3,0,0,0-.94-.63Z"/></svg>                                      
+                                                <span class="c-blue">BATTERY</span><br> <span>95 kwWh</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 120.98" style="fill: #2F3062; width: 25px"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>road-map</title><path class="cls-1" d="M23.46,90.44a30.26,30.26,0,0,1-6.64,5.5.93.93,0,0,1-1.07,0A37.48,37.48,0,0,1,6.5,87.72,29.39,29.39,0,0,1,.28,74.3,17.87,17.87,0,0,1,2.51,61.74,15.5,15.5,0,0,1,6,57.93,16.79,16.79,0,0,1,16.49,54a14.82,14.82,0,0,1,10,4.09,14.29,14.29,0,0,1,2.67,3.25c2.45,4,3,9.17,1.9,14.39a31.55,31.55,0,0,1-7.6,14.66Zm-7.07,10.73a9.89,9.89,0,0,1,9.19,6.21,3.27,3.27,0,0,1,.54,0h7.94a4,4,0,0,1,0,7.94H26.12a3.48,3.48,0,0,1-.73-.07,9.9,9.9,0,1,1-9-14ZM107.47,46.6a9.91,9.91,0,1,1-9.08,13.87H86a4,4,0,1,1,0-7.93H98.39a9.9,9.9,0,0,1,9.08-5.94ZM76.69,79.94a4,4,0,1,0,0,7.94h9.55a4,4,0,1,0,0-7.94ZM70.62,60.56a4,4,0,0,0-1.05-7.87,17.57,17.57,0,0,0-9.21,4.15,4,4,0,0,0,3.46,6.88,4.11,4.11,0,0,0,1.74-.88,9.65,9.65,0,0,1,5.06-2.28Zm-8,12.51A4,4,0,0,0,55,75.43l.18.54a17.72,17.72,0,0,0,5.45,7.84,4,4,0,0,0,5.06-6.12,9.83,9.83,0,0,1-3.11-4.62ZM49.93,107.34a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm23.82,0a4,4,0,0,0,0,7.94h7.94a4,4,0,1,0,0-7.94Zm22.55-.44a4,4,0,0,0-.12,7.52,3.92,3.92,0,0,0,2.53,0,17.64,17.64,0,0,0,8.35-5.67,4,4,0,1,0-6.15-5l-.2.23a9.81,9.81,0,0,1-4.41,2.89Zm5.78-13.68a4,4,0,0,0,7-3.68,17.91,17.91,0,0,0-7-7.27,4,4,0,1,0-3.94,6.89,9.93,9.93,0,0,1,3.86,4.06ZM114.75,36.4a30.65,30.65,0,0,1-6.65,5.5,1,1,0,0,1-1.07,0,37.39,37.39,0,0,1-9.24-8.25,29.44,29.44,0,0,1-6.22-13.42A17.81,17.81,0,0,1,93.8,7.7a15.32,15.32,0,0,1,3.44-3.82A16.73,16.73,0,0,1,107.78,0a15.39,15.39,0,0,1,12.67,7.33c2.45,4,3,9.18,1.9,14.39a31.62,31.62,0,0,1-7.6,14.67ZM107.08,8.14A7.86,7.86,0,1,1,99.22,16a7.85,7.85,0,0,1,7.86-7.86Zm-91.29,54A7.86,7.86,0,1,1,7.93,70a7.85,7.85,0,0,1,7.86-7.86Z"/></svg>                                        
+                                                <span class="c-blue">RANGE</span><br> <span>436 km</span>
+                                            </div>
+                                            <div class="pb-3">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 103.14 122.88" style="enable-background:new 0 0 103.14 122.88; fill: #2F3062; width: 25px" xml:space="preserve"><g><path d="M55.97,99.67c-2.18,2.18-5.06,3.27-7.95,3.27c-2.89,0-5.77-1.09-7.95-3.27L3.27,62.88C1.09,60.69,0,57.81,0,54.92 c0-2.89,1.09-5.77,3.27-7.95L45.46,4.78c0.64-0.64,1.46-0.96,2.3-0.98l51.79-3.79c1.85-0.13,3.45,1.26,3.58,3.11 c0.01,0.19,0.01,0.37-0.01,0.55l-3.54,51.2c-0.06,0.84-0.42,1.59-0.97,2.15l0,0L55.97,99.67L55.97,99.67z M49.29,62.71l-6.6-6.6 c-1.79,1.93-2.42,3.57-2.37,5.39c0.05,1.83,1.15,3.82,3.31,5.98c1.4,1.4,2.85,2.43,4.36,3.09l-4.78,6.6 c-2.3-1.45-4.37-3.1-6.19-4.92c-3.81-3.81-5.85-7.83-6.15-12.07c-0.28-4.24,1.01-7.92,4.39-11.5l-3.49-3.49l3.92-3.92l3.49,3.49 l1.98-1.98l-3.49-3.49l3.9-3.9l3.55,3.55c3.77-3.22,7.56-4.4,11.88-4.01c4.31,0.41,8.4,2.53,12.26,6.39 c1.49,1.49,2.91,3.35,4.25,5.57l-6.62,4.8c-0.66-1.54-1.61-2.93-2.87-4.19c-1.95-1.95-3.88-3-5.78-3.14 c-1.91-0.15-3.64,0.37-5.67,2.04l6.53,6.53l-3.9,3.9l-6.6-6.6l-1.98,1.98l6.6,6.6L49.29,62.71L49.29,62.71L49.29,62.71z M93.38,72.22c1.31-1.31,3.44-1.31,4.75,0c1.31,1.31,1.31,3.44,0,4.75l-42.65,42.65c-2.18,2.18-5.07,3.27-7.95,3.27 c-2.89,0-5.77-1.09-7.95-3.27L2.79,82.82c-1.31-1.31-1.31-3.44,0-4.75c1.31-1.31,3.44-1.31,4.75,0l36.79,36.79 c0.89,0.89,2.05,1.33,3.21,1.33c1.16,0,2.32-0.44,3.21-1.33L93.38,72.22L93.38,72.22z M89.32,23.53c0.04,1.41-0.16,2.72-0.61,3.94 c-0.46,1.23-1.16,2.36-2.11,3.39l-0.01,0.01c-0.94,1.02-2,1.81-3.2,2.37c-1.21,0.57-2.51,0.9-3.91,0.98 c-0.12,0.01-0.24,0.01-0.36,0c-1.29,0.01-2.51-0.2-3.65-0.64l-0.01,0l0,0.01c-1.23-0.47-2.36-1.18-3.39-2.14 c-0.06-0.06-0.12-0.12-0.17-0.18c-0.94-0.92-1.67-1.96-2.19-3.09c-0.54-1.19-0.84-2.46-0.89-3.81l-0.01,0 c-0.08-1.4,0.1-2.73,0.56-3.98c0.45-1.24,1.15-2.39,2.12-3.44l0.01-0.01l0,0c0.96-1.04,2.04-1.84,3.24-2.4 c1.2-0.55,2.5-0.86,3.91-0.9c1.43-0.05,2.76,0.16,4,0.62c1.25,0.47,2.4,1.19,3.44,2.16c1.01,0.95,1.8,2.03,2.35,3.23 S89.27,22.15,89.32,23.53L89.32,23.53L89.32,23.53z M83.46,25.53c0.21-0.56,0.3-1.16,0.28-1.8c-0.02-0.65-0.15-1.24-0.39-1.77 c-0.24-0.53-0.61-1.03-1.1-1.49c-0.48-0.45-1-0.78-1.55-0.98c-0.57-0.21-1.19-0.31-1.85-0.28c-0.65,0.02-1.23,0.15-1.77,0.4 c-0.53,0.25-1.03,0.62-1.48,1.11l0,0c-0.45,0.49-0.77,1.01-0.97,1.57c-0.19,0.53-0.27,1.12-0.23,1.75l-0.01,0l0,0.07 c0.02,0.66,0.15,1.25,0.39,1.78c0.22,0.49,0.55,0.96,0.99,1.39c0.04,0.03,0.07,0.06,0.11,0.09c0.49,0.46,1.01,0.79,1.57,1l0,0 c0.49,0.19,1.02,0.28,1.58,0.28c0.04,0,0.08-0.01,0.12-0.01c0.71-0.04,1.33-0.19,1.86-0.44c0.54-0.25,1.03-0.62,1.47-1.11 l0.02-0.02C82.93,26.6,83.26,26.08,83.46,25.53L83.46,25.53L83.46,25.53z M48.02,96.25c1.16,0,2.32-0.44,3.21-1.33l41.76-41.76 l3.19-46.18L49.33,10.4L8.02,51.72c-0.89,0.89-1.33,2.05-1.33,3.2c0,1.16,0.44,2.32,1.33,3.21l36.79,36.79 C45.7,95.81,46.86,96.25,48.02,96.25L48.02,96.25z"/></g></svg>                                       
+                                                <span class="c-blue">PRICE</span><br> <span>79.2k &euro;</span>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section style="margin-bottom: 80px;"></section>
+
+
+
 
 
 

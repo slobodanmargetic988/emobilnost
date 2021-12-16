@@ -63,6 +63,26 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
+    
+    @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
+    public String skodaEnyaqCoupePremijera(final Model model) {
+        return "main/skoda-enyaq-coupe-iv-svetska premijera-31-januara";
+    }
+
+    @GetMapping(value = "/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh")
+    public String nissanPunjaci(final Model model) {
+        return "main/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh";
+    }
+
+    @GetMapping(value = "/punjaci")
+    public String punjaci(final Model model) {
+        return "main/punjaci";
+    }
+
+    @GetMapping(value = "/oprema")
+    public String oprema(final Model model) {
+        return "main/oprema";
+    }
 
     @GetMapping(value = "/polovna-ev")
     public String polovnaEV(final Model model) {

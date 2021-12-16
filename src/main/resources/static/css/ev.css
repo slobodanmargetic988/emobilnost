@@ -1,0 +1,205 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+.cards {
+  width: 100%;
+  /*    display: flex;
+      display: -webkit-flex;
+      justify-content: center;
+      -webkit-justify-content: center;
+      max-width: 820px;
+      margin-bottom: 2rem;*/
+}
+
+.card-1 .card-image, .card-1 .card-img-hover {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2021/04/renault_zoe_z.e._30-300x226.jpg.webp");
+}
+
+.card-2 .card-image2, .card-2 .card-img-hover2 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2021/04/autowp.ru_smart_fortwo_electric_drive_38-768x545.jpg.webp");
+}
+
+.card-3 .card-image3, .card-3 .card-img-hover3 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2021/04/volkswagen_e-up_7-768x576.jpg.webp");
+}
+
+.card-4 .card-image4, .card-4 .card-img-hover4 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2021/04/nissan_leaf_937_01ed04160a5607c5-768x577.jpg.webp");
+}
+
+.card-5 .card-image5, .card-5 .card-img-hover5 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2020/12/audi-e-tron-50-300x200.jpg.webp");
+}
+
+.card-6 .card-image6, .card-6 .card-img-hover6 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2021/02/audi_e-tron_59_023b01cb09680666-300x204.jpg.webp");
+}
+
+.card-7 .card-image7, .card-7 .card-img-hover7 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2020/12/audi_e-tron_50_sportback-300x200.jpg.webp");
+}
+
+.card-8 .card-image8, .card-8 .card-img-hover8 {
+  background-image: url("https://www.strujnikrug.hr/wp-content/uploads/2020/12/audi_e-tron_55_sportback-300x200.jpg.webp");
+}
+
+.card-image, .card-image2, .card-image3, .card-image4, .card-image5, .card-image6, .card-image7, .card-image8 {
+  visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 235px;
+}
+
+.card-img-hover, .card-img-hover2, .card-img-hover3, .card-img-hover4, .card-img-hover5, .card-img-hover6, .card-img-hover7, .card-img-hover8 {
+  transition: 0.2s all ease-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 235px;
+  top: 0;
+}
+
+.card {
+  /*margin-right: 25px;*/
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #fff;
+  /*width: 80%;*/
+  position: relative;
+  border: none !important;
+  border-radius: none !important;
+  overflow: hidden;
+  box-shadow: -1px 1px 20px 0px rgba(0, 0, 0, 0.05);
+  /*box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);*/
+}
+.card:hover {
+  /*box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);*/
+}
+.card:hover .card-img-hover, .card:hover .card-img-hover2, .card:hover .card-img-hover3, .card:hover .card-img-hover4, .card:hover .card-img-hover5, .card:hover .card-img-hover6, .card:hover .card-img-hover7, .card:hover .card-img-hover8 {
+  height: 100%;
+  opacity: 0.3;
+}
+.card:hover .card-info {
+  background-color: transparent;
+  position: relative;
+}
+.card:hover .card-info-hover {
+  opacity: 1;
+}
+
+.card-info {
+  z-index: 2;
+  background-color: #fff;
+  padding: 16px 25px;
+}
+
+.card-category {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #868686;
+}
+
+.card-title {
+  margin-top: 5px;
+  margin-bottom: 20px !important;
+  /*font-size: 1.5rem;*/
+  font-size: 23px !important;
+  /*letter-spacing: 2px;*/
+  font-weight: 500;
+  color: #333333;
+}
+
+.card-by {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card-author {
+  font-weight: 600;
+  text-decoration: none;
+  color: #AD7D52;
+}
+
+.list-info {
+  padding: 0;
+  list-style: none;
+}
+.list-info li {
+  padding: 10px 0;
+}
+.list-info svg {
+  float: left;
+  /* padding: 5px 0; */
+  margin-right: 2rem;
+}
+.list-info .c-blue {
+  color: #2F3062;
+  font-weight: 700;
+}
+.list-info span {
+  font-size: 15px;
+}
+
+/*punjaci*/
+.section-punjaci figure {
+  margin: 0;
+}
+.section-punjaci h3 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.section-punjaci .content-img, .section-punjaci .content-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-punjaci article {
+  padding: 1rem;
+}
+.section-punjaci .text {
+  max-width: 700px;
+}
+
+@media (max-width: 992px) {
+  .order-first-custom {
+    order: -1!important;
+  }
+
+  .order-last-custom {
+    order: 6!important;
+  }
+
+  .section-punjaci article {
+    padding: 2rem 0 1rem;
+  }
+  .section-punjaci .text {
+    max-width: none;
+  }
+}
+@media (max-width: 767px) {
+  .section-punjaci h3 {
+    font-size: 1.5rem !important;
+  }
+  .section-punjaci p {
+    line-height: 1.8;
+  }
+}
+@media (max-width: 576px) {
+  .cards {
+    margin-bottom: 2rem;
+  }
+}
