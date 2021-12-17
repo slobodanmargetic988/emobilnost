@@ -24,7 +24,12 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 
 .feature-video {
   text-align: center;
-  padding: 1rem 0;
+  margin: 3rem 0;
+}
+.feature-video video {
+  cursor: pointer;
+  width: 700px;
+  height: 400px;
 }
 
 .single-post {
@@ -266,6 +271,11 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
     /*letter-spacing: normal;*/
     font-size: 8.5vw !important;
   }
+
+  .video iframe {
+    width: 510px;
+    height: 300px;
+  }
 }
 @media (max-width: 575px) {
   .single-post ul.comments li {
@@ -275,5 +285,10 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   }
   .single-post ul.comments .comment-arrow {
     display: none;
+  }
+
+  .feature-video video {
+    width: 280px;
+    height: 200px;
   }
 }

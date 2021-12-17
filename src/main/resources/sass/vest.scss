@@ -18,7 +18,12 @@
 
 .feature-video {
     text-align: center;
-    padding: 1rem 0;
+    margin: 3rem 0;
+    video {
+        cursor: pointer;
+        width: 700px;
+        height: 400px;
+    }
 }
 
 .single-post {
@@ -54,12 +59,12 @@
         position: relative;
         /*float: left;*/
     }
-/*    img {
-        width: 400px;
-        clear: left;
-        margin-bottom: 1px;
-        margin-right: 10px;
-    }*/
+    /*    img {
+            width: 400px;
+            clear: left;
+            margin-bottom: 1px;
+            margin-right: 10px;
+        }*/
     figcaption {
         background-color: hsla($main-color-h, $main-color-s, 10%, 0.7);
         color: white;
@@ -263,6 +268,13 @@
             font-size: 8.5vw !important;
         }
     }
+    .video {
+        iframe {
+            width: 510px;
+            height: 300px;
+        }
+    }
+
 }
 
 
@@ -277,6 +289,12 @@
             .comment-arrow {
                 display: none;
             }
+        }
+    }
+    .feature-video {
+        video {
+            width: 280px;
+            height: 200px;
         }
     }
 }
