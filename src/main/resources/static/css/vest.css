@@ -27,6 +27,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   margin: 3rem 0;
 }
 .feature-video video {
+  cursor: pointer;
   width: 700px;
   height: 400px;
 }
