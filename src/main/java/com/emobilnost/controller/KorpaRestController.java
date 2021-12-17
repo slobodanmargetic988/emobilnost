@@ -10,7 +10,9 @@ import com.emobilnost.model.Anketa;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Proizvodi;
+import com.emobilnost.model.Slika;
 import com.emobilnost.model.Users;
+import com.emobilnost.model.Video;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.AnketaService;
 import com.emobilnost.service.ClanoviService;
@@ -18,10 +20,13 @@ import com.emobilnost.service.ColorPaletaService;
 import com.emobilnost.service.KorpaProizvodiService;
 import com.emobilnost.service.KorpaService;
 import com.emobilnost.service.ProizvodiService;
+import com.emobilnost.service.SlikaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.emobilnost.service.UsersService;
+import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
+import com.emobilnost.storage.StorageService;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +36,16 @@ import org.json.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -57,6 +66,69 @@ public class KorpaRestController {
       
  @Autowired
     private ClanoviService clanoviService;
+    @Autowired
+    StorageService storageService;
+     @Autowired
+    SlikaService slikaService;
+
+    @PostMapping(value = "/admin/novaSlika/save")
+    public String adminDodatiSliku(final Model model,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+               @RequestParam(name = "galerija") boolean galerija,
+            RedirectAttributes redirectAttributes
+    ) {
+        try {
+            String filename = storageService.store(file, 0);
+            Slika photo = new Slika();
+            photo.setFilename(filename);
+            photo.setTitle(title);
+            photo.setAlt_text(alt_text);
+
+            photo.setGalerija(galerija);
+            slikaService.save(photo);
+            redirectAttributes.addFlashAttribute("successMessage", "Slika je uspešno dodata u listu slika za proizvod!");
+return ""+photo.getId();
+        } catch (Exception e) {
+             System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u listu slika za proizvod! Nevalidan tip fajla. " + e.getMessage()));
+return "0";
+        }
+        
+        //  return "main/admin/adminNovaSlika";
+    }
+      @Autowired
+    VideoService videoService;
+
+    @PostMapping(value = "/admin/novVideo/save")
+    public String adminDodatiVideo(final Model model,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(name = "title") String title,
+             @RequestParam(name = "galerija") boolean galerija,
+            //@RequestParam(name = "alt_text") String alt_text,
+            RedirectAttributes redirectAttributes
+    ) {
+        try {
+            String filename = storageService.store(file, 0);
+            Video photo = new Video();
+            photo.setFilename(filename);
+            photo.setTitle(title);
+           // photo.setAlt_text(alt_text);
+
+            photo.setGalerija(galerija);
+            videoService.save(photo);
+            redirectAttributes.addFlashAttribute("successMessage", "Slika je uspešno dodata u listu slika za proizvod!");
+return ""+photo.getId();
+        } catch (Exception e) {
+            // System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u listu slika za proizvod! Nevalidan tip fajla. " + e.getMessage()));
+return "0";
+        }
+        
+        //  return "main/admin/adminNovaSlika";
+    }
+ 
  
  
     @GetMapping("/anketa")

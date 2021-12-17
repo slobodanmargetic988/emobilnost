@@ -74,7 +74,7 @@
     </div>
 
     <div class="user-wraper">
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex">
                 <th:block th:insert="fragments/navigation :: admin-navbar" />
 
@@ -82,7 +82,7 @@
                     <div class="user-panel">
                         <h3 class="add-new">DODAVANJE NOVE VESTI</h3>
 
-                        <form th:action="@{/napraviVest}" method="post" class="form-horizontal needs-validation" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;" novalidate>
+                        <form th:action="@{/admin/napraviVest}" method="post" class="form-horizontal needs-validation" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;" novalidate>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Naslov vesti</label>
                                 <input type="text" class="form-control input-custom-border" name="naslov" required=""/>
@@ -122,6 +122,86 @@
                         </form>
                     </div>
                 </div>
+                
+                <div class="user-content">
+                    <div class="user-panel">
+                        <h3 class="add-new">DODAVANJE SLIKA I VIDEA</h3>
+Link za dodavanje u vest
+                         <label class="">slika 1</label>
+                         <label class="">slika 2</label>
+                        
+                        
+                         <!--<form th:action="@{/admin/novaSlika/save}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">-->
+
+
+
+                        <div class="form-group " >
+                            <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove slike</h3>
+                            <div class="col-md-6 centrirajFormuInput"  >
+                                <label for="naslov-slike">Naslov slike:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
+                            </div>
+                            <div class="col-md-6 centrirajFormuInput mt-3"  >
+                                <label for="alt-tekst">Alternativni tekst:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
+                            </div>
+                            <input class="remember-me" id="galerijaslika" type="checkbox">
+                        </div>
+                        <div class="col-md-6 centrirajFormuChoose" >
+                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
+                            <div >
+                                <!--<input type="file" name="file">-->
+
+                                <!-- actual upload which is hidden -->
+                                <input type="file1" name="file1" id="actual-btn" hidden/>
+ <input type="file" name="file" id="fileupload" >
+                                <!-- custom upload button -->
+                                <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                                <!-- name of file chosen -->
+                                <span id="file-chosen">No file chosen</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 centrirajFormuDugmad" >
+                            <button type="submit" id="uploadslike" class="btn-save">Sačuvaj</button>
+                         
+                        </div>
+                    <!--</form>-->
+                         
+                          <form th:action="@{/admin/novVideo/save}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
+
+
+
+                        <div class="form-group " >
+                            <h3 class="dodavanje-nove-slike col-md-6">Dodavanje novog videa</h3>
+                            <div class="col-md-6 centrirajFormuInput"  >
+                                <label for="naslov-slike">Naslov videa</label>
+                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-6 centrirajFormuChoose" >
+                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
+                            <div >
+                                <!--<input type="file" name="file">-->
+
+                                <!-- actual upload which is hidden -->
+                                <input type="file" name="file" id="actual-btn" hidden/>
+
+                                <!-- custom upload button -->
+                                <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                                <!-- name of file chosen -->
+                                <span id="file-chosen">No file chosen</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 centrirajFormuDugmad" >
+                            <button type="submit" class="btn-save">Sačuvaj</button>
+                           
+                        </div>
+                    </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -141,7 +221,7 @@
 <script th:src="@{/js/wysiwyg.js}"></script>
 <script th:src="@{/js/admin-panel.js}"></script>
 <script th:src="@{/js/formValidation.js}"></script>
-
+<script th:src="@{/js/upload.js}"></script>
 <script>
 //  name of file chosen  changes with javascript
     const actualBtn = document.getElementById('actual-btn');

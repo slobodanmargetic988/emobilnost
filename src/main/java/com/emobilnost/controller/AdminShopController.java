@@ -262,7 +262,7 @@ public class AdminShopController {
     @Autowired
     StorageService storageService;
 
-    @PostMapping(value = "/admin/novaSlika/save")
+    @PostMapping(value = "/admin/novaSlika/save1")
     public String adminNovaSlikaSaveMargotekstil(
             @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,

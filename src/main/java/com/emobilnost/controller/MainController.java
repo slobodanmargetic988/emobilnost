@@ -13,6 +13,8 @@ import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Photo;
 import com.emobilnost.model.Proizvodi;
 import com.emobilnost.model.ResetTokeni;
+import com.emobilnost.model.Slika;
+import com.emobilnost.model.Spameri;
 import com.emobilnost.model.Users;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.ClanoviService;
@@ -21,6 +23,8 @@ import com.emobilnost.service.KorpaService;
 import com.emobilnost.service.PhotoService;
 import com.emobilnost.service.ProizvodiService;
 import com.emobilnost.service.ResetTokeniService;
+import com.emobilnost.service.SlikaService;
+import com.emobilnost.service.SpameriService;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +58,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -63,7 +68,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
-    
+
+
+
     @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
     public String skodaEnyaqCoupePremijera(final Model model) {
         return "main/skoda-enyaq-coupe-iv-svetska premijera-31-januara";
@@ -94,7 +101,7 @@ public class MainController {
         return "main/nova-ev";
     }
 
-    @GetMapping(value = "/admin-pocetna")
+    @GetMapping(value = "/admin/admin-pocetna")
     public String adminEmobilnostHome(final Model model) {
         return "main/admin-pocetna";
     }
@@ -189,15 +196,15 @@ public class MainController {
         return "main/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021";
     }
 
-    @GetMapping(value = "/dodaj-clana")
+    @GetMapping(value = "/admin/dodaj-clana")
     public String dodajClana(final Model model) {
 //        model.addAttribute("listaClanova", clanoviService.findAllBy());
 
         return "main/dodaj-clana";
     }
 
-    @PostMapping(value = "/napraviClana")
-    public String napraviVest(final Model model, final HttpServletRequest request,
+    @PostMapping(value = "/admin/napraviClana")
+    public String adminNapraviClana(final Model model, final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
             @RequestParam(name = "ime", defaultValue = "/") String ime,
             @RequestParam(name = "prezime", defaultValue = "/") String prezime,
@@ -248,7 +255,7 @@ public class MainController {
         return "redirect:/admin-pocetna";
     }
 
-    @GetMapping(value = "/pregled-clanova")
+    @GetMapping(value = "/admin/pregled-clanova")
     public String pregledClanova(final Model model) {
         model.addAttribute("listaClanova", clanoviService.findAllByOrderByDatumistekaclanstvaAsc());
 
@@ -707,6 +714,8 @@ public class MainController {
     private UsersService userService;
     @Autowired
     private KorpaService korpaService;
+    @Autowired
+    private SpameriService spamService;
 
     //  @PostMapping(value = "/posaljiPoruku")
     @RequestMapping(value = "/posaljiPoruku", method = RequestMethod.POST)
@@ -720,8 +729,21 @@ public class MainController {
             @RequestParam(name = "poruka") String poruka
     ) {
         try {
-           String ipAddress= request.getRemoteAddr();
-           
+            String ipAddress = request.getRemoteAddr();
+            Spameri spamer = spamService.findByIpadresa(ipAddress);
+            if (spamer == null) {
+                Spameri novspamer = new Spameri();
+                novspamer.setBrojac(1);
+                novspamer.setIpadresa(ipAddress);
+                spamService.save(novspamer);
+            } else {
+                if (spamer.getBrojac() > 3) {
+                    redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
+
+                    return "redirect:/";
+                }
+            }
+
             EmailController.SendEmailPoruka(ime, email, telefon, poruka);
             EmailController.SendEmailPorukaPoslata(email, ime, prezime);
         } catch (Exception e) {
