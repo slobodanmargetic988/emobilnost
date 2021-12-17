@@ -720,6 +720,8 @@ public class MainController {
             @RequestParam(name = "poruka") String poruka
     ) {
         try {
+           String ipAddress= request.getRemoteAddr();
+           
             EmailController.SendEmailPoruka(ime, email, telefon, poruka);
             EmailController.SendEmailPorukaPoslata(email, ime, prezime);
         } catch (Exception e) {
