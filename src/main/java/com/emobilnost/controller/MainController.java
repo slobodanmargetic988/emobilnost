@@ -729,7 +729,8 @@ public class MainController {
             @RequestParam(name = "poruka") String poruka
     ) {
         try {
-            String ipAddress = request.getRemoteAddr();
+         //   request 
+            String ipAddress = request.getHeader("X-Forwarded-For");
             Spameri spamer = spamService.findByIpadresa(ipAddress);
             if (spamer == null) {
                 Spameri novspamer = new Spameri();
