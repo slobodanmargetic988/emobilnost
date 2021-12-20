@@ -722,7 +722,7 @@ public class MainController {
     public String posaljiPoruku(final Model model,
             final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
-            @RequestParam(name = "prezime") String prezime,
+          //  @RequestParam(name = "prezime") String prezime,
             @RequestParam(name = "ime") String ime,
             @RequestParam(name = "email") String email,
             @RequestParam(name = "telefon") String telefon,
