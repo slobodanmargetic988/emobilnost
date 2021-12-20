@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.emobilnost.service.UsersService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
+import com.sun.mail.handlers.message_rfc822;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -726,8 +727,26 @@ public class MainController {
             @RequestParam(name = "ime") String ime,
             @RequestParam(name = "email") String email,
             @RequestParam(name = "telefon") String telefon,
-            @RequestParam(name = "poruka") String poruka
+            @RequestParam(name = "poruka") String poruka,
+             @RequestParam(name = "message") String message
     ) {
+        if (!message.isEmpty()){
+          String ipAddress = request.getHeader("X-Forwarded-For");
+            Spameri spamer = spamService.findByIpadresa(ipAddress);
+           if (spamer == null) {
+                Spameri novspamer = new Spameri();
+                novspamer.setBrojac(100);
+               
+         novspamer.setIpadresa(ipAddress);
+                spamService.save(novspamer);
+              
+        }else{
+              spamer.setBrojac(100);
+                 spamService.save(spamer);
+           }
+           
+           
+        }else{
         try {
          //   request 
             String ipAddress = request.getHeader("X-Forwarded-For");
@@ -753,6 +772,7 @@ public class MainController {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
             return "redirect:/";
+        }
         }
         return "redirect:/";
     }
