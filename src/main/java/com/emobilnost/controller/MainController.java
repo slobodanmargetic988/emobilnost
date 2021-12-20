@@ -745,7 +745,7 @@ public class MainController {
             }
 
             EmailController.SendEmailPoruka(ime, email, telefon, poruka);
-            EmailController.SendEmailPorukaPoslata(email, ime, prezime);
+            EmailController.SendEmailPorukaPoslata(email, ime);
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 

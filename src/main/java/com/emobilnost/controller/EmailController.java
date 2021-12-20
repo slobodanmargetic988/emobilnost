@@ -490,7 +490,7 @@ public class EmailController {
     }
 
     //kada neregistrovani korisnik posalje poruku preko forme na home ili kontakt strani - stize email korsniku
-    public static void SendEmailPorukaPoslata(String email, String ime, String prezime) throws Exception {
+    public static void SendEmailPorukaPoslata(String email, String ime) throws Exception {
         // Create a Properties object to contain connection configuration information.
         Properties props = System.getProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -509,7 +509,7 @@ public class EmailController {
                 System.getProperty("line.separator"),
                 emailzaglavlje
                 + emailsadrzajContainer
-                + sendEmailPorukaPoslata(email, ime, prezime)
+                + sendEmailPorukaPoslata(email, ime)
                 + emailsadrzajContainerClose
                 + emailfooter
         );
@@ -852,14 +852,14 @@ public class EmailController {
         return telo;
     }
 
-    public static String sendEmailPorukaPoslata(String email, String ime, String prezime) {
+    public static String sendEmailPorukaPoslata(String email, String ime) {
         return "<tr>"
                 + "  <td style=\"background:#ffffff;padding:30px\">"
                 + "    <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;margin-bottom:20px;font-size:24px;color:#000000;font-weight:400;color:#892F2B;font-weight:600\">"
                 + "      Dobrodošli na E-Mobilnost"
                 + "    </p>"
                 + "   <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;font-weight:400\">"
-                + "      Zdravo " + ime + " " + prezime + ","
+                + "      Zdravo " + ime + ","
                 + "    </p>"
                 + "    <br>"
                 + "    <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;line-height:1.4\">"
