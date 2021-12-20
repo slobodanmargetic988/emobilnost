@@ -737,6 +737,8 @@ public class MainController {
                 novspamer.setIpadresa(ipAddress);
                 spamService.save(novspamer);
             } else {
+                spamer.setBrojac(spamer.getBrojac()+1);
+                  spamService.save(spamer);
                 if (spamer.getBrojac() > 3) {
                     redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
 
