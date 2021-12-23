@@ -40,6 +40,11 @@ public class Vesti {
     @Column(name = "naslov")
     private String naslov;
     
+    @Column(name = "naslovduzi")
+    private String naslovduzi;
+     @Column(name = "izvor")
+    private String izvor;
+     
    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "slika", referencedColumnName = "id")
     private Slika slika;
@@ -82,6 +87,22 @@ public class Vesti {
 
     public void setSlika(Slika slika) {
         this.slika = slika;
+    }
+
+    public String getNaslovduzi() {
+        return naslovduzi;
+    }
+
+    public void setNaslovduzi(String naslovduzi) {
+        this.naslovduzi = naslovduzi;
+    }
+
+    public String getIzvor() {
+        return izvor;
+    }
+
+    public void setIzvor(String izvor) {
+        this.izvor = izvor;
     }
 
     

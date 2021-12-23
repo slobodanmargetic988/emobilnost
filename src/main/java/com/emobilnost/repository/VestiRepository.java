@@ -13,6 +13,9 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +34,10 @@ public interface VestiRepository extends JpaRepository<Vesti, Integer> {
     
     Vesti findFirstById(Integer id);
     
-  
+   Vesti findFirstByNaslovduzi(String naslov);
+   
+   @Modifying
+    @Query(value = "SELECT * FROM vesti where id<> :noId ORDER BY id DESC LIMIT :koliko", nativeQuery = true)
+    List<Vesti> findLastFew(@Param("koliko") Integer koliko,@Param("noId")Integer bezOvogId);
    
 }

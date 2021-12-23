@@ -27,20 +27,31 @@ import com.emobilnost.service.UsersService;
 import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
+import com.google.common.io.Files;
 import static java.lang.Integer.parseInt;
+
 import java.util.ArrayList;
 import java.util.List;
+import javax.json.Json;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.WebApplicationContext;
@@ -55,6 +66,49 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 public class KorpaRestController {
 
+    
+   
+    @RequestMapping(value = "/post/novaSlika/save", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveSlika(
+     @RequestParam("file") MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+               @RequestParam(name = "galerija") boolean galerija
+    
+    ) { Slika slika;
+                      System.out.println("pokusavamo da sacuvamo sliku");
+          try{
+                      String filename = storageService.storeDOC(file, 0);
+            Slika photo = new Slika();
+            photo.setFilename(filename);
+            photo.setTitle(title);
+            photo.setAlttext(alt_text);
+
+            photo.setGalerija(galerija);
+            slikaService.save(photo);
+           slika=photo;
+          }catch(Exception e){
+           return "neuspelo cuvanje slike";
+          }
+
+        
+        return "<img class=\"gallery-img\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
+    }
+    
+    
+
+
+
+
+//    @RequestMapping(value = "/post/echo", method = RequestMethod.POST)
+//    @ResponseBody
+//    public String sendPostMessage2(@RequestParam("message") String message
+//
+//    
+//    ) {
+//        return "ok ";
+//    }
     @Autowired
     private ZavrsenePorudzbineService zavrsenePorudzbineService;
     
@@ -71,64 +125,45 @@ public class KorpaRestController {
      @Autowired
     SlikaService slikaService;
 
-    @PostMapping(value = "/admin/novaSlika/save")
-    public String adminDodatiSliku(final Model model,
-            @RequestParam("file") MultipartFile file,
-            @RequestParam(name = "title") String title,
-            @RequestParam(name = "alt_text") String alt_text,
-               @RequestParam(name = "galerija") boolean galerija,
-            RedirectAttributes redirectAttributes
-    ) {
-        try {
-            String filename = storageService.store(file, 0);
-            Slika photo = new Slika();
-            photo.setFilename(filename);
-            photo.setTitle(title);
-            photo.setAlt_text(alt_text);
 
-            photo.setGalerija(galerija);
-            slikaService.save(photo);
-            redirectAttributes.addFlashAttribute("successMessage", "Slika je uspešno dodata u listu slika za proizvod!");
-return ""+photo.getId();
-        } catch (Exception e) {
-             System.out.println(e);
-            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u listu slika za proizvod! Nevalidan tip fajla. " + e.getMessage()));
-return "0";
-        }
-        
-        //  return "main/admin/adminNovaSlika";
-    }
+
+    
+  
       @Autowired
     VideoService videoService;
 
-    @PostMapping(value = "/admin/novVideo/save")
-    public String adminDodatiVideo(final Model model,
-            @RequestParam("file") MultipartFile file,
+    @RequestMapping(value = "/post/novVideo/save", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveVideo(
+     @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
-             @RequestParam(name = "galerija") boolean galerija,
-            //@RequestParam(name = "alt_text") String alt_text,
-            RedirectAttributes redirectAttributes
-    ) {
-        try {
-            String filename = storageService.store(file, 0);
-            Video photo = new Video();
-            photo.setFilename(filename);
-            photo.setTitle(title);
-           // photo.setAlt_text(alt_text);
+           
+               @RequestParam(name = "galerija") boolean galerija
+    
+    ) { Video video;
+                      System.out.println("pokusavamo da sacuvamo video");
+          try{
+                      String filename = storageService.storeDOC(file, 0);
+            Video video2 = new Video();
+            video2.setFilename(filename);
+            video2.setTitle(title);
+           // video2.setAlt_text(alt_text);
 
-            photo.setGalerija(galerija);
-            videoService.save(photo);
-            redirectAttributes.addFlashAttribute("successMessage", "Slika je uspešno dodata u listu slika za proizvod!");
-return ""+photo.getId();
-        } catch (Exception e) {
-            // System.out.println(e);
-            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u listu slika za proizvod! Nevalidan tip fajla. " + e.getMessage()));
-return "0";
-        }
+            video2.setGalerija(galerija);
+            videoService.save(video2);
+           video=video2;
+          }catch(Exception e){
+           return "neuspelo cuvanje slike";
+          }
+
         
-        //  return "main/admin/adminNovaSlika";
+        return "<div class=\"feature-video\">\n" +
+"                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n" +
+"                                <source src=\"/video/"+video.getId()+"#t=2\" type=\"video/"+Files.getFileExtension(file.getOriginalFilename())+"\">\n" +
+"                                Vaš pretraživač ne podržava video tag.\n" +
+"                            </video>\n" +
+"                        </div>";
     }
- 
  
  
     @GetMapping("/anketa")

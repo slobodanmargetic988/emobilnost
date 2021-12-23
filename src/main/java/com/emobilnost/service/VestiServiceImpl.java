@@ -49,4 +49,19 @@ public class VestiServiceImpl implements VestiService {
     return vestiRepository.findFirstById(id);
     
     }
+    
+      @Override
+    public Vesti findFirstByNaslovduzi(String naslov){
+    return vestiRepository.findFirstByNaslovduzi(naslov);
+    }
+    
+      @Override
+    public  List<Vesti> findLastFew( Integer koliko,Integer bezOvogId){
+    return vestiRepository.findLastFew(koliko,bezOvogId);
+    }
+    
+    
+    
+    
+    
 }

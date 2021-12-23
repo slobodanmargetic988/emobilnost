@@ -16,6 +16,8 @@ import com.emobilnost.model.ResetTokeni;
 import com.emobilnost.model.Slika;
 import com.emobilnost.model.Spameri;
 import com.emobilnost.model.Users;
+import com.emobilnost.model.Vesti;
+import com.emobilnost.model.Video;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
@@ -38,6 +40,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.emobilnost.service.UsersService;
+import com.emobilnost.service.VestiService;
+import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
 import com.sun.mail.handlers.message_rfc822;
@@ -69,7 +73,76 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
+    
+         @GetMapping("/pregled-vesti/{imeduze}")
+    public String pregledVvesti(Model model,
+            @PathVariable(name="imeduze") String imeduze
+            ) {
+     Vesti vest=vestiService.findFirstByNaslovduzi(imeduze);
+          model.addAttribute("vest",vest );
+        model.addAttribute("slicnevesti", vestiService.findLastFew(3,vest.getId()));
+        return "main/vest";
+    }
+    
+    
+     @GetMapping("/vesti2")
+    public String vesti2(Model model,
+            @PageableDefault(value = 12) final Pageable pageable
+            ) {
+       model.addAttribute("vesti", vestiService.findAllBy(pageable));
+        
+        
+        return "main/vesti2";
+    }
+    
+    
+  @PostMapping(value = "/admin/napraviVest")
+    public String adminnapraviVest(final Model model,
+            @RequestParam(name = "naslov", defaultValue = "/") String naslov,
+            @RequestParam(name = "tekst", defaultValue = "/") String tekst,
+            @RequestParam(name = "title", defaultValue = "/") String title,
+            @RequestParam(name = "alt_text", defaultValue = "/") String alt_text,
+             @RequestParam(name = "izvor", defaultValue = "/") String izvor,
+            @RequestParam("file") MultipartFile file,
+            RedirectAttributes redirectAttributes
+    ) {
 
+try{
+        if (!file.isEmpty()) {
+                      String filename = storageService.storeDOC(file, 0);
+            Slika photo = new Slika();
+            photo.setFilename(filename);
+            photo.setTitle(title);
+            photo.setAlttext(alt_text);
+
+            photo.setGalerija(false);
+            slikaService.save(photo);
+         Vesti vest= new Vesti();
+         vest.setDatum(LocalDate.now());
+         vest.setNaslov(naslov);
+         vest.setNaslovduzi(naslov.replace(" ","-"));
+          vest.setIzvor(izvor);
+         
+vest.setTekst(tekst);
+vest.setSlika(photo);
+            vestiService.save(vest);
+            
+          //   System.out.println("pokusavamo da sacuvamo vest");
+             // System.out.println(vest);
+            //   System.out.println(  vestiService.findFirstById(vest.getId()));
+              
+        }else{ redirectAttributes.addFlashAttribute("errorMessage", "niste izabrali glavnu sliku");
+       
+           return "redirect:/admin/admin-pocetna";}
+          }catch(Exception e){
+               redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+       
+           return "redirect:/admin/admin-pocetna";
+          }
+
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se dodali vest.");
+ return "redirect:/admin/admin-pocetna";
+    }
 
 
     @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
@@ -604,10 +677,34 @@ public class MainController {
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
+    @GetMapping(value = "/slika/{slikaId}")
+    public ResponseEntity<Resource> serveSlika(@PathVariable(name = "slikaId") final Integer slikaId) {
 
+        Slika slika = slikaService.findFirstById(slikaId);
+        String filename = slika.getFilename();
+        Resource file = storageService.loadAsResource(0, filename);
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(file);
+    }
+        @GetMapping(value = "/video/{videoId}")
+    public ResponseEntity<Resource> serveVvideo(@PathVariable(name = "videoId") final Integer videoId) {
+
+        Video video = videoService.findFirstById(videoId);
+        String filename = video.getFilename();
+        Resource file = storageService.loadAsResource(0, filename);
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(file);
+    }
+    @Autowired
+    VideoService videoService;
     @Autowired
     ColorPaletaService colorPaletaService;
-
+@Autowired
+    SlikaService slikaService;
     @GetMapping(value = "/boja/{bojaId}")
     public ResponseEntity<Resource> serveBoja(@PathVariable(name = "bojaId") final Integer bojaId) {
 
@@ -643,7 +740,8 @@ public class MainController {
 
     @Autowired
     ProizvodiService proizvodiService;
-
+  @Autowired
+   VestiService vestiService;
     @GetMapping(value = "/proizvod/{proizvodId}")
     public String publicProizvodMargotekstil(final Model model,
             @PathVariable final Integer proizvodId

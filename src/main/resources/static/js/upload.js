@@ -1,22 +1,77 @@
- $("#uploadslike").on("click",async function (e) {
-   
-  let formData = new FormData(); 
-   
-  formData.append("file", $('input[type=file]')[0].files[0]);
-   formData.append("alt_text", $("#alt-tekst").val());
-    formData.append("title", $("#naslov-slike").val());
-   formData.append("galerija", $("#galerijaslika").val());
-//  let response = await fetch('/admin/novaSlika/save', {
-//    method: "POST", 
-//    body: formData
-//  }); 
+$("#uploadslike").on("click", function (e) {
 
-$.ajax({
-    url: '/admin/novaSlika/save',
-    data: formData,
-    type: 'POST',
-    contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-    processData: false, // NEEDED, DON'T OMIT THIS
-    // ... Other options like success and etc
+    var formData = new FormData();
+    var fileupload = $('#fileupload')
+    formData.append("file", fileupload.prop('files')[0]);
+    formData.append("title", $('#naslov-slike').val());
+    formData.append("alt_text", $('#alt-tekst').val());
+    formData.append("galerija", $('#galerijaslika').val());
+
+    $.ajax({
+        type: "post",
+        cache: false,
+        contentType: false,
+        processData: false,
+        enctype: 'multipart/form-data',
+        method: 'POST',
+        type: 'POST',
+        url: '/post/novaSlika/save',
+        data: formData,
+        success: function (resp) {
+            var preview = $.parseHTML(resp);
+            $(preview).css("max-width", "100px");
+            $(preview).css("max-height", "100px");
+            var nasdiv = $("#listaslika"); //.text($("#listaslika").text()+resp);
+            nasdiv.append(preview);
+            $(document.createTextNode(resp)).appendTo(nasdiv);
+            nasdiv.append("<br></br>");
+
+
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.status);
+        }
+    });
+
+
 });
- });
+
+$("#uploadvideo").on("click", function (e) {
+
+    var formData = new FormData();
+    var fileupload = $('#videoupload')
+    formData.append("file", fileupload.prop('files')[0]);
+    formData.append("title", $('#naslov-videa').val());
+   
+    formData.append("galerija", $('#galerijavideo').val());
+
+    $.ajax({
+        type: "post",
+        cache: false,
+        contentType: false,
+        processData: false,
+        enctype: 'multipart/form-data',
+        method: 'POST',
+        type: 'POST',
+        url: '/post/novVideo/save',
+        data: formData,
+        success: function (resp) {
+            var preview = $.parseHTML(resp);
+            $(preview).css("max-width", "100px");
+            $(preview).css("max-height", "100px");
+            $(preview).children('video').width(100);
+            $(preview).children('video').height(100);
+            var nasdiv = $("#listaslika"); //.text($("#listaslika").text()+resp);
+            nasdiv.append(preview);
+            $(document.createTextNode(resp)).appendTo(nasdiv);
+            nasdiv.append("<br></br>");
+
+
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.status);
+        }
+    });
+
+
+});

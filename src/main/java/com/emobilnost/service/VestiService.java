@@ -24,5 +24,7 @@ public interface VestiService {
     
 void save(Vesti vesti);
     Vesti findFirstById(Integer id);
-
+ Vesti findFirstByNaslovduzi(String naslov);
+ List<Vesti> findLastFew( Integer koliko,Integer bezOvogId);
+ 
 }

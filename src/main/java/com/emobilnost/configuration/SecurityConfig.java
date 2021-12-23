@@ -75,6 +75,7 @@ authenticationProvider.setUserDetailsService(emobilnostUserDetailsService);
                  .antMatchers("/**").permitAll()
                 .antMatchers("/secure/**").permitAll()
                 .antMatchers("/error/**").permitAll()
+                .antMatchers("/post/**").permitAll()
              .anyRequest().authenticated()
                 .and()
 		.formLogin()
@@ -90,7 +91,7 @@ authenticationProvider.setUserDetailsService(emobilnostUserDetailsService);
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");
         
-      //  http.csrf().disable();
+        http.csrf().disable();
 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);	
     }
 

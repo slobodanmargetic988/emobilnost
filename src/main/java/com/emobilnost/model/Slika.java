@@ -34,7 +34,9 @@ public class Slika {
     private String title;
 
      @Column(name = "alt_text")
-    private String alt_text;
+    private String alttext;
+
+
     
     @Column(name = "file_name")
     private String filename;
@@ -61,12 +63,12 @@ public class Slika {
         this.title = title;
     }
 
-    public String getAlt_text() {
-        return alt_text;
+      public String getAlttext() {
+        return alttext;
     }
 
-    public void setAlt_text(String alt_text) {
-        this.alt_text = alt_text;
+    public void setAlttext(String alttext) {
+        this.alttext = alttext;
     }
 
     public String getFilename() {
