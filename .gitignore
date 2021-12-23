@@ -2,3 +2,4 @@
 pom.xml
 target/*
 src/main/resources/application.properties
+uploads/*
