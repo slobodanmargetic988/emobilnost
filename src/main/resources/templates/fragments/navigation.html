@@ -119,7 +119,7 @@
     </th:block>
 
     <th:block th:fragment="admin-navbar">
-        <div class="user-sidebar">
+        <div class="user-sidebar col-lg-2">
             <div class="user-sidebar-overlay"></div>
 
             <ul class="user-icon-nav">
@@ -127,6 +127,8 @@
                 <li><a th:href="@{/vesti}"><em class="ti"></em>Pregled vesti</a></li>
                 <li><a th:href="@{/admin/dodaj-fajl}"><em class="ti"></em>Dodaj fajl</a></li>
                 <li><a th:href="@{/admin/pregled-fajlova}"><em class="ti"></em>Pregled fajlova</a></li>
+                <li><a th:href="@{/admin/dodaj-savet}"><em class="ti"></em>Dodaj savet</a></li>
+                <li><a th:href="@{/saveti}"><em class="ti"></em>Pregled saveta</a></li>
                 <li><a th:href="@{/admin/dodaj-clana}"><em class="ti"></em>Dodaj člana</a></li>
                 <li><a th:href="@{/admin/pregled-clanova}"><em class="ti"></em>Pregled članova</a></li>
                 <!--<li><a th:href="@{/poljoprivredni-konkursi}"><em class="ti"></em>Pregled konkursa</a></li>-->
@@ -142,6 +144,9 @@
                     </li>
                     <li class="topbar-action-item topbar-action-link">
                         <a  th:href="@{/vesti}"><em class="ti ti-home"></em>Vesti</a>
+                    </li>
+                    <li class="topbar-action-item topbar-action-link">
+                        <a  th:href="@{/saveti}"><em class="ti ti-home"></em>Saveti</a>
                     </li>
                     <!--                    <li class="topbar-action-item topbar-action-link">
                                             <a th:href="@{/poljoprivredni-konkursi-pocetna}"><em class="ti ti-home"></em>Poljoprivredni konkursi</a>
