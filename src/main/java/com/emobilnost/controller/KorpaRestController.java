@@ -27,7 +27,7 @@ import com.emobilnost.service.UsersService;
 import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
-import com.google.common.io.Files;
+
 import static java.lang.Integer.parseInt;
 
 import java.util.ArrayList;
@@ -159,7 +159,7 @@ public class KorpaRestController {
         
         return "<div class=\"feature-video\">\n" +
 "                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n" +
-"                                <source src=\"/video/"+video.getId()+"#t=2\" type=\"video/"+Files.getFileExtension(file.getOriginalFilename())+"\">\n" +
+"                                <source src=\"/video/"+video.getId()+"#t=2\" type=\"video/"+"mp4"+"\">\n" +
 "                                Vaš pretraživač ne podržava video tag.\n" +
 "                            </video>\n" +
 "                        </div>";

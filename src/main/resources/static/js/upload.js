@@ -25,7 +25,7 @@ $("#uploadslike").on("click", function (e) {
             nasdiv.append(preview);
             $(document.createTextNode(resp)).appendTo(nasdiv);
             nasdiv.append("<br></br>");
-
+$("#form").modal('toggle');
 
         },
         error: function (jqXHR) {
@@ -61,11 +61,11 @@ $("#uploadvideo").on("click", function (e) {
             $(preview).css("max-height", "100px");
             $(preview).children('video').width(100);
             $(preview).children('video').height(100);
-            var nasdiv = $("#listaslika"); //.text($("#listaslika").text()+resp);
+            var nasdiv = $("#listavidea"); //.text($("#listaslika").text()+resp);
             nasdiv.append(preview);
             $(document.createTextNode(resp)).appendTo(nasdiv);
             nasdiv.append("<br></br>");
-
+$("#form2").modal('toggle');
 
         },
         error: function (jqXHR) {
