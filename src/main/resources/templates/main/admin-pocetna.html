@@ -84,31 +84,31 @@
                         <h3 class="add-new">DODAVANJE NOVE VESTI</h3>
 
                         <form th:action="@{/admin/napraviVest}" method="post" class="form-horizontal needs-validation" enctype="multipart/form-data" autocomplete="off" style="margin-bottom: 20px;" novalidate>
-                            <div class="centrirajFormuInput mb-3">
+                            <div class=" mb-3">
                                 <label class="">Naslov vesti</label>
                                 <input type="text" class="form-control input-custom-border" name="naslov" required=""/>
                                 <div class="invalid-feedback">
                                     Unesite naslov vesti.
                                 </div>
                             </div>
-                            <div class="centrirajFormuInput mb-3">
+                            <div class=" mb-3">
                                 <label class="">Tekst vesti</label>
                                 <textarea type="text" class="wysiwyg_editor_default" name="tekst"></textarea>
                             </div>
-                            <div class="centrirajFormuInput mb-3">
+                            <div class=" mb-3">
                                 <label class="">Izvor vesti</label>
                                 <input type="text" class="form-control input-custom-border" name="izvor" id="izvor">
                             </div>
-                            <div class="centrirajFormuInput">
+                            <div class="">
                                 <label for="naslov-slike">Naslov slike:</label>
                                 <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
                             </div>
-                            <div class="centrirajFormuInput mt-3"  >
-                                <label for="alt-tekst">Alternativni tekst za sliku:</label>
+                            <div class=" mt-3"  >
+                                <label for="alt-tekst">Alternativni tekst za sliku: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
                                 <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
                             </div>
-                            <label  class="control-label">(* .jpg, max. 80 MB)</label>
-                            <div>
+                            <label  class="control-label">(* max. 80 MB)</label>
+                            <div class="mt-3">
                                 <!-- actual upload which is hidden -->
                                 <input type="file" name="file" id="actual-btn" hidden/>
 
@@ -120,80 +120,22 @@
                             <div class="submit-buttons-group mt-4">
                                 <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
 
-                                <a href="" class="btn-odustani">Odustani</a>
+                                <a href="" class="btn-no">Odustani</a>
                             </div>
                         </form>
                     </div>
                 </div>
-                <!--<<<<<<< Updated upstream-->
 
-<!--                <div class="user-content">
-                    <div class="user-panel">
-                        <h3 class="add-new">DODAVANJE SLIKA I VIDEA</h3>
-                        <div id="listaslika">
-
-                        </div>
-
-                        <form  id="dodajsliku" enctype="multipart/form-data"   class="form-horizontal adminNovaSlikaForma" autocomplete="off">
-                            <div class="form-group " >
-                                <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove slike</h3>
-                                <div class="col-md-6 centrirajFormuInput"  >
-                                    <label for="naslov-slike">Naslov slike:</label>
-                                    <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
-                                </div>
-                                <div class="col-md-6 centrirajFormuInput mt-3"  >
-                                    <label for="alt-tekst">Alternativni tekst:</label>
-                                    <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
-                                </div>
-                                <input class="remember-me" name="galerija" id="galerijaslika" type="checkbox">
-                            </div>
-
-                            <div class="col-md-6 centrirajFormuChoose" >
-                                <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
-                                <div >
-
-                                    <input type="file" name="file" id="fileupload" >
-
-                                </div>
-                            </div>
-                            <a id="uploadslike">upload</a>
-                        </form>
-
-                        <form  enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
-
-                            <div class="form-group " >
-                                <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove video</h3>
-                                <div class="col-md-6 centrirajFormuInput"  >
-                                    <label for="naslov-videa">Naslov videa:</label>
-                                    <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-videa" >
-                                </div>
-
-                                <input class="remember-me" name="galerija" id="galerijavideo" type="checkbox">
-                            </div>
-
-                            <div class="col-md-6 centrirajFormuChoose" >
-                                <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
-                                <div >
-
-                                    <input type="file" name="video" id="videoupload" >
-
-                                </div>
-                            </div>
-                            <a id="uploadvideo">upload</a>
-                        </form>
-                    </div>
-                </div>-->
-                <!--=======-->
 
                 <!--dodaj sliku-->
                 <div class="user-content col-lg-2 user-content-additional">
                     <div class="row add-additional" style="    min-height: unset; margin: 0 5px 30px 0;">
                         <div class="col-12">
-                            <h3 class="add-new">DODAVANJE SLIKA</h3>
+                            <h3 class="add-new">DODAVANJE SLIKA <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Moguće je dodati više od jedne slike, ali ne odjednom."></i></h3>
                         </div>
                         <!--btn dodaj sliku-->
-                        <div class="col-12">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#form">
+                        <div class="col-12 mt-3">
+                            <button type="button" class="btn-save-vest" data-toggle="modal" data-target="#form">
                                 Dodaj sliku
                             </button>  
                         </div>
@@ -208,28 +150,29 @@
                                         </button>
                                     </div>
                                     <!--<form>-->
-                                        <div class="modal-body">
-                                            <div class="form-group " >
-                                                <div class="centrirajFormuInput"  >
-                                                    <label for="naslov-slike">Naslov slike:</label>
-                                                    <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
-                                                </div>
-                                                <div class="centrirajFormuInput mt-3"  >
-                                                    <label for="alt-tekst">Alternativni tekst: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
-                                                    <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
-                                                </div>
-                                                <input class="remember-me" id="galerijaslika" type="checkbox">
+                                    <div class="modal-body">
+                                        <div class="form-group " >
+                                            <div class=""  >
+                                                <label for="naslov-slike">Naslov slike:</label>
+                                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-slike" >
                                             </div>
-                                            <div class="centrirajFormuChoose" >
-                                                <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
-                                                <div >
-                                                    <input type="file" name="file" id="fileupload"  >
-                                                </div>
+                                            <div class=" mt-3"  >
+                                                <label for="alt-tekst">Alternativni tekst: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
+                                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
+                                            </div>
+                                            <input class="remember-me" id="galerijaslika" type="checkbox">
+                                        </div>
+                                        <div class="centrirajFormuChoose" >
+                                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
+                                            <div >
+                                                <input type="file" name="file" id="fileupload"  >
                                             </div>
                                         </div>
-                                        <div class="modal-footer border-top-0 d-flex justify-content-center">
-                                            <a id="uploadslike" class="btn btn-success">Dodaj</a>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-end">
+                                        <a href="" class="btn-no mr-3">Odustani</a>
+                                        <a id="uploadslike" class="btn-save-vest">Dodaj sliku</a>
+                                    </div>
                                     <!--</form>-->
                                 </div>
                             </div>
@@ -241,16 +184,16 @@
                     <!--dodaj video-->
                     <div class="row add-additional" style="    min-height: unset; margin: 0 5px 30px 0;">
                         <div class="col-12">
-                            <h3 class="add-new">DODAVANJE VIDEA</h3>
+                            <h3 class="add-new">DODAVANJE VIDEA <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Moguće je dodati više od jednog videa, ali ne odjednom."></i></h3>
                         </div>
                         <!--btn dodaj video-->
-                        <div class="col-12">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form2">
+                        <div class="col-12 mt-3">
+                            <button type="button" class="btn-save-vest" data-toggle="modal" data-target="#form2">
                                 Dodaj video
                             </button>  
                         </div>
                         <div id="listavidea"></div>
-                        
+
                         <div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -278,8 +221,9 @@
 
                                         </div>
                                     </div>
-                                    <div class="modal-footer border-top-0 d-flex justify-content-center">
-                                         <a id="uploadvideo" class="btn btn-success">Dodaj</a>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-end">
+                                        <a href="" class="btn-no mr-3">Odustani</a>
+                                        <a id="uploadvideo" class="btn-save-vest">Dodaj video</a>
                                     </div>
                                     <!--</form>-->
                                 </div>
@@ -312,6 +256,7 @@
 <script th:src="@{/js/formValidation.js}"></script>
 <script th:src="@{/js/upload.js}"></script>
 <script>
+
     //  name of file chosen  changes with javascript
     const actualBtn = document.getElementById('fileupload');
 

@@ -134,39 +134,13 @@ a {
     z-index: 5;
 }
 .btn-save-vest {
-    width: 100%;
-    /*    position: relative;
-        padding: 10px 20px;
-        font-size: 13px;
-        line-height: 24px;
-        letter-spacing: 0.1em;
-        border-radius: 4px;
-        text-transform: uppercase;
-        transition: all 0.4s ease;
-        background: #f37c25;
-        border: #f37c25;
-        color: #fff;
-        &:hover {
-            box-shadow: none;
-            outline: none;
-            background: #c1580b;
-            border-color: #c1580b;
-        }
-        &:focus {
-            box-shadow: none;
-            outline: none;
-        }
-        &:active {
-            box-shadow: none;
-            outline: none;
-        }*/
-    display: inline-block;
-    padding: 10px 20px;
+    cursor: pointer;
+    padding: 10px 30px;
     border-radius: 5px;
     color: $white-color;
-    text-transform: uppercase;
-    font-size: .95rem;
-    letter-spacing: 0.05rem;
+    /*text-transform: uppercase;*/
+    font-size: 1rem;
+    /*letter-spacing: 0.05rem;*/
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
@@ -206,39 +180,22 @@ a {
         outline: none;
     }
 }
-.btn-save-konkurs {
-    width: 100%;
-    position: relative;
-    padding: 10px 20px;
-    font-size: 13px;
-    line-height: 24px;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    text-transform: uppercase;
-    transition: all 0.4s ease;
-    background: #9acb37;
-    border: #9acb37;
-    color: hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
-    margin-top: 0.5rem;
+.btn-no {
+    font-size: 1rem;
+    color: $brown-black-color;
+    margin-left: 1rem;
+    transition: all 0.3s;
+    padding-bottom: 0.2rem;
     &:hover {
-        box-shadow: none;
-        outline: none;
-        background: #6d9025;
-        border: #6d9025;
-    }
-    &:focus {
-        box-shadow: none;
-        outline: none;
-    }
-    &:active {
-        box-shadow: none;
-        outline: none;
+        border-bottom: 1px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        color: $brown-black-color;
     }
 }
+
 .btn-odustani {
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 0.5rem;
-    display: inline-block;
+    /*display: inline-block;*/
     text-align: center;
     /*padding: 0.75rem 1.25rem;*/
     padding: 8px 20px;
@@ -442,7 +399,7 @@ a {
     box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
     transition: all 0.4s ease;
     display: none;
-   
+
     &:before {
         position: fixed;
         top: 0;
@@ -520,6 +477,7 @@ a {
         color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
         font-weight: 400;
         font-size: 15px;
+        margin-bottom: 0 !important;
     }
 }
 .user-dashboard {
@@ -680,11 +638,11 @@ a {
 .form-control.is-invalid, .was-validated .form-control:invalid {
     background-image: none;
     border-color: hsla(354, 70%, 74%, 1);
-    
+
     &:focus {
         box-shadow: none;
         outline: none;
-        
+
     }
 }
 .form-control.is-valid, .was-validated .form-control:valid {
@@ -693,7 +651,7 @@ a {
     &:focus {
         box-shadow: none;
         outline: none;
-                border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a) !important;
+        border-color: hsla($blue-color-h, $blue-color-s, 78%, $blue-color-a) !important;
 
     }
 }
@@ -758,7 +716,7 @@ a {
 }
 @media (max-width: 768px) {
 
-.user-content-additional {
+    .user-content-additional {
         display: block;
     }
 }
@@ -769,7 +727,7 @@ a {
     .footer-copyright {
         padding: 15px 0;
     }
-    
+
 }
 @media (max-width: 992px) {
     .user-icon-nav {
@@ -790,6 +748,6 @@ a {
         }
     }
     .user-wraper {
-    margin-top: 1rem;
-}
+        margin-top: 1rem;
+    }
 }

@@ -133,39 +133,13 @@ a:active {
 }
 
 .btn-save-vest {
-  width: 100%;
-  /*    position: relative;
-      padding: 10px 20px;
-      font-size: 13px;
-      line-height: 24px;
-      letter-spacing: 0.1em;
-      border-radius: 4px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      background: #f37c25;
-      border: #f37c25;
-      color: #fff;
-      &:hover {
-          box-shadow: none;
-          outline: none;
-          background: #c1580b;
-          border-color: #c1580b;
-      }
-      &:focus {
-          box-shadow: none;
-          outline: none;
-      }
-      &:active {
-          box-shadow: none;
-          outline: none;
-      }*/
-  display: inline-block;
-  padding: 10px 20px;
+  cursor: pointer;
+  padding: 10px 30px;
   border-radius: 5px;
   color: white;
-  text-transform: uppercase;
-  font-size: .95rem;
-  letter-spacing: 0.05rem;
+  /*text-transform: uppercase;*/
+  font-size: 1rem;
+  /*letter-spacing: 0.05rem;*/
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
@@ -206,40 +180,22 @@ a:active {
   outline: none;
 }
 
-.btn-save-konkurs {
-  width: 100%;
-  position: relative;
-  padding: 10px 20px;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: 0.1em;
-  border-radius: 4px;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-  background: #9acb37;
-  border: #9acb37;
-  color: black;
-  margin-top: 0.5rem;
+.btn-no {
+  font-size: 1rem;
+  color: #211b14;
+  margin-left: 1rem;
+  transition: all 0.3s;
+  padding-bottom: 0.2rem;
 }
-.btn-save-konkurs:hover {
-  box-shadow: none;
-  outline: none;
-  background: #6d9025;
-  border: #6d9025;
-}
-.btn-save-konkurs:focus {
-  box-shadow: none;
-  outline: none;
-}
-.btn-save-konkurs:active {
-  box-shadow: none;
-  outline: none;
+.btn-no:hover {
+  border-bottom: 1px solid #8bc63f;
+  color: #211b14;
 }
 
 .btn-odustani {
-  width: 100%;
+  /*width: 100%;*/
   margin-top: 0.5rem;
-  display: inline-block;
+  /*display: inline-block;*/
   text-align: center;
   /*padding: 0.75rem 1.25rem;*/
   padding: 8px 20px;
@@ -526,6 +482,7 @@ a:active {
   color: #3a4da1;
   font-weight: 400;
   font-size: 15px;
+  margin-bottom: 0 !important;
 }
 
 .user-dashboard {
