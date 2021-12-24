@@ -78,6 +78,7 @@ img {
 .blog-section {
     padding: 100px 0;
     .post {
+        max-width: 100%;
         box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
         transition: all .3s ease-in-out;
         margin: 0 0 2rem 0;
@@ -173,15 +174,24 @@ img {
         -webkit-transition: all 1s cubic-bezier(0, 0, 0.2, 1);
         transition: all 1s cubic-bezier(0, 0, 0.2, 1);
         background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+        &.darker {
+            background: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+        }
     }
     .blogBtn {
         color: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
         font-weight: 500;
         &:hover {
             color: hsla($green-color-h, $green-color-s, 41%, $green-color-a);
-
+        }
+        &.darker {
+            color: hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+            &:hover {
+                color: hsla($blue-color-h, $blue-color-s, 70%, $blue-color-a);
+            }
         }
     }
+
 
 }
 
@@ -1497,10 +1507,10 @@ p {
 
     }
     .uclani-se-btn {
-            padding: 0.6em 1.5rem !important;
+        padding: 0.6em 1.5rem !important;
         &:hover {
             color: $white-color !important;
-                background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+            background: hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
         }
     }
     .navbar-toggler-icon.navbar-toggler-icon-clr.changehambcolour {

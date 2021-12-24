@@ -70,12 +70,13 @@
     </div>
 
     <div class="user-wraper">
+          <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+                <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
         <div class="container-fluid">
             <div class="row">
                 <th:block th:insert="fragments/navigation :: admin-navbar" />
-                <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
-                <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
-
+              
 
 
                 <div class="user-content col-lg-5 mb-4">
@@ -96,7 +97,7 @@
                                 <textarea type="text" class="wysiwyg_editor_default" name="tekst"></textarea>
                             </div>
                             <div class=" mb-3">
-                                <label class="">Izvor vesti</label>
+                                <label class="">Izvor vesti  <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Unesite izvor vesti ili ime autora"></i></label>
                                 <input type="text" class="form-control input-custom-border" name="izvor" id="izvor">
                             </div>
                             <div class="">
@@ -107,16 +108,11 @@
                                 <label for="alt-tekst">Alternativni tekst za sliku: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
                                 <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
                             </div>
-                            <label  class="control-label">(* max. 80 MB)</label>
+                            
                             <div class="mt-3">
-                                <!-- actual upload which is hidden -->
-                                <input type="file" name="file" id="actual-btn" hidden/>
-
-                                <!-- custom upload button -->
-                                <label for="actual-btn"  class="btn-choose-file">Izaberi fajl</label>
-                                <!-- name of file chosen changes with javascript (bottom of the page in script tag)-->
-                                <span id="file-chosen">No file chosen</span>
+                                <input type="file" name="file" id="actual-btn" />
                             </div>
+                            <label  class="control-label">(* max. 80 MB)</label>
                             <div class="submit-buttons-group mt-4">
                                 <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
 
@@ -139,12 +135,12 @@
                                 Dodaj sliku
                             </button>  
                         </div>
-                        <div id="listaslika"></div>
+                        <div id="listaslika" class="p-3"></div>
                         <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <h5 class="modal-title" id="exampleModalLabel">Dodavanje nove slike</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Dodavanje nove slike za vest</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -160,13 +156,17 @@
                                                 <label for="alt-tekst">Alternativni tekst: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
                                                 <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alt-tekst">
                                             </div>
-                                            <input class="remember-me" id="galerijaslika" type="checkbox">
+                                            <div class="mt-3">
+                                                <input class="remember-me" id="galerijaslika" type="checkbox">
+                                                <label for="galerijaslika">&nbsp;Čekirajte ako želite da se slika automatski doda u galeriju</label>
+                                            </div>
                                         </div>
                                         <div class="centrirajFormuChoose" >
-                                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
+
                                             <div >
                                                 <input type="file" name="file" id="fileupload"  >
                                             </div>
+                                            <label  class=" control-label"  >(* max. 80 MB)</label>
                                         </div>
                                     </div>
                                     <div class="modal-footer border-top-0 d-flex justify-content-end">
@@ -192,13 +192,13 @@
                                 Dodaj video
                             </button>  
                         </div>
-                        <div id="listavidea"></div>
+                        <div id="listavidea" class="p-3"></div>
 
                         <div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <h5 class="modal-title" id="exampleModalLabel">Dodavanje novog videa</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Dodavanje novog videa za vest</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -210,15 +210,17 @@
                                                 <label for="naslov-videa">Naslov videa</label>
                                                 <input type="text" class=" form-control input-custom-border"  name="title" id="naslov-videa" >
                                             </div>
+                                            <div class="mt-3">
                                             <input class="remember-me" id="galerijavideo" type="checkbox">
+                                            <label for="galerijavideo">&nbsp;Čekirajte ako želite da se video automatski doda u galeriju</label>
+                                            </div>
                                         </div>
                                         <div class="centrirajFormuChoose" >
-                                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
 
                                             <div >
                                                 <input type="file" name="video" id="videoupload">
                                             </div>
-
+                                            <label  class=" control-label"  >(* max. 80 MB)</label>
                                         </div>
                                     </div>
                                     <div class="modal-footer border-top-0 d-flex justify-content-end">
@@ -255,18 +257,7 @@
 <script th:src="@{/js/admin-panel.js}"></script>
 <script th:src="@{/js/formValidation.js}"></script>
 <script th:src="@{/js/upload.js}"></script>
-<script>
 
-    //  name of file chosen  changes with javascript
-    const actualBtn = document.getElementById('fileupload');
-
-    const fileChosen = document.getElementById('file-chosen');
-
-    actualBtn.addEventListener('change', function () {
-        fileChosen.textContent = this.files[0].name;
-    });
-
-</script>
 
 <!--tooltip-->
 <script>$(document).ready(function () {

@@ -93,7 +93,7 @@ public class KorpaRestController {
           }
 
         
-        return "<img class=\"gallery-img\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
+        return "<img class=\"gallery-img my-3\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
     }
     
     
@@ -157,7 +157,7 @@ public class KorpaRestController {
           }
 
         
-        return "<div class=\"feature-video\">\n" +
+        return "<div class=\"feature-video my-3\">\n" +
 "                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n" +
 "                                <source src=\"/video/"+video.getId()+"#t=2\" type=\"video/"+"mp4"+"\">\n" +
 "                                Vaš pretraživač ne podržava video tag.\n" +

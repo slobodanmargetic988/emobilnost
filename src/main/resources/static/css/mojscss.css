@@ -2788,6 +2788,7 @@ img {
   padding: 100px 0;
 }
 .blog-section .post {
+  max-width: 100%;
   box-shadow: 0px 0px 13px -4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   margin: 0 0 2rem 0;
@@ -2879,12 +2880,21 @@ img {
   transition: all 1s cubic-bezier(0, 0, 0.2, 1);
   background: #8bc63f;
 }
+.blog-section .separatorBtn.darker {
+  background: #3a4da1;
+}
 .blog-section .blogBtn {
   color: #8bc63f;
   font-weight: 500;
 }
 .blog-section .blogBtn:hover {
   color: #70a130;
+}
+.blog-section .blogBtn.darker {
+  color: #3a4da1;
+}
+.blog-section .blogBtn.darker:hover {
+  color: #8f9cd6;
 }
 
 .btn-underlined {
