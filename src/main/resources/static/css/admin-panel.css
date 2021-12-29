@@ -76,7 +76,7 @@ body {
 
 h3 {
   margin-bottom: 12px;
-  line-height: 1.68;
+  line-height: 1.25;
   font-size: 1.5em;
 }
 h3:last-child {
@@ -133,39 +133,13 @@ a:active {
 }
 
 .btn-save-vest {
-  width: 100%;
-  /*    position: relative;
-      padding: 10px 20px;
-      font-size: 13px;
-      line-height: 24px;
-      letter-spacing: 0.1em;
-      border-radius: 4px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      background: #f37c25;
-      border: #f37c25;
-      color: #fff;
-      &:hover {
-          box-shadow: none;
-          outline: none;
-          background: #c1580b;
-          border-color: #c1580b;
-      }
-      &:focus {
-          box-shadow: none;
-          outline: none;
-      }
-      &:active {
-          box-shadow: none;
-          outline: none;
-      }*/
-  display: inline-block;
-  padding: 10px 20px;
+  cursor: pointer;
+  padding: 10px 30px;
   border-radius: 5px;
   color: white;
-  text-transform: uppercase;
-  font-size: .95rem;
-  letter-spacing: 0.05rem;
+  /*text-transform: uppercase;*/
+  font-size: 1rem;
+  /*letter-spacing: 0.05rem;*/
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
@@ -206,40 +180,22 @@ a:active {
   outline: none;
 }
 
-.btn-save-konkurs {
-  width: 100%;
-  position: relative;
-  padding: 10px 20px;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: 0.1em;
-  border-radius: 4px;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-  background: #9acb37;
-  border: #9acb37;
-  color: black;
-  margin-top: 0.5rem;
+.btn-no {
+  font-size: 1rem;
+  color: #211b14;
+  margin-left: 1rem;
+  transition: all 0.3s;
+  padding-bottom: 0.2rem;
 }
-.btn-save-konkurs:hover {
-  box-shadow: none;
-  outline: none;
-  background: #6d9025;
-  border: #6d9025;
-}
-.btn-save-konkurs:focus {
-  box-shadow: none;
-  outline: none;
-}
-.btn-save-konkurs:active {
-  box-shadow: none;
-  outline: none;
+.btn-no:hover {
+  border-bottom: 1px solid #8bc63f;
+  color: #211b14;
 }
 
 .btn-odustani {
-  width: 100%;
+  /*width: 100%;*/
   margin-top: 0.5rem;
-  display: inline-block;
+  /*display: inline-block;*/
   text-align: center;
   /*padding: 0.75rem 1.25rem;*/
   padding: 8px 20px;
@@ -515,17 +471,18 @@ a:active {
   max-width: 100%;
 }
 
-.user-panel {
+.user-panel, .add-additional {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
   min-height: 100%;
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.05);
 }
-.user-panel label {
+.user-panel label, .add-additional label {
   color: #3a4da1;
   font-weight: 400;
   font-size: 15px;
+  margin-bottom: 0 !important;
 }
 
 .user-dashboard {
@@ -720,6 +677,7 @@ a:active {
     transition: unset;
     display: block;
     overflow: hidden;
+    margin-left: 1.5rem;
   }
   .user-sidebar:before {
     display: none;
@@ -734,7 +692,7 @@ a:active {
   }
 
   .user-content {
-    margin-left: 30px;
+    /*margin-left: 30px;*/
   }
 
   ul:not(.btn-grp):last-child {
@@ -750,8 +708,13 @@ a:active {
     padding-top: 90px;
   }
 
-  .user-panel {
+  .user-panel, .add-additional {
     padding: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .user-content-additional {
+    display: block;
   }
 }
 @media (min-width: 768px) {
@@ -781,4 +744,22 @@ a:active {
   .topbar-action-link a {
     line-height: unset;
   }
+
+  .user-wraper {
+    margin-top: 1rem;
+  }
 }
+/*modal start*/
+.modal-content {
+  padding: 1rem;
+}
+
+.close {
+  font-size: 2rem;
+}
+
+label[for=galerijaslika], label[for=galerijavideo] {
+  font-size: 13px;
+}
+
+/*modal end*/

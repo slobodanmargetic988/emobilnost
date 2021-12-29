@@ -1,7 +1,7 @@
 $("#uploadslike").on("click", function (e) {
 
     var formData = new FormData();
-    var fileupload = $('#fileupload')
+    var fileupload = $('#fileupload');
     formData.append("file", fileupload.prop('files')[0]);
     formData.append("title", $('#naslov-slike').val());
     formData.append("alt_text", $('#alt-tekst').val());
@@ -23,10 +23,11 @@ $("#uploadslike").on("click", function (e) {
             $(preview).css("max-height", "100px");
             var nasdiv = $("#listaslika"); //.text($("#listaslika").text()+resp);
             nasdiv.append(preview);
+            nasdiv.append("<br>");
+            nasdiv.append("<div style=\"font-weight: 500;\">Kopirajte link ispod i nalepite ga u tekst vesti</div>");
             $(document.createTextNode(resp)).appendTo(nasdiv);
-            nasdiv.append("<br></br>");
-
-
+            nasdiv.append("<br>");
+            $("#form").modal('toggle');
         },
         error: function (jqXHR) {
             alert(jqXHR.status);
@@ -39,10 +40,10 @@ $("#uploadslike").on("click", function (e) {
 $("#uploadvideo").on("click", function (e) {
 
     var formData = new FormData();
-    var fileupload = $('#videoupload')
+    var fileupload = $('#videoupload');
     formData.append("file", fileupload.prop('files')[0]);
     formData.append("title", $('#naslov-videa').val());
-   
+
     formData.append("galerija", $('#galerijavideo').val());
 
     $.ajax({
@@ -57,15 +58,17 @@ $("#uploadvideo").on("click", function (e) {
         data: formData,
         success: function (resp) {
             var preview = $.parseHTML(resp);
-            $(preview).css("max-width", "100px");
+            $(preview).css("max-width", "150px");
             $(preview).css("max-height", "100px");
-            $(preview).children('video').width(100);
+            $(preview).children('video').width(150);
             $(preview).children('video').height(100);
-            var nasdiv = $("#listaslika"); //.text($("#listaslika").text()+resp);
+            var nasdiv = $("#listavidea"); //.text($("#listaslika").text()+resp);
             nasdiv.append(preview);
+//             nasdiv.append("<br>");
+            nasdiv.append("<div style=\"font-weight: 500;\">Kopirajte link ispod i nalepite ga u tekst vesti</div>");
             $(document.createTextNode(resp)).appendTo(nasdiv);
-            nasdiv.append("<br></br>");
-
+            nasdiv.append("<br>");
+            $("#form2").modal('toggle');
 
         },
         error: function (jqXHR) {

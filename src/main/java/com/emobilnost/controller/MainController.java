@@ -73,77 +73,155 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
+
+    @GetMapping(value = "/admin/admin-edit/{imeduze}")
+    public String adminEdit(final Model model,
+            @PathVariable(name = "imeduze") String imeduze) {
+        Vesti vest = vestiService.findFirstByNaslovduzi(imeduze);
+        model.addAttribute("vest", vest);
+        return "main/admin-edit";
+    }
+
     
-         @GetMapping("/pregled-vesti/{imeduze}")
+    //edit vesti
+    @RequestMapping(value = "/admin/editSaveVest/{imeduze}", method = RequestMethod.POST)
+    public String editVest(final Model model, final HttpServletRequest request,
+            RedirectAttributes redirectAttributes,
+            @PathVariable(name = "imeduze") String imeduze,
+            @RequestParam(name = "tekst") String tekst,
+            @RequestParam(name = "naslov") String naslov,
+            @RequestParam(name = "title", required = false) String title,
+            @RequestParam(name = "alt_text", required = false) String alt_text,
+            @RequestParam(name = "izvor") String izvor,
+            @RequestParam(name = "file", required = false) MultipartFile file
+    ) {
+        Vesti vest;
+        try {
+            
+            if (!file.isEmpty()) {
+                String filename = storageService.store(file, 0);
+                Slika photo = new Slika();
+                photo.setFilename(filename);
+                photo.setTitle(title);
+                photo.setAlttext(alt_text);
+                photo.setGalerija(false);
+                photo.setActive(Boolean.TRUE);
+                slikaService.save(photo);
+                
+                vest = vestiService.findFirstByNaslovduzi(imeduze);
+               //       System.out.println(vest);
+                vest.setNaslov(naslov);
+                vest.setTekst(tekst);
+               // vest.setDatum(LocalDate.now());
+                vest.setNaslovduzi(naslov.replace(" ", "-"));
+                vest.setIzvor(izvor);
+                vest.setSlika(photo);
+                vestiService.save(vest);
+            } else {
+                vest = vestiService.findFirstByNaslovduzi(imeduze);
+              //   System.out.println(vest+"ovde");
+                 vest.setNaslov(naslov);
+                vest.setTekst(tekst);
+               // vest.setDatum(LocalDate.now());
+                vest.setNaslovduzi(naslov.replace(" ", "-"));
+               
+                vest.setIzvor(izvor);
+                vestiService.save(vest);
+            }
+
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+        //    System.out.println(e.getMessage());
+            return "redirect:/admin/admin-edit/"+imeduze;
+        }
+                redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste izmenili vest.");
+
+        return "redirect:/pregled-vesti/" + vest.getNaslovduzi();
+
+    }
+    //edit vesti
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GetMapping("/pregled-vesti/{imeduze}")
     public String pregledVvesti(Model model,
-            @PathVariable(name="imeduze") String imeduze
-            ) {
-     Vesti vest=vestiService.findFirstByNaslovduzi(imeduze);
-          model.addAttribute("vest",vest );
-        model.addAttribute("slicnevesti", vestiService.findLastFew(3,vest.getId()));
+            @PathVariable(name = "imeduze") String imeduze
+    ) {
+        Vesti vest = vestiService.findFirstByNaslovduzi(imeduze);
+        model.addAttribute("vest", vest);
+        model.addAttribute("slicnevesti", vestiService.findLastFew(3, vest.getId()));
         return "main/vest";
     }
-    
-    
-     @GetMapping("/vesti2")
+
+    @GetMapping("/vesti2")
     public String vesti2(Model model,
             @PageableDefault(value = 12) final Pageable pageable
-            ) {
-       model.addAttribute("vesti", vestiService.findAllBy(pageable));
-        
-        
+    ) {
+        model.addAttribute("vesti", vestiService.findAllBy(pageable));
+
         return "main/vesti2";
     }
-    
-    
-  @PostMapping(value = "/admin/napraviVest")
+
+    @PostMapping(value = "/admin/napraviVest")
     public String adminnapraviVest(final Model model,
             @RequestParam(name = "naslov", defaultValue = "/") String naslov,
             @RequestParam(name = "tekst", defaultValue = "/") String tekst,
             @RequestParam(name = "title", defaultValue = "/") String title,
             @RequestParam(name = "alt_text", defaultValue = "/") String alt_text,
-             @RequestParam(name = "izvor", defaultValue = "/") String izvor,
+            @RequestParam(name = "izvor", defaultValue = "/") String izvor,
             @RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttributes
     ) {
 
-try{
-        if (!file.isEmpty()) {
-                      String filename = storageService.storeDOC(file, 0);
-            Slika photo = new Slika();
-            photo.setFilename(filename);
-            photo.setTitle(title);
-            photo.setAlttext(alt_text);
+        try {
+            if (!file.isEmpty()) {
+                String filename = storageService.storeDOC(file, 0);
+                Slika photo = new Slika();
+                photo.setFilename(filename);
+                photo.setTitle(title);
+                photo.setAlttext(alt_text);
 
-            photo.setGalerija(false);
-            slikaService.save(photo);
-         Vesti vest= new Vesti();
-         vest.setDatum(LocalDate.now());
-         vest.setNaslov(naslov);
-         vest.setNaslovduzi(naslov.replace(" ","-"));
-          vest.setIzvor(izvor);
-         
-vest.setTekst(tekst);
-vest.setSlika(photo);
-            vestiService.save(vest);
-            
-          //   System.out.println("pokusavamo da sacuvamo vest");
-             // System.out.println(vest);
-            //   System.out.println(  vestiService.findFirstById(vest.getId()));
-              
-        }else{ redirectAttributes.addFlashAttribute("errorMessage", "niste izabrali glavnu sliku");
-       
-           return "redirect:/admin/admin-pocetna";}
-          }catch(Exception e){
-               redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-       
-           return "redirect:/admin/admin-pocetna";
-          }
+                photo.setGalerija(false);
+                slikaService.save(photo);
+                Vesti vest = new Vesti();
+                vest.setDatum(LocalDate.now());
+                vest.setNaslov(naslov);
+                vest.setNaslovduzi(naslov.replace(" ", "-"));
+                vest.setIzvor(izvor);
 
-        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se dodali vest.");
- return "redirect:/admin/admin-pocetna";
+                vest.setTekst(tekst);
+                vest.setSlika(photo);
+                vestiService.save(vest);
+
+                //   System.out.println("pokusavamo da sacuvamo vest");
+                // System.out.println(vest);
+                //   System.out.println(  vestiService.findFirstById(vest.getId()));
+            } else {
+                redirectAttributes.addFlashAttribute("errorMessage", "Niste izabrali glavnu sliku!");
+
+                return "redirect:/admin/admin-pocetna";
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            return "redirect:/admin/admin-pocetna";
+        }
+
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste dodali vest.");
+        return "redirect:/admin/admin-pocetna";
     }
-
 
     @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
     public String skodaEnyaqCoupePremijera(final Model model) {
@@ -677,6 +755,7 @@ vest.setSlika(photo);
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
+
     @GetMapping(value = "/slika/{slikaId}")
     public ResponseEntity<Resource> serveSlika(@PathVariable(name = "slikaId") final Integer slikaId) {
 
@@ -688,7 +767,8 @@ vest.setSlika(photo);
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
-        @GetMapping(value = "/video/{videoId}")
+
+    @GetMapping(value = "/video/{videoId}")
     public ResponseEntity<Resource> serveVvideo(@PathVariable(name = "videoId") final Integer videoId) {
 
         Video video = videoService.findFirstById(videoId);
@@ -703,8 +783,9 @@ vest.setSlika(photo);
     VideoService videoService;
     @Autowired
     ColorPaletaService colorPaletaService;
-@Autowired
+    @Autowired
     SlikaService slikaService;
+
     @GetMapping(value = "/boja/{bojaId}")
     public ResponseEntity<Resource> serveBoja(@PathVariable(name = "bojaId") final Integer bojaId) {
 
@@ -740,8 +821,9 @@ vest.setSlika(photo);
 
     @Autowired
     ProizvodiService proizvodiService;
-  @Autowired
-   VestiService vestiService;
+    @Autowired
+    VestiService vestiService;
+
     @GetMapping(value = "/proizvod/{proizvodId}")
     public String publicProizvodMargotekstil(final Model model,
             @PathVariable final Integer proizvodId
@@ -821,56 +903,55 @@ vest.setSlika(photo);
     public String posaljiPoruku(final Model model,
             final HttpServletRequest request,
             RedirectAttributes redirectAttributes,
-          //  @RequestParam(name = "prezime") String prezime,
+            //  @RequestParam(name = "prezime") String prezime,
             @RequestParam(name = "ime") String ime,
             @RequestParam(name = "email") String email,
             @RequestParam(name = "telefon") String telefon,
             @RequestParam(name = "poruka") String poruka,
-             @RequestParam(name = "message") String message
+            @RequestParam(name = "message") String message
     ) {
-        if (!message.isEmpty()){
-          String ipAddress = request.getHeader("X-Forwarded-For");
-            Spameri spamer = spamService.findByIpadresa(ipAddress);
-           if (spamer == null) {
-                Spameri novspamer = new Spameri();
-                novspamer.setBrojac(100);
-               
-         novspamer.setIpadresa(ipAddress);
-                spamService.save(novspamer);
-              
-        }else{
-              spamer.setBrojac(100);
-                 spamService.save(spamer);
-           }
-           
-           
-        }else{
-        try {
-         //   request 
+        if (!message.isEmpty()) {
             String ipAddress = request.getHeader("X-Forwarded-For");
             Spameri spamer = spamService.findByIpadresa(ipAddress);
             if (spamer == null) {
                 Spameri novspamer = new Spameri();
-                novspamer.setBrojac(1);
+                novspamer.setBrojac(100);
+
                 novspamer.setIpadresa(ipAddress);
                 spamService.save(novspamer);
-            } else {
-                spamer.setBrojac(spamer.getBrojac()+1);
-                  spamService.save(spamer);
-                if (spamer.getBrojac() > 3) {
-                    redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
 
-                    return "redirect:/";
-                }
+            } else {
+                spamer.setBrojac(100);
+                spamService.save(spamer);
             }
 
-            EmailController.SendEmailPoruka(ime, email, telefon, poruka);
-            EmailController.SendEmailPorukaPoslata(email, ime);
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+        } else {
+            try {
+                //   request 
+                String ipAddress = request.getHeader("X-Forwarded-For");
+                Spameri spamer = spamService.findByIpadresa(ipAddress);
+                if (spamer == null) {
+                    Spameri novspamer = new Spameri();
+                    novspamer.setBrojac(1);
+                    novspamer.setIpadresa(ipAddress);
+                    spamService.save(novspamer);
+                } else {
+                    spamer.setBrojac(spamer.getBrojac() + 1);
+                    spamService.save(spamer);
+                    if (spamer.getBrojac() > 3) {
+                        redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
 
-            return "redirect:/";
-        }
+                        return "redirect:/";
+                    }
+                }
+
+                EmailController.SendEmailPoruka(ime, email, telefon, poruka);
+                EmailController.SendEmailPorukaPoslata(email, ime);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+                return "redirect:/";
+            }
         }
         return "redirect:/";
     }
