@@ -72,14 +72,43 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
-    
-       @GetMapping(value = "/admin/komentari")
+
+    @Autowired
+    VideoService videoService;
+    @Autowired
+    ColorPaletaService colorPaletaService;
+    @Autowired
+    SlikaService slikaService;
+    @Autowired
+    PhotoService photoService;
+    @Autowired
+    StorageService storageService;
+    @Autowired
+    ProizvodiService proizvodiService;
+    @Autowired
+    VestiService vestiService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private UsersService userService;
+    @Autowired
+    private KorpaService korpaService;
+    @Autowired
+    private SpameriService spamService;
+    @Autowired
+    private ResetTokeniService resetTokeniService;
+    @Autowired
+    private ZavrsenePorudzbineService zavrsenePorudzbineService;
+    @Autowired
+    UsersService usersService;
+    @Autowired
+    ClanoviService clanoviService;
+
+    @GetMapping(value = "/admin/komentari")
     public String adminkomentari(final Model model) {
         return "main/komentari";
     }
-    
-    
-      //  @Autowired
+
     //  ProizvodiService proizvodiService;
     @GetMapping(value = "/admin/admin-edit/obrisiVest/{vestId}")
     public String obrisiVest(final Model model,
@@ -87,7 +116,7 @@ public class MainController {
             RedirectAttributes redirectAttributes
     ) {
         Vesti vest = vestiService.findFirstById(vestId);
-      //  vest.setActive(Boolean.FALSE);
+        //  vest.setActive(Boolean.FALSE);
         try {
             vestiService.save(vest);
             redirectAttributes.addFlashAttribute("successMessage", "Vest je uspešno obrisana!");
@@ -98,9 +127,8 @@ public class MainController {
 
         model.addAttribute("listaVesti", vestiService.findAllBy());
 
-       return "redirect:/pregled-vesti/" + vest.getNaslovduzi();
+        return "redirect:/pregled-vesti/" + vest.getNaslovduzi();
     }
-    
 
     @GetMapping(value = "/admin/admin-edit/{imeduze}")
     public String adminEdit(final Model model,
@@ -751,9 +779,9 @@ public class MainController {
 
     @GetMapping(value = "/galerija")
     public String publicGalerijaMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
-        
-            model.addAttribute("listaSlika", slikaService.findAllByGalerijaAndActive(pageable, true, true));
-        
+
+        model.addAttribute("listaSlika", slikaService.findAllByGalerijaAndActive(pageable, true, true));
+
         return "main/galerija";
     }
 
@@ -792,12 +820,6 @@ public class MainController {
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
-    @Autowired
-    VideoService videoService;
-    @Autowired
-    ColorPaletaService colorPaletaService;
-    @Autowired
-    SlikaService slikaService;
 
     @GetMapping(value = "/boja/{bojaId}")
     public ResponseEntity<Resource> serveBoja(@PathVariable(name = "bojaId") final Integer bojaId) {
@@ -825,17 +847,6 @@ public class MainController {
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
-
-    @Autowired
-    PhotoService photoService;
-
-    @Autowired
-    StorageService storageService;
-
-    @Autowired
-    ProizvodiService proizvodiService;
-    @Autowired
-    VestiService vestiService;
 
     @GetMapping(value = "/proizvod/{proizvodId}")
     public String publicProizvodMargotekstil(final Model model,
@@ -900,16 +911,6 @@ public class MainController {
 
         return "main/horeca-tekstil";
     }
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    private UsersService userService;
-    @Autowired
-    private KorpaService korpaService;
-    @Autowired
-    private SpameriService spamService;
 
     //  @PostMapping(value = "/posaljiPoruku")
     @RequestMapping(value = "/posaljiPoruku", method = RequestMethod.POST)
@@ -1030,9 +1031,6 @@ public class MainController {
         return "redirect:/registracija";
     }
 
-    @Autowired
-    private ResetTokeniService resetTokeniService;
-
     @PostMapping(value = "/reset-lozinke")
     public String publicResetPasswordMargotekstil(final Model model,
             @RequestParam(name = "email") String email,
@@ -1125,9 +1123,6 @@ public class MainController {
         return "redirect:/registracija";
     }
 
-    @Autowired
-    private ZavrsenePorudzbineService zavrsenePorudzbineService;
-
     @GetMapping("/istorijaKupovine")
     public String istorija(Model model,
             RedirectAttributes redirectAttributes
@@ -1158,11 +1153,6 @@ public class MainController {
 
         return "/main/istorijaKupovine";
     }
-
-    @Autowired
-    UsersService usersService;
-    @Autowired
-    ClanoviService clanoviService;
 
     @PostMapping(value = "/noviClan")
     public String noviClan(final Model model,
