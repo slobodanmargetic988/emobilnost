@@ -38,6 +38,12 @@
             </div>
         </div>
 
+        <div th:fragment="obrisanaSlikaGalerija (message)" class="alert-uspesna-prijava" id="alertobrisanaslika" role="alert" th:if="${message}">
+            <span class="close-btn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
+            <div class="alert-poruka-uspesna-prijava">
+               <span class="alert-heading">Slika je uspešno uklonjena!</span>
+            </div>
+        </div>
 
     </body>
 

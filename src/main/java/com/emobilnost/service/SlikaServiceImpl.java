@@ -48,4 +48,26 @@ public class SlikaServiceImpl implements SlikaService {
     return slikaRepository.findFirstById(id);
     
     }
+    
+    
+      @Override
+    public List<Slika> findAllByGalerija(Boolean da) {
+        return slikaRepository.findAllByGalerija(da);
+    };
+    
+     @Override
+    public Page<Slika> findAllByGalerija(Pageable pageable,Boolean da) {
+        return slikaRepository.findAllByGalerija(pageable,da);
+    };
+
+    @Override
+    public List<Slika> findAllByGalerijaAndActive(Boolean galerija, Boolean active) {
+         return slikaRepository.findAllByGalerijaAndActive(galerija,active);
+    }
+
+    @Override
+    public Page<Slika> findAllByGalerijaAndActive(Pageable pageable, Boolean galerija, Boolean active) {
+      return slikaRepository.findAllByGalerijaAndActive(pageable,galerija,active);
+    };
+    
 }

@@ -10,7 +10,19 @@
 @import "./variables";
 @import "./mixins";
 
-
+.min-wd {
+    min-width: 60%;
+}
+.row-actions {
+    ul {
+        li {
+            display: inline;
+            span {
+                display: inline;
+            }
+        }
+    }
+}
 .note-editor {
     .note-toolbar {
         background-color: hsla($green-color-h, $green-color-s, 98%, $green-color-a);

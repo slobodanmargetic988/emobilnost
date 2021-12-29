@@ -44,11 +44,9 @@ import com.emobilnost.service.VestiService;
 import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
-import com.sun.mail.handlers.message_rfc822;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.springframework.context.annotation.Scope;
@@ -57,6 +55,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -73,6 +72,35 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
+    
+       @GetMapping(value = "/admin/komentari")
+    public String adminkomentari(final Model model) {
+        return "main/komentari";
+    }
+    
+    
+      //  @Autowired
+    //  ProizvodiService proizvodiService;
+    @GetMapping(value = "/admin/admin-edit/obrisiVest/{vestId}")
+    public String obrisiVest(final Model model,
+            @PathVariable final Integer vestId,
+            RedirectAttributes redirectAttributes
+    ) {
+        Vesti vest = vestiService.findFirstById(vestId);
+      //  vest.setActive(Boolean.FALSE);
+        try {
+            vestiService.save(vest);
+            redirectAttributes.addFlashAttribute("successMessage", "Vest je uspešno obrisana!");
+        } catch (Exception e) {
+            //  System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Vest nije uspešno obrisana! " + e.getMessage()));
+        }
+
+        model.addAttribute("listaVesti", vestiService.findAllBy());
+
+       return "redirect:/pregled-vesti/" + vest.getNaslovduzi();
+    }
+    
 
     @GetMapping(value = "/admin/admin-edit/{imeduze}")
     public String adminEdit(final Model model,
@@ -82,7 +110,6 @@ public class MainController {
         return "main/admin-edit";
     }
 
-    
     //edit vesti
     @RequestMapping(value = "/admin/editSaveVest/{imeduze}", method = RequestMethod.POST)
     public String editVest(final Model model, final HttpServletRequest request,
@@ -97,7 +124,7 @@ public class MainController {
     ) {
         Vesti vest;
         try {
-            
+
             if (!file.isEmpty()) {
                 String filename = storageService.store(file, 0);
                 Slika photo = new Slika();
@@ -107,54 +134,40 @@ public class MainController {
                 photo.setGalerija(false);
                 photo.setActive(Boolean.TRUE);
                 slikaService.save(photo);
-                
+
                 vest = vestiService.findFirstByNaslovduzi(imeduze);
-               //       System.out.println(vest);
+                //       System.out.println(vest);
                 vest.setNaslov(naslov);
                 vest.setTekst(tekst);
-               // vest.setDatum(LocalDate.now());
+                // vest.setDatum(LocalDate.now());
                 vest.setNaslovduzi(naslov.replace(" ", "-"));
                 vest.setIzvor(izvor);
                 vest.setSlika(photo);
                 vestiService.save(vest);
             } else {
                 vest = vestiService.findFirstByNaslovduzi(imeduze);
-              //   System.out.println(vest+"ovde");
-                 vest.setNaslov(naslov);
+                //   System.out.println(vest+"ovde");
+                vest.setNaslov(naslov);
                 vest.setTekst(tekst);
-               // vest.setDatum(LocalDate.now());
+                // vest.setDatum(LocalDate.now());
                 vest.setNaslovduzi(naslov.replace(" ", "-"));
-               
+
                 vest.setIzvor(izvor);
                 vestiService.save(vest);
             }
 
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
-        //    System.out.println(e.getMessage());
-            return "redirect:/admin/admin-edit/"+imeduze;
+            //    System.out.println(e.getMessage());
+            return "redirect:/admin/admin-edit/" + imeduze;
         }
-                redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste izmenili vest.");
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste izmenili vest.");
 
         return "redirect:/pregled-vesti/" + vest.getNaslovduzi();
 
     }
     //edit vesti
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GetMapping("/pregled-vesti/{imeduze}")
     public String pregledVvesti(Model model,
             @PathVariable(name = "imeduze") String imeduze
@@ -166,10 +179,10 @@ public class MainController {
     }
 
     @GetMapping("/vesti2")
-    public String vesti2(Model model,
+    public String vesti2(final Model model,
             @PageableDefault(value = 12) final Pageable pageable
     ) {
-        model.addAttribute("vesti", vestiService.findAllBy(pageable));
+        model.addAttribute("listaVesti", vestiService.findAllBy(pageable));
 
         return "main/vesti2";
     }
@@ -738,9 +751,9 @@ public class MainController {
 
     @GetMapping(value = "/galerija")
     public String publicGalerijaMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
-
-        model.addAttribute("listaSlika", photoService.findByProizvodIsNullAndGlavnazaproizvodIsNullAndActive(true, pageable));
-
+        
+            model.addAttribute("listaSlika", slikaService.findAllByGalerijaAndActive(pageable, true, true));
+        
         return "main/galerija";
     }
 
