@@ -8,94 +8,146 @@
         <link th:href="@{/css/pagination-custom.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/lightbox.min.css}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">-->
 
 
     <meta name="description" content="Galerija slika udruženja E-Mobilnost. Pogledajte našu galeriju slika | E-Mobilnost"/> 
     <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja električnih vozila, 
           emobilnost, električna vozila, električni automobili, vozila, automobili, električni motori, električni trotineti, motori, trotineti, electric vehicles, electric vehicle, galerija, galerija slika, galerija slika udruženja, 
           galerija slika udruženja E-Mobilnost, električni pogon, vozila na električni pogon, elektromobili, elektromobilnost"/>
-</head>
+    <!--</head>-->
 
-<body>
-<th:block th:insert="fragments/topbar :: topbar" />
+    <body style="padding: 0">
+    <th:block th:insert="fragments/topbar :: topbar" />
 
-<!--<img src="/img/car-galerija.jpg" class="gallery-header-img" alt="header-image" >-->
-<picture>
-    <source media="(max-width: 776px)" srcset="/img/gallerysmall.jpg">
-    <source media="(min-width: 992px)" srcset="/img/galleryCropped.jpg">
-    <img src="/img/galleryCropped.jpg" class="header-img" alt="home-header-image">
-</picture>
+    <!--<img src="/img/car-galerija.jpg" class="gallery-header-img" alt="header-image" >-->
+    <picture>
+        <source media="(max-width: 776px)" srcset="/img/gallerysmall.jpg">
+        <source media="(min-width: 992px)" srcset="/img/galleryCropped.jpg">
+        <img src="/img/galleryCropped.jpg" class="header-img" alt="home-header-image">
+    </picture>
 
-<th:block th:insert="fragments/navigation :: navbar" />
+    <th:block th:insert="fragments/navigation :: navbar" />
 
-<div class="text-box text-box-mini">
-    <h2 class="big-header-hidden">E-Mobilnost</h2>
-    <h3>Galerija</h3>
-</div>
+    <div class="text-box text-box-mini">
+        <h2 class="big-header-hidden">E-Mobilnost</h2>
+        <h3>Galerija</h3>
+    </div>
 
-<section id="gallery ">
-    <div class="container">
-        <!--<th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />-->
+    <section id="gallery  ">
+        <div class="container mb-5">
+            <div class="photo-gallery mt-5">
+                <div class="container">
+                    <div class="d-flex justify-content-center my-5" sec:authorize="hasAnyAuthority('ADMIN')">
+                        <button type="button" class="btn-save-vest" data-toggle="modal" data-target="#form3">
+                            Dodaj sliku
+                        </button>  
+                    </div>
+                    <div class="modal fade" id="form3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0">
+                                    <h5 class="modal-title" id="exampleModalLabel">Dodavanje nove slike za galeriju</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="">
+                                                <label for="naslovslikegalerija">Naslov slike:</label>
+                                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslovslikegalerija" >
+                                            </div>
+                                            <div class=" mt-3">
+                                                <label for="alttekstgalerija">Alternativni tekst: <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Opišite svrhu slike. Ostavite prazno ako je slika čisto dekorativna."></i></label>
+                                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="alttekstgalerija">
+                                            </div>
+                                        </div>
+                                        <div class="centrirajFormuChoose" >
 
+                                            <div >
+                                                <input type="file" name="file" id="slikauploadgalerija" value="Uploadfile" >
+                                            </div>
+                                            <label  class=" control-label" for="slikauploadgalerija" >(* max. 80 MB)</label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-top-0 d-flex justify-content-end">
+                                        <a href="" class="btn-no mr-3">Odustani</a>
+                                        <a id="uploadslikegalerija" class="btn-save-vest" data-toggle="modal" data-target="#successUploadSlikeGalerija">Dodaj sliku</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="photo-gallery mt-5">
-            <div class="container">
-                <div class="row photos">
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/kona.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/kona.jpg" alt="Hyundai Kona"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/mica2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/mica2.jpg" alt="Peugeot auto"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/ruza.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/ruza.jpg" alt="Restoran Ružo rumena"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/restRuzoRumena.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/restRuzoRumena.jpg" alt="Restoran Ružo rumena"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/chargerruza.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/chargerruza.jpg" alt="Punjač za sve vrste električnih automobila u restoranu Ružo rumena"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/mercedes1.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/mercedes1.jpg" alt="Mercedes predstavljanje"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/mercedes2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/mercedes2.jpg" alt="Mercedes predstavljanje"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/mercedes3.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/mercedes3.jpg" alt="Mercedes predstavljanje"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/skodaenyaqiV.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/skodaenyaqiV.jpg" alt="Škoda enyag iV"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/skodaenyaqiV-2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/skodaenyaqiV-2.jpg" alt="Škoda enyag iV"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/Golden-Steering-Wheel-2021-1.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/Golden-Steering-Wheel-2021-1.jpg" alt="Golden Steering-Wheel 2021"></a></div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img/Golden-Steering-Wheel-2021-2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img/Golden-Steering-Wheel-2021-2.jpg" alt="Golden Steering-Wheel 2021"></a></div>
+                    <!-- successUploadSlikeGalerija modal -->
+            <div class="modal fade" id="successUploadSlikeGalerija" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3 style="text-align: center;font-size: 16px;">Slika je uspešno dodata!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div  class="row photos">
+                        <th:block th:each="slika : ${listaSlika}">
+                            <div class="col-sm-6 col-md-4 col-lg-3 item">
+                                <a th:href="@{/slika/{slikaId} (slikaId=${slika.id})}" data-lightbox="photos">
+                                    <img class="img-fluid" th:src="@{/slika/{slikaId} (slikaId=${slika.id})}"   th:alt="${slika.alttext}" th:title="${slika.title}">
+                                </a>
+                                <div style="text-align: right; cursor: pointer"> <a sec:authorize="hasAnyAuthority('ADMIN')" class="deaktivirajSliku" style="color: #4d4d4d;" th:slikaId="${slika.id}" data-toggle="modal" data-target="#removeImgGallery">Ukloni&nbsp;<i class="far fa-trash-alt" data-toggle="tooltip" data-placement="top" title="Uklonite sliku"></i></a></div>
+
+                            </div>
+                        </th:block>
+                    </div>
+
 
                 </div>
             </div>
-        </div>
+            <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
 
-        <!--        <div id="image-gallery">
-                    <div class="row">
-                        <th:block th:each="slika : ${listaSlika}" >  
-        
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 image">
-        
-                                <div class="img-wrapper">
-                                    <a th:href="@{/photo/{photoId} (photoId=${slika.id})}"> <img class="gallery-img" th:src="@{/photo/{photoId} (photoId=${slika.id})}" th:alt="${slika.alt_text}"  th:title="${slika.title}"/></a>
-                                    <div class="img-overlay">
-                                    </div>
-        
-                                </div>
-                            </div>
-        
-                        </th:block>
-        
-                    </div> End row 
-                </div> End image gallery -->
-        <!--
-                <div style="padding-top: 2rem">
-                    <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
-                </div>-->
+            <!-- removeImgGallery modal -->
+            <div class="modal fade" id="removeImgGallery" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3 style="text-align: center;font-size: 16px;">Slika je uspešno uklonjena!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
 
-    </div>
-</div><!-- End container --> 
-</section>
 
-<th:block th:insert="fragments/footer :: footer" />
 
-<a id="back-to-top-button"></a>
 
-<th:block th:insert="fragments/scripts :: scripts" />
-<!--<script th:src="@{/js/galerijaSlide.js}" type="text/javascript"></script>-->
+    <th:block th:insert="fragments/footer :: footer" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <a id="back-to-top-button"></a>
 
+    <th:block th:insert="fragments/scripts :: scripts" />
+    <!--<script th:src="@{/js/galerijaSlide.js}" type="text/javascript"></script>-->
+    <script th:src="@{/js/upload.js}"></script>
+    <script th:src="@{/js/lightbox.min.js}"></script>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>-->
+
+    <!--tooltip-->
+    <script>$(document).ready(function () {
+            $(function () {
+                $('[data-toggle="popover"]').popover();
+            });
+
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        });</script>
 </body>
 
 </html>

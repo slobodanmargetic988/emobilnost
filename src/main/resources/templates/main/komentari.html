@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" 
+
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Admin početna strana | E-Mobilnost</title>
+
+        <meta name="description" content="Administratorska početna strana udruženja E-Mobilnost "/> 
+        <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, electric vehicles, electric vehicle, električna vozila, električni automobili, vozila, automobili, električni motori, električni 
+              trotineti, motori, trotineti, admin, administrator"/>
+
+    <th:block th:insert="fragments/head :: head" />
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link th:href="@{/css/admin-panel.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="user-dashboard no-touch">
+
+    <div class="topbar">
+        <div class="topbar-md d-lg-none">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="#" class="toggle-nav">
+                        <div class="toggle-icon">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                        </div>
+                    </a>
+
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" style="width: 100px;
+                                 height: auto;" alt="logo">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="padding: 0 20px;">
+            <div class="d-lg-flex align-items-center justify-content-between">
+                <div class="topbar-lg d-none d-lg-block">
+                    <div class="site-logo">
+                        <a th:href="@{/}" class="site-brand">
+                            <img src="/img/e-mob-logo-auto2.png" alt="logo" style="width: 100px;
+                                 height: auto;" >
+                        </a>
+                    </div>
+                </div>
+
+                <div class="topbar-action d-none d-lg-block">
+                    <ul class="topbar-action-list">
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/}">Idi na početnu</a>
+                        </li>
+                        <li class="topbar-action-item topbar-action-link">
+                            <a th:href="@{/vesti}">Vesti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-wraper">
+        <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+        <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+        <div class="container-fluid">
+            <div class="row">
+                <th:block th:insert="fragments/navigation :: admin-navbar" />
+
+
+
+                <div class="user-content min-wd col-lg-5 mb-4">
+
+                    <div class="user-panel">
+                        <h3 class="add-new">KOMENTARI</h3>
+
+                        <!--<div class="container-fluid my-5">-->
+                        <div class="table-responsive" style="box-shadow: 1px 0 20px 3px rgb(199 199 199 / 20%);">
+                            <table class="table">
+                                <thead class="table-success">
+                                    <tr>
+                                        <th span="1" style="vertical-align: middle;width: 10%;">Autor</th>
+                                        <th style="vertical-align: middle;">Komentar</th>
+                                        <th style="vertical-align: middle;">Vest</th>
+                                        <th style="text-align: center;">Datum komentara</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td span="1" style="width: 20%;" class="author column-author" data-colname="Author"><strong><img alt="" src="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=32&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> Slobodan</strong><br><a href="mailto:slobodanmargetic988@gmail.com">slobodanmargetic988@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=109.92.20.155&amp;mode=detail">109.92.20.155</a></td>
+                                        <!--           <th scope="row">Aleksinac</th> -->
+                                        <td span="1" style="width: 50%;">
+                                            <p>Kako vam je lep ovaj web sajt.</p>
+                                            <div class="row-actions">
+                                                <ul>
+                                                    <li> <span class="approve">
+                                                            <a href="" class="vim-a aria-button-if-js" aria-label="Approve this comment" role="button">Approve</a>
+                                                        </span></li>
+                                                    <li><span class="unapprove">
+                                                            <a href="" class="vim-u aria-button-if-js" aria-label="Unapprove this comment" role="button">Unapprove</a></span>
+                                                    </li>
+                                                    <li>                                               
+                                                        <span class="reply hide-if-no-js"> | <button type="button" data-comment-id="6" data-post-id="229" data-action="replyto" class="vim-r comment-inline button-link" aria-expanded="false" aria-label="Reply to this comment">Reply</button></span>
+                                                    </li>
+                                                    <li>                                      
+                                                        <span class="edit"> | <a href="" aria-label="Edit this comment">Edit</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="spam"> | <a href="" class="vim-s vim-destructive aria-button-if-js" aria-label="Mark this comment as spam" role="button">Spam</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="trash"> | <a href="" class="delete vim-d vim-destructive aria-button-if-js" aria-label="Move this comment to the Trash" role="button">Trash</a></span>
+                                                    </li>
+                                                </ul>
+                                            </div>                                              </td>
+                                        <td span="1" style="width: 20%; vertical-align: middle;">
+                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
+                                        </td>
+                                        <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
+                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="author column-author" data-colname="Author"><strong><img alt="" src="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=32&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> OceanWP</strong><br><a href="mailto:oceanwptheme@gmail.com">oceanwptheme@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=92.132.51.72&amp;mode=detail">92.132.51.72</a></td>
+                                        <!--           <th scope="row">Bački Petrovac</th> -->
+                                        <!--           <td>Business Park, Industrijska zona bb</td> -->
+                                        <td span="1" style="width: 50%;">
+                                            <p>Kako vam je lep ovaj web sajt.</p>
+                                            <div class="row-actions">
+                                                <ul>
+                                                    <li> <span class="approve">
+                                                            <a href="" class="vim-a aria-button-if-js" aria-label="Approve this comment" role="button">Approve</a>
+                                                        </span></li>
+                                                    <li><span class="unapprove">
+                                                            <a href="" class="vim-u aria-button-if-js" aria-label="Unapprove this comment" role="button">Unapprove</a></span>
+                                                    </li>
+                                                    <li>                                               
+                                                        <span class="reply hide-if-no-js"> | <button type="button" data-comment-id="6" data-post-id="229" data-action="replyto" class="vim-r comment-inline button-link" aria-expanded="false" aria-label="Reply to this comment">Reply</button></span>
+                                                    </li>
+                                                    <li>                                      
+                                                        <span class="edit"> | <a href="" aria-label="Edit this comment">Edit</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="spam"> | <a href="" class="vim-s vim-destructive aria-button-if-js" aria-label="Mark this comment as spam" role="button">Spam</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="trash"> | <a href="" class="delete vim-d vim-destructive aria-button-if-js" aria-label="Move this comment to the Trash" role="button">Trash</a></span>
+                                                    </li>
+                                                </ul>
+                                            </div>      
+
+
+                                        </td>
+                                        <td span="1" style="width: 20%; vertical-align: middle;">
+                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
+                                        </td>
+                                        <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
+                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="author column-author" data-colname="Author"><strong><img alt="" src="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=32&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> OceanWP</strong><br><a href="mailto:oceanwptheme@gmail.com">oceanwptheme@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=92.132.51.72&amp;mode=detail">92.132.51.72</a></td>
+                                        <!--           <th scope="row">Batrovci</th> -->
+                                        <!--           <td>Naplatna stanica Adaševci, Šid</td> -->
+                                        <td span="1" style="width: 50%;">
+                                            <p>Kako vam je lep ovaj web sajt.</p>
+                                            <div class="row-actions">
+                                                <ul>
+                                                    <li> <span class="approve">
+                                                            <a href="" class="vim-a aria-button-if-js" aria-label="Approve this comment" role="button">Approve</a>
+                                                        </span></li>
+                                                    <li><span class="unapprove">
+                                                            <a href="" class="vim-u aria-button-if-js" aria-label="Unapprove this comment" role="button">Unapprove</a></span>
+                                                    </li>
+                                                    <li>                                               
+                                                        <span class="reply hide-if-no-js"> | <button type="button" data-comment-id="6" data-post-id="229" data-action="replyto" class="vim-r comment-inline button-link" aria-expanded="false" aria-label="Reply to this comment">Reply</button></span>
+                                                    </li>
+                                                    <li>                                      
+                                                        <span class="edit"> | <a href="" aria-label="Edit this comment">Edit</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="spam"> | <a href="" class="vim-s vim-destructive aria-button-if-js" aria-label="Mark this comment as spam" role="button">Spam</a></span>
+                                                    </li>
+                                                    <li>                            
+                                                        <span class="trash"> | <a href="" class="delete vim-d vim-destructive aria-button-if-js" aria-label="Move this comment to the Trash" role="button">Trash</a></span>
+                                                    </li>
+                                                </ul>
+                                            </div>                                        </td>
+                                        <td span="1" style="width: 20%; vertical-align: middle;">
+                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
+                                        </td>
+                                        <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
+                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer-bar">
+        <div class="container-fluid">
+            <span class="footer-copyright">Copyright © 2021 E-mobilnost, Made by <a href="#">CMI</a>. Sva prava zadržana.</span>
+        </div>
+    </div>
+
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script th:src="@{/js/wysiwyg.js}"></script>
+<script th:src="@{/js/admin-panel.js}"></script>
+<script th:src="@{/js/formValidation.js}"></script>
+<script th:src="@{/js/upload.js}"></script>
+
+
+<!--tooltip-->
+<script>$(document).ready(function () {
+        $(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    });</script>
+</script>
+</body>
+
+</html>

@@ -233,6 +233,36 @@
                         </div>
 
                     </div>
+                    
+                     <!--izbrisi vest-->
+                    <div class="row add-additional" style="    min-height: unset; margin: 0 5px 30px 0;">
+                        <div class="col-12">
+                            <h3 class="add-new">BRISANJE VESTI <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Moguće je dodati više od jednog videa, ali ne odjednom."></i></h3>
+                        </div>
+                        <!--btn izbrisi vest-->
+                        <div class="col-12 mt-3">
+                            <button type="button" class="btn-save-vest" data-toggle="modal" data-target="#formUkloniVest">
+                                Ukloni vest
+                            </button>  
+                        </div>
+
+                        <div class="modal fade" id="formUkloniVest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-0">
+                                        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.2rem;">Da li ste sigurni da želite da obrišete ovu vest?</h5>
+                                    </div>
+                                    <!--<form>-->
+                                    <div class="modal-footer border-top-0 d-flex justify-content-end">
+                                        <a href="" class="btn-no mr-3">Odustani</a>
+                                        <a th:href="@{/admin/admin-edit/obrisiVest/{vestId} (vestId=${vest.id})}" id="obrisiVestBtn" class="btn-save-vest">Obriši vest</a>
+                                    </div>
+                                    <!--</form>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
 

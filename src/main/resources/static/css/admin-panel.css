@@ -15,6 +15,17 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+.min-wd {
+  min-width: 60%;
+}
+
+.row-actions ul li {
+  display: inline;
+}
+.row-actions ul li span {
+  display: inline;
+}
+
 .note-editor .note-toolbar {
   background-color: #fafdf7;
 }

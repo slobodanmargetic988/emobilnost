@@ -7,11 +7,11 @@
 }
 
 .pagination {
+    padding: 50px 0 0 0;
     >.disabled {
         >a {
             color: #b7b7b7;
             background-color: transparent;
-            /*border-color: rgba(18,18,18,.13);*/
             cursor: not-allowed;
             &:focus, &:hover {
                 color: #ccc;
@@ -24,37 +24,26 @@
 
     >li.active {
         >a {
-            /*color: $white-color;*/
             color: $brown-black-color;
-            /*            border-color: $burgundy-color;
-                        background: $burgundy-color;*/
-            font-weight: 500;
-            &:active, &:focus, &:hover {
-                /*color: $white-color;*/
-                color: $brown-black-color; 
-                /*                border-color: $burgundy-color;
-                                background: $burgundy-color;*/
+            font-weight: 600;
+                        border-bottom: 3px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 
+            &:active, &:focus, &:hover {
+                color: hsla($main-color-h, $main-color-s, 20%, $main-color-a); 
             }
         }
     }
 
     .page-link {
-        color: $redish-color;
-        text-align: center;
-        /*        width: 48px;
-                height: 48px;*/
-        width: 27px;
-        height: 27px;
-        /*padding: .7rem 0.42rem !important;*/    
-        padding: 0;
-        font-size: 1.2rem;
+         padding: 10px 18px;
+        font-size: 1rem;
         border: none;
+        color: hsla($main-color-h, $main-color-s, 20%, $main-color-a); 
+        background: transparent;
         &:hover {
+            color: hsla($main-color-h, $main-color-s, 20%, $main-color-a); 
+            border-bottom: 3px solid hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
             background: transparent;
-            /*border-color: $redish-color;*/
-            /*color: $redish-color;*/
-            color: #000000;
         }
         &:focus {
             box-shadow: none;

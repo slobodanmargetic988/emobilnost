@@ -12,6 +12,7 @@ import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Proizvodi;
 import com.emobilnost.model.Slika;
 import com.emobilnost.model.Users;
+import com.emobilnost.model.Vesti;
 import com.emobilnost.model.Video;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.AnketaService;
@@ -24,6 +25,7 @@ import com.emobilnost.service.SlikaService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.emobilnost.service.UsersService;
+import com.emobilnost.service.VestiService;
 import com.emobilnost.service.VideoService;
 import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
@@ -66,40 +68,82 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 public class KorpaRestController {
 
-    
-   
     @RequestMapping(value = "/post/novaSlika/save", method = RequestMethod.POST)
     @ResponseBody
     public String saveSlika(
-     @RequestParam("file") MultipartFile file,
+            @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
             @RequestParam(name = "alt_text") String alt_text,
-               @RequestParam(name = "galerija") boolean galerija
-    
-    ) { Slika slika;
-                      System.out.println("pokusavamo da sacuvamo sliku");
-          try{
-                      String filename = storageService.storeDOC(file, 0);
+            @RequestParam(name = "galerija") boolean galerija
+    ) {
+        Slika slika;
+        System.out.println("pokusavamo da sacuvamo sliku");
+        try {
+            String filename = storageService.storeDOC(file, 0);
             Slika photo = new Slika();
             photo.setFilename(filename);
             photo.setTitle(title);
             photo.setAlttext(alt_text);
+            photo.setActive(true);
+            photo.setGalerija(galerija);
+            slikaService.save(photo);
+            slika = photo;
+        } catch (Exception e) {
+            return "neuspelo cuvanje slike";
+        }
+
+        return "<img class=\"gallery-img my-3\" src=\"/slika/" + slika.getId() + "\" alt=\"" + alt_text + "\"  title=\"" + title + "\"/>";
+    }
+
+    @RequestMapping(value = "/post/novaSlikaGalerija/save", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveSlikaGalerija(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+            @RequestParam(name = "galerija", required = false, defaultValue = "true") boolean galerija
+    ) {
+        Slika slika;
+        System.out.println("pokusavamo da sacuvamo sliku");
+        try {
+            String filename = storageService.storeDOC(file, 0);
+            Slika photo = new Slika();
+            photo.setFilename(filename);
+            photo.setTitle(title);
+            photo.setAlttext(alt_text);
+            photo.setActive(true);
 
             photo.setGalerija(galerija);
             slikaService.save(photo);
-           slika=photo;
-          }catch(Exception e){
-           return "neuspelo cuvanje slike";
-          }
+            slika = photo;
+        } catch (Exception e) {
+            return "neuspelo cuvanje slike";
+        }
 
-        
-        return "<img class=\"gallery-img my-3\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
+        //return "<img class=\"gallery-img my-3\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
+        return "ok";
+    }
+
+    @RequestMapping(value = "/post/deaktivirajSlikuGalerija/{slikaId}", method = RequestMethod.POST)
+    @ResponseBody
+    public String deaktivirajSlikaGalerija(
+            @PathVariable(name = "slikaId") final Integer slikaId
+    ) {
+        Slika slika = slikaService.findFirstById(slikaId);
+//        Slika slika;
+      //  System.out.println("pokusavamo da deaktiviramo sliku");
+        try {
+       
+            slika.setActive(false);
+            slikaService.save(slika);
+          
+        } catch (Exception e) {
+            return "neuspelo deaktiviranje slike";
+        }
+        return "ok";
     }
     
-    
-
-
-
+   
 
 //    @RequestMapping(value = "/post/echo", method = RequestMethod.POST)
 //    @ResponseBody
@@ -111,84 +155,78 @@ public class KorpaRestController {
 //    }
     @Autowired
     private ZavrsenePorudzbineService zavrsenePorudzbineService;
-    
- @Autowired
+
+    @Autowired
     private ColorPaletaService colorPaletaService;
-     
- @Autowired
+
+    @Autowired
     private AnketaService anketaService;
-      
- @Autowired
+
+    @Autowired
     private ClanoviService clanoviService;
     @Autowired
     StorageService storageService;
-     @Autowired
+    @Autowired
     SlikaService slikaService;
 
-
-
+       @Autowired
+    VestiService vestiService;
     
-  
-      @Autowired
+    @Autowired
     VideoService videoService;
 
     @RequestMapping(value = "/post/novVideo/save", method = RequestMethod.POST)
     @ResponseBody
     public String saveVideo(
-     @RequestParam("file") MultipartFile file,
+            @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
-           
-               @RequestParam(name = "galerija") boolean galerija
-    
-    ) { Video video;
-                      System.out.println("pokusavamo da sacuvamo video");
-          try{
-                      String filename = storageService.storeDOC(file, 0);
+            @RequestParam(name = "galerija") boolean galerija
+    ) {
+        Video video;
+        System.out.println("pokusavamo da sacuvamo video");
+        try {
+            String filename = storageService.storeDOC(file, 0);
             Video video2 = new Video();
             video2.setFilename(filename);
             video2.setTitle(title);
-           // video2.setAlt_text(alt_text);
-
+            // video2.setAlt_text(alt_text);
+            video2.setActive(true);
             video2.setGalerija(galerija);
             videoService.save(video2);
-           video=video2;
-          }catch(Exception e){
-           return "neuspelo cuvanje slike";
-          }
+            video = video2;
+        } catch (Exception e) {
+            return "neuspelo cuvanje slike";
+        }
 
-        
-        return "<div class=\"feature-video my-3\">\n" +
-"                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n" +
-"                                <source src=\"/video/"+video.getId()+"#t=2\" type=\"video/"+"mp4"+"\">\n" +
-"                                Vaš pretraživač ne podržava video tag.\n" +
-"                            </video>\n" +
-"                        </div>";
+        return "<div class=\"feature-video my-3\">\n"
+                + "                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n"
+                + "                                <source src=\"/video/" + video.getId() + "#t=2\" type=\"video/" + "mp4" + "\">\n"
+                + "                                Vaš pretraživač ne podržava video tag.\n"
+                + "                            </video>\n"
+                + "                        </div>";
     }
- 
- 
+
     @GetMapping("/anketa")
     String anketa(
             @RequestParam("myData") String myData
     ) {
-      
+
         try {
             JSONObject anketaJSON = new JSONObject(myData);
-            
-         
-            Anketa anketa= new Anketa();
+
+            Anketa anketa = new Anketa();
             anketa.setEmail(anketaJSON.getString("email"));
             anketa.setOpcija(anketaJSON.getString("opcija"));
             anketa.setClan(clanoviService.findFirstByEmail(anketaJSON.getString("email")));
             anketaService.save(anketa);
-            
-        }catch(Exception e){
-        return "neuspesno sacuvana anketa";
+
+        } catch (Exception e) {
+            return "neuspesno sacuvana anketa";
         }
         return "ok";
-   
+
     }
-  
-    
+
     @GetMapping("/korpa/zavrsiPorudzbinu/neregistrovan")
     String zavrsiPorudzbinuMargotekstilNeregistrovan(
             @RequestParam("myData") String myData
@@ -222,9 +260,9 @@ public class KorpaRestController {
                 tempKP.setKorpa(tempKorpa);
                 tempKP.setProizvod(proizvodiService.findFirstById(parseInt(temp.getString("idProizvoda"))));
                 tempKP.setKolicina(temp.getInt("kolicina"));
-                int boja=temp.getInt("boja");
-                if (boja!=0){
-                tempKP.setBoja(colorPaletaService.findFirstById(boja));
+                int boja = temp.getInt("boja");
+                if (boja != 0) {
+                    tempKP.setBoja(colorPaletaService.findFirstById(boja));
                 }
                 korpaProizvodiService.saveAndFlush(tempKP);
                 templista.add(tempKP);
@@ -246,12 +284,12 @@ public class KorpaRestController {
             zavrsena.setNapomena(korisnik.getString("napomena"));
             zavrsena.setPostanski_broj(korisnik.getString("postanskibroj"));
             zavrsena.setPrezime(korisnik.getString("prezime"));
-           
+
             zavrsenePorudzbineService.saveAndFlush(zavrsena);
         } catch (Exception e) {
 
             System.out.println(e);
-return e.getMessage();
+            return e.getMessage();
         }
         try {
             if (zavrsena.getNacin_placanja().equalsIgnoreCase("Plaćanje prilikom preuzimanja")) {
@@ -267,7 +305,7 @@ return e.getMessage();
                     // System.out.println("so far so good4");
                     String htmlPrikaz = "";
                     String uplatnica = "";
-                    EmailController.SendVasaPorudzbinaiUplatnicaEmail( user, zavrsena);
+                    EmailController.SendVasaPorudzbinaiUplatnicaEmail(user, zavrsena);
                     //  System.out.println("so far so good5");
                     EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 //System.out.println("so far so good6");
@@ -285,13 +323,12 @@ return e.getMessage();
         } catch (Exception e) {
 
             System.out.println(e);
-             return "porudzbina nije prosla";
+            return "porudzbina nije prosla";
         }
 
         return "ok";
-   
+
     }
-  
 
     @Autowired
     private UsersService userService;
@@ -309,8 +346,8 @@ return e.getMessage();
     String dodajProizvodG(@PathVariable final int proizvod_id) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
@@ -323,7 +360,7 @@ return e.getMessage();
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
-                
+
             } else {
                 //ne radimo nista vec je u korpi
                 return "Proizvod je već u korpi!";
@@ -333,14 +370,12 @@ return e.getMessage();
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("ovde");
-            
+
             return "Proizvod nije dodat u korpu!";
         }
         return "Proizvod je uspešno dodat u korpu!";
     }
 
-   
-       
     @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}/{boja}")
     String dodajProizvodQty(@PathVariable final int proizvod_id,
             @PathVariable final int kolicina,
@@ -350,37 +385,36 @@ return e.getMessage();
             return "Morate uneti količinu veću od nula!";
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-               Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
-         Korpa korpa = myUser.getKorpa();
+        Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
+        Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod,colorPaletaService.findFirstById(boja));
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod, colorPaletaService.findFirstById(boja));
 
         KorpaProizvodi novProizvod = new KorpaProizvodi();
         novProizvod.setKorpa(korpa);
         novProizvod.setProizvod(proizvod);
         novProizvod.setKolicina(kolicina);
-       // novProizvod.setBoja(colorPaletaService.findFirstById(boja));
-        
-if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
-        novProizvod.setBoja(colorPaletaService.findFirstById(boja));
-}
-        
+        // novProizvod.setBoja(colorPaletaService.findFirstById(boja));
+
+        if (boja > 0) {//default boja je 0 pa ne dodajemo ako je defaultna
+            novProizvod.setBoja(colorPaletaService.findFirstById(boja));
+        }
+
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
             } else {
-            
+
                 if (postojeciProizvod.getKolicina() != kolicina) {
                     postojeciProizvod.setKolicina(kolicina);
                     korpaProizvodiService.save(postojeciProizvod);
                     return "Proizvod je već u korpi, promenjena je količina !";
                 }
-                  return "Proizvod je već u korpi!";
-                
+                return "Proizvod je već u korpi!";
+
                 //ne radimo nista vec je u korpi
-              
             }
             // korpa.getKorpaproizvodi().add(novProizvod);
             //  korpaService.save(korpa);
@@ -398,11 +432,11 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
             return "Morate uneti količinu veću od nula!";
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-                Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
-         Korpa korpa = myUser.getKorpa();
-    //    Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
+        Korpa korpa = myUser.getKorpa();
+        //    Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
             postojeciProizvod.setKolicina(kolicina);
@@ -417,11 +451,11 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String povecajKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-               Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
-         Korpa korpa = myUser.getKorpa();
-     //   Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
+        Korpa korpa = myUser.getKorpa();
+        //   Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
             postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() + 1);
@@ -437,13 +471,13 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String smanjiKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-              Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
-         Korpa korpa = myUser.getKorpa();
-      //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-    KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
-    try {
+        Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
+        Korpa korpa = myUser.getKorpa();
+        //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
+        try {
 
             if (postojeciProizvod.getKolicina() > 0) {
                 postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() - 1);
@@ -454,10 +488,10 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
             }
 
         } catch (Exception e) {
-             System.out.println("returnolicina nije smanjena!");
+            System.out.println("returnolicina nije smanjena!");
             return "returnolicina nije smanjena!";
         }
-       System.out.println("Kolicina je uspešno smanjena!!");
+        System.out.println("Kolicina je uspešno smanjena!!");
         return "Kolicina je uspešno smanjena!";
     }
 
@@ -465,13 +499,13 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String skloniProizvod(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-               Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-        
-         Users myUser = userService.findFirstByEmail(user.getEmail());
-         Korpa korpa = myUser.getKorpa();
-      //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-    KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
-    try {
+        Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+
+        Users myUser = userService.findFirstByEmail(user.getEmail());
+        Korpa korpa = myUser.getKorpa();
+        //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
+        try {
             korpaProizvodiService.delete(postojeciProizvod);
         } catch (Exception e) {
             System.out.println(e);

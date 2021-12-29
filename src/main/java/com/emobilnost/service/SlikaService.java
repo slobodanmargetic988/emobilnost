@@ -23,5 +23,10 @@ public interface SlikaService {
     
 void save(Slika slika);
     Slika findFirstById(Integer id);
-
+    
+    
+       List<Slika> findAllByGalerija(Boolean da);
+    Page<Slika> findAllByGalerija(Pageable pageable,Boolean da);
+       List<Slika> findAllByGalerijaAndActive(Boolean galerija, Boolean active);
+    Page<Slika> findAllByGalerijaAndActive(Pageable pageable,Boolean galerija, Boolean active);
 }

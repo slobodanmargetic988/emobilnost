@@ -13,6 +13,7 @@
         <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/pagination-custom.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -37,7 +38,7 @@
     <div class="container">
 
         <div class="row">
-            <th:block th:each="vest:${vesti}">
+            <th:block th:each="vest:${listaVesti}">
                 <div class="col-md-6 col-lg-4 d-flex card-columns">
                     <article class="post text-left">
                         <figure class="feature-image">
@@ -46,9 +47,9 @@
                             </a>
                         </figure>
                         <div class="entry-content">
-                            <p class="dateNews"><span th:text="${#temporals.format(vest.datum,'dd.MM.yyyy')}">16.12.2021.</span></p>
+                            <p class="dateNews"><span th:text="${#temporals.format(vest.datum,'dd.MM.yyyy.')}">16.12.2021.</span></p>
                             <h3><a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}"><span th:text="${vest.naslov}"></span></a></h3>
-                            <p><span th:utext="${#strings.abbreviate(vest.tekst,200)}"></span></p>
+                            <p><span th:utext="${#strings.abbreviate(vest.tekst,250)}"></span></p>
                             <span class="separatorBtn"></span>
                             <a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}" class="blogBtn">Pročitajte više</a>
                             <div class=" mt-3" sec:authorize="hasAnyAuthority('ADMIN')" >
@@ -64,26 +65,12 @@
         </div>
 
         <!--ubaciti pagination-->
-        <!--
-                        <div class="pagination">
-                            <ul>
-                                <a class="disabled" href="#">«</a>
-                                <a class="is-active" href="#"><li>1</li></a>
-                                <a href="#"><li>2</li></a>
-                                <a href="#"><li>3</li></a>
-                                <a href="#"><li>4</li></a>
-                                <a href="#"><li>5</li></a>
-                                <a href="#"><li>6</li></a>
-                                <a class="disabled" href="#">»</a>
-                
-                            </ul>
-                        </div>
+        <th:block th:insert="fragments/pagination :: pagination (${listaVesti})" />
         
-                                <div class="row">
-                                    <div class="col-12 text-center">
-                                        <a th:href="@{/vesti}" class="btn-underlined">SVE VESTI</a>
-                                    </div>
-                                </div>-->
+
+
+
+
     </div>
 </section>
 
