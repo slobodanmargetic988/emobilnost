@@ -21,6 +21,7 @@ import com.emobilnost.model.Video;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
+import com.emobilnost.service.KomentariService;
 import com.emobilnost.service.KorpaService;
 import com.emobilnost.service.PhotoService;
 import com.emobilnost.service.ProizvodiService;
@@ -55,7 +56,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -103,9 +103,12 @@ public class MainController {
     UsersService usersService;
     @Autowired
     ClanoviService clanoviService;
+    @Autowired
+    KomentariService komentariService;
 
     @GetMapping(value = "/admin/komentari")
-    public String adminkomentari(final Model model) {
+    public String adminkomentari(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
+           model.addAttribute("listaKomentara", komentariService.findAllByIdOrderByIdDesc(pageable));
         return "main/komentari";
     }
 
@@ -199,11 +202,15 @@ public class MainController {
     @GetMapping("/pregled-vesti/{imeduze}")
     public String pregledVvesti(Model model,
             @PathVariable(name = "imeduze") String imeduze
+    //            @PathVariable final String vest2
     ) {
         Vesti vest = vestiService.findFirstByNaslovduzi(imeduze);
         model.addAttribute("vest", vest);
         model.addAttribute("slicnevesti", vestiService.findLastFew(3, vest.getId()));
+        model.addAttribute("listaKomentara", komentariService.findAllByVestAndAktivan(vest, true));
+
         return "main/vest";
+
     }
 
     @GetMapping("/vesti2")

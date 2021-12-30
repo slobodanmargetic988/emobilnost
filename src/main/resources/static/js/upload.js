@@ -186,3 +186,40 @@ $(".deaktivirajSliku").on("click", function (e) {
 });
 
 
+$("#uploadkomentar").on("click", function (e) {
+
+    var formData = new FormData();
+
+    formData.append("ime", $('#kokomentarise').val());
+    formData.append("poruka", $('#comment').val());
+    var vestid = $(this).attr("vestid");
+    $.ajax({
+        type: "post",
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        url: '/posaljiKomentar/' + vestid,
+        data: formData,
+        success: function (resp) {
+
+            //popup hvala sto ste poslali komentar
+//             $("#hvalaNaKomentaru").fadeIn(200);
+             setTimeout(function () {
+                $("#hvalaNaKomentaru").fadeOut(400);
+            }, 2000);
+
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.status);
+        }
+
+    });
+
+$(this).css("display", "none");
+    setTimeout(function () {
+        location.reload(true);
+    }, 4000);
+
+});

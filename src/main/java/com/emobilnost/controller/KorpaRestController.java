@@ -7,6 +7,7 @@ package com.emobilnost.controller;
 
 import com.emobilnost.configuration.EmobilityUserPrincipal;
 import com.emobilnost.model.Anketa;
+import com.emobilnost.model.Komentari;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Proizvodi;
@@ -18,6 +19,7 @@ import com.emobilnost.model.ZavrsenePorudzbine;
 import com.emobilnost.service.AnketaService;
 import com.emobilnost.service.ClanoviService;
 import com.emobilnost.service.ColorPaletaService;
+import com.emobilnost.service.KomentariService;
 import com.emobilnost.service.KorpaProizvodiService;
 import com.emobilnost.service.KorpaService;
 import com.emobilnost.service.ProizvodiService;
@@ -31,25 +33,18 @@ import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
 
 import static java.lang.Integer.parseInt;
+import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.json.Json;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,7 +53,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -67,6 +61,58 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @RestController
 public class KorpaRestController {
+
+    @Autowired
+    private ZavrsenePorudzbineService zavrsenePorudzbineService;
+    @Autowired
+    private ColorPaletaService colorPaletaService;
+    @Autowired
+    private AnketaService anketaService;
+    @Autowired
+    private ClanoviService clanoviService;
+    @Autowired
+    StorageService storageService;
+    @Autowired
+    SlikaService slikaService;
+    @Autowired
+    VestiService vestiService;
+    @Autowired
+    VideoService videoService;
+    @Autowired
+    private UsersService userService;
+    @Autowired
+    private KorpaProizvodiService korpaProizvodiService;
+    @Autowired
+    private KorpaService korpaService;
+    @Autowired
+    private ProizvodiService proizvodiService;
+    @Autowired
+    KomentariService komentariService;
+
+    //komentari
+    @RequestMapping(value = "/posaljiKomentar/{vestId}", method = RequestMethod.POST)
+    @ResponseBody
+    public String posaljiKomentar(
+            @PathVariable(name = "vestId") final Integer vestId,
+            @RequestParam(name = "ime") String ime,
+            @RequestParam(name = "poruka") String tekst
+    ) {
+        System.out.println("zahtev primljen");
+        try {
+            Komentari komentar = new Komentari();
+            komentar.setIme(ime);
+            komentar.setTekst(tekst);
+komentar.setDatum(LocalDate.now());
+            Vesti vest = vestiService.findFirstById(vestId);
+            komentar.setAktivan(Boolean.FALSE);
+            komentar.setVest(vest);
+            komentariService.save(komentar);
+
+        } catch (Exception e) {
+            return "komentar nije uspesno poslat";
+        }
+        return "ok";
+    }
 
     @RequestMapping(value = "/post/novaSlika/save", method = RequestMethod.POST)
     @ResponseBody
@@ -131,19 +177,17 @@ public class KorpaRestController {
     ) {
         Slika slika = slikaService.findFirstById(slikaId);
 //        Slika slika;
-      //  System.out.println("pokusavamo da deaktiviramo sliku");
+        //  System.out.println("pokusavamo da deaktiviramo sliku");
         try {
-       
+
             slika.setActive(false);
             slikaService.save(slika);
-          
+
         } catch (Exception e) {
             return "neuspelo deaktiviranje slike";
         }
         return "ok";
     }
-    
-   
 
 //    @RequestMapping(value = "/post/echo", method = RequestMethod.POST)
 //    @ResponseBody
@@ -153,28 +197,6 @@ public class KorpaRestController {
 //    ) {
 //        return "ok ";
 //    }
-    @Autowired
-    private ZavrsenePorudzbineService zavrsenePorudzbineService;
-
-    @Autowired
-    private ColorPaletaService colorPaletaService;
-
-    @Autowired
-    private AnketaService anketaService;
-
-    @Autowired
-    private ClanoviService clanoviService;
-    @Autowired
-    StorageService storageService;
-    @Autowired
-    SlikaService slikaService;
-
-       @Autowired
-    VestiService vestiService;
-    
-    @Autowired
-    VideoService videoService;
-
     @RequestMapping(value = "/post/novVideo/save", method = RequestMethod.POST)
     @ResponseBody
     public String saveVideo(
@@ -329,18 +351,6 @@ public class KorpaRestController {
         return "ok";
 
     }
-
-    @Autowired
-    private UsersService userService;
-
-    @Autowired
-    private KorpaProizvodiService korpaProizvodiService;
-
-    @Autowired
-    private KorpaService korpaService;
-
-    @Autowired
-    private ProizvodiService proizvodiService;
 
     @GetMapping("/korpa/dodajProizvod/{proizvod_id}")
     String dodajProizvodG(@PathVariable final int proizvod_id) {

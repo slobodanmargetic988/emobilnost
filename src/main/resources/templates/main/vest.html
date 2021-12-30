@@ -7,11 +7,8 @@
         <meta name="description" content="ENYAQ iV postigao je trenutni uspeh na međunarodnim tržištima. Prvi proizvodni model brenda ŠKODA zasnovan na MEB modularnoj platformi za električne automobile Volkswagen Grupe od početka se dopao stručnjacima, medijima i kupcima. Potražnja trenutno premašuje proizvodne kapacitete u glavnom ŠKODA pogonu u Mlada Boleslav - jedinoj lokaciji u Evropi van Nemačke gde modeli bazirani na MEB platformi silaze s proizvodne trake..."/> 
         <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vesti, novosti, vesti o električnim vozilima, vesti električna vozila, vesti o električnim automobilima, vesti električni automobili, novosti o električnim automobilima, novosti električni automobili, najnovije vesti, škoda, škoda enyaq, škoda enyaq iV"/>
 
-
-
-        <link th:href="@{/css/vest.css}" rel="stylesheet" type="text/css" />
-
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/vest.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -46,8 +43,8 @@
 
                         <div class="post-meta">
                             <span><i class="far fa-calendar"></i><span th:text="${#temporals.format(vest.datum,'dd.MM.yyyy.')}"></span></span>
-                            <span><i class="far fa-user"></i><span th:text="${vest.izvor}"></span></span>  
-                            <span><i class="far fa-comments"></i> <a href="#comments">Komentari (0)</a></span>
+                            <span><i class="far fa-user"></i><span th:text="${vest.izvor}"></span></span> 
+                            <span><i class="far fa-comments"></i> <a href="#comments">Komentari (<span th:text="${#lists.size(listaKomentara)}"></span>)</a></span>
                         </div>
 
                         <span th:utext="${vest.tekst}"></span>
@@ -84,7 +81,6 @@
                             <h4 class="mb-3">Slične vesti</h4>
                             <div class="blog-section blog-section-small">
                                 <div class="row">
-
                                     <th:block th:each="slvest: ${slicnevesti}">
                                         <div class="col-md-6 col-lg-4 d-flex card-columns">
                                             <article class="post text-left">
@@ -102,163 +98,170 @@
                                             </article>
                                         </div>
                                     </th:block> 
-
-
                                 </div>
                             </div>
                         </div>
 
-                        <div id="comments" class="post-block mt-3 post-comments">
-                            <!--<h4 class="mb-3">Komentari (3)</h4>-->
-                            <h4 class="mb-3">Još uvek nema komentara</h4>
-                            <!--                            <ul class="comments">
-                                                            <li>
-                                                                <div class="comment">
-                                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                                        <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
-                                                                    </div>
-                                                                    <div class="comment-block">
-                                                                        <div class="comment-arrow"></div>
-                                                                        <span class="comment-by">
-                                                                            <strong>Marko Milošević</strong>
-                                                                            <span class="float-end">
-                                                                                <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
-                                                                            </span>
-                                                                        </span>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-                                                                        <span class="date float-end">29.10.2021, 18:45</span>
-                                                                    </div>
-                                                                </div>
-                            
-                                                                <ul class="comments reply">
-                                                                    <li>
-                                                                        <div class="comment">
-                                                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                                                <img class="avatar" alt="avatar image" src="img/avatars/avatar-3.jpg">
-                                                                            </div>
-                                                                            <div class="comment-block">
-                                                                                <div class="comment-arrow"></div>
-                                                                                <span class="comment-by">
-                                                                                    <strong>Marko Milošević</strong>
-                                                                                    <span class="float-end">
-                                                                                        <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                                                                                <span class="date float-end">29.10.2021, 18:45</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                        <div class="comment">
-                                                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                                                <img class="avatar" alt="avatar image" src="img/avatars/avatar-4.jpg">
-                                                                            </div>
-                                                                            <div class="comment-block">
-                                                                                <div class="comment-arrow"></div>
-                                                                                <span class="comment-by">
-                                                                                    <strong>Marko Milošević</strong>
-                                                                                    <span class="float-end">
-                                                                                        <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
-                                                                                    </span>
-                                                                                </span>
-                                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
-                                                                                <span class="date float-end">29.10.2021, 18:45</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li>
-                                                                <div class="comment">
-                                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                                        <img class="avatar" alt="avatar image" src="img/avatars/avatar.jpg">
-                                                                    </div>
-                                                                    <div class="comment-block">
-                                                                        <div class="comment-arrow"></div>
-                                                                        <span class="comment-by">
-                                                                            <strong>Marko Milošević</strong>
-                                                                            <span class="float-end">
-                                                                                <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
-                                                                            </span>
-                                                                        </span>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                                        <span class="date float-end">29.10.2021, 18:45</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="comment">
-                                                                    <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
-                                                                        <img class="avatar" alt="avatar image" src="img/avatars/avatar.jpg">
-                                                                    </div>
-                                                                    <div class="comment-block">
-                                                                        <div class="comment-arrow"></div>
-                                                                        <span class="comment-by">
-                                                                            <strong>Marko Milošević</strong>
-                                                                            <span class="float-end">
-                                                                                <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
-                                                                            </span>
-                                                                        </span>
-                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                                        <span class="date float-end">29.10.2021, 18:45</span>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>-->
 
-                        </div>
+                        <th:block th:if="${komentar == null}">
+                            <!--ima komentara-->
+                            <div id="comments" class="post-block mt-3 post-comments">
+                                <h4 class="mb-3">Komentari (<span th:text="${#lists.size(listaKomentara)}"></span>)</h4>
+                                <ul class="comments">
+                                    <li>
+                                    <th:block th:each="komentar : ${listaKomentara}">
+                                        <div class="comment">
+                                            <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                            </div>
+                                            <div class="comment-block">
+                                                <div class="comment-arrow"></div>
+                                                <span class="comment-by" >
+                                                    <strong th:text=${komentar.ime}></strong>
+<!--                                                    <span class="float-end">
+                                                        <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                    </span>-->
+                                                </span>
+                                                <p><span th:text=${komentar.tekst}></span></p>
+                                                <span class="date float-end" th:text="${#temporals.format(komentar.datum,'dd.MM.yyyy.')}"></span>
+                                            </div>
+                                        </div>
+                                    </th:block>
+                                    </li>
+                                </ul>
+                            </div>
+                        </th:block>
 
-                        <div class="post-block mt-5 post-leave-comment" >
-                            <h4 class="mb-3">Ostavite komentar</h4>
-
-                            <form class="contact-form p-4 rounded bg-color-grey" th:action="@{/posaljiKomentar}" method="POST">
-                                <div class="p-2">
-                                    <!--                                    <div class="row">
-                                                                            <div class="form-group col-lg-6">
-                                                                                <label for="ime" class="form-label required">Ime i prezime</label>
-                                                                                <input type="text" value="" data-msg-required="Unesite ime i prezime." maxlength="100" class="form-control" name="ime" required="">
-                                                                            </div>
-                                                                                                                <div class="form-group">
-                                                                                                                    <label for="ime" class="form-label required">Ime</label>
-                                                                                                                    <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
-                                                                                                                </div>
-                                                                                                                <div class="form-group">
-                                                                                                                    <label for="prezime" class="form-label required">Prezime</label>
-                                                                                                                    <input type="text" value="" data-msg-required="Unesite prezime." maxlength="100" class="form-control" name="prezime" required="">
-                                                                                                                </div>
-                                                                            <div class="form-group col-lg-6">
-                                                                                <label for="email" class="form-label required">Email adresa</label>
-                                                                                <input type="email" value="" data-msg-required="Unesite email adresum" data-msg-email="Unesite validnu email adresum" maxlength="100" class="form-control" name="email" required="">
-                                                                            </div>
-                                                                        </div>-->
-                                    <div class="form-group">
-                                        <label for="ime" class="form-label required">Ime</label>
-                                        <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
-                                    </div>
-                                    <!--                                    <div class="form-group">
-                                                                            <label for="ime" class="form-label required">Ime</label>
-                                                                            <input type="text" value="" data-msg-required="Unesite ime." maxlength="100" class="form-control" name="ime" required="">
-                                                                        </div>-->
-                                    <!--                                    <div class="form-group">
-                                                                            <label for="prezime" class="form-label required">Prezime</label>
-                                                                            <input type="text" value="" data-msg-required="Unesite prezime." maxlength="100" class="form-control" name="prezime" required="">
-                                                                        </div>-->
-
-                                    <div class="row">
-                                        <div class="form-group col">
-                                            <label for="poruka" class="form-label required">Komentar</label>
-                                            <textarea maxlength="5000" data-msg-required="Napišite Vaš komentar." rows="5" class="form-control" name="poruka" required=""></textarea>
+                        <!--jos uvek nema komentara-->
+                        <div class="post-block mt-3 post-comments">
+                            <th:block th:if="${komentar != null}">
+                                <h4 class="mb-3">Još uvek nema komentara</h4>
+                            </th:block>
+                            <div class="post-block mt-2 post-leave-comment" >
+                                <h4 class="mb-3">Ostavite komentar</h4>
+                                <form class="contact-form p-4 rounded bg-color-grey" th:action="@{/posaljiKomentar/{vestId} (vestId=${vest.id})}" method="POST" autocomplete="off">
+                                    <div class="p-2">
+                                        <div class="form-group">
+                                            <label for="kokomentarise" class="form-label required">Ime</label>
+                                            <input type="text" value=""  maxlength="100" id="kokomentarise" class="form-control" name="ime" required="">
+                                            <div class="invalid-feedback">
+                                                Unesite Vaše ime.
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <label for="comment" class="form-label required">Komentar</label>
+                                                <textarea maxlength="5000" rows="5" class="form-control" id="comment" name="poruka" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col mb-0">
+                                                <a th:vestid="${vest.id}" id="uploadkomentar" class="sendComment" data-toggle="modal" data-target="#hvalaNaKomentaru">Pošalji</a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col mb-0">
-                                            <button type="submit" class="sendComment">Pošalji</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
+                        <!--                            <ul class="comments">
+                                                        <li>
+                                                            <div class="comment">
+                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                    <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                </div>
+                                                                <div class="comment-block">
+                                                                    <div class="comment-arrow"></div>
+                                                                    <span class="comment-by">
+                                                                        <strong>Marko Milošević</strong>
+                                                                        <span class="float-end">
+                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                </div>
+                                                            </div>
+                        
+                                                            <ul class="comments reply">
+                                                                <li>
+                                                                    <div class="comment">
+                                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                            <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                        </div>
+                                                                        <div class="comment-block">
+                                                                            <div class="comment-arrow"></div>
+                                                                            <span class="comment-by">
+                                                                                <strong>Marko Milošević</strong>
+                                                                                <span class="float-end">
+                                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                </span>
+                                                                            </span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                                            <span class="date float-end">29.10.2021, 18:45</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="comment">
+                                                                        <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                            <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                        </div>
+                                                                        <div class="comment-block">
+                                                                            <div class="comment-arrow"></div>
+                                                                            <span class="comment-by">
+                                                                                <strong>Marko Milošević</strong>
+                                                                                <span class="float-end">
+                                                                                    <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                                </span>
+                                                                            </span>
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae.</p>
+                                                                            <span class="date float-end">29.10.2021, 18:45</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <div class="comment">
+                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                    <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                </div>
+                                                                <div class="comment-block">
+                                                                    <div class="comment-arrow"></div>
+                                                                    <span class="comment-by">
+                                                                        <strong>Marko Milošević</strong>
+                                                                        <span class="float-end">
+                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="comment">
+                                                                <div class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block">
+                                                                    <img class="avatar" alt="avatar image" src="https://i.ya-webdesign.com/images/profile-avatar-png-8.png">
+                                                                </div>
+                                                                <div class="comment-block">
+                                                                    <div class="comment-arrow"></div>
+                                                                    <span class="comment-by">
+                                                                        <strong>Marko Milošević</strong>
+                                                                        <span class="float-end">
+                                                                            <span> <a href="#"><i class="fas fa-reply"></i> Odgovori</a></span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                                    <span class="date float-end">29.10.2021, 18:45</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>-->
+
+
+
+
 
                     </div>
                 </article>
@@ -269,7 +272,15 @@
 
 </div>
 
-
+<!-- hvalaNaKomentaru modal -->
+<div class="modal fade" id="hvalaNaKomentaru" tabindex="-1" role="dialog" aria-labelledby="hvalaNaKomentaruModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3 style="text-align: center;font-size: 16px;">Hvala Vam što ste ostavili komentar. Nakon provere administratora komentar će biti vidljiv.</h3>
+            </div>
+        </div>
+    </div>
 </div>
 
 <th:block th:insert="fragments/footer :: footer" />
@@ -278,7 +289,7 @@
 
 
 <th:block th:insert="fragments/scripts :: scripts" />
-
+<script th:src="@{/js/upload.js}"></script>
 </body>
 
 </html>

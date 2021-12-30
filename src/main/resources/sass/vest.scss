@@ -203,7 +203,7 @@
 }
 
 .bg-color-grey {
-    background:  hsla($main-color-h, $main-color-s, 97%, $main-color-a);
+    background:  hsla($main-color-h, $main-color-s, 98%, $main-color-a);
 }
 .sendComment {
     width: 120px;
@@ -220,6 +220,8 @@
     z-index: 1;
     outline: none;
     border: none;
+    text-align: center;
+    cursor: pointer;
     &::after {
         content: "";
         position: absolute;

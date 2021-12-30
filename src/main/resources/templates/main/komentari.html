@@ -96,11 +96,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td span="1" style="width: 20%;" class="author column-author" data-colname="Author"><strong><img alt="" src="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=32&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> Slobodan</strong><br><a href="mailto:slobodanmargetic988@gmail.com">slobodanmargetic988@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=109.92.20.155&amp;mode=detail">109.92.20.155</a></td>
-                                        <!--           <th scope="row">Aleksinac</th> -->
+                                     <th:block th:each="komentar : ${listaKomentara}">
+                                    
+                                     <tr>
+                               
+                                        <td span="1" style="width: 20%;" class="author column-author" data-colname="Author">
+                                            <strong>
+                                                <img alt="" src="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=32&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/53158deb98cb7990bec447ff86663752?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"><span th:text="${komentar.ime}"></span></strong>
+                                        
+                                        </td>
                                         <td span="1" style="width: 50%;">
-                                            <p>Kako vam je lep ovaj web sajt.</p>
+                                            <p style="max-width: 400px;"><span th:text="${komentar.tekst}"></span></p>
                                             <div class="row-actions">
                                                 <ul>
                                                     <li> <span class="approve">
@@ -124,85 +130,15 @@
                                                 </ul>
                                             </div>                                              </td>
                                         <td span="1" style="width: 20%; vertical-align: middle;">
-                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
+                                            <div class="response-links"><a href="" class="comments-edit-item-link"><span th:text="${komentar.vest.naslov}"></span></a> </div>
                                         </td>
                                         <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
-                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
+                                            <div class="submitted-on"><a href=""><span th:text="${komentar.datum}"></span></a></div>
                                         </td>
+                                      
                                     </tr>
-                                    <tr>
-                                        <td class="author column-author" data-colname="Author"><strong><img alt="" src="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=32&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> OceanWP</strong><br><a href="mailto:oceanwptheme@gmail.com">oceanwptheme@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=92.132.51.72&amp;mode=detail">92.132.51.72</a></td>
-                                        <!--           <th scope="row">Bački Petrovac</th> -->
-                                        <!--           <td>Business Park, Industrijska zona bb</td> -->
-                                        <td span="1" style="width: 50%;">
-                                            <p>Kako vam je lep ovaj web sajt.</p>
-                                            <div class="row-actions">
-                                                <ul>
-                                                    <li> <span class="approve">
-                                                            <a href="" class="vim-a aria-button-if-js" aria-label="Approve this comment" role="button">Approve</a>
-                                                        </span></li>
-                                                    <li><span class="unapprove">
-                                                            <a href="" class="vim-u aria-button-if-js" aria-label="Unapprove this comment" role="button">Unapprove</a></span>
-                                                    </li>
-                                                    <li>                                               
-                                                        <span class="reply hide-if-no-js"> | <button type="button" data-comment-id="6" data-post-id="229" data-action="replyto" class="vim-r comment-inline button-link" aria-expanded="false" aria-label="Reply to this comment">Reply</button></span>
-                                                    </li>
-                                                    <li>                                      
-                                                        <span class="edit"> | <a href="" aria-label="Edit this comment">Edit</a></span>
-                                                    </li>
-                                                    <li>                            
-                                                        <span class="spam"> | <a href="" class="vim-s vim-destructive aria-button-if-js" aria-label="Mark this comment as spam" role="button">Spam</a></span>
-                                                    </li>
-                                                    <li>                            
-                                                        <span class="trash"> | <a href="" class="delete vim-d vim-destructive aria-button-if-js" aria-label="Move this comment to the Trash" role="button">Trash</a></span>
-                                                    </li>
-                                                </ul>
-                                            </div>      
-
-
-                                        </td>
-                                        <td span="1" style="width: 20%; vertical-align: middle;">
-                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
-                                        </td>
-                                        <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
-                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="author column-author" data-colname="Author"><strong><img alt="" src="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=32&amp;d=mm&amp;r=g" srcset="http://0.gravatar.com/avatar/6bec8f9a958d37da71d4340c00f5092c?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" loading="lazy" width="32" height="32"> OceanWP</strong><br><a href="mailto:oceanwptheme@gmail.com">oceanwptheme@gmail.com</a><br><a href="http://wordpresstest.com/wp-admin/edit-comments.php?s=92.132.51.72&amp;mode=detail">92.132.51.72</a></td>
-                                        <!--           <th scope="row">Batrovci</th> -->
-                                        <!--           <td>Naplatna stanica Adaševci, Šid</td> -->
-                                        <td span="1" style="width: 50%;">
-                                            <p>Kako vam je lep ovaj web sajt.</p>
-                                            <div class="row-actions">
-                                                <ul>
-                                                    <li> <span class="approve">
-                                                            <a href="" class="vim-a aria-button-if-js" aria-label="Approve this comment" role="button">Approve</a>
-                                                        </span></li>
-                                                    <li><span class="unapprove">
-                                                            <a href="" class="vim-u aria-button-if-js" aria-label="Unapprove this comment" role="button">Unapprove</a></span>
-                                                    </li>
-                                                    <li>                                               
-                                                        <span class="reply hide-if-no-js"> | <button type="button" data-comment-id="6" data-post-id="229" data-action="replyto" class="vim-r comment-inline button-link" aria-expanded="false" aria-label="Reply to this comment">Reply</button></span>
-                                                    </li>
-                                                    <li>                                      
-                                                        <span class="edit"> | <a href="" aria-label="Edit this comment">Edit</a></span>
-                                                    </li>
-                                                    <li>                            
-                                                        <span class="spam"> | <a href="" class="vim-s vim-destructive aria-button-if-js" aria-label="Mark this comment as spam" role="button">Spam</a></span>
-                                                    </li>
-                                                    <li>                            
-                                                        <span class="trash"> | <a href="" class="delete vim-d vim-destructive aria-button-if-js" aria-label="Move this comment to the Trash" role="button">Trash</a></span>
-                                                    </li>
-                                                </ul>
-                                            </div>                                        </td>
-                                        <td span="1" style="width: 20%; vertical-align: middle;">
-                                            <div class="response-links"><a href="" class="comments-edit-item-link">Prvih 30 000 km na struju</a> </div>
-                                        </td>
-                                        <td span="1" style="text-align: center; width: 10%;vertical-align: middle;">
-                                            <div class="submitted-on"><a href="">29.12.2021. u 12:08</a></div>
-                                        </td>
-                                    </tr>
+                                      </th:block>
+                                   
 
                                 </tbody>
                             </table>

@@ -204,7 +204,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 
 .bg-color-grey {
-  background: #f7f7f7;
+  background: #fafafa;
 }
 
 .sendComment {
@@ -222,6 +222,8 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   z-index: 1;
   outline: none;
   border: none;
+  text-align: center;
+  cursor: pointer;
 }
 .sendComment::after {
   content: "";
