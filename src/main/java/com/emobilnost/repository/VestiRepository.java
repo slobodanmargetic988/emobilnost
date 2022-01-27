@@ -31,7 +31,8 @@ public interface VestiRepository extends JpaRepository<Vesti, Integer> {
     List<Vesti> findAllBy();
     Page<Vesti> findAllBy(Pageable pageable);
     
-    
+         Page<Vesti> findAllByOrderByDatumDesc(Pageable pageable);
+
     Vesti findFirstById(Integer id);
     
    Vesti findFirstByNaslovduzi(String naslov);

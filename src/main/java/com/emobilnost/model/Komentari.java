@@ -6,14 +6,17 @@
 package com.emobilnost.model;
 
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -48,6 +51,32 @@ public class Komentari {
      @ManyToOne
      @JoinColumn(name="vest_id", nullable = false)
     private Vesti vest; 
+     
+     @ManyToOne
+     @JoinColumn(name="odgovor_na_id", nullable = true)
+    private Komentari odgovorna; 
+     
+     @OneToMany(mappedBy="odgovorna",fetch = FetchType.EAGER)
+    private List<Komentari> listaodgovora;
+
+    public Komentari getOdgovorna() {
+        return odgovorna;
+    }
+
+    public void setOdgovorna(Komentari odgovorna) {
+        this.odgovorna = odgovorna;
+    }
+
+    public List<Komentari> getListaodgovora() {
+        return listaodgovora;
+    }
+
+    public void setListaodgovora(List<Komentari> listaodgovora) {
+        this.listaodgovora = listaodgovora;
+    }
+
+   
+     
      
     public int getId() {
         return id;

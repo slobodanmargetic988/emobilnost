@@ -21,6 +21,8 @@ public interface VestiService {
 
     List<Vesti> findAllBy();
      Page<Vesti> findAllBy(Pageable pageable);
+     
+     Page<Vesti> findAllByOrderByDatumDesc(Pageable pageable);
     
 void save(Vesti vesti);
     Vesti findFirstById(Integer id);

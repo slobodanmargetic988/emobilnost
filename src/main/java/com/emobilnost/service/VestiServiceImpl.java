@@ -37,6 +37,11 @@ public class VestiServiceImpl implements VestiService {
         return vestiRepository.findAllBy(pageable);
     }
     
+       @Override
+    public   Page<Vesti> findAllByOrderByDatumDesc(Pageable pageable) {
+        return vestiRepository.findAllByOrderByDatumDesc(pageable);
+    }
+
   
   @Override
     public void save(Vesti vesti){

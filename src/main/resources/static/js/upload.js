@@ -223,3 +223,44 @@ $(this).css("display", "none");
     }, 4000);
 
 });
+
+$(".uploadOdgovor").on("click", function (e) {
+  // console.log("pojavi se");
+    var formData = new FormData();
+var komenarid = $(this).attr("komentarid");
+    formData.append("ime", $('.kokomentarise[komentarid='+komenarid+']').val());
+    formData.append("poruka", $('.comment[komentarid='+komenarid+']').val());
+    
+    $.ajax({
+        type: "post",
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        url: '/posaljiOdgovor/' + komenarid,
+        data: formData,
+        success: function (resp) {
+  //  console.log("skloni se");
+            //popup hvala sto ste poslali komentar
+//             $("#hvalaNaKomentaru").fadeIn(200);
+
+             setTimeout(function () {
+                 //    console.log("pojavi se");
+                $("#hvalaNaKomentaru").fadeOut(400);
+                $('.answer-div[komentarid='+komenarid+']').toggle();
+            }, 2000);
+
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.status);
+        }
+
+    });
+   // console.log("skloni se");
+
+$(this).css("display", "none");
+    setTimeout(function () {
+        location.reload(true);
+    }, 4000);
+});

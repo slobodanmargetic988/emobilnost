@@ -61,7 +61,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @RestController
 public class KorpaRestController {
-
+    
     @Autowired
     private ZavrsenePorudzbineService zavrsenePorudzbineService;
     @Autowired
@@ -88,8 +88,34 @@ public class KorpaRestController {
     private ProizvodiService proizvodiService;
     @Autowired
     KomentariService komentariService;
-
-    //komentari
+     @RequestMapping(value = "/posaljiOdgovor/{komentarId}", method = RequestMethod.POST)
+    @ResponseBody
+    public String posaljiOdgovorNaKomentar(
+            
+            @PathVariable(name = "komentarId") final Integer komentarId,
+            @RequestParam(name = "ime") String ime,
+            @RequestParam(name = "poruka") String tekst
+    ) {
+        System.out.println("zahtev primljen");
+        try {
+            Komentari komentar = new Komentari();
+            komentar.setIme(ime);
+            komentar.setTekst(tekst);
+            komentar.setDatum(LocalDate.now());
+            Komentari komentarnakojiodgovaramo=komentariService.findFirstById(komentarId);
+            Vesti vest = komentarnakojiodgovaramo.getVest();
+            komentar.setAktivan(Boolean.FALSE);
+            komentar.setVest(vest);
+           komentar.setOdgovorna(komentarnakojiodgovaramo);
+            komentariService.save(komentar);
+            EmailController.SendKomentarAnyone(komentar, ime);
+            
+        } catch (Exception e) {
+            return "komentar nije uspesno poslat";
+        }
+        return "ok";
+    }
+    
     @RequestMapping(value = "/posaljiKomentar/{vestId}", method = RequestMethod.POST)
     @ResponseBody
     public String posaljiKomentar(
@@ -102,18 +128,20 @@ public class KorpaRestController {
             Komentari komentar = new Komentari();
             komentar.setIme(ime);
             komentar.setTekst(tekst);
-komentar.setDatum(LocalDate.now());
+            komentar.setDatum(LocalDate.now());
             Vesti vest = vestiService.findFirstById(vestId);
             komentar.setAktivan(Boolean.FALSE);
             komentar.setVest(vest);
+            //komentar.setOdgovorna(komentarId);
             komentariService.save(komentar);
-
+            EmailController.SendKomentarAnyone(komentar, ime);
+            
         } catch (Exception e) {
             return "komentar nije uspesno poslat";
         }
         return "ok";
     }
-
+    
     @RequestMapping(value = "/post/novaSlika/save", method = RequestMethod.POST)
     @ResponseBody
     public String saveSlika(
@@ -137,10 +165,10 @@ komentar.setDatum(LocalDate.now());
         } catch (Exception e) {
             return "neuspelo cuvanje slike";
         }
-
+        
         return "<img class=\"gallery-img my-3\" src=\"/slika/" + slika.getId() + "\" alt=\"" + alt_text + "\"  title=\"" + title + "\"/>";
     }
-
+    
     @RequestMapping(value = "/post/novaSlikaGalerija/save", method = RequestMethod.POST)
     @ResponseBody
     public String saveSlikaGalerija(
@@ -158,7 +186,7 @@ komentar.setDatum(LocalDate.now());
             photo.setTitle(title);
             photo.setAlttext(alt_text);
             photo.setActive(true);
-
+            
             photo.setGalerija(galerija);
             slikaService.save(photo);
             slika = photo;
@@ -169,7 +197,7 @@ komentar.setDatum(LocalDate.now());
         //return "<img class=\"gallery-img my-3\" src=\"/slika/"+slika.getId()+"\" alt=\""+alt_text+"\"  title=\""+title+"\"/>";
         return "ok";
     }
-
+    
     @RequestMapping(value = "/post/deaktivirajSlikuGalerija/{slikaId}", method = RequestMethod.POST)
     @ResponseBody
     public String deaktivirajSlikaGalerija(
@@ -179,10 +207,10 @@ komentar.setDatum(LocalDate.now());
 //        Slika slika;
         //  System.out.println("pokusavamo da deaktiviramo sliku");
         try {
-
+            
             slika.setActive(false);
             slikaService.save(slika);
-
+            
         } catch (Exception e) {
             return "neuspelo deaktiviranje slike";
         }
@@ -219,7 +247,7 @@ komentar.setDatum(LocalDate.now());
         } catch (Exception e) {
             return "neuspelo cuvanje slike";
         }
-
+        
         return "<div class=\"feature-video my-3\">\n"
                 + "                            <video width=\"700\" height=\"400\" preload=\"metadata\" controls >\n"
                 + "                                <source src=\"/video/" + video.getId() + "#t=2\" type=\"video/" + "mp4" + "\">\n"
@@ -227,28 +255,28 @@ komentar.setDatum(LocalDate.now());
                 + "                            </video>\n"
                 + "                        </div>";
     }
-
+    
     @GetMapping("/anketa")
     String anketa(
             @RequestParam("myData") String myData
     ) {
-
+        
         try {
             JSONObject anketaJSON = new JSONObject(myData);
-
+            
             Anketa anketa = new Anketa();
             anketa.setEmail(anketaJSON.getString("email"));
             anketa.setOpcija(anketaJSON.getString("opcija"));
             anketa.setClan(clanoviService.findFirstByEmail(anketaJSON.getString("email")));
             anketaService.save(anketa);
-
+            
         } catch (Exception e) {
             return "neuspesno sacuvana anketa";
         }
         return "ok";
-
+        
     }
-
+    
     @GetMapping("/korpa/zavrsiPorudzbinu/neregistrovan")
     String zavrsiPorudzbinuMargotekstilNeregistrovan(
             @RequestParam("myData") String myData
@@ -262,9 +290,9 @@ komentar.setDatum(LocalDate.now());
             JSONObject dataJSON = new JSONObject(myData);
             //System.out.println(dataJSON);
             JSONObject korisnik = dataJSON.getJSONObject("korisnik");
-
+            
             JSONArray korpa = dataJSON.getJSONArray("korpa");
-
+            
             user.setIme(korisnik.getString("ime"));
             user.setPrezime(korisnik.getString("prezime"));
             user.setBroj_telefona(korisnik.getString("telefon"));
@@ -273,9 +301,9 @@ komentar.setDatum(LocalDate.now());
             user.setPostanski_broj(korisnik.getString("postanskibroj"));
             user.setMesto(korisnik.getString("grad"));
             userService.saveAndFlush(user);
-
+            
             korpaService.save(tempKorpa);
-
+            
             for (int i = 0; i < korpa.length(); i++) {
                 JSONObject temp = korpa.getJSONObject(i);
                 KorpaProizvodi tempKP = new KorpaProizvodi();
@@ -288,7 +316,7 @@ komentar.setDatum(LocalDate.now());
                 }
                 korpaProizvodiService.saveAndFlush(tempKP);
                 templista.add(tempKP);
-
+                
             }
             // System.out.println("izaso iz petlje");
             tempKorpa.setKorpaproizvodi(templista);
@@ -296,7 +324,7 @@ komentar.setDatum(LocalDate.now());
             //tempKorpa.setKorpaproizvodi(templista);
             zavrsena.setUser(user);
             zavrsena.setKorpa(tempKorpa);
-
+            
             zavrsena.setAdresa(korisnik.getString("adresa"));
             zavrsena.setBroj_telefona(parseInt(korisnik.getString("telefon")));
             zavrsena.setEmail(korisnik.getString("email"));
@@ -306,10 +334,10 @@ komentar.setDatum(LocalDate.now());
             zavrsena.setNapomena(korisnik.getString("napomena"));
             zavrsena.setPostanski_broj(korisnik.getString("postanskibroj"));
             zavrsena.setPrezime(korisnik.getString("prezime"));
-
+            
             zavrsenePorudzbineService.saveAndFlush(zavrsena);
         } catch (Exception e) {
-
+            
             System.out.println(e);
             return e.getMessage();
         }
@@ -318,9 +346,9 @@ komentar.setDatum(LocalDate.now());
                 //  System.out.println("so far so good2");
                 String htmlPrikaz = "";
                 EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
-
+                
                 EmailController.SendkorisnikPorucioEmail(user, zavrsena);
-
+                
             } else {
                 // System.out.println("so far so good3");
                 if (zavrsena.getNacin_placanja().equalsIgnoreCase("Uplata na tekući račun")) {
@@ -334,43 +362,43 @@ komentar.setDatum(LocalDate.now());
                 } else {
                     String htmlPrikaz = "";
                     EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
-
+                    
                     EmailController.SendkorisnikPorucioEmail(user, zavrsena);
-
+                    
                 }
-
+                
                 user.setEmail("email");
                 userService.save(user);
             }
         } catch (Exception e) {
-
+            
             System.out.println(e);
             return "porudzbina nije prosla";
         }
-
+        
         return "ok";
-
+        
     }
-
+    
     @GetMapping("/korpa/dodajProizvod/{proizvod_id}")
     String dodajProizvodG(@PathVariable final int proizvod_id) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
-
+        
         KorpaProizvodi novProizvod = new KorpaProizvodi();
         novProizvod.setKorpa(korpa);
         novProizvod.setProizvod(proizvod);
         novProizvod.setKolicina(1);
-
+        
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
-
+                
             } else {
                 //ne radimo nista vec je u korpi
                 return "Proizvod je već u korpi!";
@@ -380,12 +408,12 @@ komentar.setDatum(LocalDate.now());
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("ovde");
-
+            
             return "Proizvod nije dodat u korpu!";
         }
         return "Proizvod je uspešno dodat u korpu!";
     }
-
+    
     @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}/{boja}")
     String dodajProizvodQty(@PathVariable final int proizvod_id,
             @PathVariable final int kolicina,
@@ -396,12 +424,12 @@ komentar.setDatum(LocalDate.now());
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod, colorPaletaService.findFirstById(boja));
-
+        
         KorpaProizvodi novProizvod = new KorpaProizvodi();
         novProizvod.setKorpa(korpa);
         novProizvod.setProizvod(proizvod);
@@ -411,12 +439,12 @@ komentar.setDatum(LocalDate.now());
         if (boja > 0) {//default boja je 0 pa ne dodajemo ako je defaultna
             novProizvod.setBoja(colorPaletaService.findFirstById(boja));
         }
-
+        
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
             } else {
-
+                
                 if (postojeciProizvod.getKolicina() != kolicina) {
                     postojeciProizvod.setKolicina(kolicina);
                     korpaProizvodiService.save(postojeciProizvod);
@@ -433,7 +461,7 @@ komentar.setDatum(LocalDate.now());
         }
         return "Proizvod je uspešno dodat u korpu!";
     }
-
+    
     @GetMapping("/korpa/promeniKolicinu/{kproizvod_id}/{kolicina}/")
     String promeniKolicinu(@PathVariable final int kproizvod_id,
             @PathVariable final int kolicina
@@ -443,7 +471,7 @@ komentar.setDatum(LocalDate.now());
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         //    Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
@@ -456,39 +484,39 @@ komentar.setDatum(LocalDate.now());
         }
         return "Kolicina je uspešno izmenjena!";
     }
-
+    
     @GetMapping("/korpa/povecajKolicinu/{kproizvod_id}")
     String povecajKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         //   Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
             postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() + 1);
-
+            
             korpaProizvodiService.save(postojeciProizvod);
         } catch (Exception e) {
             return "Kolicina nije uvecana!";
         }
         return "Uspešno je uvećana količina!";
     }
-
+    
     @GetMapping("/korpa/smanjiKolicinu/{kproizvod_id}")
     String smanjiKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
-
+            
             if (postojeciProizvod.getKolicina() > 0) {
                 postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() - 1);
                 korpaProizvodiService.save(postojeciProizvod);
@@ -496,7 +524,7 @@ komentar.setDatum(LocalDate.now());
                 System.out.println("Kolicina je nula!");
                 return "Kolicina je nula!";
             }
-
+            
         } catch (Exception e) {
             System.out.println("returnolicina nije smanjena!");
             return "returnolicina nije smanjena!";
@@ -504,13 +532,13 @@ komentar.setDatum(LocalDate.now());
         System.out.println("Kolicina je uspešno smanjena!!");
         return "Kolicina je uspešno smanjena!";
     }
-
+    
     @GetMapping("/korpa/skloniProizvod/{kproizvod_id}")
     String skloniProizvod(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users user = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-
+        
         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
@@ -523,9 +551,9 @@ komentar.setDatum(LocalDate.now());
         }
         return "Proizvod je uspešno uklonjen iz korpe!";
     }
-
+    
     private Integer Integer(String quantity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

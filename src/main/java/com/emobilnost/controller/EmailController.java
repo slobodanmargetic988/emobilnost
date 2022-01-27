@@ -7,9 +7,11 @@ package com.emobilnost.controller;
 
 import static com.emobilnost.controller.EmailController.uplatnicaSlika;
 import com.emobilnost.model.Clanovi;
+import com.emobilnost.model.Komentari;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Users;
+import com.emobilnost.model.Vesti;
 import com.emobilnost.model.ZavrsenePorudzbine;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -30,18 +32,27 @@ import javax.mail.util.ByteArrayDataSource;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Aleksandra
  */
 //@Controller
+//@Configuration
 public class EmailController {
 
-    public static String serverip = "emobilnost.com";
+//@Value("${serverip}")
+//    private static String serverip;
+//    
+//    public static String serverip = "https://emobilnost.com";
+    public static String serverip = "http://localhost:8082";
     static final String FROM = "slobodanmargetic988@gmail.com";
     static final String FROMNAME = "E-Mobilnost";
     static final String brojtekucegracuna = "160-6000001242211-59";
@@ -69,6 +80,51 @@ public class EmailController {
     static final String SUBJECTPrimljena = "Primljena poruka";
     public static String welcomeEmaillink = "https://emobilnost.com";
     public static String resetEmaillink = "https://emobilnost.com/reset-lozinke/";
+
+    //kada bilo ko posalje komentar
+    public static void SendKomentarAnyone(Komentari komentar, String ime) throws Exception {
+
+        System.out.println(serverip);
+
+        // Create a Properties object to contain connection configuration information.
+        Properties props = System.getProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", PORT);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+        // Create a Session object to represent a mail session with the specified properties.
+        Session session = Session.getDefaultInstance(props);
+        // Create a message with the specified information.
+        MimeMessage msg = new MimeMessage(session);
+        msg.setFrom(new InternetAddress(FROM, FROMNAME));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+
+        msg.setSubject(SUBJECTPrimljena);
+        String BODY = String.join(
+                System.getProperty("line.separator"),
+                emailzaglavlje
+                + emailsadrzajContainer
+                + sendEmailKomentar(komentar, ime)
+                + emailsadrzajContainerClose
+                + emailfooter
+        );
+        msg.setContent(BODY, "text/html;charset=utf-8");
+        // Add a configuration set header. Comment or delete the
+        // next line if you are not using a configuration set
+        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+        // Create a transport.
+        Transport transport = session.getTransport();
+        // Send the message.
+        try {
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+            transport.sendMessage(msg, msg.getAllRecipients());
+        } catch (Exception ex) {
+            String err = ex.getMessage();
+        } finally {
+            // Close and terminate the connection.
+            transport.close();
+        }
+    }
 
     //registracija novog korisnika, pa tom korisniku stize poruka na email
     public static void SendEmailRegistracija(Users user) throws Exception {
@@ -850,6 +906,31 @@ public class EmailController {
                 + "          </tbody> ";
 
         return telo;
+    }
+
+    public static String sendEmailKomentar(Komentari komentar, String ime) {
+        Vesti vest = komentar.getVest();
+        String naslovVesti = vest.getNaslov();
+        String autorKomentara = komentar.getIme();
+        String tekstKomentara = komentar.getTekst();
+        return " <tbody> "
+                + "            <tr> "
+                + "              <td style=\"background:#ffffff;padding:30px;line-height: 1.5;\"> "
+                + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;\"> "
+                + "                Stigao je komentar od " + autorKomentara + " za vest " + naslovVesti + ". <br> Komentar glasi: " + tekstKomentara + ". <br> Kliknite na dugme 'Odobri' ako želite da ga odobrite.  "
+               + "                 <table width=\"180\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bottom:30px;margin-left:30px;text-align: center;    margin-top: 1.2rem;display: inline-table;>"
+                + "                 <tbody>"
+                + "                   <tr>"
+                + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#8cc63f;color:#ffffff;border-radius:3px\">"
+                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"" + serverip + "/admin/odobrenKomentar/" + komentar.getId() + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Odobri komentar</a></div>"
+                + "                     </td>"
+                + "                   </tr>"
+                + "                 </tbody>"
+                + "                 </table>"
+                + "                </p> "
+                + "            </td> "
+                + "           </tr> "
+                + "          </tbody> ";
     }
 
     public static String sendEmailPorukaPoslata(String email, String ime) {

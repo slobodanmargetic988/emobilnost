@@ -482,6 +482,10 @@ a:active {
   max-width: 100%;
 }
 
+.user-content-w {
+  max-width: 70%;
+}
+
 .user-panel, .add-additional {
   padding: 20px;
   background: #fff;
@@ -671,6 +675,11 @@ a:active {
 }
 
 /*form validation end*/
+@media (max-width: 1200px) {
+  .user-content-w {
+    max-width: 100%;
+  }
+}
 @media (min-width: 992px) {
   .container {
     width: 940px;
@@ -774,3 +783,16 @@ label[for=galerijaslika], label[for=galerijavideo] {
 }
 
 /*modal end*/
+/*tabela da bude header sticky when scroll*/
+.tableFixHead {
+  overflow-y: auto;
+  height: 800px;
+}
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+}
+
+th {
+  background: #d2e9b4;
+}

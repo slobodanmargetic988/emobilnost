@@ -19,12 +19,14 @@
 
 </head>
 
+
+
 <body class=" user-dashboard no-touch">
 
 
     <div class="topbar">
         <div class="topbar-md d-lg-none">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="#" class="toggle-nav">
                         <div class="toggle-icon">
@@ -44,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-lg-flex align-items-center justify-content-between">
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
@@ -77,14 +79,14 @@
     </div>
 
     <div class="user-wraper">
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex">
                 <th:block th:insert="fragments/navigation :: admin-navbar" />
 
-                <div class="user-content">
+                <div class="user-content user-content-w">
                     <div class="user-panel">
                         <h3 class="add-new">LISTA ČLANOVA</h3>
-                        <div class="table-responsive">
+                        <div class="table-responsive tableFixHead">
                             <table class="table">
                                 <thead>
                                     <tr>

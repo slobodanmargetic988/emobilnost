@@ -8,6 +8,7 @@ package com.emobilnost.controller;
 import com.emobilnost.configuration.EmobilityUserPrincipal;
 import com.emobilnost.model.Clanovi;
 import com.emobilnost.model.ColorPaleta;
+import com.emobilnost.model.Komentari;
 import com.emobilnost.model.Korpa;
 import com.emobilnost.model.KorpaProizvodi;
 import com.emobilnost.model.Photo;
@@ -61,6 +62,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -105,10 +107,46 @@ public class MainController {
     ClanoviService clanoviService;
     @Autowired
     KomentariService komentariService;
+    
+     
+  
+
+    @GetMapping(value = "/admin/odobrenKomentar/{komentarId}")
+    public String adminkomentaremail(final Model model,
+            @PathVariable final Integer komentarId,
+            RedirectAttributes redirectAttributes) {
+        model.addAttribute("komentar", komentariService.findFirstById(komentarId));
+
+        return "main/komentar";
+    }
+
+    @GetMapping(value = "/admin/odobriKomentar/{komentarId}")
+    public String adminOdobriKomentar(final Model model,
+            @PathVariable final Integer komentarId,
+            RedirectAttributes redirectAttributes
+    ) {
+        Komentari kom = komentariService.findFirstById(komentarId);
+        kom.setAktivan(Boolean.TRUE);
+        komentariService.save(kom);
+
+        return "redirect:/admin/komentari";
+    }
+
+    @GetMapping(value = "/admin/ugasiKomentar/{komentarId}")
+    public String adminUgasiKomentar(final Model model,
+            @PathVariable final Integer komentarId,
+            RedirectAttributes redirectAttributes
+    ) {
+        Komentari kom = komentariService.findFirstById(komentarId);
+        kom.setAktivan(Boolean.FALSE);
+        komentariService.save(kom);
+
+        return "redirect:/admin/komentari";
+    }
 
     @GetMapping(value = "/admin/komentari")
     public String adminkomentari(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
-           model.addAttribute("listaKomentara", komentariService.findAllByIdOrderByIdDesc(pageable));
+        model.addAttribute("listaKomentara", komentariService.findAllByIdOrderByIdDesc(pageable));
         return "main/komentari";
     }
 
@@ -209,6 +247,24 @@ public class MainController {
         model.addAttribute("slicnevesti", vestiService.findLastFew(3, vest.getId()));
         model.addAttribute("listaKomentara", komentariService.findAllByVestAndAktivan(vest, true));
 
+        List<Komentari> lista = komentariService.findAllByVestAndAktivan(vest, true);
+        for (Komentari komentar : lista) {
+            System.out.println("id komentara je " + komentar.getId());
+            if (komentar.getListaodgovora() != null) {
+                for (Komentari odgovor : komentar.getListaodgovora()) {
+                    System.out.println("IMA ODGOVORE");
+                    System.out.println("id odgovora je " + odgovor.getId());
+                    if (odgovor.getOdgovorna() != null) {
+                        System.out.println("odgovor je odgovor na komentar sa idjem " + odgovor.getOdgovorna().getId());
+                    }
+                }
+            }
+            System.out.println("to su svi odgovori");
+            if (komentar.getOdgovorna() != null) {
+                System.out.println("komentar je odgovor  na komentar sa idjem " + komentar.getOdgovorna().getId());
+            }
+            System.out.println("to je kraj ovog komentara");
+        }
         return "main/vest";
 
     }
@@ -217,7 +273,7 @@ public class MainController {
     public String vesti2(final Model model,
             @PageableDefault(value = 12) final Pageable pageable
     ) {
-        model.addAttribute("listaVesti", vestiService.findAllBy(pageable));
+        model.addAttribute("listaVesti", vestiService.findAllByOrderByDatumDesc(pageable));
 
         return "main/vesti2";
     }

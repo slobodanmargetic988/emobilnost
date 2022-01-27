@@ -212,7 +212,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 5px;
-  color: white;
+  color: white !important;
   text-transform: uppercase;
   font-size: .95rem;
   letter-spacing: 0.05rem;
@@ -249,7 +249,8 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   z-index: -1;
 }
 .sendComment:hover {
-  color: white;
+  color: white !important;
+  text-decoration: none !important;
 }
 .sendComment:hover::before {
   width: 100%;

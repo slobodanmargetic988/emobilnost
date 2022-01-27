@@ -23,7 +23,7 @@
 
     <div class="topbar">
         <div class="topbar-md d-lg-none">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between">
                     <a href="#" class="toggle-nav">
                         <div class="toggle-icon">
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-lg-flex align-items-center justify-content-between">
                 <div class="topbar-lg d-none d-lg-block">
                     <div class="site-logo">
@@ -63,9 +63,7 @@
                         <li class="topbar-action-item topbar-action-link">
                             <a th:href="@{/vesti}">Vesti</a>
                         </li>
-                         <li class="topbar-action-item topbar-action-link">
-                        <a  th:href="@{/saveti}"><em class="ti ti-home"></em>Saveti</a>
-                    </li>
+                        
                         <!--                        <li class="topbar-action-item topbar-action-link">
                                                     <a th:href="@{/poljoprivredni-konkursi-pocetna}">Poljoprivredni konkursi</a>
                                                 </li>-->
@@ -77,11 +75,11 @@
     </div>
 
     <div class="user-wraper">
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex">
                 <th:block th:insert="fragments/navigation :: admin-navbar" />
 
-                <div class="user-content">
+                <div class="user-content user-content-w">
                     <div class="user-panel">
                         <h3 class="add-new">DODAVANJE NOVOG ČLANA</h3>
 
@@ -110,21 +108,21 @@
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Adresa</label>
                                 <input type="text" class="form-control input-custom-border" name="adresa" placeholder="Adresa" required/>
-                                  <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite adresu člana.
                                 </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Grad</label>
                                 <input type="text" class="form-control input-custom-border" name="mesto" placeholder="Mesto" required/>
-                                  <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite grad.
                                 </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Poštanski broj</label>
                                 <input type="number" class="form-control input-custom-border" name="postanski_broj" placeholder="Poštanski broj" required/>
-                                  <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite poštanski broj.
                                 </div>
                             </div>
@@ -145,28 +143,28 @@
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">JMBG</label>
                                 <input type="number" class="form-control input-custom-border" name="jmbg" placeholder="JMBG" required/>
-                                 <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite jmbg.
                                 </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Naziv pravnog lica</label>
                                 <input type="text" class="form-control input-custom-border" name="naziv_pravne_osobe" placeholder="Naziv pravnog lica"/>
-                                 <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite naziv pravnog lica.
                                 </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">PIB</label>
                                 <input type="number" class="form-control input-custom-border" name="pib" placeholder="PIB"/>
-                                 <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite PIB.
                                 </div>
                             </div>
                             <div class="centrirajFormuInput mb-3">
                                 <label class="">Datum početka članstva</label>
                                 <input type="date" class="form-control input-custom-border" name="datum_pocetka_clanstva" required/>
-                                 <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite datum početka članstva.
                                 </div>
                             </div>
@@ -175,13 +173,21 @@
                                                             <input type="date" class="form-control input-custom-border" name="datum_isteka_clanstva"/>
                                                         </div>-->
 
+                            <!--                            <div class="submit-buttons-group mt-4">
+                                                            <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
+                                                            <br>
+                                                                                            <button type="submit" name="action" value="konkurs" class="btn-save-konkurs">Sačuvaj kao Konkurs</button>
+                                                                                            <br>
+                                                            <a href="" class="btn-odustani">Odustani</a>
+                                                            <a href="" class="btn-no">Odustani</a>
+                                                        </div>-->
+
                             <div class="submit-buttons-group mt-4">
                                 <button type="submit" name="action" value="vest" class="btn-save-vest">Sačuvaj</button>
-                                <br>
-                                <!--                                <button type="submit" name="action" value="konkurs" class="btn-save-konkurs">Sačuvaj kao Konkurs</button>
-                                                                <br>-->
-                                <a href="" class="btn-odustani">Odustani</a>
+
+                                <a href="" class="btn-no">Odustani</a>
                             </div>
+
                         </form>
                     </div>
                 </div>
