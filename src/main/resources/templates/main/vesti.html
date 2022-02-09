@@ -13,6 +13,7 @@
         <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/pagination-custom.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -37,384 +38,39 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}">
-                            <img src="/img/ENYAQ-COUPE-iV-Silhouette.jpg" alt="ENYAQ-COUPE-iV-Silhouette">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">16.12.2021.</p>
-                        <h3><a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}">ŠKODA ENYAQ COUPÉ iV: Svetska premijera 31. januara</a></h3>
-                        <p>ŠKODA AUTO će predstaviti svoj novi ENYAQ COUPÉ iV 31. januara 2022. godine. Teaser video pruža prvi pogled na novi, potpuno električni top model češkog proizvođača automobila, naglašavajući njegovu izvanrednu aerodinamiku...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}">
-                            <img src="/img/nissan1.jpg" alt="Nissan baterije">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">14.12.2021.</p>
-                        <h3><a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}">Nissan najavljuje svoje „Čvrste“ (Solid-State) baterije po ceni od 75 dolara po kWh</a></h3>
-                        <p>Solid-State baterije su nova tehnologija izrade baterija gde se koriste čvrste elektrode, kao i čvrst elektrolit, umesto tečnih polimer gel elektrolita koji se nalaze u litijum jonskim i litijum polimernim baterijama...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/srpski-elektro-tricikl-iz-cacka}">
-                            <img src="/img/srpskiElektroTricikli.jpg" alt="Srpski elektro tricikli">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">6.12.2021.</p>
-                        <h3><a th:href="@{/srpski-elektro-tricikl-iz-cacka}">Srpski elektro tricikl iz Čačka</a></h3>
-                        <p>Šest komada ovog vozila poslato je na Expo sajam u Dubaiju i za tamošnjeg naručioca...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/srpski-elektro-tricikl-iz-cacka}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/miodrag-makaric-mica}">
-                            <img src="/img/mica.jpg" alt=" Miodrag Makarić - Mića">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">15.11.2021.</p>
-                        <h3><a th:href="@{/miodrag-makaric-mica}">Miodrag Makarić - Mića: Pionir elektromobilnosti - šampion biznisa</a></h3>
-                        <p>Vlasnik restorana Ruža Rumena i fast food brenda BURGER PLUS Milorad Makarić je jedan od prvih koji je kroz svoj biznis...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/miodrag-makaric-mica}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/koliko-elektricni-polovnjaci-gube-na-vrednosti}">
-                            <img src="/img/polovnjak.jpg" alt="Električni automobil koji se puni">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">6.12.2021.</p>
-                        <h3><a th:href="@{/koliko-elektricni-polovnjaci-gube-na-vrednosti}">Koliko električni polovnjaci gube na vrednosti?</a></h3>
-                        <p>Da li gube više od benzinaca i dizelaša? Mnogo toga govori u prilog činjenici da bi električni automobili trebalo da gube na vrednosti 
-                            više od automobila sa klasičnim motorima...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/koliko-elektricni-polovnjaci-gube-na-vrednosti}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/najavljen-elektricni-lexus}">
-                            <img src="/img/lexus.jpg" alt="Lexus električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">6.12.2021.</p>
-                        <h3><a th:href="@{/najavljen-elektricni-lexus}">Najavljen električni Lexus</a></h3>
-                        <p>Nakon modela UX 300e, Lexus priprema još jedan električni crossover, i to pod nazivom RZ.Sadašnje najave kažu da novi električni 
-                            Lexus možemo očekivati tokom sledeće sledeće godine, kao i da će to biti globalni model, piše Autoblog...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/najavljen-elektricni-lexus}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi}">
-                            <img src="/img/carfair.jpg" alt="Sajam korišćenih automobila">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">3.12.2021.</p>
-                        <h3><a th:href="@{/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi}">Otvoren Sajam korišćenih automobila u Štark areni: 
-                                "Lepo je ovo što se vidi, vredi taj novac, ali je za malo dublji džep"</a></h3>
-                        <p>Kiša i saobraćajne gužve petkom u Beogradu nisu obeshrabrile ljubitelje automobila da posete prvi Sajam korišćenih vozila, koji je danas otvoren 
-                            u Štark Areni...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu}">
-                            <img src="/img/lucidair1.jpg" alt="Lucid air električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">26.11.2021.</p>
-                        <h3><a th:href="@{/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu}">Tesla u frci: Ovo je automobil koji se puni najbrže na svetu</a></h3>
-                        <p>Kalifornijska kompanija električnih automobila Lucid je ove godine počela sa prodajom svog prvog luksuznog modela Lucid Air, i najavila da je to
-                            prva limuzina sa dometom od preko 800 kilometara. Sada je praktičnim testom...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila}">
-                            <img src="/img/skodabaterija.jpg" alt="Proizvodnja baterija za električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">25.11.2021.</p>
-                        <h3><a th:href="@{/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila}">Proizvodnja baterija: Kako se proizvodi srce električnog automobila?</a></h3>
-                        <p>U osvetljenoj, prozračnoj i prostranoj fabričkoj hali linija za proizvodnju baterija na prvi pogled izgleda kao prava linija. Ali ima tri grane,
-                            a gotove baterije izlaze otprilike u sredini proizvodne linije...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene}">
-                            <img src="/img/ecarcharging.jpg" alt="Električni automobil koji se puni">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">25.11.2021.</p>
-                        <h3><a th:href="@{/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene}">Do 2030. na putevima u svetu 31 milion elektičnih vozila: Kada će niže cene?</a></h3>
-                        <p>Visoke cene električnih vozila još uvek ograničavaju neke kupce, ali kako se njihov trošak sve više izjednačava s benzinskim i dizelskim 
-                            ekvivalentima, broj potencijalnih kupaca trebalo bi da se poveća...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene}" class="blogBtn">Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju}">
-                            <img src="/img/skodatrening.jpg" alt="Škoda Trening akademija za prodaju i postprodaju">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">25.11.2021.</p>
-                        <h3><a th:href="@{/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju}">ŠKODA AUTO predstavlja Trening akademiju za prodaju i postprodaju</a></h3>
-                        <p>Beograd, 24. novembar 2021 – ŠKODA AUTO objedinjuje svoje programe za obuku prodajnog i postprodajnog osoblja u novoosnovanoj „Akademiji za obuku u 
-                            prodaju i postprodaju“...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/u-kini-znacajno-pale-cene-elektricnih-automobila}">
-                            <img src="/img/kinaAuto.jpg" alt="Električni automobili iz Kine">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">24.11.2021.</p>
-                        <h3><a th:href="@{/u-kini-znacajno-pale-cene-elektricnih-automobila}">U Kini značajno pale cene električnih automobila</a></h3>
-                        <p>I dok se na Starom kontinentu sve odvija sporije nego na Istoku planete, tako smo ovde i dalje suočeni sa vrlo visokim cenama električnih vozila. 
-                            Kako vreme bude odmicalo, svakako se očekuje da cene budu niže...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{u-kini-znacajno-pale-cene-elektricnih-automobila}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/kia-ukida-benzince-i-dizelase}">
-                            <img src="/img/kia.jpg" alt="Kia električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">24.11.2021.</p>
-                        <h3><a th:href="@{/kia-ukida-benzince-i-dizelase}">I Kia ukida benzince i dizelaše</a></h3>
-                        <p>Pored brojnih proizvođača automobila koji su već najavili koje godine prestaju sa proizvodnjom i prodajom modela na fosilna goriva, sada je to uradila i Kia...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{kia-ukida-benzince-i-dizelase}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}">
-                            <img src="/img/elautopunjenje.jpg" alt="Električni automobil koji se puni">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">24.11.2021.</p>
-                        <h3><a th:href="@{/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}">Polovni električni automobili: Ima li garancije da će baterija trajati?</a></h3>
-                        <p>Prodaja vozila na električni i hibridni pogon iz godine u godinu raste velikom brzinom. Kako mnoge zemlje najavljuju da će u skorijoj budućnosti zabraniti prodaju benzinaca i dizelaša, očekuje se da će drastično skočiti prodaja vozila na električni pogon...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">
-                            <img src="/img/povoljnijiAuto1.png" alt="Fiat električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">23.11.2021.</p>
-                        <h3><a th:href="@{/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}">Stižu jeftini električni automobili: Koliko će 
-                                koštati i ko je sve u igri</a></h3>
-                        <p>Evropska automobilska industrija je morala da reaguje, jer po prodaji električnih automobila u Evropi prednjači američka Tesla, a 
-                            najavljen je i dolazak jeftinih kineskih e-vozila. Zato je napravljen novi iskorak. Nekolicina velikih proizvođača...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}">
-                            <img src="/img/kianew1.jpg" alt="Novi Kia električni automobil">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">22.11.2021.</p>
-                        <h3><a th:href="@{/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}">Nova Kia stiže u četvrtak, dizajn radikalno promenjen</a></h3>
-                        <p>Korejska kompanija će za tri dana predstaviti drugu generaciju modela Niro, čiji će izgled biti inspirisan HabaNiro konceptom. Ovo je 
-                            poslednji automobil u seriji važnih noviteta koji su deo tranzicije ovog brenda...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/mercedes-benz-vs-mercedes-electric}">
-                            <img src="/img/mercedes1.jpg" alt="Mercedes salon">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">22.11.2021.</p>
-                        <h3><a th:href="@{/mercedes-benz-vs-mercedes-electric}">Mercedes benz VS Mercedes electric</a></h3>
-                        <p>U petak 19.11.2021. imali smo priliku da prisustvujemo predstavljanju Mercedesove game novih električnih i plug in hibridnih vozila na terenu vozačke akademije NAVAK...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{mercedes-benz-vs-mercedes-electric}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda}">
-                            <img src="/img/skodaenyaqiV.jpg" alt="Škoda električni automobil bele boje">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">18.11.2021.</p>
-                        <h3><a th:href="@{/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda}">ENYAQ iV: globalna priča o uspehu brenda ŠKODA</a></h3>
-                        <p>ENYAQ iV postigao je trenutni uspeh na međunarodnim tržištima. Prvi proizvodni model brenda ŠKODA zasnovan na MEB modularnoj platformi za električne automobile...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021}">
-                            <img src="/img/Golden-Steering-Wheel-2021-2.jpg" alt="Dodela nagrade zlatni volan">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">18.11.2021.</p>
-                        <h3><a th:href="@{/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021}">ŠKODA ENYAQ iV osvojio nagradu Zlatni volan za najbolji električni SUV 2021</a></h3>
-                        <p>ŠKODA ENYAQ iV svojim nastupom na Lausitzring-u impresionirao stručni žiri vozača trka i novinara...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-flex ">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/prvih-30000km-na-struju}">
-                            <img src="/img/kona.jpg" alt="Hyundai Kona električni automobil crvene boje">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p class="dateNews">15.11.2021.</p>
-                        <h3><a th:href="@{/prvih-30000km-na-struju}">Prvih 30 000 km na struju</a></h3>
-                        <p>Aktivan vozač sam punih 40 godina, od svoje 18-te. Počeo sam davne 80-te, naravno sa nacinalnom klasom, popularnim fićom...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/prvih-30000km-na-struju}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-            <div class="col-md-6 col-lg-4 d-flex">
-                <article class="post text-left">
-                    <figure class="feature-image">
-                        <a th:href="@{/bonton-za-vozace-elektricnih-vozila}">
-                            <img src="/img/charge.jpg" alt="Bonton za vozače električnih vozila">
-                        </a>
-                    </figure>
-                    <div class="entry-content">
-                        <p  class="dateNews">29.10.2021.</p>
-                        <h3><a th:href="@{/bonton-za-vozace-elektricnih-vozila}">Bonton za vozače električnih vozila</a></h3>
-                        <p>Broj električnih vozila na srpskim saobraćajnicama svakog je dana sve veći...</p>
-                        <span class="separatorBtn"></span>
-                        <a th:href="@{/bonton-za-vozace-elektricnih-vozila}" class="blogBtn" >Pročitajte više</a>
-                    </div>
-                </article>
-            </div>
-
-
+            <th:block th:each="vest:${listaVesti}">
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+                    <article class="post text-left">
+                        <figure class="feature-image">
+                            <a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}">
+                                <img th:src="@{/slika/{slikaId} (slikaId=${vest.slika.id})}" th:alt="${vest.slika.alttext}" th:title="${vest.slika.title}">
+                            </a>
+                        </figure>
+                        <div class="entry-content">
+                            <p class="dateNews"><span th:text="${#temporals.format(vest.datum,'dd.MM.yyyy.')}">16.12.2021.</span></p>
+                            <h3><a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}"><span th:text="${vest.naslov}"></span></a></h3>
+                            <p><span th:utext="${#strings.abbreviate(vest.tekst,250)}"></span></p>
+                            <span class="separatorBtn"></span>
+                            <a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}" class="blogBtn">Pročitajte više</a>
+                            <div class=" mt-3" sec:authorize="hasAnyAuthority('ADMIN')" >
+                                <span class="separatorBtn darker"></span>
+                                <a th:href="@{/admin/admin-edit/{naslov} (naslov=${vest.naslovduzi})}" class="blogBtn darker">Izmeni vest</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </th:block>
 
 
         </div>
 
         <!--ubaciti pagination-->
-        <!--
-                        <div class="pagination">
-                            <ul>
-                                <a class="disabled" href="#">«</a>
-                                <a class="is-active" href="#"><li>1</li></a>
-                                <a href="#"><li>2</li></a>
-                                <a href="#"><li>3</li></a>
-                                <a href="#"><li>4</li></a>
-                                <a href="#"><li>5</li></a>
-                                <a href="#"><li>6</li></a>
-                                <a class="disabled" href="#">»</a>
-                
-                            </ul>
-                        </div>
+        <th:block th:insert="fragments/pagination :: pagination (${listaVesti})" />
         
-                                <div class="row">
-                                    <div class="col-12 text-center">
-                                        <a th:href="@{/vesti}" class="btn-underlined">SVE VESTI</a>
-                                    </div>
-                                </div>-->
+
+
+
+
     </div>
 </section>
 

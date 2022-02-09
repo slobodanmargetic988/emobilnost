@@ -269,13 +269,13 @@ public class MainController {
 
     }
 
-    @GetMapping("/vesti2")
+    @GetMapping("/vesti")
     public String vesti2(final Model model,
             @PageableDefault(value = 12) final Pageable pageable
     ) {
         model.addAttribute("listaVesti", vestiService.findAllByOrderByDatumDesc(pageable));
 
-        return "main/vesti2";
+        return "main/vesti";
     }
 
     @PostMapping(value = "/admin/napraviVest")
@@ -673,9 +673,9 @@ public class MainController {
         return "main/subvencije";
     }
 
-    @GetMapping("/vesti")
+    @GetMapping("/vesti-proba")
     public String vesti(Model model) {
-        return "main/vesti";
+        return "main/vesti-proba";
     }
 
     @GetMapping("/pogodnosti")

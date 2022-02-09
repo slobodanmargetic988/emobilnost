@@ -81,7 +81,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   float: left;
   position: absolute;
   top: 0;
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
 }
 .single-post .post-image {
   margin: 2rem 0;
