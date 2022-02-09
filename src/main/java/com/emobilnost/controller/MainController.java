@@ -992,13 +992,13 @@ public class MainController {
             Spameri spamer = spamService.findByIpadresa(ipAddress);
             if (spamer == null) {
                 Spameri novspamer = new Spameri();
-                novspamer.setBrojac(100);
+                novspamer.setBrojac(1);
 
                 novspamer.setIpadresa(ipAddress);
                 spamService.save(novspamer);
 
             } else {
-                spamer.setBrojac(100);
+                spamer.setBrojac(spamer.getBrojac() + 1);
                 spamService.save(spamer);
             }
 
