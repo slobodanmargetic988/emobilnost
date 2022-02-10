@@ -17,9 +17,15 @@ public interface ClanoviService {
     List<Clanovi> findAllBy();
 
     Clanovi findFirstByEmail(String Email);
-  Clanovi findFirstByIme(String ime);
-List<Clanovi> findAllByOrderByDatumistekaclanstvaAsc();
+
+    Clanovi findFirstByIme(String ime);
+
+    List<Clanovi> findAllByOrderByDatumistekaclanstvaAsc();
+
     void save(Clanovi clan);
-        void saveAndFlush(Clanovi clan);
+
+    void saveAndFlush(Clanovi clan);
+
+    Clanovi findOne(Integer id);
 
 }

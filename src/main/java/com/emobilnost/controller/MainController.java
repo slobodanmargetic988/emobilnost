@@ -109,12 +109,17 @@ public class MainController {
     KomentariService komentariService;
     
      
-  
+      @GetMapping(value = "/ClanInfo/{clanId}")
+    public String proveraclana(final Model model,
+            @PathVariable final Integer clanId) {
+        model.addAttribute("clan", clanoviService.findOne(clanId));
+
+        return "main/info";
+    }
 
     @GetMapping(value = "/admin/odobrenKomentar/{komentarId}")
     public String adminkomentaremail(final Model model,
-            @PathVariable final Integer komentarId,
-            RedirectAttributes redirectAttributes) {
+            @PathVariable final Integer komentarId) {
         model.addAttribute("komentar", komentariService.findFirstById(komentarId));
 
         return "main/komentar";
@@ -1234,6 +1239,7 @@ public class MainController {
             @RequestParam(name = "pib", defaultValue = "0") Integer pib,
             @RequestParam(name = "fizickoilipravnolice", defaultValue = "fizickolice") String fizickoilipravnolice,
             @RequestParam(name = "placanje", defaultValue = "uplatnica") String placanje,
+            @RequestParam(name = "imamev", defaultValue = "true") boolean imamev,
             RedirectAttributes redirectAttributes
     ) {
 
@@ -1294,7 +1300,17 @@ public class MainController {
 
             return "redirect:/registracija";
         }
+       
+       if(imamev) {
+        try {
 
+                EmailController.SendEmailUclanjenBesplatno(clan);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            }
+       }
+        else {
         if (placanje.equals("uplatnica")) {
             try {
 
@@ -1319,7 +1335,7 @@ public class MainController {
                 }
             }
 
-        }
+        }}
 
         redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se uclanili.");
 
