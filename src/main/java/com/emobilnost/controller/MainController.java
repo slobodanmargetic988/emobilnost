@@ -740,7 +740,7 @@ public class MainController {
             model.addAttribute("clan", clan);
         }
 
-        return "/main/profile";
+        return "/main/profile2";
     }
 
     @RequestMapping(value = "/profil-edit/save", method = RequestMethod.POST)
