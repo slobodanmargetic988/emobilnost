@@ -54,54 +54,28 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 d-flex">
+                         <th:block th:each="vest:${listaVesti}">
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
                     <article class="post text-left">
                         <figure class="feature-image">
-                            <a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}">
-                                <img src="/img/ENYAQ-COUPE-iV-Silhouette.jpg" alt="ENYAQ-COUPE-iV-Silhouette">
+                            <a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}">
+                                <img th:src="@{/slika/{slikaId} (slikaId=${vest.slika.id})}" th:alt="${vest.slika.alttext}" th:title="${vest.slika.title}">
                             </a>
                         </figure>
                         <div class="entry-content">
-                            <p class="dateNews">16.12.2021.</p>
-                            <h3><a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}">ŠKODA ENYAQ COUPÉ iV: Svetska premijera 31. januara</a></h3>
-                            <p>ŠKODA AUTO će predstaviti svoj novi ENYAQ COUPÉ iV 31. januara 2022. godine. Teaser video pruža prvi pogled na novi, potpuno električni top model češkog proizvođača automobila, naglašavajući njegovu izvanrednu aerodinamiku...</p>
+                            <p class="dateNews"><span th:text="${#temporals.format(vest.datum,'dd.MM.yyyy.')}">16.12.2021.</span></p>
+                            <h3><a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}"><span th:text="${vest.naslov}"></span></a></h3>
+                            <p><span th:utext="${#strings.abbreviate(vest.tekst,250)}"></span></p>
                             <span class="separatorBtn"></span>
-                            <a th:href="@{/skoda-enyaq-coupe-iv-svetska premijera-31-januara}" class="blogBtn">Pročitajte više</a>
+                            <a th:href="@{/pregled-vesti/{naslov} (naslov=${vest.naslovduzi})}" class="blogBtn">Pročitajte više</a>
+                            <div class=" mt-3" sec:authorize="hasAnyAuthority('ADMIN')" >
+                                <span class="separatorBtn darker"></span>
+                                <a th:href="@{/admin/admin-edit/{naslov} (naslov=${vest.naslovduzi})}" class="blogBtn darker">Izmeni vest</a>
+                            </div>
                         </div>
                     </article>
                 </div>
-                <div class="col-md-6 col-lg-4 d-flex">
-                    <article class="post text-left">
-                        <figure class="feature-image">
-                            <a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}">
-                                <img src="/img/nissan1.jpg" alt="Nissan baterije">
-                            </a>
-                        </figure>
-                        <div class="entry-content">
-                            <p class="dateNews">14.12.2021.</p>
-                            <h3><a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}">Nissan najavljuje svoje „Čvrste“ (Solid-State) baterije po ceni od 75 dolara po kWh</a></h3>
-                            <p>Solid-State baterije su nova tehnologija izrade baterija gde se koriste čvrste elektrode, kao i čvrst elektrolit, umesto tečnih polimer gel elektrolita koji se nalaze u litijum jonskim i litijum polimernim baterijama...</p>
-                            <span class="separatorBtn"></span>
-                            <a th:href="@{/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh}" class="blogBtn">Pročitajte više</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4 d-flex">
-                    <article class="post text-left">
-                        <figure class="feature-image">
-                            <a th:href="@{/miodrag-makaric-mica}">
-                                <img src="/img/mica.jpg" alt=" Miodrag Makarić - Mića">
-                            </a>
-                        </figure>
-                        <div class="entry-content">
-                            <p class="dateNews">15.11.2021.</p>
-                            <h3><a th:href="@{/miodrag-makaric-mica}">Miodrag Makarić - Mića: Pionir elektromobilnosti - šampion biznisa</a></h3>
-                            <p>Vlasnik restorana Ruža Rumena i fast food brenda BURGER PLUS Milorad Makarić je jedan od prvih koji je kroz svoj biznis...</p>
-                            <span class="separatorBtn"></span>
-                            <a th:href="@{/miodrag-makaric-mica}" class="blogBtn" >Pročitajte više</a>
-                        </div>
-                    </article>
-                </div>
+            </th:block>
                 
 
 

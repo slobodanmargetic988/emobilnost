@@ -108,7 +108,19 @@ public class MainController {
     @Autowired
     KomentariService komentariService;
     
-     
+         @GetMapping("/")
+    public String homePage(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!authentication.getPrincipal().equals("anonymousUser")) {
+            Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
+            model.addAttribute("user", myUser);
+        }
+          model.addAttribute("listaVesti", vestiService.findLastFew(3,0));
+
+
+        return "main/home";
+    }
+    
       @GetMapping(value = "/ClanInfo/{clanId}")
     public String proveraclana(final Model model,
             @PathVariable final Integer clanId) {
@@ -695,16 +707,7 @@ public class MainController {
         return "main/registracija";
     }
 
-    @GetMapping("/")
-    public String homePage(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!authentication.getPrincipal().equals("anonymousUser")) {
-            Users myUser = ((EmobilityUserPrincipal) authentication.getPrincipal()).getUser();
-            model.addAttribute("user", myUser);
-        }
 
-        return "main/home";
-    }
 
     @GetMapping("/uspesanlogin")
     public String homePageLogin(Model model,
