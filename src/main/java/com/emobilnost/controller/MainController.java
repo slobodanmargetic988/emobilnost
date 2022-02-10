@@ -737,7 +737,7 @@ public class MainController {
             model.addAttribute("clan", clan);
         }
 
-        return "/main/profil";
+        return "/main/profile";
     }
 
     @RequestMapping(value = "/profil-edit/save", method = RequestMethod.POST)
@@ -1229,13 +1229,13 @@ public class MainController {
             @RequestParam(name = "email", defaultValue = "/") String email,
             @RequestParam(name = "adresa", defaultValue = "/") String adresa,
             @RequestParam(name = "mesto", defaultValue = "/") String mesto,
-            @RequestParam(name = "postanski_broj", defaultValue = "/") String postanski_broj,
+            @RequestParam(name = "postanskibroj", defaultValue = "/") String postanski_broj,
             @RequestParam(name = "drzava", defaultValue = "/") String drzava,
-            @RequestParam(name = "broj_telefona", defaultValue = "/") String broj_telefona,
+            @RequestParam(name = "telefon", defaultValue = "/") String broj_telefona,
             @RequestParam(name = "password", defaultValue = "/") String password,
             @RequestParam(name = "lozinkaRepeat", defaultValue = "/") String lozinkaRepeat,
             @RequestParam(name = "jmbg", defaultValue = "/") String jmbg,
-            @RequestParam(name = "naziv_pravne_osobe", defaultValue = "/") String naziv_pravne_osobe,
+            @RequestParam(name = "pravnaosoba", defaultValue = "/") String naziv_pravne_osobe,
             @RequestParam(name = "pib", defaultValue = "0") Integer pib,
             @RequestParam(name = "fizickoilipravnolice", defaultValue = "fizickolice") String fizickoilipravnolice,
             @RequestParam(name = "placanje", defaultValue = "uplatnica") String placanje,
