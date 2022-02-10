@@ -344,15 +344,15 @@ public class MainController {
         return "redirect:/admin/admin-pocetna";
     }
 
-    @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
-    public String skodaEnyaqCoupePremijera(final Model model) {
-        return "main/skoda-enyaq-coupe-iv-svetska premijera-31-januara";
-    }
-
-    @GetMapping(value = "/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh")
-    public String nissanPunjaci(final Model model) {
-        return "main/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh";
-    }
+//    @GetMapping(value = "/skoda-enyaq-coupe-iv-svetska premijera-31-januara")
+//    public String skodaEnyaqCoupePremijera(final Model model) {
+//        return "main/skoda-enyaq-coupe-iv-svetska premijera-31-januara";
+//    }
+//
+//    @GetMapping(value = "/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh")
+//    public String nissanPunjaci(final Model model) {
+//        return "main/nissan-najavljuje-svoje-cvrste-baterije-po-ceni-od-75-dolara-po-kwh";
+//    }
 
     @GetMapping(value = "/punjaci")
     public String punjaci(final Model model) {
@@ -378,96 +378,96 @@ public class MainController {
     public String adminEmobilnostHome(final Model model) {
         return "main/admin-pocetna";
     }
-
-    @GetMapping(value = "/srpski-elektro-tricikl-iz-cacka")
-    public String elektroTricikl(final Model model) {
-        return "main/srpski-elektro-tricikl-iz-cacka";
-    }
-
-    @GetMapping(value = "/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi")
-    public String sajamKoriscenihAutomobila(final Model model) {
-        return "main/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi";
-    }
-
-    @GetMapping(value = "/koliko-elektricni-polovnjaci-gube-na-vrednosti")
-    public String polovnjaci(final Model model) {
-        return "main/koliko-elektricni-polovnjaci-gube-na-vrednosti";
-    }
-
-    @GetMapping(value = "/najavljen-elektricni-lexus")
-    public String elektricniLexus(final Model model) {
-        return "main/najavljen-elektricni-lexus";
-    }
-
-    @GetMapping(value = "/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu")
-    public String teslauFrci(final Model model) {
-        return "main/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu";
-    }
-
-    @GetMapping(value = "/elektricni-automobili-istine-i-zablude")
-    public String istineZablude(final Model model) {
-        return "main/elektricni-automobili-istine-i-zablude";
-    }
-
-    @GetMapping(value = "/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost")
-    public String zastoSeUclaniti(final Model model) {
-        return "main/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost";
-    }
-
-    @GetMapping(value = "/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila")
-    public String proizvodnjaBateria(final Model model) {
-        return "main/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila";
-    }
-
-    @GetMapping(value = "/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene")
-    public String do2030(final Model model) {
-        return "main/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene";
-    }
-
-    @GetMapping(value = "/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju")
-    public String skodaTrening(final Model model) {
-        return "main/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju";
-    }
-
-    @GetMapping(value = "/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri")
-    public String stizuJeftinijaEV(final Model model) {
-        return "main/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri";
-    }
-
-    @GetMapping(value = "/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen")
-    public String novaKiaStize(final Model model) {
-        return "main/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen";
-    }
-
-    @GetMapping(value = "/u-kini-znacajno-pale-cene-elektricnih-automobila")
-    public String paleCeneAutaUKini(final Model model) {
-        return "main/u-kini-znacajno-pale-cene-elektricnih-automobila";
-    }
-
-    @GetMapping(value = "/kia-ukida-benzince-i-dizelase")
-    public String kiaBezBenzincaDizelasa(final Model model) {
-        return "main/kia-ukida-benzince-i-dizelase";
-    }
-
-    @GetMapping(value = "/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati")
-    public String polovniElAutomobili(final Model model) {
-        return "main/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati";
-    }
-
-    @GetMapping(value = "/mercedes-benz-vs-mercedes-electric")
-    public String mercedesBenzVsMercedesElectric(final Model model) {
-        return "main/mercedes-benz-vs-mercedes-electric";
-    }
-
-    @GetMapping(value = "/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda")
-    public String skodaEnyaqGlobalnaPricaOUspehu(final Model model) {
-        return "main/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda";
-    }
-
-    @GetMapping(value = "/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021")
-    public String skodaEnyaqNagrada(final Model model) {
-        return "main/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021";
-    }
+//
+//    @GetMapping(value = "/srpski-elektro-tricikl-iz-cacka")
+//    public String elektroTricikl(final Model model) {
+//        return "main/srpski-elektro-tricikl-iz-cacka";
+//    }
+//
+//    @GetMapping(value = "/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi")
+//    public String sajamKoriscenihAutomobila(final Model model) {
+//        return "main/otvoren-sajam-koriscenih-automobila-u-stark-areni-lepo-je-ovo-sto-se-vidi-vredi";
+//    }
+//
+//    @GetMapping(value = "/koliko-elektricni-polovnjaci-gube-na-vrednosti")
+//    public String polovnjaci(final Model model) {
+//        return "main/koliko-elektricni-polovnjaci-gube-na-vrednosti";
+//    }
+//
+//    @GetMapping(value = "/najavljen-elektricni-lexus")
+//    public String elektricniLexus(final Model model) {
+//        return "main/najavljen-elektricni-lexus";
+//    }
+//
+//    @GetMapping(value = "/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu")
+//    public String teslauFrci(final Model model) {
+//        return "main/tesla-u-frci-ovo-je-automobil-koji-se-puni-najbrze-na-svetu";
+//    }
+//
+//    @GetMapping(value = "/elektricni-automobili-istine-i-zablude")
+//    public String istineZablude(final Model model) {
+//        return "main/elektricni-automobili-istine-i-zablude";
+//    }
+//
+//    @GetMapping(value = "/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost")
+//    public String zastoSeUclaniti(final Model model) {
+//        return "main/zasto-je-dobro-uclaniti-se-u-udruzenje-vozaca-emobilnost";
+//    }
+//
+//    @GetMapping(value = "/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila")
+//    public String proizvodnjaBateria(final Model model) {
+//        return "main/proizvodnja-baterija-kako-se-proizvodi-srce-elektricnog-automobila";
+//    }
+//
+//    @GetMapping(value = "/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene")
+//    public String do2030(final Model model) {
+//        return "main/do-2030-na-putevima-u-svetu-31-milion-elekticnih-vozila-kada-ce-nize-cene";
+//    }
+//
+//    @GetMapping(value = "/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju")
+//    public String skodaTrening(final Model model) {
+//        return "main/skoda-auto-predstavlja-trening-akademiju-za-prodaju-i-postprodaju";
+//    }
+//
+//    @GetMapping(value = "/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri")
+//    public String stizuJeftinijaEV(final Model model) {
+//        return "main/stizu-jeftiniji-elektricni-automobili-koliko-ce-kostati-i-ko-je-sve-u-igri";
+//    }
+//
+//    @GetMapping(value = "/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen")
+//    public String novaKiaStize(final Model model) {
+//        return "main/nova-kia-stize-u-cetvrtak-dizajn-radikalno-promenjen";
+//    }
+//
+//    @GetMapping(value = "/u-kini-znacajno-pale-cene-elektricnih-automobila")
+//    public String paleCeneAutaUKini(final Model model) {
+//        return "main/u-kini-znacajno-pale-cene-elektricnih-automobila";
+//    }
+//
+//    @GetMapping(value = "/kia-ukida-benzince-i-dizelase")
+//    public String kiaBezBenzincaDizelasa(final Model model) {
+//        return "main/kia-ukida-benzince-i-dizelase";
+//    }
+//
+//    @GetMapping(value = "/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati")
+//    public String polovniElAutomobili(final Model model) {
+//        return "main/polovni-elektricni-automobili-ima-li-garancije-da-ce-baterija-trajati";
+//    }
+//
+//    @GetMapping(value = "/mercedes-benz-vs-mercedes-electric")
+//    public String mercedesBenzVsMercedesElectric(final Model model) {
+//        return "main/mercedes-benz-vs-mercedes-electric";
+//    }
+//
+//    @GetMapping(value = "/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda")
+//    public String skodaEnyaqGlobalnaPricaOUspehu(final Model model) {
+//        return "main/enyaq-iv-globalna-prica-o-uspehu-brenda-skoda";
+//    }
+//
+//    @GetMapping(value = "/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021")
+//    public String skodaEnyaqNagrada(final Model model) {
+//        return "main/skoda-enyaq-iv-osvojio-nagradu-zlatni-volan-za-najbolji-električni-suv-2021";
+//    }
 
     @GetMapping(value = "/admin/dodaj-clana")
     public String dodajClana(final Model model) {
@@ -535,15 +535,15 @@ public class MainController {
         return "main/pregled-clanova";
     }
 
-    @GetMapping("/prvih-30000km-na-struju")
-    public String prvih30000kmNaStruju(Model model) {
-        return "main/prvih-30000km-na-struju";
-    }
+//    @GetMapping("/prvih-30000km-na-struju")
+//    public String prvih30000kmNaStruju(Model model) {
+//        return "main/prvih-30000km-na-struju";
+//    }
 
-    @GetMapping("/miodrag-makaric-mica")
-    public String miodragMakaricMica(Model model) {
-        return "main/miodrag-makaric-mica";
-    }
+//    @GetMapping("/miodrag-makaric-mica")
+//    public String miodragMakaricMica(Model model) {
+//        return "main/miodrag-makaric-mica";
+//    }
 
     @GetMapping("/bonton-za-vozace-elektricnih-vozila")
     public String jednaVest(Model model) {
