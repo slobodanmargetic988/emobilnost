@@ -53,5 +53,9 @@ public class ClanoviServiceImpl implements ClanoviService {
        clanoviRepository.saveAndFlush(clan);
     }
 
-
+ @Override
+    public Clanovi findOne(Integer id){
+      
+      return  clanoviRepository.findFirstById(id);
+    }
 }

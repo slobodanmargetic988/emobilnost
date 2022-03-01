@@ -453,6 +453,50 @@ public class EmailController {
             transport.close();
         }
     }
+    
+    
+    public static void SendEmailUclanjenBesplatno(Clanovi clan) throws Exception {
+        // Create a Properties object to contain connection configuration information.
+        Properties props = System.getProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", PORT);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+        // Create a Session object to represent a mail session with the specified properties.
+        Session session = Session.getDefaultInstance(props);
+        // Create a message with the specified information.
+        Transport transport = session.getTransport();
+        try {
+            MimeMessage msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(FROM, FROMNAME));
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(clan.getEmail()));
+            msg.setSubject(SUBJECTC);
+            String BODY = String.join(
+                    System.getProperty("line.separator"),
+                    emailzaglavlje
+                    + emailsadrzajContainer
+                    + napravljenNalog(clan.getIme(), clan.getPrezime(), clan.getEmail())
+                    + emailsadrzajContainerClose
+                    + emailfooter
+            );
+            MimeBodyPart textBodyPart = new MimeBodyPart();
+            textBodyPart.setContent(BODY, "text/html;charset=utf-8");
+            MimeMultipart mimeMultipart = new MimeMultipart();
+            mimeMultipart.addBodyPart(textBodyPart);
+            msg.setContent(mimeMultipart, "text/html;charset=utf-8");
+            // Add a configuration set header. Comment or delete the
+            // next line if you are not using a configuration set
+            msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+            // Send the message.
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+            transport.sendMessage(msg, msg.getAllRecipients());
+        } catch (Exception ex) {
+            String err = ex.getMessage();
+        } finally {
+            // Close and terminate the connection.
+            transport.close();
+        }
+    }
 
     public static void SendEmailUclanjen(Clanovi clan) throws Exception {
         // Create a Properties object to contain connection configuration information.

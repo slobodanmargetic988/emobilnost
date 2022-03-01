@@ -48,7 +48,7 @@
                 <div class="users-panel">
 
                     <h3 class="">LIČNI PODACI</h3>
-
+                    <th:block th:if="${userLogedIn !=null}">
                     <div class="personal-data">
                         <p>Ime: <span th:text="${userLogedIn.ime}" name="ime"></span></p>
                         <p>Prezime: <span th:text="${userLogedIn.prezime}" name="prezime"></span></p>
@@ -61,7 +61,7 @@
                         <p>JMBG: <span th:text="${clan.jmbg}" name="jmbg"></span></p>
                         <p>Član od: <span th:text="${#dates.format(clan.datum_pocetka_clanstva, 'dd.MM.yyyy.')}" name="datum_pocetka_clanstva"></span></p>
                         <p>Članarina ističe: <span th:text="${#dates.format(clan.datumisteka, 'dd.MM.yyyy.')}" name="datum_isteka_clanstva"></span></p>
-                        <th:block th:if="${clan.is_pravno_lice != null}">
+                        <th:block th:if="${clan.is_pravno_lice }">
 
                             <p>Naziv firme: <span th:text="${clan.naziv_pravne_osobe}" name="naziv_pravne_osobe"></span></p>
                             <p>PIB: <span th:text="${clan.pib}" name="pib"></span></p>
@@ -69,7 +69,7 @@
                         </th:block>
 
                     </div>
-
+</th:block>
                 </div>
             </div>
         </div>

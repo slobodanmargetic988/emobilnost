@@ -25,5 +25,5 @@ public interface ClanoviRepository extends JpaRepository<Clanovi, Integer> {
     Clanovi findFirstByEmail(String email);
     Clanovi findFirstByIme(String ime);
     List<Clanovi> findAllByOrderByDatumistekaAsc();
-   
+     Clanovi findFirstById(Integer id);
 }
