@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" 
+
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security" 
+      >
+
+    <head>
+        <title>Početna strana udruženja E-Mobilnost</title>
+        <meta name="description" content="Početna strana udruženja vozača i ljubitelja električnih vozila | E-Mobilnost"/> 
+        <meta name="keywords" content="e-mobilnost, srbija, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i ljubitelja 
+              električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, električni motori, električni trotineti, motori, trotineti, 
+              electric vehicles, electric vehicle, subvencije, pogodnosti, mreža punjača, auto na struju, vozilo na struju, električni pogon, vozila na električni pogon, 
+              elektromobili, elektromobilnost"/>
+    <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/onama-home-section.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/anketa.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<div class="kontejner">
+
+    <picture>
+        <source media="(max-width: 776px)" srcset="/img/carhomesmall.jpg">
+        <source media="(min-width: 992px)" srcset="/img/carhome.jpg">
+        <img src="/img/carhome.jpg" class="header-img " alt="Car Image Home Hero">
+    </picture>
+
+
+    <th:block th:insert="fragments/navigation :: navbar" />
+
+    <div class="text-box">
+        <h2 class="">E-Mobilnost</h2>
+        <h3 class="">Živi bili elektromobili.</h3>
+    </div>
+
+    <th:block th:insert="fragments/alert :: gotovaporudzbina (${successMessage})"></th:block>
+
+    <th:block th:insert="fragments/alert :: uspesnaPrijava (${successMessageLogin})"></th:block>
+<div class="text-box">
+        <h2 class="">testforma</h2>
+        <form  th:action="@{https://formtest.wspay.biz/authorization.aspx}"  method="POST" >
+ 
+                        <input type="text" name="ShopID" value="EMOBILRS" />
+                        <input type="text" name="ShoppingCartID" value="1" />
+                        <input type="text" name="Version" value="2.0" />
+                        <input type="text" name="TotalAmount" value="17,00" />
+                        <input type="text" name="ReturnURL" value="https://emobilnost.rs/sucess" />
+                        <input type="text" name="ReturnErrorURL" value="https://emobilnost.rs/error" />
+                        <input type="text" name="CancelURL" value="https://emobilnost.rs/cancel" />
+                        <input type="text" name="Signature" value="27f0b2a7427157d18acb7bf9b74d4787564f6a43e13f283f172825968185e76eadca5f5c7f77cec72e9f6862aeef4cda6f9ffb94cc348155e5a38cafe57c7e3c" />
+                        
+
+                    <button type="submit" >Submit</button>
+        
+                </form>
+ 
+    </div>
+
+    
+</div>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://unpkg.com/jquery-aniview/dist/jquery.aniview.js"></script>
+<script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
+
+
+<script th:src="@{/js/slickCarouselPartneri.js}" type="text/javascript"></script>
+<script th:src="@{/js/uspesnaKupovinaAlert.js}" type="text/javascript"></script>
+<script src="/js/js.cookie.min.js" type="text/javascript"></script>
+<script th:src="@{/js/anketa.js}" type="text/javascript"></script>
+
+</body>
+
+</html>
