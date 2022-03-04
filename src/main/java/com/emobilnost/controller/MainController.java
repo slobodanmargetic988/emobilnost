@@ -120,6 +120,14 @@ public class MainController {
 
         return "main/home";
     }
+             @GetMapping("/cardtest")
+    public String testPage2(Model model) {
+ 
+/*
+        https://emobilnost.rs/error?CustomerFirstname=&CustomerSurname=&CustomerAddress=&CustomerCountry=&CustomerZIP=&CustomerCity=&CustomerEmail=&CustomerPhone=&ShoppingCartID=1&Lang=SR&DateTime=20220211134835&Amount=1700&ECI=&PaymentType=&PaymentPlan=&ShopPostedPaymentPlan=&Success=0&ApprovalCode=&ErrorMessage=ODBIJENO&Signature=e93f826e8448b1c6db73f9d93f051ce7a36d21a72a5a3f2b25e91f68f43471cc5f53e1dfe60830e696ec910db4726c7e332e4108f3564d0b7d8e044db5bf3ae3&ErrorCodes=E00016
+        */
+        return "main/cardtest";
+    }
     
       @GetMapping(value = "/ClanInfo/{clanId}")
     public String proveraclana(final Model model,
