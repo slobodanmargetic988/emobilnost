@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Učlani se | E-Mobilnost</title>
+
+        <meta name="description" content="Postanite član udruženja E-Mobilnost kako biste ostvarili benefite. Članstvom u udruženju ostvarujete pravo na brojne pogodnosti koje Vam inače nisu dostupne..."/> 
+
+        <meta name="keywords" content="e-mobilnost, srbija, beograd, udruženje, udruženja vozača električnih vozila, udruženja ljubitelja električnih vozila, udruženja vozača i 
+              ljubitelja električnih vozila, emobilnost, električna vozila, električni automobili, vozila, automobili, član, članstvo, članarina, učlani se, učlanite se, učlani se u emobilnost,
+              učlanite se u emobilnost,učlani se u e-mobilnost,učlanite se u e-mobilnost, emobilnost postani clan, članarina emobilnost, članarina emobilnost cena, članarina emobilnost cenovnik,
+              član udruženja, članstvo u udruženju, članarina udruženja, učlani se u udruženje, učlanite se u udruženje, članstvo, članstvo u udruženju,
+              član kluba, članstvo u klubu, članarina kluba, učlani se u klub, učlanite se u klub, članstvo, članstvo u udruženju, postanite član, postanite član udruženja"/>
+
+    <th:block th:insert="fragments/head :: head" />
+
+    <link th:href="@{/css/uclani-se.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<!--<img src="/img/image-registration.jpg" class="header-img" alt="registration-header-image">-->
+<picture>
+    <source media="(max-width: 776px)" srcset="/img/caruclanisesmall.jpg">
+    <source media="(min-width: 992px)" srcset="/img/caruclaniseCropped.jpg">
+    <img src="/img/caruclaniseCropped.jpg" class="header-img " alt="mercedes black car hero image uclani se">
+</picture>
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box text-box-mini">
+    <h2 class="big-header-hidden">E-Mobilnost</h2>
+    <h3>Postani član udruženja</h3>
+    <p>kako bi ostvario benefite</p>
+</div>
+
+<th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+<th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+
+
+
+
+
+
+<section id="uclanise-login-form">
+
+    <div class="container container-uclani-se">
+
+        <div class="user">
+            <div class="formBx">
+                <!--<form th:action="@{/noviClan}"  method="POST" >-->
+                <h2>Učlanite se<br><span class="undertext-small">* Besplatna članarina za sve vlasnike i vozače električnih vozila<br>
+                    * Akcija traje do 1. maja 2022. godine</span></h2>
+
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#fLice" role="tab">Fizičko lice </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#pLice" role="tab">Pravno lice</a>
+                    </li>
+                </ul><!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="fLice" role="tabpanel">
+                        <form th:action="@{/noviClan}"  method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="ime">Ime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   
+                                <div class="invalid-feedback">
+                                    Unesite Vaše ime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prezime">Prezime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="prezime" placeholder="Prezime" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaše prezime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email adresa</label>
+                                <input type="email" class="input-custom-border-clr form-control" name="email" placeholder="Email" required/>      
+                                <div class="invalid-feedback">
+                                    Unesite validnu email adresu u formatu: primer@email.com.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password">Lozinka</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="passwordRegistration" minlength="8"  required/>  
+                                <i id="openPassword" class="fa fa-eye"></i>
+                                <i id="closedPassword" class="fa fa-eye-slash"></i> 
+                                <div class="invalid-feedback">
+                                    Unesite lozinku od minimum 8 karaktera.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lozinkaRepeat">Potvrda lozinke</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConfirmation" required/>
+                                <i class="fa fa-eye openPasswordConf"></i>
+                                <i class="fa fa-eye-slash closedPasswordConf"></i>
+                                <div class="invalid-feedback">
+                                    Potvrdite lozinku.
+                                </div>
+                                <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="adresa">Adresa</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="adresa" placeholder="Adresa" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vašu adresu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesto">Grad</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="mesto" placeholder="Grad" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postanskibroj">Poštanski broj</label>
+                                <input type="number" class="input-custom-border-clr form-control" name="postanskibroj" placeholder="Poštanski broj" required/>
+                                <div class="invalid-feedback">
+                                    Unesite poštanski broj.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="drzava">Država</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="drzava" placeholder="Država" required/>
+                                <div class="invalid-feedback">
+                                    Unesite državu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefon">Telefon</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="telefon" placeholder="Telefon" required/>
+                                <div class="invalid-feedback">
+                                    Unesite broj telefona.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jmbg">JMBG</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="jmbg" placeholder="JMBG" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš JMBG.
+                                </div>
+                            </div>
+                             <div class="mb-3">
+                                <label for="jmbg">Marka vozila</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="marka" placeholder="Marka vozila" required/>
+                                <div class="invalid-feedback">
+                                    Unesite marku Vašeg vozila.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jmbg">Registarski broj vozila</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="regBroj" placeholder="Registarski broj vozila" required/>
+                                <div class="invalid-feedback">
+                                    Unesite registarski broj Vašeg vozila.
+                                </div>
+                            </div>
+                            
+                            <br>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me"  name="imamev" type="checkbox">&nbsp; Posedujem električno vozilo</label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me"  type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me"  type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
+                            </div>
+                            <button type="submit" class="submitForm mt-3">Učlani se</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="pLice" role="tabpanel">
+                        <form th:action="@{/noviClan}"  method="POST"  class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="ime">Ime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   
+                                <div class="invalid-feedback">
+                                    Unesite Vaše ime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="prezime">Prezime</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="prezime" placeholder="Prezime" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaše prezime.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Email adresa</label>
+                                <input type="email" class="input-custom-border-clr form-control" name="email" placeholder="Email" required/>      
+                                <div class="invalid-feedback">
+                                    Unesite validnu email adresu u formatu: primer@email.com.
+                                </div>
+                            </div>   
+                            <div class="mb-3">
+                                <label for="password">Lozinka</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="password" placeholder="Lozinka (minimum 8 karaktera)" id="pRegistration" minlength="8"  required/>  
+                                <i id="oPassword" class="fa fa-eye"></i>
+                                <i id="cPassword" class="fa fa-eye-slash"></i>    
+                                <div class="invalid-feedback">
+                                    Unesite lozinku od minimum 8 karaktera.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lozinkaRepeat">Potvrda lozinke</label>
+                                <input type="password" class="input-custom-border-clr form-control" name="lozinkaRepeat" placeholder="Potvrda lozinke" id="passwordRegistrationConf" required/>
+                                <i class="fa fa-eye oPasswordConf"></i>
+                                <i class="fa fa-eye-slash cPasswordConf"></i>
+                                <div class="invalid-feedback">
+                                    Potvrdite lozinku.
+                                </div>
+                                <p id="label-3" style="display: none">* Lozinke se ne poklapaju</p>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="adresa">Adresa</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="adresa" placeholder="Adresa" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vašu adresu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mesto">Grad</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="mesto" placeholder="Grad" required/>
+                                <div class="invalid-feedback">
+                                    Unesite grad.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="postanskibroj">Poštanski broj</label>
+                                <input type="number" class="input-custom-border-clr form-control" name="postanskibroj" placeholder="Poštanski broj" required/>
+                                <div class="invalid-feedback">
+                                    Unesite poštanski broj.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="drzava">Država</label>
+                                <input type="text" class="input-custom-border-clr form-control" name="drzava" placeholder="Država" required/>
+                                <div class="invalid-feedback">
+                                    Unesite državu.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefon">Telefon</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="telefon" placeholder="Telefon" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš broj telefona.
+                                </div>
+                            </div>         
+                            <div class="mb-3">
+                                <label for="jmbg">JMBG</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="jmbg" placeholder="JMBG" required/>
+                                <div class="invalid-feedback">
+                                    Unesite Vaš JMBG.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pravnaosoba">Naziv pravne osobe</label>
+                                <input type="text" class="input-custom-border-clr form-control no-arrow require-if-active" name="pravnaosoba" placeholder="Naziv pravne osobe" data-require-pair="#pravnoLice" required=""/>
+                          <div class="invalid-feedback">
+                                    Unesite naziv pravne osobe.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pib">PIB</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow require-if-active" name="pib" placeholder="PIB" data-require-pair="#pib" required=""/>
+                            <div class="invalid-feedback">
+                                    Unesite PIB.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jmbg">Marka vozila</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="marka" placeholder="Marka vozila" required/>
+                                <div class="invalid-feedback">
+                                    Unesite marku Vašeg vozila.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="jmbg">Registarski broj vozila</label>
+                                <input type="number" class="input-custom-border-clr form-control no-arrow" name="regBroj" placeholder="Registarski broj vozila" required/>
+                                <div class="invalid-feedback">
+                                    Unesite registarski broj Vašeg vozila.
+                                </div>
+                            </div>
+                            
+                            
+                            <br>
+                               <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me"  name="imamev" type="checkbox">&nbsp; Posedujem električno vozilo</label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/uslovi-koriscenja}">uslove korišćenja</a></span></label>
+                            </div>
+                            <div class="checkbox">
+                                <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
+                            </div>
+                            <button type="submit" class="submitForm mt-3">Učlani se</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!--end of registration/login-->
+
+
+
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<a id="back-to-top-button"></a>
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/uclanise.js}" type="text/javascript"></script>
+<script th:src="@{/js/registrationForm.js}" type="text/javascript"></script>
+<script th:src="@{/js/formValidation.js}"></script>
+
+
+</body>
+
+</html>

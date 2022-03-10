@@ -8,6 +8,36 @@ hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
 /* 
 hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 */
+/*alert*/
+.alert-akcija {
+  background: #8bc63f;
+  color: #fff;
+  padding: 2rem 2rem 1rem;
+}
+.alert-akcija h3 {
+  font-weight: 700;
+}
+.alert-akcija h5 {
+  font-size: 1.3rem;
+}
+.alert-akcija a {
+  color: #fff;
+  text-decoration: underline !important;
+}
+.alert-akcija a:hover {
+  color: #3a4da1;
+}
+.alert-akcija p {
+  margin-bottom: 0.5rem;
+}
+
+.alert-dismissible .close {
+  font-size: 2rem;
+}
+.alert-dismissible .close:focus {
+  outline: none;
+}
+
 /*form validation start*/
 .invalid-feedback {
   font-size: 90%;
@@ -91,7 +121,7 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
 }
 #uclanise-login-form .container-uclani-se {
   position: relative;
-  min-height: 108rem;
+  min-height: 116rem;
   background-color: white;
   box-shadow: 1px 0 20px 3px rgba(199, 199, 199, 0.2);
   overflow: hidden;
@@ -321,6 +351,17 @@ hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
   }
 }
 @media (max-width: 767px) {
+  /*alert*/
+  .alert-akcija h3 {
+    font-size: 1.75rem !important;
+  }
+  .alert-akcija h5 {
+    font-size: 1.3rem !important;
+  }
+  .alert-akcija p {
+    font-size: 1.1rem !important;
+  }
+
   .nacinPlacanja .card-input {
     margin: 1rem 0 0 0;
   }

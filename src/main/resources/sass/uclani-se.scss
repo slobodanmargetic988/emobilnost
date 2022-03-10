@@ -2,6 +2,38 @@
 @import "./variables";
 @import "./mixins";
 
+
+/*alert*/
+.alert-akcija {
+    background: #8bc63f;
+    color: #fff;
+    padding: 2rem 2rem 1rem;
+    h3 {
+        font-weight: 700;
+    }
+    h5 {
+        font-size: 1.3rem;
+    }
+    a {
+        color: #fff;
+        text-decoration: underline !important;
+        &:hover {
+            color: #3a4da1;
+        }
+    }
+    p {
+        margin-bottom: 0.5rem;
+    }
+}
+.alert-dismissible  {
+    .close {
+        font-size: 2rem;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
 /*form validation start*/
 .invalid-feedback {
     font-size: 90%;
@@ -85,7 +117,7 @@
     padding: 2.5rem 0;
     .container-uclani-se {
         position: relative;
-        min-height: 108rem;
+        min-height: 116rem;
         background-color: $white-color;
         box-shadow: 1px 0 20px 3px rgba(199,199,199,0.2);
         overflow: hidden;
@@ -343,6 +375,20 @@
 }
 
 @media (max-width: 767px) {
+    
+    /*alert*/
+.alert-akcija {
+    h3 {
+            font-size: 1.75rem !important;
+    }
+    h5 {
+        font-size: 1.3rem !important;
+    }
+    p {
+        font-size: 1.1rem !important;
+    }
+}
+    
     .nacinPlacanja {
         .card-input {
             margin: 1rem 0 0 0;

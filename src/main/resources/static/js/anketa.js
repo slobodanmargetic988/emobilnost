@@ -4,7 +4,7 @@ $(document).ready(function () {
     //  $("#anketa").hide();
     // Show the div in 5s
     if (Cookies.get('anketa') == undefined) {
-        $("#anketa").delay(2000).fadeIn(1000);
+        $("#anketa").delay(4000).fadeIn(1000);
     } 
 
     $("#nextBtn").click(function () {

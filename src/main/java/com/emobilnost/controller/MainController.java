@@ -129,6 +129,12 @@ public class MainController {
         return "main/cardtest";
     }
     
+     @GetMapping("/uclani-se-akcija")
+    public String uclaniSeAkcija(Model model) {
+        return "main/uclani-se-akcija";
+    }
+    
+    
       @GetMapping(value = "/ClanInfo/{clanId}")
     public String proveraclana(final Model model,
             @PathVariable final Integer clanId) {

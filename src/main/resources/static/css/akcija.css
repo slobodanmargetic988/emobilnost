@@ -1,0 +1,170 @@
+/* 
+hsla($main-color-h, $main-color-s, $main-color-l, $main-color-a);
+
+*/
+/* 
+hsla($green-color-h, $green-color-s, $green-color-l, $green-color-a);
+*/
+/* 
+hsla($blue-color-h, $blue-color-s, $blue-color-l, $blue-color-a);
+*/
+#marketing .modal-content {
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  border-radius: 0;
+}
+#marketing .modal-content button.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  text-shadow: none;
+  background: #8bc63f;
+  color: white;
+  opacity: 1;
+  transition: 0.3s all;
+}
+#marketing .modal-content button.close:hover {
+  background: #70a130;
+}
+#marketing .modal-content button.close:focus {
+  outline: none;
+}
+#marketing .modal-dialog {
+  max-width: 800px;
+}
+#marketing .modal-body {
+  border: none;
+  position: relative;
+  z-index: 0;
+  padding: 3rem;
+}
+#marketing .modal-body .text {
+  padding: 3rem 0;
+}
+#marketing .modal-body h1 {
+  font-weight: 700;
+}
+#marketing .modal-body h5 {
+  line-height: 1.3;
+}
+#marketing .modal-body h5 a {
+  color: #3a4da1;
+}
+#marketing .modal-body .akcija-btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5pxpx;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  outline: none;
+  border: none;
+  /*margin-bottom:1rem;*/
+}
+#marketing .modal-body .akcija-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #70a130;
+  transition: all 0.3s;
+  border-radius: 5px;
+  z-index: -1;
+}
+#marketing .modal-body .akcija-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bc63f;
+  border-radius: 5px;
+  z-index: -2;
+}
+#marketing .modal-body .akcija-btn:hover {
+  color: #fff;
+}
+#marketing .modal-body .akcija-btn:hover::before {
+  width: 100%;
+}
+#marketing .modal-body .simpleBtnAkcija {
+  color: #212529;
+  transition: 0.3s all;
+}
+#marketing .modal-body .simpleBtnAkcija:hover {
+  text-decoration: underline !important;
+}
+#marketing .modal-header {
+  padding: 0;
+  border: none;
+}
+#marketing .modal-img {
+  background-image: url("/img/akcijaimage.jpg");
+  /*background-image: url("/img/pogodnosti.png");*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media screen and (max-width: 767px) {
+  #marketing .modal-dialog {
+    max-width: 600px;
+  }
+  #marketing .modal-content button.close {
+    padding: 1.5rem;
+  }
+  #marketing .modal-content .modal-img {
+    height: 300px;
+  }
+  #marketing .modal-body {
+    padding: 2rem;
+  }
+  #marketing .modal-body .text {
+    padding: 1rem 0;
+  }
+  #marketing .modal-body h1 {
+    font-size: 2rem;
+  }
+  #marketing .modal-body h5 {
+    font-size: 1.2rem !important;
+  }
+  #marketing .modal-body .simpleBtnAkcija {
+    font-size: 1.1rem !important;
+  }
+  #marketing .modal-body .akcija-btn {
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem !important;
+  }
+}
+@media screen and (max-width: 575px) {
+  #marketing .modal-content .modal-img {
+    height: 250px;
+  }
+  #marketing .modal-body h1 {
+    font-size: 2rem;
+  }
+  #marketing .modal-body h5 {
+    font-size: 1.2rem !important;
+  }
+  #marketing .modal-body .simpleBtnAkcija {
+    font-size: 1.1rem !important;
+  }
+  #marketing .modal-body .akcija-btn {
+    padding: 1rem 1.25rem;
+    font-size: 1.3rem !important;
+  }
+}

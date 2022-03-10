@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+
+    </head>
+
+    <body>
+
+    <th:block th:fragment="akcija">
+
+
+<!--akcija besplatno clanstvo baner-->
+<div id="marketing" class="modal fade" role="dialog" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-6 d-flex">
+          <div class="modal-body modal-img d-flex p-5">
+
+          </div>
+        </div>
+        <div class="col-md-6 d-flex">
+          <div class="modal-body d-flex align-items-center">
+            <div class="text w-100 text-center">
+              <h1 class="">VELIKA AKCIJA do 1. maja 2022.</h1>
+              <h5 class="my-4">Besplatno članstvo u udruženju za 
+                  <a href="https://emobilnost.rs/pregled-vesti/AKCIJA-do-1.-maja!-Pridru%C5%BEite-nam-se!-Ostavrite-brojne-pogodnosti!"> 
+                      SVE VLASNIKE I VOZAČE ELEKTRIČNIH VOZILA</a> koji se učlane do 1. maja</h5>
+              <a th:href="@{/uclani-se-akcija}" class="akcija-btn btn-block">Učlani se</a>
+              <!--<a href="" class="simpleBtnAkcija" data-dismiss="modal">Nisam vlasnik ili ne posedujem električno vozilo</a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
+  </div>
+</div>
+
+
+    </th:block>
+
+
+
+
+</body>
+</html>

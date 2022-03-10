@@ -15,6 +15,7 @@
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/uclani-se.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/akcija.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -40,10 +41,22 @@
 <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
 
 
+<th:block th:insert="fragments/akcija :: akcija" />
 
 
 
+<div class="alert alert-akcija alert-dismissible fade show text-center " role="alert">
+    <div class="container">
+        <h3 class="mb-4">VELIKA AKCIJA do 1. maja!</h3> 
+        <h5 class="mb-4">Besplatno članstvo u udruženju za SVE VLASNIKE I VOZAČE ELEKTRIČNIH VOZILA <br>koji se učlane do 1. maja. </h5>
+        <p>Kliknite <a th:href="@{/uclani-se-akcija}">OVDE</a>  kako bi ste se besplatno učlaniti.</p>
+        <p> Više informacija možete pronaći <a href="https://emobilnost.rs/pregled-vesti/AKCIJA-do-1.-maja!-Pridru%C5%BEite-nam-se!-Ostavrite-brojne-pogodnosti!">na ovoj stranici</a>.</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
 
+        </button>
+    </div>
+</div>
 
 <section id="uclanise-login-form">
 
@@ -105,7 +118,7 @@
                                     Potvrdite lozinku.
                                 </div>
                                 <p id="label-2" style="display: none">* Lozinke se ne poklapaju</p>
-                                
+
                             </div>
                             <div class="mb-3">
                                 <label for="adresa">Adresa</label>
@@ -272,7 +285,7 @@
                                     Potvrdite lozinku.
                                 </div>
                                 <p id="label-3" style="display: none">* Lozinke se ne poklapaju</p>
-                                
+
                             </div>
                             <div class="mb-3">
                                 <label for="adresa">Adresa</label>
@@ -319,18 +332,18 @@
                             <div class="mb-3">
                                 <label for="pravnaosoba">Naziv pravne osobe</label>
                                 <input type="text" class="input-custom-border-clr form-control no-arrow require-if-active" name="pravnaosoba" placeholder="Naziv pravne osobe" data-require-pair="#pravnoLice" required=""/>
-                          <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite naziv pravne osobe.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="pib">PIB</label>
                                 <input type="number" class="input-custom-border-clr form-control no-arrow require-if-active" name="pib" placeholder="PIB" data-require-pair="#pib" required=""/>
-                            <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     Unesite PIB.
                                 </div>
                             </div>
-                            
+
                             <div class="nacinPlacanja">
                                 <h6>Način plaćanja</h6>
 
@@ -404,7 +417,7 @@
 
                             </div>
                             <br>
-                               <div class="checkbox">
+                            <div class="checkbox">
                                 <label class="rememberMe"><input class="remember-me"  name="imamev" type="checkbox">&nbsp; Posedujem električno vozilo (*nije obavezno)</label>
                             </div>
                             <div class="checkbox">
@@ -413,7 +426,7 @@
                             <div class="checkbox">
                                 <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja" th:href="@{/statut}">statut</a></span></label>
                             </div>
-                            <button type="submit" class="submitForm">Učlani se</button>
+                            <button type="submit" class="submitForm mt-3">Učlani se</button>
                         </form>
                     </div>
                 </div>
@@ -438,6 +451,7 @@
 <script th:src="@{/js/uclanise.js}" type="text/javascript"></script>
 <script th:src="@{/js/registrationForm.js}" type="text/javascript"></script>
 <script th:src="@{/js/formValidation.js}"></script>
+<script th:src="@{/js/akcija.js}" type="text/javascript"></script>
 
 
 </body>
