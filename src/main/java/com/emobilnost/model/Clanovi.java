@@ -83,17 +83,48 @@ public class Clanovi {
      @Column(name = "newsletter")
     private Boolean newsletter;
      
-         
+           @Column(name = "marka")
+    private String marka;
+               @Column(name = "registracija")
+    private String registracija;
+                    @Column(name = "imaev")
+    private boolean imaev;
 
     @OneToOne(mappedBy = "clan")
     private Anketa anketa;
 
+    
+    
     public Anketa getAnketa() {
         return anketa;
     }
 
     public void setAnketa(Anketa anketa) {
         this.anketa = anketa;
+    }
+
+    public String getMarka() {
+        return marka;
+    }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public String getRegistracija() {
+        return registracija;
+    }
+
+    public void setRegistracija(String registracija) {
+        this.registracija = registracija;
+    }
+
+    public boolean isImaev() {
+        return imaev;
+    }
+
+    public void setImaev(boolean imaev) {
+        this.imaev = imaev;
     }
     
     

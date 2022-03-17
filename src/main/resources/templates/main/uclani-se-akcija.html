@@ -66,7 +66,7 @@
                 </ul><!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane active" id="fLice" role="tabpanel">
-                        <form th:action="@{/noviClan}"  method="POST" class="needs-validation" novalidate>
+                        <form th:action="@{/noviClanAkcija}"  method="POST" class="needs-validation" novalidate>
                             <div class="mb-3">
                                 <label for="ime">Ime</label>
                                 <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   
@@ -148,14 +148,14 @@
                                 </div>
                             </div>
                              <div class="mb-3">
-                                <label for="jmbg">Marka vozila</label>
+                                <label for="marka">Marka vozila</label>
                                 <input type="number" class="input-custom-border-clr form-control no-arrow" name="marka" placeholder="Marka vozila" required/>
                                 <div class="invalid-feedback">
                                     Unesite marku Vašeg vozila.
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="jmbg">Registarski broj vozila</label>
+                                <label for="regBroj">Registarski broj vozila</label>
                                 <input type="number" class="input-custom-border-clr form-control no-arrow" name="regBroj" placeholder="Registarski broj vozila" required/>
                                 <div class="invalid-feedback">
                                     Unesite registarski broj Vašeg vozila.
@@ -176,7 +176,7 @@
                         </form>
                     </div>
                     <div class="tab-pane" id="pLice" role="tabpanel">
-                        <form th:action="@{/noviClan}"  method="POST"  class="needs-validation" novalidate>
+                        <form th:action="@{/noviClanAkcija}"  method="POST"  class="needs-validation" novalidate>
                             <div class="mb-3">
                                 <label for="ime">Ime</label>
                                 <input type="text" class="input-custom-border-clr form-control" name="ime" placeholder="Ime " required/>   

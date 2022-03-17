@@ -1274,6 +1274,133 @@ public class MainController {
         clan.setPostanski_broj(postanski_broj);
         clan.setMesto(mesto);
         clan.setPrezime(prezime);
+        clan.setImaev(imamev);
+
+        if (fizickoilipravnolice.equals("pravnolice")) {
+            clan.setIs_pravno_lice(Boolean.TRUE);
+        } else {
+            clan.setIs_pravno_lice(Boolean.FALSE);
+
+        }
+        Users user = userService.findFirstByEmail(email);
+        if (user == null) {
+
+            user = new Users();
+
+            user.setIme(ime);
+            user.setPrezime(prezime);
+            user.setEmail(email);
+            user.setAdresa(adresa);
+            user.setPostanski_broj(postanski_broj);
+            user.setMesto(mesto);
+            user.setBroj_telefona(broj_telefona);
+            user.setRole("SHOPPER");
+
+            if (password.equals(lozinkaRepeat)) {
+
+                user.setPassword(bCryptPasswordEncoder.encode(password));
+
+            } else {
+
+                redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
+
+                return "redirect:/uclani-se";
+            }
+
+        }
+        try {
+
+            userService.save(user);
+            clanoviService.save(clan);
+            EmailController.SendEmailUclanjen(clan);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            return "redirect:/registracija";
+        }
+       
+       if(imamev) {
+        try {
+
+                EmailController.SendEmailUclanjenBesplatno(clan);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            }
+       }
+        else {
+        if (placanje.equals("uplatnica")) {
+            try {
+
+                EmailController.SendEmailUclanjenUplatnica(clan);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+            }
+
+        } else {
+            if (placanje.equals("faktura")) {
+                //poslati fakturu
+                try {
+                    EmailController.SendEmailUclanjenFaktura(clan);
+                } catch (Exception e) {
+                    redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+                }
+            } else {
+                if (placanje.equals("kartica")) {
+                    //treba resiti kartice
+                }
+            }
+
+        }}
+
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste se uclanili.");
+
+        return "redirect:/";
+
+    }
+    
+    @PostMapping(value = "/noviClanAkcija")
+    public String noviClanAkcija(final Model model,
+            @RequestParam(name = "ime", defaultValue = "/") String ime,
+            @RequestParam(name = "prezime", defaultValue = "/") String prezime,
+            @RequestParam(name = "email", defaultValue = "/") String email,
+            @RequestParam(name = "adresa", defaultValue = "/") String adresa,
+            @RequestParam(name = "mesto", defaultValue = "/") String mesto,
+            @RequestParam(name = "postanskibroj", defaultValue = "/") String postanski_broj,
+            @RequestParam(name = "drzava", defaultValue = "/") String drzava,
+            @RequestParam(name = "telefon", defaultValue = "/") String broj_telefona,
+            @RequestParam(name = "password", defaultValue = "/") String password,
+            @RequestParam(name = "lozinkaRepeat", defaultValue = "/") String lozinkaRepeat,
+            @RequestParam(name = "jmbg", defaultValue = "/") String jmbg,
+            @RequestParam(name = "pravnaosoba", defaultValue = "/") String naziv_pravne_osobe,
+            @RequestParam(name = "pib", defaultValue = "0") Integer pib,
+            @RequestParam(name = "fizickoilipravnolice", defaultValue = "fizickolice") String fizickoilipravnolice,
+            @RequestParam(name = "placanje", defaultValue = "uplatnica") String placanje,
+            @RequestParam(name = "imamev", defaultValue = "true") boolean imamev,
+             @RequestParam(name = "marka", defaultValue = "/") String marka,
+             @RequestParam(name = "regBroj", defaultValue = "/") String regBroj,
+            RedirectAttributes redirectAttributes
+    ) {
+
+        Clanovi clan = new Clanovi();
+        clan.setAdresa(adresa);
+        clan.setBroj_telefona(broj_telefona);
+        clan.setDatumisteka(java.sql.Date.valueOf(LocalDate.now().plusYears(1)));
+        clan.setDatum_pocetka_clanstva(java.sql.Date.valueOf(LocalDate.now()));
+        clan.setDrzava(drzava);
+        clan.setEmail(email);
+        clan.setIme(ime);
+        clan.setJmbg(jmbg);
+        clan.setNaziv_pravne_osobe(naziv_pravne_osobe);
+        clan.setPib(pib);
+        clan.setPostanski_broj(postanski_broj);
+        clan.setMesto(mesto);
+        clan.setPrezime(prezime);
+        clan.setImaev(imamev);
+        clan.setMarka(marka);
+        clan.setRegistracija(regBroj);
 
         if (fizickoilipravnolice.equals("pravnolice")) {
             clan.setIs_pravno_lice(Boolean.TRUE);

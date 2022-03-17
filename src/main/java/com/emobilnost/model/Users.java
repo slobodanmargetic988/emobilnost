@@ -58,6 +58,12 @@ public class Users {
  
      @Column(name = "lozinka")
     private String password;
+          @Column(name = "marka")
+    private String marka;
+               @Column(name = "registracija")
+    private String registracija;
+                    @Column(name = "imaev")
+    private boolean imaev;
      
       @Column(name = "role")
     private String role;
@@ -66,6 +72,33 @@ public class Users {
     @JoinColumn(name = "korpa_id", referencedColumnName = "id")
     private Korpa korpa;
 
+    public boolean isImaev() {
+        return imaev;
+    }
+
+    public void setImaev(boolean imaev) {
+        this.imaev = imaev;
+    }
+
+        
+        
+    public String getMarka() {
+        return marka;
+    }
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public String getRegistracija() {
+        return registracija;
+    }
+
+    public void setRegistracija(String registracija) {
+        this.registracija = registracija;
+    }
+
+        
     public int getId() {
         return id;
     }
