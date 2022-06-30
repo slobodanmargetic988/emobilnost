@@ -97,7 +97,7 @@ public class EmailController {
         // Create a message with the specified information.
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(FROM));
 
         msg.setSubject(SUBJECTPrimljena);
         String BODY = String.join(
@@ -746,7 +746,7 @@ public class EmailController {
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(FROM));
 
         msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
         String BODY = String.join(
