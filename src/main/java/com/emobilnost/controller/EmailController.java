@@ -1247,7 +1247,7 @@ public class EmailController {
             + "                    <tr>"
             + "                      <td style=\"color:white\" width=\"50%\">"
             + "                        <p style=\"font-size:12px;letter-spacing:1px;font-weight:200;margin:0;padding:5px;float:left;font-family:Roboto, sans-serif;color:white\">"
-            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:#8cc63f;font-weight:400;font-family:Roboto, sans-serif;font-size:14px\"> +381 61 20 28 158</span>"
+            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:#8cc63f;font-weight:400;font-family:Roboto, sans-serif;font-size:14px\"> +381 63 76 38 333</span>"
             + "                        </p>"
             + ""
             + "                      </td>"
