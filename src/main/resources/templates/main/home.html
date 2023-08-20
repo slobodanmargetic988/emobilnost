@@ -227,7 +227,7 @@
                     <h2 class="banner-title">Pošaljite nam poruku</h2>
                     <div class="title-icon-divider text-dark"><i class="fas fa-plug" aria-hidden="true"></i></div>
                 </div>
-                <form class="forma" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">                                                                   
+                <form class="forma" id="captcha-form" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">
                     <div class="form-group col floating-placeholder">
                         <!--<label for="inputIme">Ime</label>-->
                         <input type="text" class="form-control" name="ime" id="inputIme" placeholder="Ime i prezime">
@@ -258,7 +258,7 @@
                         <textarea type="text" name="poruka" class="form-control" rows="5" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
                         <label></label>
                     </div>
-                    <button type="submit" class="posalji-btn-contact-form-page">Pošalji</button>
+                    <button type="submit" class="posalji-btn-contact-form-page g-recaptcha" data-sitekey="6LdCdr4nAAAAAFOKUd1cKo4TyhGu288UY77QKX2k" data-callback="onSubmit">Pošalji</button>
                 </form>
             </div>
             <div class="col-md-6 bg-color-contact " >
@@ -286,88 +286,14 @@
 <!--<div id="backToTop"></div>-->
 
 <a id="back-to-top-button"></a>
-
+<!--
 <th:block th:insert="fragments/akcija :: akcija" />
 
+-->
+<!--
+<th:block th:insert="fragments/anketa :: anketa" />
 
-
-
-
-<div class="container mt-5" id="anketa" style="display: none">
-    <div class="survey-padding">
-        <button type="button" id="closeBtn" class="close zatvori-alert" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true" class="xTimes">&times;</span>
-        </button>
-
-        <form id="anketaForm" >
-
-            <!-- 1 -->
-            <div id="form1">
-                <h6 id="register">Razmišljate li o kupovini električnog vozila?</h6>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios1" value="Da, razmišljam o kupovini EV" checked>
-                    <label class="form-check-label" for="anketaRadios1">
-                        Da
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios2" value="Ne, ne razmišljam o kupovini EV">
-                    <label class="form-check-label" for="anketaRadios2">
-                        Ne
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios3" value="Već imam EV">
-                    <label class="form-check-label" for="anketaRadios3">
-                        Već imam EV
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="anketaRadios" id="anketaRadios4" value="Imam EV, ali razmišljam o kupovini još jednog">
-                    <label class="form-check-label" for="anketaRadios4">
-                        Imam EV, ali razmišljam o kupovini još jednog
-                    </label>
-                </div>
-                <div style="overflow:auto;" id="nextprevious" class="mt-3">
-                    <div style="float:right;">
-                        <button class="fullClrBtn" type="button" id="nextBtn">Dalje &nbsp; &rarr;</button>
-                    </div>
-                </div>
-            </div>
-            <!--       1 -->
-
-            <!--       2 -->
-            <div id="form2" style=" display:none">
-                <h6 id="register">Ako želite možete nam ostaviti Vašu email adresu pa ćemo Vas obavestiti o pogodnostima za vlasnike električnih vozila:</h6>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email adresa</label>
-                    <input type="email" class="form-control" id="emailAnketa" aria-describedby="emailHelp" placeholder="Unesite email adresu" required>
-                    <small id="emailHelp" class="form-text text-muted">Email adresa neće biti podeljena ni sa kim.</small>
-                </div>
-                <div style="overflow:auto;" id="nextprevious" class="mt-3">
-                    <div style="float:right;margin-left:10px;">
-                        <!--<button class="fullClrBtn" id="prijaviSe">Prijavi se</button>-->
-                        <input class="fullClrBtnInput" id="prijaviSe" value="Prijavi se" />
-                    </div>
-                    <div style="float:right;">
-                        <button class="prevBtn" type="button" id="prevBtn">&larr; &nbsp;Nazad </button>
-                    </div>
-
-                </div>
-            </div>
-            <!--       2 -->
-
-            <!--       3 -->
-            <div id="form3" style="display:none">
-                <h6 id="register">Hvala Vam što se učestvovali u anketi. <br>
-                    Vaša prijava je uspešno primljena!</h6>
-            </div>
-            <!--       3 -->
-
-        </form>
-    </div>
-</div>
-
+-->
 
 <th:block th:insert="fragments/scripts :: scripts" />
 <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
@@ -382,6 +308,15 @@
 <script src="/js/js.cookie.min.js" type="text/javascript"></script>
 <script th:src="@{/js/anketa.js}" type="text/javascript"></script>
 <script th:src="@{/js/akcija.js}" type="text/javascript"></script>
+
+<!--CAPTCHA-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+       function onSubmit(token) {
+         document.getElementById("captcha-form").submit();
+       }
+     </script>
+<!--CAPTCHA-->
 
 </body>
 

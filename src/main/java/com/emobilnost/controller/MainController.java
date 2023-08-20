@@ -36,6 +36,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,10 +65,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 /**
  *
  * @author Aleksandra
@@ -996,6 +1000,20 @@ public class MainController {
 
         return "main/horeca-tekstil";
     }
+    private boolean verifyRecaptcha(String captchaResponse) {
+        String url = "https://www.google.com/recaptcha/api/siteverify";
+        String secretKey = "6LdCdr4nAAAAAKsLPU__aQwjcZghgy1qcli0NMRp"; // Replace with your secret key
+
+        RestTemplate restTemplate = new RestTemplate();
+        MultiValueMap<String, String> requestMap = new LinkedMultiValueMap<>();
+        requestMap.add("secret", secretKey);
+        requestMap.add("response", captchaResponse);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, requestMap, String.class);
+        JsonObject jsonObject = new JsonParser().parse(response.getBody()).getAsJsonObject();
+
+        return jsonObject.get("success").getAsBoolean();
+    }
 
     //  @PostMapping(value = "/posaljiPoruku")
     @RequestMapping(value = "/posaljiPoruku", method = RequestMethod.POST)
@@ -1007,8 +1025,11 @@ public class MainController {
             @RequestParam(name = "email") String email,
             @RequestParam(name = "telefon") String telefon,
             @RequestParam(name = "poruka") String poruka,
-            @RequestParam(name = "message") String message
+            @RequestParam(name = "message") String message,
+            @RequestParam(name = "g-recaptcha-response") String captcha_response
     ) {
+        if (!verifyRecaptcha(captcha_response)) {  redirectAttributes.addFlashAttribute("errorMessage", "Pali ste na Google captcha verifikaciji.");
+            return "redirect:/";}
         if (!message.isEmpty()) {
             String ipAddress = request.getHeader("X-Forwarded-For");
             Spameri spamer = spamService.findByIpadresa(ipAddress);

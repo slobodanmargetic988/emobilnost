@@ -65,7 +65,7 @@
     <div class="row">
         <div class="col-lg-6">
 
-            <form class="contact-form" th:action="@{/posaljiPoruku}" method="POST">
+            <form class="contact-form" id="captcha-form" th:action="@{/posaljiPoruku}" method="POST">
                 <!--<h4 class="contact-header-page">Pošaljite nam poruku</h4>-->
                 <div class="banner-content section-heading">
                     <h5>KONTAKTIRAJTE NAS
@@ -105,7 +105,7 @@
                     <textarea type="text" name="poruka" class="form-control" rows="5" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
                     <label></label>
                 </div>
-                <button type="submit" class="posaji-btn-contact-form-page">Pošalji</button>
+                <button type="submit" class="posaji-btn-contact-form-page g-recaptcha" data-sitekey="6LdCdr4nAAAAAFOKUd1cKo4TyhGu288UY77QKX2k" data-callback="onSubmit">Pošalji</button>
             </form>
 
         </div>
@@ -130,6 +130,15 @@
 
 <th:block th:insert="fragments/scripts :: scripts" />
 <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
+
+<!--CAPTCHA-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+       function onSubmit(token) {
+         document.getElementById("captcha-form").submit();
+       }
+     </script>
+<!--CAPTCHA-->
 
 </body>
 
