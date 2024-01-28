@@ -5,13 +5,8 @@
  */
 package com.emobilnost.controller;
 
-import com.emobilnost.model.ColorPaleta;
-import com.emobilnost.model.Photo;
-import com.emobilnost.model.Proizvodi;
-import com.emobilnost.model.ZavrsenePorudzbine;
-import com.emobilnost.service.ColorPaletaService;
-import com.emobilnost.service.PhotoService;
-import com.emobilnost.service.ProizvodiService;
+import com.emobilnost.model.*;
+import com.emobilnost.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,8 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.emobilnost.service.UsersService;
-import com.emobilnost.service.ZavrsenePorudzbineService;
 import com.emobilnost.storage.StorageService;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +42,8 @@ public class AdminShopController {
 
     @Autowired
     ZavrsenePorudzbineService zavrsenePorudzbineService;
+    @Autowired
+    ClanoviService clanoviService;
 
     @GetMapping("/admin/adminPregledPorudzbine/{zavrsenaPorudzbinaId}")
     public String adminShopPregled(Model model,
@@ -60,7 +55,13 @@ public class AdminShopController {
 
         return "main/admin/adminPregledPorudzbine";
     }
-
+    @GetMapping("/admin/pregled-clanova")
+    public String adminPregledClanova(Model model,
+                                   RedirectAttributes redirectAttributes) {
+        List<Clanovi> listaClanova = clanoviService.findAllBy();
+        model.addAttribute("listaClanova", listaClanova);
+        return "main/pregled-clanova";
+    }
     @GetMapping(value = "/admin/noviProizvod")
     public String adminShopNoviProizvod(
             final Model model) {
