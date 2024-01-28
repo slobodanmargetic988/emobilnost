@@ -55,13 +55,13 @@ public class AdminShopController {
 
         return "main/admin/adminPregledPorudzbine";
     }
-    @GetMapping("/admin/pregled-clanova")
+   /* @GetMapping("/admin/pregled-clanova")
     public String adminPregledClanova(Model model,
                                    RedirectAttributes redirectAttributes) {
         List<Clanovi> listaClanova = clanoviService.findAllBy();
         model.addAttribute("listaClanova", listaClanova);
         return "main/pregled-clanova";
-    }
+    }*/
     @GetMapping(value = "/admin/noviProizvod")
     public String adminShopNoviProizvod(
             final Model model) {
